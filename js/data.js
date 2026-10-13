@@ -1,4 +1,4 @@
-// MARCAS DESTACADAS CON VECTORES SVG NATIVOS (SIN BLOQUEOS DE SERVIDOR)
+// MARCAS DESTACADAS CON VECTORES SVG NATIVOS
 const marcasData = [
     {
         nombre: "Zenú",
@@ -34,7 +34,7 @@ const marcasData = [
     }
 ];
 
-// PRODUCTOS DEL CATÁLOGO DESGLOSADOS POR SUBCATEGORÍAS (SIN PRECIOS)
+// PRODUCTOS DEL CATÁLOGO COMPLETO
 const productosData = [
     // --- QUESOS Y LÁCTEOS ---
     {
@@ -188,29 +188,69 @@ const productosData = [
         imagen: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=500"
     },
 
-    // --- COCTELERÍA Y MICHELADAS ---
+    // --- COCTELERÍA Y MICHELADAS (DESGLOSE PERLAS EXPLOSIVAS / LIQUIPOPS) ---
     {
-        id: 19,
-        nombre: "Perlas Explosivas (Liqui POPS)",
+        id: 101,
+        nombre: "Liquipops | Blueberry",
         categoria: "cocteleria",
-        subcategoria: "general",
-        descripcion: "Toppings de perlas con centro líquido estallante de diversos sabores.",
+        subcategoria: "liqui-blueberry",
+        descripcion: "Perlas explosivas de mora azul con centro líquido estallante para cócteles, sodas y micheladas.",
+        imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500"
+    },
+    {
+        id: 102,
+        nombre: "Liquipops | Coco",
+        categoria: "cocteleria",
+        subcategoria: "liqui-coco",
+        descripcion: "Perlas explosivas sabor a coco cremoso, ideales para piña colada y bebidas tropicales.",
+        imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500"
+    },
+    {
+        id: 103,
+        nombre: "Liquipops | Cereza",
+        categoria: "cocteleria",
+        subcategoria: "liqui-cereza",
+        descripcion: "Perlas explosivas con el toque dulce e intenso de la cereza para acompañar tus tragos.",
+        imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500"
+    },
+    {
+        id: 104,
+        nombre: "Liquipops  | Lychee",
+        categoria: "cocteleria",
+        subcategoria: "liqui-lychee",
+        descripcion: "Sabor exótico y súper refrescante de lychee en perlas estallantes de textura suave.",
+        imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500"
+    },
+    {
+        id: 105,
+        nombre: "Liquipop | Sandia",
+        categoria: "cocteleria",
+        subcategoria: "liqui-sandia",
+        descripcion: "Explosión refrescante de jugosa sandía para escarchar y combinar en tus micheladas.",
+        imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500"
+    },
+    {
+        id: 106,
+        nombre: "Liquipops | Ice pink",
+        categoria: "cocteleria",
+        subcategoria: "liqui-icepink",
+        descripcion: "Perlas de edición especial frutos rosados y toque frío helado para frappés y granizados.",
         imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500"
     },
     {
         id: 20,
-        nombre: "Siropes y Chamoy",
+        nombre: "Siropes Concentrados y Chamoy",
         categoria: "cocteleria",
-        subcategoria: "general",
-        descripcion: "Jarabes concentrados y chamoy agridulce para escarchar vasos.",
+        subcategoria: "siropes",
+        descripcion: "Jarabes concentrados de múltiples sabores y chamoy agridulce para bordear vasos.",
         imagen: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=500"
     },
     {
         id: 21,
         nombre: "Escarchas para Micheladas",
         categoria: "cocteleria",
-        subcategoria: "general",
-        descripcion: "Sales y polvos de sabores (milo, pimienta, tajín, frutos rojos).",
+        subcategoria: "escarchas",
+        descripcion: "Sales picantes, polvos azucarados y mezclas de sabores (milo, pimienta, tajín, frutos rojos).",
         imagen: "https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=500"
     },
 
@@ -220,7 +260,7 @@ const productosData = [
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
         subcategoria: "general",
-        descripcion: "Vasos transparentes, domo y térmicos marca Darnel.",
+        descripcion: "Vasos transparentes, tipo domo y térmicos marca Darnel en varias medidas.",
         imagen: "https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?q=80&w=500"
     },
     {
@@ -228,7 +268,7 @@ const productosData = [
         nombre: "Platos y Cubiertos",
         categoria: "desechables",
         subcategoria: "general",
-        descripcion: "Platos hondos, panderos, tenedores, cucharas y cuchillos.",
+        descripcion: "Platos hondos, panderos, tenedores, cucharas y cuchillos desechables resistentes.",
         imagen: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=500"
     },
     {
