@@ -195,7 +195,7 @@ const productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-manzana",
         descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante para cócteles, sodas y micheladas.",
-        imagen: "liquipopsmanzana.jpg"
+        imagen: "liquipopsmanzana_2.jpg"
     },
     {
         id: 101,
