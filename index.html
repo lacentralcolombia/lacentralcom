@@ -66,6 +66,7 @@
             <ul class="mobile-nav-links">
                 <li><a href="javascript:void(0)" onclick="irASeccion('inicio')"><i class="fa-solid fa-house text-gold"></i> Inicio</a></li>
                 <li><a href="javascript:void(0)" onclick="irASeccion('catalogo')"><i class="fa-solid fa-utensils text-gold"></i> Menú / Catálogo Completo</a></li>
+                <li><a href="javascript:void(0)" onclick="filtrarCategoria('cocteleria', 'liqui-todos', event, '#e6b64f'); irASeccion('catalogo');"><i class="fa-solid fa-burst text-gold"></i> Ver Todos los Sabores Liqui POPS</a></li>
                 <li><a href="javascript:void(0)" onclick="irASeccion('beneficios')"><i class="fa-solid fa-star text-gold"></i> Beneficios</a></li>
                 <li><a href="javascript:void(0)" onclick="irASeccion('marcas')"><i class="fa-solid fa-award text-gold"></i> Nuestras Marcas</a></li>
                 <li><a href="javascript:void(0)" onclick="irASeccion('nosotros')"><i class="fa-solid fa-building text-gold"></i> Nosotros</a></li>
@@ -118,7 +119,7 @@
         </div>
     </section>
 
-    <!-- CATÁLOGO / MENÚ DIGITAL CON EFECTO DE EXPLOSIÓN -->
+    <!-- CATÁLOGO / MENÚ DIGITAL -->
     <section id="catalogo" class="catalog-section">
         <div class="section-header">
             <h2 class="section-title">Menú y Catálogo Digital</h2>
@@ -166,7 +167,7 @@
                         <i class="fa-solid fa-seedling"></i> Frutos Secos
                     </button>
 
-                    <!-- DESPLEGABLE COCTELERÍA Y LIQUIPOPS CON EXPLOSIÓN DE SABORES -->
+                    <!-- DESPLEGABLE COCTELERÍA Y LIQUIPOPS -->
                     <div class="top-dropdown">
                         <button class="top-nav-btn" onclick="toggleTopDropdown('dropdown-cocteleria', event)">
                             <i class="fa-solid fa-wine-glass-sparkles"></i> Coctelería y Micheladas <i class="fa-solid fa-chevron-down arrow"></i>
@@ -175,6 +176,10 @@
                             <button onclick="filtrarCategoria('cocteleria', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Toda coctelería</button>
                             
                             <div class="sub-dropdown-header"><i class="fa-solid fa-burst text-gold"></i> Perlas Explosivas (Liqui POPS):</div>
+                            <button class="btn-all-liqui" onclick="filtrarCategoria('cocteleria', 'liqui-todos', event, '#e6b64f')">
+                                <i class="fa-solid fa-layer-group text-gold"></i> <strong>Ver TODOS los Sabores de Liqui POPS</strong>
+                            </button>
+
                             <div class="liqui-subgrid">
                                 <button onclick="filtrarCategoria('cocteleria', 'liqui-manzana', event, '#2ecc71')"><i class="fa-solid fa-circle" style="color: #2ecc71;"></i> Manzana</button>
                                 <button onclick="filtrarCategoria('cocteleria', 'liqui-blueberry', event, '#4a90e2')"><i class="fa-solid fa-circle" style="color: #4a90e2;"></i> Blueberry</button>
@@ -203,7 +208,7 @@
                     <span id="categoria-activa-titulo">Mostrando: Todas las Categorías</span>
                 </div>
                 <div id="grid-productos" class="product-grid-full">
-                    <!-- Carga dinámica por JS -->
+                    <!-- Carga dinámica -->
                 </div>
             </main>
         </div>
