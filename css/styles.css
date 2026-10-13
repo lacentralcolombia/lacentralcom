@@ -47,9 +47,10 @@ body {
 }
 
 .logo-img {
-    height: 65px;
+    height: 60px;
     width: auto;
     object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
 }
 
 .nav-links {
@@ -437,9 +438,7 @@ body {
 }
 
 /* NOSOTROS */
-.about-section {
-    padding: 80px 6%;
-}
+.about-section { padding: 80px 6%; }
 
 .about-container {
     max-width: 1200px;
@@ -490,7 +489,7 @@ footer {
 }
 
 .footer-logo {
-    height: 70px;
+    height: 65px;
     margin-bottom: 15px;
 }
 
@@ -507,7 +506,6 @@ footer {
     font-weight: 600;
 }
 
-/* REDES SOCIALES CON SUS COLORES REALES DE MARCA */
 .social-links {
     display: flex;
     gap: 15px;
