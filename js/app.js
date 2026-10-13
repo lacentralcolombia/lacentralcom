@@ -27,6 +27,10 @@ const nombresCategorias = {
     'liqui-sandia': 'Liquipop | Sandía',
     'liqui-icepink': 'Liquipops | Ice Pink',
     'liqui-fresa': 'Liquipops | Fresa',
+    'liqui-chicle': 'Liquipops | Chicle',
+    'liqui-mango': 'Liquipops | Mango Biche',
+    'liqui-maracuya': 'Liquipops | Maracuyá',
+    'liqui-cafe': 'Liquipops | Café',
     'siropes': 'Siropes y Chamoy',
     'escarchas': 'Escarchas y Micheladas'
 };
@@ -60,7 +64,7 @@ function crearEfectoExplosion(event, colorHex) {
 
     const cantidadParticulas = 36;
     const colorBase = colorHex || '#E6B64F';
-    const paletaSecundaria = [colorBase, '#ffffff', '#E6B64F', '#2ecc71', '#ff69b4', '#4a90e2'];
+    const paletaSecundaria = [colorBase, '#ffffff', '#E6B64F', '#2ecc71', '#ff69b4', '#4a90e2', '#00bfff', '#8b4513'];
 
     for (let i = 0; i < cantidadParticulas; i++) {
         const particula = document.createElement('div');
@@ -185,7 +189,6 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
         filtrados = filtrados.filter(p => p.categoria === categoria);
     }
 
-    // SI ELIGE MOSTRAR TODOS LOS SABORES DE LIQUI POPS
     if (subcat === 'liqui-todos') {
         filtrados = filtrados.filter(p => p.subcategoria && p.subcategoria.startsWith('liqui-'));
     } else if (subcat && subcat !== 'todos') {
