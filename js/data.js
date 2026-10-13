@@ -190,6 +190,14 @@ const productosData = [
 
     // --- COCTELERÍA Y LIQUIPOPS ---
     {
+        id: 108,
+        nombre: "Liquipops | Manzana",
+        categoria: "cocteleria",
+        subcategoria: "liqui-manzana",
+        descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante para cócteles, sodas y micheladas.",
+        imagen: "liquipopsmanzana.jpg"
+    },
+    {
         id: 101,
         nombre: "Liquipops | Blueberry",
         categoria: "cocteleria",
