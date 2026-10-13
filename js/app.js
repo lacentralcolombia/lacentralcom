@@ -5,7 +5,7 @@ const NUMERO_WHATSAPP = "573116017186";
 
 let carrito = [];
 
-// MAPA DE NOMBRES PARA BANNERS E INDICADORES
+// NOMBRES VISUALES DE LAS CATEGORÍAS
 const nombresCategorias = {
     'todos': 'Todas las Categorías',
     'quesos': 'Quesos y Lácteos',
