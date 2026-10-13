@@ -1,4 +1,4 @@
-// MARCAS DESTACADAS CON VECTORES SVG NATIVOS (SIN BLOQUEOS DE SERVIDOR)
+// MARCAS DESTACADAS CON VECTORES SVG NATIVOS (CARGA INSTANTÁNEA SIN DENEGACIONES DE SERVIDOR)
 const marcasData = [
     {
         nombre: "Zenú",
@@ -34,13 +34,14 @@ const marcasData = [
     }
 ];
 
-// PRODUCTOS DEL CATÁLOGO OFICIAL (DESGLOSADOS Y SIN PRECIOS)
+// PRODUCTOS DEL CATÁLOGO DESGLOSADOS POR SUBCATEGORÍAS (SIN PRECIOS)
 const productosData = [
     // --- QUESOS Y LÁCTEOS ---
     {
         id: 1,
         nombre: "Quesos y Yogures",
         categoria: "quesos",
+        subcategoria: "general",
         descripcion: "Surtido variado en quesos tajados, frescos y yogures lácteos de marcas reconocidas.",
         imagen: "https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=500"
     },
@@ -48,6 +49,7 @@ const productosData = [
         id: 2,
         nombre: "Quesos Artesanales",
         categoria: "quesos",
+        subcategoria: "general",
         descripcion: "Sabor campesino, tradicional y fresco de elaboración artesanal pura.",
         imagen: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=500"
     },
@@ -55,6 +57,7 @@ const productosData = [
         id: 3,
         nombre: "Mantequillas",
         categoria: "quesos",
+        subcategoria: "general",
         descripcion: "Mantequillas de excelente consistencia y sabor para tus desayunos y cocina.",
         imagen: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=500"
     },
@@ -62,6 +65,7 @@ const productosData = [
         id: 4,
         nombre: "Crema y Derivados",
         categoria: "quesos",
+        subcategoria: "general",
         descripcion: "Crema de leche, suero costeño y derivados de consistencia cremosa y fresca.",
         imagen: "https://images.unsplash.com/photo-1528751014936-863e6e7a319c?q=80&w=500"
     },
@@ -69,185 +73,170 @@ const productosData = [
         id: 5,
         nombre: "Queso Rallado",
         categoria: "quesos",
+        subcategoria: "general",
         descripcion: "Queso listo para gratinar y acompañar tus pastas, lasañas o arepas.",
         imagen: "https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=500"
     },
 
-    // --- EMBUTIDOS Y CÁRNICOS ---
+    // --- EMBUTIDOS DESGLOSADOS ---
     {
         id: 6,
-        nombre: "Jamones",
+        nombre: "Jamones Tradicionales y Especiales",
         categoria: "embutidos",
+        subcategoria: "jamones",
         descripcion: "Lajas seleccionadas de jamón de cerdo, pavo y finas hierbas (Zenú, Rica, Differ).",
         imagen: "https://images.unsplash.com/photo-1541529086526-db283c563270?q=80&w=500"
     },
     {
         id: 7,
-        nombre: "Salchichas",
+        nombre: "Salchichas Manguera y Ranchera",
         categoria: "embutidos",
-        descripcion: "Salchichas tradicionales, rancheras y manguera especial para perritos o desayunos.",
+        subcategoria: "salchichas",
+        descripcion: "Salchichas manguera especial, rancheras y mangueras para perritos o desayunos.",
         imagen: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=500"
     },
     {
         id: 8,
-        nombre: "Chorizos",
+        nombre: "Chorizos Ahumados y Santarrosanos",
         categoria: "embutidos",
+        subcategoria: "chorizos",
         descripcion: "Chorizo santarrosano, antioqueño y de la casa con sazón ahumada.",
         imagen: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=500"
     },
     {
         id: 9,
-        nombre: "Mortadelas",
+        nombre: "Mortadelas Especiales",
         categoria: "embutidos",
+        subcategoria: "mortadelas",
         descripcion: "Tajadas de mortadela fresca de primera calidad para tus pasabocas.",
         imagen: "https://images.unsplash.com/photo-1528607929212-2636ec44253e?q=80&w=500"
     },
     {
         id: 10,
-        nombre: "Tocineta",
+        nombre: "Tocineta Ahumada",
         categoria: "embutidos",
+        subcategoria: "tocinetas",
         descripcion: "Cortes de tocineta ahumada crujiente ideal para hamburguesas y recetas.",
         imagen: "https://images.unsplash.com/photo-1606851094655-b2593a9af63f?q=80&w=500"
-    },
-    {
-        id: 11,
-        nombre: "Picadas y Preparaciones",
-        categoria: "embutidos",
-        descripcion: "Kits y mezclas listas de carnes frías para reuniones y eventos sociales.",
-        imagen: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=500"
     },
 
     // --- ALIMENTOS Y CONDIMENTOS ---
     {
-        id: 12,
+        id: 11,
         nombre: "Aliños a Granel",
         categoria: "alimentos",
+        subcategoria: "general",
         descripcion: "Variedad de aliños preparados por peso para darle el toque secreto a tus comidas.",
         imagen: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=500"
     },
     {
-        id: 13,
-        nombre: "Especias",
+        id: 12,
+        nombre: "Especias Seleccionadas",
         categoria: "alimentos",
-        descripcion: "Pimienta, orégano, comino, laurel, tomillo, paprika y especias seleccionadas.",
+        subcategoria: "general",
+        descripcion: "Pimienta, orégano, comino, laurel, tomillo, paprika y especias.",
         imagen: "https://images.unsplash.com/photo-1509358217950-0fd228257184?q=80&w=500"
     },
     {
-        id: 14,
-        nombre: "Condimentos",
+        id: 13,
+        nombre: "Condimentos El Rey",
         categoria: "alimentos",
-        descripcion: "Sazonadores en polvo, color, caldo y sazonados El Rey para todo tipo de preparación.",
+        subcategoria: "general",
+        descripcion: "Sazonadores en polvo, color, caldo y sazonados El Rey.",
         imagen: "https://images.unsplash.com/photo-1532336414038-cf19250c5757?q=80&w=500"
     },
     {
-        id: 15,
-        nombre: "Salsas Caseras",
+        id: 14,
+        nombre: "Salsas Caseras Emanuel",
         categoria: "alimentos",
-        descripcion: "Salsas artesanales, tártara, ajo, piña, rosada y especialidades Salsa Emanuel.",
+        subcategoria: "general",
+        descripcion: "Salsas artesanales, tártara, ajo, piña, rosada y especialidades.",
         imagen: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?q=80&w=500"
-    },
-    {
-        id: 16,
-        nombre: "Mezclas Especiales",
-        categoria: "alimentos",
-        descripcion: "Adobos y aderezos especiales para carnes, pollo y pescados.",
-        imagen: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=500"
     },
 
     // --- FRUTOS SECOS ---
     {
-        id: 17,
-        nombre: "Maní",
+        id: 15,
+        nombre: "Maní Variado",
         categoria: "frutos-secos",
-        descripcion: "Maní salado, con pasas, confitado, picante y maní horneado sin sal.",
+        subcategoria: "general",
+        descripcion: "Maní salado, con pasas, confitado, picante y horneado.",
         imagen: "https://images.unsplash.com/photo-1536591375315-1b83681e5b22?q=80&w=500"
     },
     {
-        id: 18,
-        nombre: "Almendras",
+        id: 16,
+        nombre: "Almendras Tostadas",
         categoria: "frutos-secos",
+        subcategoria: "general",
         descripcion: "Almendras enteras, fileteadas y tostadas para snacks o repostería.",
         imagen: "https://images.unsplash.com/photo-1508061253366-f7da158b6d96?q=80&w=500"
     },
     {
-        id: 19,
-        nombre: "Nueces",
+        id: 17,
+        nombre: "Nueces Seleccionadas",
         categoria: "frutos-secos",
-        descripcion: "Nuez mariposa, pacanas y marañón de primera calidad alimenticia.",
+        subcategoria: "general",
+        descripcion: "Nuez mariposa, pacanas y marañón de primera calidad.",
         imagen: "https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=500"
     },
     {
-        id: 20,
-        nombre: "Pasas",
-        categoria: "frutos-secos",
-        descripcion: "Uvas pasas dulce natural para ensaladas, postres y mezclas.",
-        imagen: "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?q=80&w=500"
-    },
-    {
-        id: 21,
+        id: 18,
         nombre: "Mix de Frutos Secos",
         categoria: "frutos-secos",
+        subcategoria: "general",
         descripcion: "Combinación equilibrada de maní, almendras, nueces, arándanos y pasas.",
         imagen: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=500"
     },
 
     // --- COCTELERÍA Y MICHELADAS ---
     {
-        id: 22,
+        id: 19,
         nombre: "Perlas Explosivas (Liqui POPS)",
         categoria: "cocteleria",
-        descripcion: "Toppings de perlas con centro líquido estallante de diversos sabores frutales.",
+        subcategoria: "general",
+        descripcion: "Toppings de perlas con centro líquido estallante de diversos sabores.",
         imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500"
     },
     {
-        id: 23,
-        nombre: "Siropes",
+        id: 20,
+        nombre: "Siropes y Chamoy",
         categoria: "cocteleria",
-        descripcion: "Jarabes concentrados de sabores para sodas saborizadas y cócteles.",
+        subcategoria: "general",
+        descripcion: "Jarabes concentrados y chamoy agridulce para escarchar vasos.",
         imagen: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=500"
     },
     {
-        id: 24,
-        nombre: "Chamoy",
+        id: 21,
+        nombre: "Escarchas para Micheladas",
         categoria: "cocteleria",
-        descripcion: "Salsa agridulce chamoy para escarchar vasos y acompañar bebidas.",
-        imagen: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=500"
-    },
-    {
-        id: 25,
-        nombre: "Escarchas",
-        categoria: "cocteleria",
-        descripcion: "Sales y polvos de sabores (milo, pimienta, tajín, frutos rojos) para micheladas.",
+        subcategoria: "general",
+        descripcion: "Sales y polvos de sabores (milo, pimienta, tajín, frutos rojos).",
         imagen: "https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=500"
-    },
-    {
-        id: 26,
-        nombre: "Insumos para Micheladas y Cócteles",
-        categoria: "cocteleria",
-        descripcion: "Sazonadores, gomitas, pitillos decorativos y bases concentradas.",
-        imagen: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=500"
     },
 
     // --- PLÁSTICOS Y DESECHABLES ---
     {
-        id: 27,
-        nombre: "Vasos Desechables",
+        id: 22,
+        nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
-        descripcion: "Vasos transparentes, domo, térmicos y de diferentes onzas marca Darnel.",
+        subcategoria: "general",
+        descripcion: "Vasos transparentes, domo y térmicos marca Darnel.",
         imagen: "https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?q=80&w=500"
     },
     {
-        id: 28,
+        id: 23,
         nombre: "Platos y Cubiertos",
         categoria: "desechables",
-        descripcion: "Platos hondos, panderos, tenedores, cucharas y cuchillos biodegradables o plásticos.",
+        subcategoria: "general",
+        descripcion: "Platos hondos, panderos, tenedores, cucharas y cuchillos.",
         imagen: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=500"
     },
     {
-        id: 29,
-        nombre: "Envases y Bolsas",
+        id: 24,
+        nombre: "Envases y Bolsas de Empaque",
         categoria: "desechables",
-        descripcion: "Recipientes porta-comida, bolsas transparentes, herméticas y para empaque al vacío.",
+        subcategoria: "general",
+        descripcion: "Recipientes porta-comida, bolsas transparentes y para empaque al vacío.",
         imagen: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?q=80&w=500"
     }
 ];
