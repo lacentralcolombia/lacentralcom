@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Hoja de Estilos Externa con Ruta Relativa Segura -->
+    <!-- Hoja de Estilos Externa -->
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -95,7 +95,7 @@
         </div>
     </section>
 
-    <!-- CATÁLOGO ESTILO TREINTA CON BUSCADOR Y AMPLIACIÓN DE IMAGEN -->
+    <!-- CATÁLOGO DIGITAL -->
     <section id="catalogo" class="catalog-section">
         <div class="section-header">
             <h2 class="section-title">Catálogo Digital</h2>
@@ -104,7 +104,7 @@
             <!-- BUSCADOR RÁPIDO DE PRODUCTOS -->
             <div class="search-bar-container">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text" id="input-buscar" placeholder="Buscar producto (ej: salchicha, queso, maní...)" onkeyup="buscarProductos()">
+                <input type="text" id="input-buscar" placeholder="Buscar producto (ej: liquipops, salchicha, queso...)" onkeyup="buscarProductos()">
             </div>
         </div>
 
@@ -126,12 +126,12 @@
                         </button>
                     </li>
                     <li>
-                        <button class="sidebar-btn" onclick="toggleSubmenuEmbutidos(event)">
+                        <button class="sidebar-btn" onclick="toggleSubmenu('submenu-embutidos', 'embutidos', event)">
                             <i class="fa-solid fa-drumstick-bite"></i>
                             <span>Embutidos y Cárnicos</span>
                             <i class="fa-solid fa-chevron-down submenu-arrow"></i>
                         </button>
-                        <ul class="submenu-embutidos" id="submenu-embutidos">
+                        <ul class="submenu-accordion" id="submenu-embutidos">
                             <li><button class="sub-btn" onclick="filtrarCategoria('embutidos', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Ver todos los embutidos</button></li>
                             <li><button class="sub-btn" onclick="filtrarCategoria('embutidos', 'jamones', event)"><i class="fa-solid fa-slash-stroke"></i> Jamones</button></li>
                             <li><button class="sub-btn" onclick="filtrarCategoria('embutidos', 'salchichas', event)"><i class="fa-solid fa-hotdog"></i> Salchichas</button></li>
@@ -153,10 +153,29 @@
                         </button>
                     </li>
                     <li>
-                        <button class="sidebar-btn" onclick="filtrarCategoria('cocteleria', null, event)">
+                        <button class="sidebar-btn" onclick="toggleSubmenu('submenu-cocteleria', 'cocteleria', event)">
                             <i class="fa-solid fa-wine-glass-sparkles"></i>
                             <span>Coctelería y Micheladas</span>
+                            <i class="fa-solid fa-chevron-down submenu-arrow"></i>
                         </button>
+                        <ul class="submenu-accordion" id="submenu-cocteleria">
+                            <li><button class="sub-btn" onclick="filtrarCategoria('cocteleria', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Ver toda coctelería</button></li>
+                            <li>
+                                <button class="sub-btn highlight-sub" onclick="toggleSubmenu('submenu-liquipops', 'cocteleria', event)">
+                                    <i class="fa-solid fa-burst"></i> Perlas Explosivas (Liqui POPS) <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                                </button>
+                                <ul class="submenu-accordion sub-nested" id="submenu-liquipops">
+                                    <li><button class="sub-btn" onclick="filtrarCategoria('cocteleria', 'liqui-blueberry', event)"><i class="fa-solid fa-circle" style="color: #4a90e2;"></i> Liquipops | Blueberry</button></li>
+                                    <li><button class="sub-btn" onclick="filtrarCategoria('cocteleria', 'liqui-coco', event)"><i class="fa-solid fa-circle" style="color: #ffffff;"></i> Liquipops | Coco</button></li>
+                                    <li><button class="sub-btn" onclick="filtrarCategoria('cocteleria', 'liqui-cereza', event)"><i class="fa-solid fa-circle" style="color: #e3211b;"></i> Liquipops | Cereza</button></li>
+                                    <li><button class="sub-btn" onclick="filtrarCategoria('cocteleria', 'liqui-lychee', event)"><i class="fa-solid fa-circle" style="color: #f5a623;"></i> Liquipops  | Lychee</button></li>
+                                    <li><button class="sub-btn" onclick="filtrarCategoria('cocteleria', 'liqui-sandia', event)"><i class="fa-solid fa-circle" style="color: #7ed321;"></i> Liquipop | Sandia</button></li>
+                                    <li><button class="sub-btn" onclick="filtrarCategoria('cocteleria', 'liqui-icepink', event)"><i class="fa-solid fa-circle" style="color: #ff69b4;"></i> Liquipops | Ice pink</button></li>
+                                </ul>
+                            </li>
+                            <li><button class="sub-btn" onclick="filtrarCategoria('cocteleria', 'siropes', event)"><i class="fa-solid fa-bottle-droplet"></i> Siropes y Chamoy</button></li>
+                            <li><button class="sub-btn" onclick="filtrarCategoria('cocteleria', 'escarchas', event)"><i class="fa-solid fa-compact-disc"></i> Escarchas y Micheladas</button></li>
+                        </ul>
                     </li>
                     <li>
                         <button class="sidebar-btn" onclick="filtrarCategoria('desechables', null, event)">
