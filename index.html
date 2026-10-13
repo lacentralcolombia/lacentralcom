@@ -63,7 +63,6 @@
         <div class="hero-content">
             <span class="hero-badge"><i class="fa-solid fa-award"></i> ¡La mejor opción en tu casa y tu negocio!</span>
             
-            <!-- TÍTULO Y SUBTÍTULO OFICIAL -->
             <h1 class="hero-title">
                 LA CENTRAL
                 <span class="hero-subtitle-brand">QUESERA Y SALSAMENTARIA</span>
@@ -98,25 +97,72 @@
         </div>
     </section>
 
-    <!-- CATÁLOGO DE PRODUCTOS -->
+    <!-- CATÁLOGO CON BARRA LATERAL (SIDEBAR) Y DESPLIEGUE VERTICAL -->
     <section id="catalogo" class="catalog-section">
         <div class="section-header">
             <h2 class="section-title">Catálogo de Productos</h2>
-            <p class="section-subtitle">Selecciona los productos de tu interés para consultar disponibilidad</p>
+            <p class="section-subtitle">Selecciona una categoría a la izquierda para filtrar o explora todo el catálogo desplazándote hacia abajo</p>
         </div>
 
-        <div class="category-filter">
-            <button class="filter-btn active" onclick="filtrarCategoria('todos', event)">Todos</button>
-            <button class="filter-btn" onclick="filtrarCategoria('quesos', event)">Quesos</button>
-            <button class="filter-btn" onclick="filtrarCategoria('embutidos', event)">Embutidos</button>
-            <button class="filter-btn" onclick="filtrarCategoria('alimentos', event)">Alimentos</button>
-            <button class="filter-btn" onclick="filtrarCategoria('frutos-secos', event)">Frutos Secos</button>
-            <button class="filter-btn" onclick="filtrarCategoria('cocteleria', event)">Coctelería</button>
-            <button class="filter-btn" onclick="filtrarCategoria('desechables', event)">Desechables</button>
-        </div>
+        <div class="catalog-layout">
+            <!-- LATERAL IZQUIERDA: MENÚ DE SUBTÍTULOS / CATEGORÍAS -->
+            <aside class="catalog-sidebar">
+                <h3 class="sidebar-title"><i class="fa-solid fa-layer-group"></i> Categorías</h3>
+                <ul class="sidebar-menu">
+                    <li>
+                        <button class="sidebar-btn active" onclick="filtrarCategoria('todos', event)">
+                            <i class="fa-solid fa-border-all"></i>
+                            <span>Todas las Categorías</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="sidebar-btn" onclick="filtrarCategoria('quesos', event)">
+                            <i class="fa-solid fa-cheese"></i>
+                            <span>Quesos y Lácteos</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="sidebar-btn" onclick="filtrarCategoria('embutidos', event)">
+                            <i class="fa-solid fa-drumstick-bite"></i>
+                            <span>Embutidos y Cárnicos</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="sidebar-btn" onclick="filtrarCategoria('alimentos', event)">
+                            <i class="fa-solid fa-jar"></i>
+                            <span>Alimentos y Condimentos</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="sidebar-btn" onclick="filtrarCategoria('frutos-secos', event)">
+                            <i class="fa-solid fa-seedling"></i>
+                            <span>Frutos Secos</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="sidebar-btn" onclick="filtrarCategoria('cocteleria', event)">
+                            <i class="fa-solid fa-wine-glass-sparkles"></i>
+                            <span>Coctelería y Micheladas</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="sidebar-btn" onclick="filtrarCategoria('desechables', event)">
+                            <i class="fa-solid fa-box-open"></i>
+                            <span>Plásticos y Desechables</span>
+                        </button>
+                    </li>
+                </ul>
+            </aside>
 
-        <div id="grid-productos" class="product-grid">
-            <!-- Carga dinámica mediante JavaScript -->
+            <!-- CONTENIDO DERECHO: PRODUCTOS DESPLEGADOS HACIA ABAJO -->
+            <main class="catalog-content">
+                <div class="catalog-status-bar">
+                    <span id="categoria-activa-titulo">Mostrando: Todas las Categorías</span>
+                </div>
+                <div id="grid-productos" class="product-grid">
+                    <!-- Los productos se cargan dinámicamente vía JavaScript -->
+                </div>
+            </main>
         </div>
     </section>
 
