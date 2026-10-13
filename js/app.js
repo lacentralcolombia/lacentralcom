@@ -1,16 +1,53 @@
-// NUMERO DE WHATSAPP CON CODIGO DE PAIS COLOMBIA
+// =========================================================
+// CONFIGURACIÓN OFICIAL DE QUESERA Y SALSAMENTARIA LA CENTRAL
+// =========================================================
 const NUMERO_WHATSAPP = "573116017186";
 
 let carrito = [];
 
-// CARGAR PRODUCTOS DEL CATÁLOGO
+// =========================================================
+// 1. CARGAR Y MOSTRAR MARCAS DESTACADAS CON LOGOS
+// =========================================================
+function renderizarMarcas() {
+    const container = document.getElementById('brands-container');
+    if (!container) return;
+
+    container.innerHTML = '';
+    
+    marcasData.forEach(marca => {
+        const card = document.createElement('div');
+        card.className = 'brand-card';
+        card.innerHTML = `
+            <img src="${marca.logo}" 
+                 alt="Logo ${marca.nombre}" 
+                 class="brand-img" 
+                 onerror="this.src='https://via.placeholder.com/120x60?text=${encodeURIComponent(marca.nombre)}'">
+        `;
+        container.appendChild(card);
+    });
+}
+
+// =========================================================
+// 2. CARGAR Y MOSTRAR PRODUCTOS DEL CATÁLOGO (SIN PRECIOS)
+// =========================================================
 function renderizarProductos(categoria = 'todos') {
     const grid = document.getElementById('grid-productos');
+    if (!grid) return;
+
     grid.innerHTML = '';
 
     const filtrados = categoria === 'todos' 
         ? productosData 
         : productosData.filter(p => p.categoria === categoria);
+
+    if (filtrados.length === 0) {
+        grid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">
+                <p>No se encontraron productos en esta categoría.</p>
+            </div>
+        `;
+        return;
+    }
 
     filtrados.forEach(prod => {
         const card = document.createElement('div');
@@ -18,7 +55,7 @@ function renderizarProductos(categoria = 'todos') {
         card.innerHTML = `
             <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img">
             <div class="product-info">
-                <span class="product-category">${prod.categoria}</span>
+                <span class="product-category">${prod.categoria.replace('-', ' ')}</span>
                 <h3 class="product-title">${prod.nombre}</h3>
                 <p class="product-desc">${prod.descripcion}</p>
                 <div class="product-status">
@@ -33,33 +70,29 @@ function renderizarProductos(categoria = 'todos') {
     });
 }
 
-// CARGAR MARCAS DESTACADAS
-function renderizarMarcas() {
-    const container = document.getElementById('brands-container');
-    container.innerHTML = '';
-    marcasData.forEach(marca => {
-        const badge = document.createElement('span');
-        badge.className = 'brand-badge';
-        badge.innerText = marca;
-        container.appendChild(badge);
-    });
-}
-
-// FILTRAR CATEGORÍAS
+// =========================================================
+// 3. FILTRAR POR CATEGORÍAS
+// =========================================================
 function filtrarCategoria(cat, event) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
+    if (event && event.target) {
+        event.target.classList.add('active');
+    }
     renderizarProductos(cat);
 }
 
-// LÓGICA DE CARRITO DE COMPRAS
+// =========================================================
+// 4. LÓGICA DEL CARRITO DE COMPRAS
+// =========================================================
 function agregarAlCarrito(id) {
     const existe = carrito.find(p => p.id === id);
     if (existe) {
         existe.cantidad++;
     } else {
         const prod = productosData.find(p => p.id === id);
-        carrito.push({ ...prod, cantidad: 1 });
+        if (prod) {
+            carrito.push({ ...prod, cantidad: 1 });
+        }
     }
     actualizarCarritoUI();
     abrirCarrito();
@@ -80,6 +113,8 @@ function actualizarCarritoUI() {
     const container = document.getElementById('cart-items-container');
     const badge = document.getElementById('cart-count');
 
+    if (!container || !badge) return;
+
     container.innerHTML = '';
     let totalItems = 0;
 
@@ -98,7 +133,7 @@ function actualizarCarritoUI() {
             itemDiv.innerHTML = `
                 <div>
                     <h4 style="font-size: 0.95rem;">${prod.nombre}</h4>
-                    <span style="font-size: 0.8rem; color: var(--gold-brand);">${prod.categoria}</span>
+                    <span style="font-size: 0.8rem; color: var(--gold-brand); text-transform: capitalize;">${prod.categoria.replace('-', ' ')}</span>
                 </div>
                 <div class="cart-item-qty">
                     <button class="qty-btn" onclick="cambiarCantidad(${prod.id}, -1)">-</button>
@@ -113,42 +148,60 @@ function actualizarCarritoUI() {
     badge.innerText = totalItems;
 }
 
+// =========================================================
+// 5. INTERFAZ Y MENÚS
+// =========================================================
 function toggleCart() {
-    document.getElementById('cart-drawer').classList.toggle('open');
-    document.getElementById('cart-overlay').classList.toggle('open');
+    const drawer = document.getElementById('cart-drawer');
+    const overlay = document.getElementById('cart-overlay');
+    if (drawer && overlay) {
+        drawer.classList.toggle('open');
+        overlay.classList.toggle('open');
+    }
 }
 
 function abrirCarrito() {
-    document.getElementById('cart-drawer').classList.add('open');
-    document.getElementById('cart-overlay').classList.add('open');
+    const drawer = document.getElementById('cart-drawer');
+    const overlay = document.getElementById('cart-overlay');
+    if (drawer && overlay) {
+        drawer.classList.add('open');
+        overlay.classList.add('open');
+    }
 }
 
 function toggleMobileMenu() {
-    document.getElementById('mobile-nav').classList.toggle('open');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (mobileNav) {
+        mobileNav.classList.toggle('open');
+    }
 }
 
-// ENVIAR SOLICITUD SIN PRECIOS A WHATSAPP
+// =========================================================
+// 6. ENVIAR SOLICITUD A WHATSAPP (ESTRICTAMENTE SIN PRECIOS)
+// =========================================================
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) {
-        alert('Por favor agrega al menos un producto a tu pedido.');
+        alert('Por favor agrega al menos un producto a tu lista de pedido.');
         return;
     }
 
-    let msg = "🛒 *SOLICITUD DE PEDIDO - LA CENTRAL*\n\n";
-    msg += "Hola, deseo consultar la disponibilidad de los siguientes productos:\n\n";
+    let msg = "🛒 *SOLICITUD DE PEDIDO - QUESERA Y SALSAMENTARIA LA CENTRAL*\n\n";
+    msg += "Hola, deseo consultar disponibilidad de los siguientes productos:\n\n";
 
     carrito.forEach(p => {
         msg += `• *${p.nombre}* (${p.cantidad} unidad${p.cantidad > 1 ? 'es' : ''})\n`;
     });
 
-    msg += "\n📍 *Ubicación:* Carrera 12 N.º 8-11 Local 2, Barrio La Cabaña, Florida, Valle.\n\n";
+    msg += "\n📍 *Ubicación del local:* Carrera 12 N.º 8-11 Local 2, Barrio La Cabaña, Florida, Valle del Cauca.\n\n";
     msg += "Quedo atento a su respuesta. ¡Muchas gracias!";
 
     const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
 }
 
+// =========================================================
 // INICIALIZACIÓN
+// =========================================================
 document.addEventListener('DOMContentLoaded', () => {
     renderizarProductos();
     renderizarMarcas();
