@@ -19,7 +19,7 @@ const nombresCategorias = {
     'mortadelas': 'Embutidos - Mortadelas',
     'tocinetas': 'Embutidos - Tocinetas',
     'liqui-todos': 'Todas las Perlas Explosivas (Liqui POPS)',
-    'liqui-manzana': 'Liquipops | Manzana',
+    'liqui-manzana': 'Liquipops | Manzana Verde',
     'liqui-blueberry': 'Liquipops | Blueberry',
     'liqui-coco': 'Liquipops | Coco',
     'liqui-cereza': 'Liquipops | Cereza',
@@ -55,7 +55,6 @@ function getMarcas() {
     return [];
 }
 
-// EFECTO DE EXPLOSIÓN DE PERLAS CON SONIDO POP
 function crearEfectoExplosion(event, colorHex) {
     reproducirSonidoPop();
 
@@ -120,7 +119,6 @@ function reproducirSonidoPop() {
     } catch (e) {}
 }
 
-// MENÚ MÓVIL Y NAVEGACIÓN
 function toggleMobileMenu() {
     const mobileNav = document.getElementById('mobile-nav');
     if (mobileNav) {
@@ -143,7 +141,6 @@ function irASeccion(idSeccion) {
     }
 }
 
-// RENDERIZAR MARCAS
 function renderizarMarcas() {
     const marcas = getMarcas();
     const container = document.getElementById('brands-container');
@@ -158,7 +155,6 @@ function renderizarMarcas() {
     });
 }
 
-// RENDERIZAR PRODUCTOS DEL CATÁLOGO
 function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '') {
     const grid = document.getElementById('grid-productos');
     const statusText = document.getElementById('categoria-activa-titulo');
@@ -230,7 +226,7 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
         card.innerHTML = `
             <div class="product-img-wrapper" onclick="ampliarImagen('${imgLimpia}', '${nombreLimpio}')">
                 <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img" onerror="this.src='https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=500'">
-                <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver foto</span>
+                <span class="zoom-hint"><i class="fa-solid fa-eye"></i> Ver más</span>
             </div>
             <div class="product-info">
                 <span class="product-category">${catNombre}</span>
@@ -415,7 +411,6 @@ function abrirCarrito() {
     }
 }
 
-// MENSAJE WHATSAPP: SOLO PRODUCTO + CANTIDAD + ENLACE A FOTO (SIN DIRECCIÓN NI UBICACIÓN)
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) {
         alert('Por favor agrega al menos un producto a tu lista de pedido.');
@@ -442,7 +437,6 @@ function enviarPedidoWhatsApp() {
     window.open(url, '_blank');
 }
 
-// INICIALIZACIÓN
 function iniciarApp() {
     renderizarProductos();
     renderizarMarcas();
