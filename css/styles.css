@@ -281,7 +281,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* CATÁLOGO CON LAYOUT LATERAL (SIDEBAR + PRODUCTOS) */
+/* CATÁLOGO CON LAYOUT LATERAL Y SUBMENÚ */
 .catalog-section {
     padding: 80px 6%;
     max-width: 1400px;
@@ -311,7 +311,7 @@ body {
     align-items: start;
 }
 
-/* SIDEBAR DE CATEGORÍAS EN EL LADO IZQUIERDO */
+/* SIDEBAR Y SUBMENÚ ACCORDION */
 .catalog-sidebar {
     background: var(--dark-card);
     border: 1px solid var(--dark-surface);
@@ -356,10 +356,16 @@ body {
     transition: all 0.3s;
 }
 
-.sidebar-btn i {
+.sidebar-btn i:first-child {
     color: var(--gold-brand);
     font-size: 1.1rem;
     width: 20px;
+}
+
+.submenu-arrow {
+    margin-left: auto;
+    font-size: 0.8rem;
+    transition: transform 0.3s;
 }
 
 .sidebar-btn:hover {
@@ -377,7 +383,47 @@ body {
     color: var(--black-bg);
 }
 
-/* CONTENIDO Y GRID DE PRODUCTOS */
+.sidebar-btn.active .submenu-arrow {
+    transform: rotate(180deg);
+}
+
+/* SUBMENÚ DE EMBUTIDOS */
+.submenu-embutidos {
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 20px;
+    margin-top: 6px;
+}
+
+.submenu-embutidos.open {
+    display: flex;
+}
+
+.sub-btn {
+    background: var(--black-bg);
+    border: 1px solid var(--dark-surface);
+    color: var(--text-muted);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.sub-btn:hover, .sub-btn.active {
+    color: var(--gold-brand);
+    border-color: var(--gold-brand);
+    background: var(--dark-surface);
+}
+
+/* CONTENIDO Y TARJETAS CON SELECTOR DE CANTIDAD */
 .catalog-content {
     display: flex;
     flex-direction: column;
@@ -445,17 +491,58 @@ body {
 .product-desc {
     color: var(--text-muted);
     font-size: 0.88rem;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     flex-grow: 1;
 }
 
 .product-status {
     font-size: 0.8rem;
     color: var(--gold-brand);
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     gap: 6px;
+}
+
+/* CONTROLES DE CANTIDAD EN LA TARJETA DEL PRODUCTO */
+.card-action-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-qty-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--black-bg);
+    border: 1px solid var(--dark-surface);
+    border-radius: 10px;
+    padding: 4px 10px;
+}
+
+.card-qty-btn {
+    background: var(--dark-surface);
+    color: var(--white-warm);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+}
+
+.card-qty-btn:hover {
+    background: var(--gold-brand);
+    color: var(--black-bg);
+}
+
+.card-qty-num {
+    font-weight: 700;
+    color: var(--gold-brand);
+    font-size: 1rem;
 }
 
 .btn-add-item {
@@ -476,7 +563,7 @@ body {
 
 .btn-add-item:hover { background: var(--red-hover); }
 
-/* MARCAS DESTACADAS EN TARJETAS ELEGANTES CON LOGO VECTORIAL SVG */
+/* MARCAS DESTACADAS EN TARJETAS CON LOGO SVG */
 .brands-section {
     padding: 60px 6%;
     background: var(--dark-card);
@@ -789,12 +876,6 @@ footer {
         position: static;
         margin-bottom: 20px;
     }
-    
-    .sidebar-menu {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 10px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -804,5 +885,4 @@ footer {
     .hero-title { font-size: 2.2rem; }
     .hero-subtitle-brand { font-size: 1rem; letter-spacing: 2px; }
     .btn-cart-text { display: none; }
-    .sidebar-menu { grid-template-columns: 1fr 1fr; }
 }
