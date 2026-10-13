@@ -1,40 +1,40 @@
-// MARCAS DESTACADAS CON SUS LOGOS OFICIALES
+// MARCAS DESTACADAS CON VECTORES SVG NATIVOS (SIN BLOQUEOS DE SERVIDOR)
 const marcasData = [
     {
         nombre: "Zenú",
-        logo: "https://seeklogo.com/images/Z/zenu-logo-670CA20641-seeklogo.com.png"
+        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black, sans-serif' font-size='38' font-weight='900' font-style='italic' fill='%23e60000'>Zenú</text></svg>"
     },
     {
         nombre: "Alpina",
-        logo: "https://seeklogo.com/images/A/alpina-logo-2782BB2FB8-seeklogo.com.png"
+        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><path d='M70 50 L100 20 L130 50 Z' fill='%230055a5'/><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' font-family='Georgia, serif' font-size='30' font-weight='bold' font-style='italic' fill='%230055a5'>Alpina</text></svg>"
     },
     {
         nombre: "Alquería",
-        logo: "https://seeklogo.com/images/A/alqueria-logo-4E15ED103B-seeklogo.com.png"
+        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><rect x='20' y='15' width='160' height='50' rx='25' fill='%23e3211b'/><text x='50%' y='52%' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='%23ffffff'>Alquería</text></svg>"
     },
     {
         nombre: "Rica",
-        logo: "https://seeklogo.com/images/R/rica-rondo-logo-E31BC81B34-seeklogo.com.png"
+        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Impact, sans-serif' font-size='42' font-style='italic' fill='%23e3211b' stroke='%23000000' stroke-width='1'>Rica</text></svg>"
     },
     {
         nombre: "Bimbo",
-        logo: "https://seeklogo.com/images/B/bimbo-logo-07A57813FD-seeklogo.com.png"
+        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black, sans-serif' font-size='36' font-weight='900' fill='%23d61b22'>BIMBO</text></svg>"
     },
     {
         nombre: "Darnel",
-        logo: "https://seeklogo.com/images/D/darnel-logo-D384D0A9EE-seeklogo.com.png"
+        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><rect x='15' y='18' width='170' height='44' rx='8' fill='%230033a0'/><text x='50%' y='53%' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='26' font-weight='bold' fill='%23ffffff'>DARNEL</text></svg>"
     },
     {
         nombre: "El Rey",
-        logo: "https://seeklogo.com/images/E/el-rey-logo-DFE8B4C0FE-seeklogo.com.png"
+        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><polygon points='80,22 100,10 120,22 115,32 85,32' fill='%23e6b64f'/><text x='50%' y='62%' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black, sans-serif' font-size='26' font-weight='bold' fill='%23e3211b'>EL REY</text></svg>"
     },
     {
         nombre: "Nestlé",
-        logo: "https://seeklogo.com/images/N/nestle-logo-D5B41EB81A-seeklogo.com.png"
+        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Georgia, serif' font-size='34' font-weight='bold' fill='%23185a9d'>Nestlé</text></svg>"
     }
 ];
 
-// PRODUCTOS DEL CATÁLOGO OFICIAL DESGLOSADOS (SIN PRECIOS)
+// PRODUCTOS DEL CATÁLOGO OFICIAL (DESGLOSADOS Y SIN PRECIOS)
 const productosData = [
     // --- QUESOS Y LÁCTEOS ---
     {
@@ -85,7 +85,7 @@ const productosData = [
         id: 7,
         nombre: "Salchichas",
         categoria: "embutidos",
-        descripcion: "Salchichas manguera, tradicionales, rancheras y manguera especial para perritos o desayunos.",
+        descripcion: "Salchichas tradicionales, rancheras y manguera especial para perritos o desayunos.",
         imagen: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=500"
     },
     {
@@ -166,7 +166,7 @@ const productosData = [
         id: 18,
         nombre: "Almendras",
         categoria: "frutos-secos",
-        descripcion: "Almendras enteras, fileteadas y tostadas para snacks o reposteria.",
+        descripcion: "Almendras enteras, fileteadas y tostadas para snacks o repostería.",
         imagen: "https://images.unsplash.com/photo-1508061253366-f7da158b6d96?q=80&w=500"
     },
     {
