@@ -4,8 +4,10 @@
 const NUMERO_WHATSAPP = "573116017186";
 
 let carrito = [];
+// ESTADO LOCAL DE CANTIDADES EN TARJETAS DE PRODUCTOS
+let cantidadesTarjetas = {};
 
-// MAPA DE NOMBRES PARA BANNERS E INDICADORES
+// MAPA DE NOMBRES PARA TITULARES Y BANNERS
 const nombresCategorias = {
     'todos': 'Todas las Categorías',
     'quesos': 'Quesos y Lácteos',
@@ -13,11 +15,16 @@ const nombresCategorias = {
     'alimentos': 'Alimentos y Condimentos',
     'frutos-secos': 'Frutos Secos',
     'cocteleria': 'Coctelería y Micheladas',
-    'desechables': 'Plásticos y Desechables'
+    'desechables': 'Plásticos y Desechables',
+    'jamones': 'Embutidos - Jamones',
+    'salchichas': 'Embutidos - Salchichas',
+    'chorizos': 'Embutidos - Chorizos',
+    'mortadelas': 'Embutidos - Mortadelas',
+    'tocinetas': 'Embutidos - Tocinetas'
 };
 
 // =========================================================
-// 1. CARGAR Y MOSTRAR MARCAS DESTACADAS CON VECTORES SVG
+// 1. CARGAR Y MOSTRAR MARCAS DESTACADAS
 // =========================================================
 function renderizarMarcas() {
     const container = document.getElementById('brands-container');
@@ -36,22 +43,29 @@ function renderizarMarcas() {
 }
 
 // =========================================================
-// 2. CARGAR Y MOSTRAR PRODUCTOS DEL CATÁLOGO (SIN PRECIOS)
+// 2. CARGAR Y MOSTRAR PRODUCTOS CON SELECTOR DE CANTIDAD
 // =========================================================
-function renderizarProductos(categoria = 'todos') {
+function renderizarProductos(categoria = 'todos', subcat = null) {
     const grid = document.getElementById('grid-productos');
     const statusText = document.getElementById('categoria-activa-titulo');
     if (!grid) return;
 
+    const nombreTitulo = subcat && subcat !== 'todos' ? nombresCategorias[subcat] : nombresCategorias[categoria];
     if (statusText) {
-        statusText.innerText = `Mostrando: ${nombresCategorias[categoria] || categoria}`;
+        statusText.innerText = `Mostrando: ${nombreTitulo || categoria}`;
     }
 
     grid.innerHTML = '';
 
-    const filtrados = categoria === 'todos' 
-        ? productosData 
-        : productosData.filter(p => p.categoria === categoria);
+    let filtrados = productosData;
+
+    if (categoria !== 'todos') {
+        filtrados = filtrados.filter(p => p.categoria === categoria);
+    }
+
+    if (subcat && subcat !== 'todos') {
+        filtrados = filtrados.filter(p => p.subcategoria === subcat);
+    }
 
     if (filtrados.length === 0) {
         grid.innerHTML = `
@@ -63,56 +77,103 @@ function renderizarProductos(categoria = 'todos') {
     }
 
     filtrados.forEach(prod => {
+        if (!cantidadesTarjetas[prod.id]) {
+            cantidadesTarjetas[prod.id] = 1;
+        }
+
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
             <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img">
             <div class="product-info">
-                <span class="product-category">${nombresCategorias[prod.categoria] || prod.categoria}</span>
+                <span class="product-category">${nombresCategorias[prod.subcategoria] || nombresCategorias[prod.categoria]}</span>
                 <h3 class="product-title">${prod.nombre}</h3>
                 <p class="product-desc">${prod.descripcion}</p>
                 <div class="product-status">
                     <i class="fa-solid fa-circle-check"></i> Consultar disponibilidad
                 </div>
-                <button class="btn-add-item" onclick="agregarAlCarrito(${prod.id})">
-                    <i class="fa-solid fa-cart-plus"></i> Agregar al pedido
-                </button>
+                <div class="card-action-row">
+                    <div class="card-qty-selector">
+                        <button class="card-qty-btn" onclick="modificarCantidadTarjeta(${prod.id}, -1)">-</button>
+                        <span class="card-qty-num" id="card-qty-${prod.id}">${cantidadesTarjetas[prod.id]}</span>
+                        <button class="card-qty-btn" onclick="modificarCantidadTarjeta(${prod.id}, 1)">+</button>
+                    </div>
+                    <button class="btn-add-item" onclick="agregarAlCarritoConCantidad(${prod.id})">
+                        <i class="fa-solid fa-cart-plus"></i> Agregar al pedido
+                    </button>
+                </div>
             </div>
         `;
         grid.appendChild(card);
     });
 }
 
-// =========================================================
-// 3. FILTRAR POR CATEGORÍAS DESDE EL SIDEBAR
-// =========================================================
-function filtrarCategoria(cat, event) {
-    document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+// MODIFICAR CANTIDAD DE LA TARJETA
+function modificarCantidadTarjeta(id, cambio) {
+    if (!cantidadesTarjetas[id]) cantidadesTarjetas[id] = 1;
     
+    cantidadesTarjetas[id] += cambio;
+    if (cantidadesTarjetas[id] < 1) cantidadesTarjetas[id] = 1;
+
+    const spanQty = document.getElementById(`card-qty-${id}`);
+    if (spanQty) {
+        spanQty.innerText = cantidadesTarjetas[id];
+    }
+}
+
+// =========================================================
+// 3. DESPLIEGUE Y FILTRADO POR CATEGORÍAS / SUBMENÚ
+// =========================================================
+function toggleSubmenuEmbutidos(event) {
+    if (event) event.stopPropagation();
+    const submenu = document.getElementById('submenu-embutidos');
+    const parentBtn = event ? event.currentTarget : null;
+
+    if (submenu) {
+        submenu.classList.toggle('open');
+    }
+    
+    // Activa la categoría principal Embutidos
+    filtrarCategoria('embutidos', 'todos', event);
+}
+
+function filtrarCategoria(cat, subcat = null, event = null) {
+    document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
+
     if (event && event.currentTarget) {
         event.currentTarget.classList.add('active');
     }
-    renderizarProductos(cat);
+
+    renderizarProductos(cat, subcat);
 }
 
 // =========================================================
 // 4. LÓGICA DEL CARRITO DE COMPRAS
 // =========================================================
-function agregarAlCarrito(id) {
+function agregarAlCarritoConCantidad(id) {
+    const cantidadSeleccionada = cantidadesTarjetas[id] || 1;
     const existe = carrito.find(p => p.id === id);
+
     if (existe) {
-        existe.cantidad++;
+        existe.cantidad += cantidadSeleccionada;
     } else {
         const prod = productosData.find(p => p.id === id);
         if (prod) {
-            carrito.push({ ...prod, cantidad: 1 });
+            carrito.push({ ...prod, cantidad: cantidadSeleccionada });
         }
     }
+
+    // Reinicia el contador de la tarjeta a 1
+    cantidadesTarjetas[id] = 1;
+    const spanQty = document.getElementById(`card-qty-${id}`);
+    if (spanQty) spanQty.innerText = 1;
+
     actualizarCarritoUI();
     abrirCarrito();
 }
 
-function cambiarCantidad(id, cambio) {
+function cambiarCantidadCarrito(id, cambio) {
     const item = carrito.find(p => p.id === id);
     if (item) {
         item.cantidad += cambio;
@@ -147,12 +208,12 @@ function actualizarCarritoUI() {
             itemDiv.innerHTML = `
                 <div>
                     <h4 style="font-size: 0.95rem;">${prod.nombre}</h4>
-                    <span style="font-size: 0.8rem; color: var(--gold-brand);">${nombresCategorias[prod.categoria] || prod.categoria}</span>
+                    <span style="font-size: 0.8rem; color: var(--gold-brand);">${nombresCategorias[prod.subcategoria] || nombresCategorias[prod.categoria]}</span>
                 </div>
                 <div class="cart-item-qty">
-                    <button class="qty-btn" onclick="cambiarCantidad(${prod.id}, -1)">-</button>
+                    <button class="qty-btn" onclick="cambiarCantidadCarrito(${prod.id}, -1)">-</button>
                     <span>${prod.cantidad}</span>
-                    <button class="qty-btn" onclick="cambiarCantidad(${prod.id}, 1)">+</button>
+                    <button class="qty-btn" onclick="cambiarCantidadCarrito(${prod.id}, 1)">+</button>
                 </div>
             `;
             container.appendChild(itemDiv);
@@ -191,7 +252,7 @@ function toggleMobileMenu() {
 }
 
 // =========================================================
-// 6. ENVIAR SOLICITUD A WHATSAPP (ESTRICTAMENTE SIN PRECIOS)
+// 6. ENVIAR SOLICITUD DE PEDIDO A WHATSAPP
 // =========================================================
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) {
