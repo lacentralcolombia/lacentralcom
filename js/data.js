@@ -297,6 +297,5 @@ const productosData = [
     }
 ];
 
-// Asignación explícita para garantizar acceso global
 window.marcasData = marcasData;
 window.productosData = productosData;
