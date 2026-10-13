@@ -78,7 +78,7 @@ const productosData = [
         imagen: "https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=500"
     },
 
-    // --- EMBUTIDOS DESGLOSADOS ---
+    // --- EMBUTIDOS ---
     {
         id: 6,
         nombre: "Jamones Tradicionales y Especiales",
@@ -188,7 +188,7 @@ const productosData = [
         imagen: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=500"
     },
 
-    // --- COCTELERÍA Y MICHELADAS (LIQUIPOPS CON IMÁGENES LOCALES) ---
+    // --- COCTELERÍA Y LIQUIPOPS ---
     {
         id: 101,
         nombre: "Liquipops | Blueberry",
