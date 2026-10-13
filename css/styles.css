@@ -476,7 +476,7 @@ body {
 
 .btn-add-item:hover { background: var(--red-hover); }
 
-/* MARCAS DESTACADAS EN TARJETAS CON LOGO */
+/* MARCAS DESTACADAS EN TARJETAS ELEGANTES CON LOGO VECTORIAL SVG */
 .brands-section {
     padding: 60px 6%;
     background: var(--dark-card);
@@ -510,7 +510,7 @@ body {
     background: #ffffff;
     border: 2px solid var(--gold-brand);
     border-radius: 14px;
-    padding: 12px 20px;
+    padding: 10px 15px;
     width: 140px;
     height: 80px;
     display: flex;
