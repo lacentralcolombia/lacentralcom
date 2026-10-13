@@ -28,7 +28,32 @@ const nombresCategorias = {
     'escarchas': 'Escarchas y Micheladas'
 };
 
-// 1. RENDERIZAR MARCAS
+// 1. ABRIR Y CERRAR EL MENÚ ROJO ELEGANTE (RAYITAS)
+function toggleMobileMenu() {
+    const mobileNav = document.getElementById('mobile-nav');
+    if (mobileNav) {
+        mobileNav.classList.toggle('open');
+        document.body.classList.toggle('menu-open');
+    }
+}
+
+// 2. NAVEGAR A SECCIÓN Y CERRAR MENÚ ROJO AUTOMÁTICAMENTE
+function irASeccion(idSeccion) {
+    const mobileNav = document.getElementById('mobile-nav');
+    if (mobileNav) {
+        mobileNav.classList.remove('open');
+        document.body.classList.remove('menu-open');
+    }
+
+    setTimeout(() => {
+        const elemento = document.querySelector(idSeccion);
+        if (elemento) {
+            elemento.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, 150);
+}
+
+// 3. RENDERIZAR MARCAS EN EL INICIO
 function renderizarMarcas() {
     const container = document.getElementById('brands-container');
     if (!container) return;
@@ -42,7 +67,7 @@ function renderizarMarcas() {
     });
 }
 
-// 2. RENDERIZAR PRODUCTOS Y FILTROS
+// 4. RENDERIZAR PRODUCTOS Y FILTROS
 function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '') {
     const grid = document.getElementById('grid-productos');
     const statusText = document.getElementById('categoria-activa-titulo');
@@ -118,7 +143,7 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
     });
 }
 
-// 3. CONTROL DE DESPLEGABLES DE NAVEGACIÓN
+// 5. CONTROL DE MENÚS DESPLEGABLES DE CATEGORÍA
 function toggleTopDropdown(idDropdown, event) {
     if (event) event.stopPropagation();
     
@@ -132,14 +157,13 @@ function toggleTopDropdown(idDropdown, event) {
     }
 }
 
-// CERRAR DESPLEGABLES AL HACER CLIC FUERA
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.top-dropdown')) {
         document.querySelectorAll('.top-dropdown-content').forEach(d => d.classList.remove('open'));
     }
 });
 
-// 4. MODAL LIGHTBOX PARA AMPLIAR IMAGEN
+// 6. MODAL PARA AMPLIAR FOTOS DE PRODUCTOS
 function ampliarImagen(url, titulo) {
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('img-ampliada');
@@ -157,13 +181,13 @@ function cerrarImagenModal() {
     if (modal) modal.style.display = "none";
 }
 
-// 5. BUSCADOR EN TIEMPO REAL
+// 7. BUSCADOR
 function buscarProductos() {
     const texto = document.getElementById('input-buscar').value;
     renderizarProductos('todos', null, texto);
 }
 
-// 6. MANEJO DE CANTIDADES Y SELECCIÓN DE CATEGORÍAS (SIN SALTOS PABATOS)
+// 8. MANEJO DE CANTIDADES Y FILTRADO POR BOTONES
 function modificarCantidadTarjeta(id, cambio) {
     if (!cantidadesTarjetas[id]) cantidadesTarjetas[id] = 1;
     cantidadesTarjetas[id] += cambio;
@@ -185,7 +209,7 @@ function filtrarCategoria(cat, subcat = null, event = null) {
     renderizarProductos(cat, subcat);
 }
 
-// 7. GESTIÓN DEL CARRITO DE COMPRAS Y ENVÍO A WHATSAPP
+// 9. CARRITO DE COMPRAS Y ENVÍO A WHATSAPP
 function agregarAlCarritoConCantidad(id) {
     const cantidadSeleccionada = cantidadesTarjetas[id] || 1;
     const existe = carrito.find(p => p.id === id);
@@ -272,11 +296,6 @@ function abrirCarrito() {
         drawer.classList.add('open');
         overlay.classList.add('open');
     }
-}
-
-function toggleMobileMenu() {
-    const mobileNav = document.getElementById('mobile-nav');
-    if (mobileNav) mobileNav.classList.toggle('open');
 }
 
 function enviarPedidoWhatsApp() {
