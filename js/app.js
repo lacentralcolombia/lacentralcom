@@ -21,7 +21,7 @@ const nombresCategorias = {
     'liqui-coco': 'Liquipops | Coco',
     'liqui-cereza': 'Liquipops | Cereza',
     'liqui-lychee': 'Liquipops | Lychee',
-    'liqui-sandia': 'Liquipop | Sandia',
+    'liqui-sandia': 'Liquipop | Sandía',
     'liqui-icepink': 'Liquipops | Ice Pink',
     'liqui-fresa': 'Liquipops | Fresa',
     'siropes': 'Siropes y Chamoy',
@@ -118,7 +118,7 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
     });
 }
 
-// 3. CONTROL DE DESPLEGABLES FLOTANTES DE LA BARRA SUPERIOR
+// 3. CONTROL DE DESPLEGABLES DE NAVEGACIÓN
 function toggleTopDropdown(idDropdown, event) {
     if (event) event.stopPropagation();
     
@@ -163,7 +163,7 @@ function buscarProductos() {
     renderizarProductos('todos', null, texto);
 }
 
-// 6. MANEJO DE CANTIDADES Y SELECCIÓN DE CATEGORÍAS
+// 6. MANEJO DE CANTIDADES Y SELECCIÓN DE CATEGORÍAS (SIN SALTOS PABATOS)
 function modificarCantidadTarjeta(id, cambio) {
     if (!cantidadesTarjetas[id]) cantidadesTarjetas[id] = 1;
     cantidadesTarjetas[id] += cambio;
