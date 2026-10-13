@@ -36,7 +36,7 @@ const marcasData = [
 
 // PRODUCTOS DEL CATÁLOGO OFICIAL (SIN PRECIOS)
 const productosData = [
-    // QUESOS
+    // QUESOS Y LÁCTEOS
     {
         id: 1,
         nombre: "Quesos y Yogures",
@@ -59,7 +59,7 @@ const productosData = [
         imagen: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=500"
     },
 
-    // EMBUTIDOS
+    // EMBUTIDOS Y CÁRNICOS
     {
         id: 4,
         nombre: "Jamones y Salchichas",
