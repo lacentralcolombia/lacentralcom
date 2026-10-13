@@ -16,10 +16,18 @@ const nombresCategorias = {
     'salchichas': 'Embutidos - Salchichas',
     'chorizos': 'Embutidos - Chorizos',
     'mortadelas': 'Embutidos - Mortadelas',
-    'tocinetas': 'Embutidos - Tocinetas'
+    'tocinetas': 'Embutidos - Tocinetas',
+    'liqui-blueberry': 'Liquipops | Blueberry',
+    'liqui-coco': 'Liquipops | Coco',
+    'liqui-cereza': 'Liquipops | Cereza',
+    'liqui-lychee': 'Liquipops  | Lychee',
+    'liqui-sandia': 'Liquipop | Sandia',
+    'liqui-icepink': 'Liquipops | Ice pink',
+    'siropes': 'Siropes y Chamoy',
+    'escarchas': 'Escarchas y Micheladas'
 };
 
-// 1. MARCAS CON SVG
+// 1. RENDERIZAR MARCAS
 function renderizarMarcas() {
     const container = document.getElementById('brands-container');
     if (!container) return;
@@ -33,7 +41,7 @@ function renderizarMarcas() {
     });
 }
 
-// 2. MOSTRAR PRODUCTOS CON BUSCADOR Y LIGHTBOX
+// 2. RENDERIZAR PRODUCTOS Y FILTROS
 function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '') {
     const grid = document.getElementById('grid-productos');
     const statusText = document.getElementById('categoria-activa-titulo');
@@ -109,7 +117,19 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
     });
 }
 
-// 3. AMPLIAR IMAGEN (LIGHTBOX)
+// 3. CONTROL DE SUBMENÚS ACORDEÓN / ANIDADOS
+function toggleSubmenu(idSubmenu, catPadre, event) {
+    if (event) event.stopPropagation();
+    const targetSubmenu = document.getElementById(idSubmenu);
+    
+    if (targetSubmenu) {
+        targetSubmenu.classList.toggle('open');
+    }
+    
+    filtrarCategoria(catPadre, 'todos', event);
+}
+
+// 4. MODAL LIGHTBOX PARA AMPLIAR IMAGEN
 function ampliarImagen(url, titulo) {
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('img-ampliada');
@@ -127,13 +147,13 @@ function cerrarImagenModal() {
     if (modal) modal.style.display = "none";
 }
 
-// 4. BUSCADOR
+// 5. BUSCADOR EN TIEMPO REAL
 function buscarProductos() {
     const texto = document.getElementById('input-buscar').value;
     renderizarProductos('todos', null, texto);
 }
 
-// 5. CANTIDADES
+// 6. MANEJO DE CANTIDADES Y SELECCIÓN DE CATEGORÍAS
 function modificarCantidadTarjeta(id, cambio) {
     if (!cantidadesTarjetas[id]) cantidadesTarjetas[id] = 1;
     cantidadesTarjetas[id] += cambio;
@@ -141,13 +161,6 @@ function modificarCantidadTarjeta(id, cambio) {
 
     const spanQty = document.getElementById(`card-qty-${id}`);
     if (spanQty) spanQty.innerText = cantidadesTarjetas[id];
-}
-
-function toggleSubmenuEmbutidos(event) {
-    if (event) event.stopPropagation();
-    const submenu = document.getElementById('submenu-embutidos');
-    if (submenu) submenu.classList.toggle('open');
-    filtrarCategoria('embutidos', 'todos', event);
 }
 
 function filtrarCategoria(cat, subcat = null, event = null) {
@@ -160,7 +173,7 @@ function filtrarCategoria(cat, subcat = null, event = null) {
     renderizarProductos(cat, subcat);
 }
 
-// 6. CARRITO Y WHATSAPP
+// 7. GESTIÓN DEL CARRITO DE COMPRAS Y ENVÍO A WHATSAPP
 function agregarAlCarritoConCantidad(id) {
     const cantidadSeleccionada = cantidadesTarjetas[id] || 1;
     const existe = carrito.find(p => p.id === id);
