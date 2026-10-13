@@ -188,7 +188,7 @@ const productosData = [
         imagen: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=500"
     },
 
-    // --- COCTELERÍA Y MICHELADAS (DESGLOSE PERLAS EXPLOSIVAS / LIQUIPOPS) ---
+    // --- COCTELERÍA Y MICHELADAS (LIQUIPOPS) ---
     {
         id: 101,
         nombre: "Liquipops | Blueberry",
@@ -215,7 +215,7 @@ const productosData = [
     },
     {
         id: 104,
-        nombre: "Liquipops  | Lychee",
+        nombre: "Liquipops | Lychee",
         categoria: "cocteleria",
         subcategoria: "liqui-lychee",
         descripcion: "Sabor exótico y súper refrescante de lychee en perlas estallantes de textura suave.",
@@ -231,11 +231,19 @@ const productosData = [
     },
     {
         id: 106,
-        nombre: "Liquipops | Ice pink",
+        nombre: "Liquipops | Ice Pink",
         categoria: "cocteleria",
         subcategoria: "liqui-icepink",
         descripcion: "Perlas de edición especial frutos rosados y toque frío helado para frappés y granizados.",
-        imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500"
+        imagen: "liquipopsicepink.jpg"
+    },
+    {
+        id: 107,
+        nombre: "Liquipops | Fresa",
+        categoria: "cocteleria",
+        subcategoria: "liqui-fresa",
+        descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso para cócteles y micheladas.",
+        imagen: "liquipfresa.jpg"
     },
     {
         id: 20,
