@@ -34,7 +34,7 @@ const marcasData = [
     }
 ];
 
-// PRODUCTOS DEL CATÁLOGO (Mantiene tus categorías oficiales)
+// PRODUCTOS DEL CATÁLOGO OFICIAL (SIN PRECIOS)
 const productosData = [
     // QUESOS
     {
