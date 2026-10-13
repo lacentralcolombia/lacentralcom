@@ -190,12 +190,28 @@ const productosData = [
 
     // --- COCTELERÍA Y LIQUIPOPS ---
     {
-        id: 108,
-        nombre: "Liquipops | Manzana",
+        id: 1081,
+        nombre: "Liquipops x 350 gramos | Manzana verde🍏",
         categoria: "cocteleria",
         subcategoria: "liqui-manzana",
-        descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante para cócteles, sodas y micheladas.",
-        imagen: "liquipopsmanzana.jpg"
+        descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 350 gramos).",
+        imagen: "liquipopsmanzana350gr.jpg"
+    },
+    {
+        id: 1082,
+        nombre: "Liquipops x 1,150 gramos | Manzana verde🍏",
+        categoria: "cocteleria",
+        subcategoria: "liqui-manzana",
+        descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 1,150 gramos).",
+        imagen: "liquipops1150gramos.jpg"
+    },
+    {
+        id: 1083,
+        nombre: "Liquipops x 3,400 gramos | Manzana verde🍏",
+        categoria: "cocteleria",
+        subcategoria: "liqui-manzana",
+        descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 3,400 gramos).",
+        imagen: "liquipopsmanzana3400.jpg"
     },
     {
         id: 101,
