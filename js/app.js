@@ -1,6 +1,4 @@
-// =========================================================
-// CONFIGURACIÓN OFICIAL DE QUESERA Y SALSAMENTARIA LA CENTRAL
-// =========================================================
+// CONFIGURACIÓN OFICIAL
 const NUMERO_WHATSAPP = "573116017186";
 
 let carrito = [];
@@ -35,7 +33,7 @@ function renderizarMarcas() {
     });
 }
 
-// 2. MOSTRAR PRODUCTOS CON CLIC PARA AMPLIAR FOTO
+// 2. MOSTRAR PRODUCTOS CON BUSCADOR Y LIGHTBOX
 function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '') {
     const grid = document.getElementById('grid-productos');
     const statusText = document.getElementById('categoria-activa-titulo');
@@ -111,7 +109,7 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
     });
 }
 
-// 3. FUNCIONALIDAD DE AMPLIAR IMAGEN (LIGHTBOX)
+// 3. AMPLIAR IMAGEN (LIGHTBOX)
 function ampliarImagen(url, titulo) {
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('img-ampliada');
@@ -129,13 +127,13 @@ function cerrarImagenModal() {
     if (modal) modal.style.display = "none";
 }
 
-// 4. BUSCADOR RÁPIDO
+// 4. BUSCADOR
 function buscarProductos() {
     const texto = document.getElementById('input-buscar').value;
     renderizarProductos('todos', null, texto);
 }
 
-// 5. CANTIDADES EN TARJETAS
+// 5. CANTIDADES
 function modificarCantidadTarjeta(id, cambio) {
     if (!cantidadesTarjetas[id]) cantidadesTarjetas[id] = 1;
     cantidadesTarjetas[id] += cambio;
