@@ -5,7 +5,7 @@ const NUMERO_WHATSAPP = "573116017186";
 
 let carrito = [];
 
-// NOMBRES VISUALES DE LAS CATEGORÍAS
+// MAPA DE NOMBRES PARA BANNERS E INDICADORES
 const nombresCategorias = {
     'todos': 'Todas las Categorías',
     'quesos': 'Quesos y Lácteos',
@@ -17,7 +17,7 @@ const nombresCategorias = {
 };
 
 // =========================================================
-// 1. CARGAR Y MOSTRAR MARCAS DESTACADAS CON LOGOS
+// 1. CARGAR Y MOSTRAR MARCAS DESTACADAS CON VECTORES SVG
 // =========================================================
 function renderizarMarcas() {
     const container = document.getElementById('brands-container');
@@ -29,10 +29,7 @@ function renderizarMarcas() {
         const card = document.createElement('div');
         card.className = 'brand-card';
         card.innerHTML = `
-            <img src="${marca.logo}" 
-                 alt="Logo ${marca.nombre}" 
-                 class="brand-img" 
-                 onerror="this.src='https://via.placeholder.com/120x60?text=${encodeURIComponent(marca.nombre)}'">
+            <img src="${marca.logo}" alt="Logo ${marca.nombre}" class="brand-img">
         `;
         container.appendChild(card);
     });
