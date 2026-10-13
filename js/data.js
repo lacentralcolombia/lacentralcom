@@ -296,3 +296,7 @@ const productosData = [
         imagen: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?q=80&w=500"
     }
 ];
+
+// Asignación explícita para garantizar acceso global
+window.marcasData = marcasData;
+window.productosData = productosData;
