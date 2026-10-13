@@ -18,6 +18,7 @@ const nombresCategorias = {
     'chorizos': 'Embutidos - Chorizos',
     'mortadelas': 'Embutidos - Mortadelas',
     'tocinetas': 'Embutidos - Tocinetas',
+    'liqui-manzana': 'Liquipops | Manzana',
     'liqui-blueberry': 'Liquipops | Blueberry',
     'liqui-coco': 'Liquipops | Coco',
     'liqui-cereza': 'Liquipops | Cereza',
