@@ -1,3 +1,28 @@
+/* ANIMACIÓN Y ESTILOS DE LA EXPLOSIÓN DE PERLAS (POPPING SPHERES) */
+.pop-sphere-particle {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%) scale(1);
+    animation: explodeSphere 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes explodeSphere {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+    50% {
+        opacity: 0.95;
+        transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.4);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--dx) * 1.25), calc(-50% + var(--dy) * 1.25 + 35px)) scale(0);
+    }
+}
+
 /* PALETA OFICIAL LA CENTRAL */
 :root {
     --red-brand: #E3211B;
@@ -117,7 +142,7 @@ body.menu-open {
     font-weight: 800;
 }
 
-/* BOTÓN RAYITAS DE MENÚ (MÓVIL / TABLET) */
+/* BOTÓN RAYITAS DE MENÚ */
 .mobile-menu-toggle {
     display: none;
     background: rgba(227, 33, 27, 0.15);
@@ -135,9 +160,7 @@ body.menu-open {
     color: white;
 }
 
-/* ============================================================
-   MENÚ DE PANTALLA COMPLETA ROJO ELEGANTE CON EFECTOS
-   ============================================================ */
+/* MENÚ DE PANTALLA COMPLETA ROJO ELEGANTE */
 .mobile-nav {
     position: fixed;
     top: -120vh;
@@ -159,7 +182,6 @@ body.menu-open {
     top: 0;
 }
 
-/* DESTELLES AMBIENTALES FLOTANTES EN EL MENÚ ROJO */
 .red-menu-glow {
     position: absolute;
     width: 350px;
@@ -1164,7 +1186,7 @@ footer {
 
 .whatsapp-float:hover { transform: scale(1.1); }
 
-/* ADAPTACIÓN PANTALLAS PEQUEÑAS Y MÓVILES */
+/* ADAPTACIÓN PANTALLAS PEQUEÑAS */
 @media (max-width: 768px) {
     .nav-desktop { display: none; }
     .mobile-menu-toggle { display: flex; align-items: center; justify-content: center; }
