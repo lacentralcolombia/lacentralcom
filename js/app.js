@@ -30,9 +30,29 @@ const nombresCategorias = {
     'escarchas': 'Escarchas y Micheladas'
 };
 
-// ============================================================
-// EFECTO DE EXPLOSIÓN DE PERLAS (POPPING SPHERES) CON AUDIO POP
-// ============================================================
+// OBTENER PRODUCTOS DE MANERA SEGURA DE CUALQUIER ÁMBITO
+function getProductos() {
+    if (typeof productosData !== 'undefined' && Array.isArray(productosData)) {
+        return productosData;
+    }
+    if (window.productosData && Array.isArray(window.productosData)) {
+        return window.productosData;
+    }
+    return [];
+}
+
+// OBTENER MARCAS DE MANERA SEGURA
+function getMarcas() {
+    if (typeof marcasData !== 'undefined' && Array.isArray(marcasData)) {
+        return marcasData;
+    }
+    if (window.marcasData && Array.isArray(window.marcasData)) {
+        return window.marcasData;
+    }
+    return [];
+}
+
+// EFECTO DE EXPLOSIÓN DE PERLAS
 function crearEfectoExplosion(event, colorHex) {
     reproducirSonidoPop();
 
@@ -73,7 +93,6 @@ function crearEfectoExplosion(event, colorHex) {
     }
 }
 
-// SINTETIZADOR AUDIO "POP" DE PERLA
 function reproducirSonidoPop() {
     try {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -96,11 +115,11 @@ function reproducirSonidoPop() {
         osc.start();
         osc.stop(ctx.currentTime + 0.09);
     } catch (e) {
-        // Ignorar restricciones de audio del navegador
+        // Ignorar restricciones de reproducción automática
     }
 }
 
-// 1. ABRIR Y CERRAR EL MENÚ ROJO ELEGANTE
+// MENÚ MÓVIL Y NAVEGACIÓN
 function toggleMobileMenu() {
     const mobileNav = document.getElementById('mobile-nav');
     if (mobileNav) {
@@ -109,7 +128,6 @@ function toggleMobileMenu() {
     }
 }
 
-// 2. NAVEGAR A SECCIÓN Y CERRAR MENÚ AUTOMÁTICAMENTE
 function irASeccion(idSeccion) {
     const mobileNav = document.getElementById('mobile-nav');
     if (mobileNav) {
@@ -124,14 +142,14 @@ function irASeccion(idSeccion) {
     }
 }
 
-// 3. RENDERIZAR MARCAS
+// RENDERIZAR MARCAS
 function renderizarMarcas() {
-    if (typeof marcasData === 'undefined' || !Array.isArray(marcasData)) return;
+    const marcas = getMarcas();
     const container = document.getElementById('brands-container');
     if (!container) return;
     container.innerHTML = '';
     
-    marcasData.forEach(marca => {
+    marcas.forEach(marca => {
         const card = document.createElement('div');
         card.className = 'brand-card';
         card.innerHTML = `<img src="${marca.logo}" alt="Logo ${marca.nombre}" class="brand-img">`;
@@ -139,10 +157,8 @@ function renderizarMarcas() {
     });
 }
 
-// 4. RENDERIZAR PRODUCTOS
+// RENDERIZAR PRODUCTOS DEL CATÁLOGO
 function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '') {
-    if (typeof productosData === 'undefined' || !Array.isArray(productosData)) return;
-
     const grid = document.getElementById('grid-productos');
     const statusText = document.getElementById('categoria-activa-titulo');
     if (!grid) return;
@@ -154,7 +170,19 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
 
     grid.innerHTML = '';
 
-    let filtrados = productosData;
+    const productos = getProductos();
+
+    if (!productos || productos.length === 0) {
+        grid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size: 2.5rem; margin-bottom: 10px; color: var(--gold-brand);"></i>
+                <p>Cargando productos del catálogo...</p>
+            </div>
+        `;
+        return;
+    }
+
+    let filtrados = productos;
 
     if (categoria && categoria !== 'todos') {
         filtrados = filtrados.filter(p => p.categoria === categoria);
@@ -191,10 +219,13 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
             ? nombresCategorias[prod.subcategoria] 
             : (nombresCategorias[prod.categoria] || prod.categoria);
 
+        const nombreLimpio = prod.nombre.replace(/'/g, "\\'");
+        const imgLimpia = prod.imagen.replace(/'/g, "\\'");
+
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
-            <div class="product-img-wrapper" onclick="ampliarImagen('${prod.imagen}', '${prod.nombre}')">
+            <div class="product-img-wrapper" onclick="ampliarImagen('${imgLimpia}', '${nombreLimpio}')">
                 <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img" onerror="this.src='https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=500'">
                 <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver foto</span>
             </div>
@@ -221,7 +252,6 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
     });
 }
 
-// 5. NAVEGACIÓN DE CATEGORÍAS Y EXPLOSIÓN DE SABORES
 function toggleTopDropdown(idDropdown, event) {
     if (event) event.stopPropagation();
     
@@ -241,7 +271,6 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// 6. MODAL PARA AMPLIAR IMÁGENES
 function ampliarImagen(url, titulo) {
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('img-ampliada');
@@ -259,13 +288,12 @@ function cerrarImagenModal() {
     if (modal) modal.style.display = "none";
 }
 
-// 7. BUSCADOR
 function buscarProductos() {
-    const texto = document.getElementById('input-buscar').value;
+    const input = document.getElementById('input-buscar');
+    const texto = input ? input.value : '';
     renderizarProductos('todos', null, texto);
 }
 
-// 8. MANEJO DE CANTIDADES Y FILTRADO POR BOTONES
 function modificarCantidadTarjeta(id, cambio) {
     if (!cantidadesTarjetas[id]) cantidadesTarjetas[id] = 1;
     cantidadesTarjetas[id] += cambio;
@@ -291,15 +319,15 @@ function filtrarCategoria(cat, subcat = null, event = null, colorExplosion = nul
     renderizarProductos(cat, subcat);
 }
 
-// 9. CARRITO DE COMPRAS Y ENVÍO A WHATSAPP
 function agregarAlCarritoConCantidad(id) {
     const cantidadSeleccionada = cantidadesTarjetas[id] || 1;
     const existe = carrito.find(p => p.id === id);
+    const productos = getProductos();
 
     if (existe) {
         existe.cantidad += cantidadSeleccionada;
     } else {
-        const prod = productosData.find(p => p.id === id);
+        const prod = productos.find(p => p.id === id);
         if (prod) {
             carrito.push({ ...prod, cantidad: cantidadSeleccionada });
         }
@@ -404,8 +432,17 @@ function enviarPedidoWhatsApp() {
     window.open(url, '_blank');
 }
 
-// INICIALIZACIÓN
-window.addEventListener('DOMContentLoaded', () => {
+// INICIALIZACIÓN CON REINTENTO AUTOMÁTICO
+function iniciarApp() {
     renderizarProductos();
     renderizarMarcas();
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', iniciarApp);
+} else {
+    iniciarApp();
+}
+
+// Reintento de respaldo por si data.js tarda en responder
+window.addEventListener('load', iniciarApp);
