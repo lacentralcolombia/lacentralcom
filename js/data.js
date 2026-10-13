@@ -219,7 +219,7 @@ const productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-cereza",
         descripcion: "Perlas explosivas con el toque dulce e intenso de la cereza para acompañar tus tragos.",
-        imagen: "liquicereza.jpg"
+        imagen: "liquipopscereza.jpg"
     },
     {
         id: 104,
@@ -284,7 +284,7 @@ const productosData = [
         nombre: "Platos y Cubiertos",
         categoria: "desechables",
         subcategoria: "general",
-        descripcion: "Platos hondos, panderos, tenedores, cucharas y cuchillos desechables resistentes.",
+        descripcion: "Platos hondos, panderos, tenedores, cucharas y cuchillos resistentes.",
         imagen: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=500"
     },
     {
