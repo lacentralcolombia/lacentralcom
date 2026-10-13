@@ -235,7 +235,7 @@ const productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-sandia",
         descripcion: "Explosión refrescante de jugosa sandía para escarchar y combinar en tus micheladas.",
-        imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500"
+        imagen: "liquipopssandia.jpg"
     },
     {
         id: 106,
@@ -252,6 +252,38 @@ const productosData = [
         subcategoria: "liqui-fresa",
         descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso para cócteles y micheladas.",
         imagen: "liquipfresa.jpg"
+    },
+    {
+        id: 109,
+        nombre: "Liquipops | Chicle",
+        categoria: "cocteleria",
+        subcategoria: "liqui-chicle",
+        descripcion: "Perlas explosivas con dulce y divertido sabor a chicle para cócteles, sodas y frappés.",
+        imagen: "liquipopschicle.jpg"
+    },
+    {
+        id: 110,
+        nombre: "Liquipops | Mango Biche",
+        categoria: "cocteleria",
+        subcategoria: "liqui-mango",
+        descripcion: "Sabor ácido y refrescante a mango biche con centro estallante, ideal para micheladas y bebidas.",
+        imagen: "liquipopsmango.jpg"
+    },
+    {
+        id: 111,
+        nombre: "Liquipops | Maracuyá",
+        categoria: "cocteleria",
+        subcategoria: "liqui-maracuya",
+        descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá para cócteles y sodas.",
+        imagen: "liquipopsmaracuya.jpg"
+    },
+    {
+        id: 112,
+        nombre: "Liquipops | Café",
+        categoria: "cocteleria",
+        subcategoria: "liqui-cafe",
+        descripcion: "Perlas de edición especial con intenso aroma y sabor a café para frappés, malteadas y cócteles.",
+        imagen: "liquipopscafe.jpg"
     },
     {
         id: 20,
