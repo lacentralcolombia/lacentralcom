@@ -203,7 +203,7 @@ const productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-coco",
         descripcion: "Perlas explosivas sabor a coco cremoso, ideales para piña colada y bebidas tropicales.",
-        imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500"
+        imagen: "liquipopscoco.jpg"
     },
     {
         id: 103,
