@@ -2,7 +2,7 @@
 :root {
     --red-brand: #E3211B;
     --red-hover: #C21813;
-    --red-deep: #8A0B07;
+    --red-deep: #7A0A06;
     --gold-brand: #E6B64F;
     --black-bg: #171714;
     --dark-card: #20201C;
@@ -10,7 +10,7 @@
     --white-warm: #FFFDF8;
     --cream-soft: #F7F2E8;
     --text-muted: #B8B5AD;
-    /* Redes Sociales Oficiales */
+    /* Redes Sociales */
     --fb-color: #1877F2;
     --tiktok-color: #000000;
     --wa-color: #25D366;
@@ -27,7 +27,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* DESPLAZAMIENTO SUAVE COMPENSADO */
+/* MARGEN DE DESPLAZAMIENTO PARA ENLACES */
 section, #catalogo, #beneficios, #marcas, #nosotros, #contacto {
     scroll-margin-top: 90px;
 }
@@ -45,7 +45,7 @@ body.menu-open {
 
 .text-gold { color: var(--gold-brand); }
 
-/* BARRA DE NAVEGACIÓN PRINCIPAL */
+/* NAVEGACIÓN SUPERIOR */
 .navbar {
     position: sticky;
     top: 0;
@@ -117,7 +117,9 @@ body.menu-open {
     font-weight: 800;
 }
 
+/* BOTÓN RAYITAS DE MENÚ (MÓVIL / TABLET) */
 .mobile-menu-toggle {
+    display: none;
     background: rgba(227, 33, 27, 0.15);
     border: 1px solid var(--gold-brand);
     color: var(--gold-brand);
@@ -138,17 +140,17 @@ body.menu-open {
    ============================================================ */
 .mobile-nav {
     position: fixed;
-    top: -110vh;
+    top: -120vh;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #8A0B07 0%, #E3211B 50%, #580301 100%);
+    background: linear-gradient(135deg, #7A0A06 0%, #C21813 50%, #4A0201 100%);
     z-index: 2500;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 30px 8%;
-    transition: top 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: top 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-y: auto;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
 }
@@ -157,11 +159,11 @@ body.menu-open {
     top: 0;
 }
 
-/* EFECTOS LUMINOSOS FLOTANTES */
+/* DESTELLES AMBIENTALES FLOTANTES EN EL MENÚ ROJO */
 .red-menu-glow {
     position: absolute;
-    width: 380px;
-    height: 380px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
     filter: blur(120px);
     pointer-events: none;
@@ -169,15 +171,15 @@ body.menu-open {
 }
 
 .red-glow-1 {
-    background: rgba(230, 182, 79, 0.25);
-    top: -100px;
-    right: -100px;
+    background: rgba(230, 182, 79, 0.3);
+    top: -80px;
+    right: -80px;
 }
 
 .red-glow-2 {
     background: rgba(255, 255, 255, 0.12);
-    bottom: -100px;
-    left: -100px;
+    bottom: -80px;
+    left: -80px;
 }
 
 .mobile-nav-header {
@@ -187,7 +189,7 @@ body.menu-open {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(230, 182, 79, 0.3);
-    padding-bottom: 20px;
+    padding-bottom: 18px;
 }
 
 .mobile-nav-brand {
@@ -220,7 +222,7 @@ body.menu-open {
 }
 
 .close-mobile-nav {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.35);
     border: 2px solid var(--gold-brand);
     color: var(--gold-brand);
     width: 44px;
@@ -243,7 +245,7 @@ body.menu-open {
 .mobile-nav-body {
     position: relative;
     z-index: 2;
-    margin: 30px 0;
+    margin: 25px 0;
 }
 
 .mobile-nav-subtitle {
@@ -269,11 +271,11 @@ body.menu-open {
     background: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(230, 182, 79, 0.25);
-    padding: 16px 22px;
+    padding: 15px 22px;
     border-radius: 16px;
     color: var(--white-warm);
     text-decoration: none;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 600;
     transition: all 0.3s;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -304,11 +306,11 @@ body.menu-open {
     gap: 10px;
     background: var(--wa-color);
     color: white;
-    padding: 15px;
+    padding: 14px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 1rem;
     box-shadow: 0 6px 20px rgba(0,0,0,0.4);
     transition: transform 0.3s;
 }
@@ -1162,10 +1164,10 @@ footer {
 
 .whatsapp-float:hover { transform: scale(1.1); }
 
-/* ADAPTACIÓN PANTALLAS PEQUEÑAS */
+/* ADAPTACIÓN PANTALLAS PEQUEÑAS Y MÓVILES */
 @media (max-width: 768px) {
     .nav-desktop { display: none; }
-    .mobile-menu-toggle { display: block; }
+    .mobile-menu-toggle { display: flex; align-items: center; justify-content: center; }
     .about-container { grid-template-columns: 1fr; }
     .hero-title { font-size: 2.2rem; }
     .hero-subtitle-brand { font-size: 1rem; letter-spacing: 2px; }
