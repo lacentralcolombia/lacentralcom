@@ -87,7 +87,7 @@
             <div class="benefit-card">
                 <div class="benefit-icon"><i class="fa-solid fa-list-check"></i></div>
                 <h3>Arma tu pedido</h3>
-                <p>Añade fácilmente los productos a tu lista sin preocuparte por precios en pantalla.</p>
+                <p>Elige las cantidades exactas y añade los productos fácilmente sin precios en pantalla.</p>
             </div>
             <div class="benefit-card">
                 <div class="benefit-icon"><i class="fa-brands fa-whatsapp"></i></div>
@@ -97,56 +97,66 @@
         </div>
     </section>
 
-    <!-- CATÁLOGO CON BARRA LATERAL (SIDEBAR) Y DESPLIEGUE VERTICAL -->
+    <!-- CATÁLOGO CON LATERAL, SUBCATEGORÍAS Y SELECTOR DE CANTIDAD -->
     <section id="catalogo" class="catalog-section">
         <div class="section-header">
             <h2 class="section-title">Catálogo de Productos</h2>
-            <p class="section-subtitle">Selecciona una categoría a la izquierda para filtrar o explora todo el catálogo desplazándote hacia abajo</p>
+            <p class="section-subtitle">Selecciona una categoría a la izquierda para desplegar sus productos y ajustar la cantidad deseada</p>
         </div>
 
         <div class="catalog-layout">
-            <!-- LATERAL IZQUIERDA: MENÚ DE SUBTÍTULOS / CATEGORÍAS -->
+            <!-- LATERAL IZQUIERDA: MENÚ DE CATEGORÍAS -->
             <aside class="catalog-sidebar">
                 <h3 class="sidebar-title"><i class="fa-solid fa-layer-group"></i> Categorías</h3>
                 <ul class="sidebar-menu">
                     <li>
-                        <button class="sidebar-btn active" onclick="filtrarCategoria('todos', event)">
+                        <button class="sidebar-btn active" onclick="filtrarCategoria('todos', null, event)">
                             <i class="fa-solid fa-border-all"></i>
                             <span>Todas las Categorías</span>
                         </button>
                     </li>
                     <li>
-                        <button class="sidebar-btn" onclick="filtrarCategoria('quesos', event)">
+                        <button class="sidebar-btn" onclick="filtrarCategoria('quesos', null, event)">
                             <i class="fa-solid fa-cheese"></i>
                             <span>Quesos y Lácteos</span>
                         </button>
                     </li>
                     <li>
-                        <button class="sidebar-btn" onclick="filtrarCategoria('embutidos', event)">
+                        <button class="sidebar-btn" onclick="toggleSubmenuEmbutidos(event)">
                             <i class="fa-solid fa-drumstick-bite"></i>
                             <span>Embutidos y Cárnicos</span>
+                            <i class="fa-solid fa-chevron-down submenu-arrow"></i>
                         </button>
+                        <!-- SUBMENÚ DE EMBUTIDOS -->
+                        <ul class="submenu-embutidos" id="submenu-embutidos">
+                            <li><button class="sub-btn" onclick="filtrarCategoria('embutidos', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Ver todos los embutidos</button></li>
+                            <li><button class="sub-btn" onclick="filtrarCategoria('embutidos', 'jamones', event)"><i class="fa-solid fa-slash-stroke"></i> Jamones</button></li>
+                            <li><button class="sub-btn" onclick="filtrarCategoria('embutidos', 'salchichas', event)"><i class="fa-solid fa-hotdog"></i> Salchichas</button></li>
+                            <li><button class="sub-btn" onclick="filtrarCategoria('embutidos', 'chorizos', event)"><i class="fa-solid fa-bacon"></i> Chorizos</button></li>
+                            <li><button class="sub-btn" onclick="filtrarCategoria('embutidos', 'mortadelas', event)"><i class="fa-solid fa-circle"></i> Mortadelas</button></li>
+                            <li><button class="sub-btn" onclick="filtrarCategoria('embutidos', 'tocinetas', event)"><i class="fa-solid fa-stripes"></i> Tocinetas</button></li>
+                        </ul>
                     </li>
                     <li>
-                        <button class="sidebar-btn" onclick="filtrarCategoria('alimentos', event)">
+                        <button class="sidebar-btn" onclick="filtrarCategoria('alimentos', null, event)">
                             <i class="fa-solid fa-jar"></i>
                             <span>Alimentos y Condimentos</span>
                         </button>
                     </li>
                     <li>
-                        <button class="sidebar-btn" onclick="filtrarCategoria('frutos-secos', event)">
+                        <button class="sidebar-btn" onclick="filtrarCategoria('frutos-secos', null, event)">
                             <i class="fa-solid fa-seedling"></i>
                             <span>Frutos Secos</span>
                         </button>
                     </li>
                     <li>
-                        <button class="sidebar-btn" onclick="filtrarCategoria('cocteleria', event)">
+                        <button class="sidebar-btn" onclick="filtrarCategoria('cocteleria', null, event)">
                             <i class="fa-solid fa-wine-glass-sparkles"></i>
                             <span>Coctelería y Micheladas</span>
                         </button>
                     </li>
                     <li>
-                        <button class="sidebar-btn" onclick="filtrarCategoria('desechables', event)">
+                        <button class="sidebar-btn" onclick="filtrarCategoria('desechables', null, event)">
                             <i class="fa-solid fa-box-open"></i>
                             <span>Plásticos y Desechables</span>
                         </button>
@@ -154,13 +164,13 @@
                 </ul>
             </aside>
 
-            <!-- CONTENIDO DERECHO: PRODUCTOS DESPLEGADOS HACIA ABAJO -->
+            <!-- CONTENIDO DERECHO: GRID DE PRODUCTOS -->
             <main class="catalog-content">
                 <div class="catalog-status-bar">
                     <span id="categoria-activa-titulo">Mostrando: Todas las Categorías</span>
                 </div>
                 <div id="grid-productos" class="product-grid">
-                    <!-- Los productos se cargan dinámicamente vía JavaScript -->
+                    <!-- Productos renderizados dinámicamente -->
                 </div>
             </main>
         </div>
@@ -241,7 +251,7 @@
         </div>
 
         <div class="cart-body" id="cart-items-container">
-            <!-- Carga de ítems mediante JS -->
+            <!-- Carga de ítems vía JS -->
         </div>
 
         <div class="cart-footer">
