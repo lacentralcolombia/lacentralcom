@@ -20,9 +20,10 @@ const nombresCategorias = {
     'liqui-blueberry': 'Liquipops | Blueberry',
     'liqui-coco': 'Liquipops | Coco',
     'liqui-cereza': 'Liquipops | Cereza',
-    'liqui-lychee': 'Liquipops  | Lychee',
+    'liqui-lychee': 'Liquipops | Lychee',
     'liqui-sandia': 'Liquipop | Sandia',
-    'liqui-icepink': 'Liquipops | Ice pink',
+    'liqui-icepink': 'Liquipops | Ice Pink',
+    'liqui-fresa': 'Liquipops | Fresa',
     'siropes': 'Siropes y Chamoy',
     'escarchas': 'Escarchas y Micheladas'
 };
@@ -117,17 +118,26 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
     });
 }
 
-// 3. CONTROL DE SUBMENÚS ACORDEÓN / ANIDADOS
-function toggleSubmenu(idSubmenu, catPadre, event) {
+// 3. CONTROL DE DESPLEGABLES FLOTANTES DE LA BARRA SUPERIOR
+function toggleTopDropdown(idDropdown, event) {
     if (event) event.stopPropagation();
-    const targetSubmenu = document.getElementById(idSubmenu);
     
-    if (targetSubmenu) {
-        targetSubmenu.classList.toggle('open');
+    document.querySelectorAll('.top-dropdown-content').forEach(d => {
+        if (d.id !== idDropdown) d.classList.remove('open');
+    });
+
+    const target = document.getElementById(idDropdown);
+    if (target) {
+        target.classList.toggle('open');
     }
-    
-    filtrarCategoria(catPadre, 'todos', event);
 }
+
+// CERRAR DESPLEGABLES AL HACER CLIC FUERA
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.top-dropdown')) {
+        document.querySelectorAll('.top-dropdown-content').forEach(d => d.classList.remove('open'));
+    }
+});
 
 // 4. MODAL LIGHTBOX PARA AMPLIAR IMAGEN
 function ampliarImagen(url, titulo) {
@@ -164,12 +174,14 @@ function modificarCantidadTarjeta(id, cambio) {
 }
 
 function filtrarCategoria(cat, subcat = null, event = null) {
-    document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.top-nav-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.top-dropdown-content button').forEach(b => b.classList.remove('active'));
 
     if (event && event.currentTarget) {
         event.currentTarget.classList.add('active');
     }
+    
+    document.querySelectorAll('.top-dropdown-content').forEach(d => d.classList.remove('open'));
     renderizarProductos(cat, subcat);
 }
 
