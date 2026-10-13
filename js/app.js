@@ -1,9 +1,9 @@
-// CONFIGURACIÓN OFICIAL DE WHATSAPP
+// NUMERO DE WHATSAPP CON CODIGO DE PAIS COLOMBIA
 const NUMERO_WHATSAPP = "573116017186";
 
 let carrito = [];
 
-// CARGA INICIAL DEL CATÁLOGO
+// CARGAR PRODUCTOS DEL CATÁLOGO
 function renderizarProductos(categoria = 'todos') {
     const grid = document.getElementById('grid-productos');
     grid.innerHTML = '';
@@ -33,6 +33,18 @@ function renderizarProductos(categoria = 'todos') {
     });
 }
 
+// CARGAR MARCAS DESTACADAS
+function renderizarMarcas() {
+    const container = document.getElementById('brands-container');
+    container.innerHTML = '';
+    marcasData.forEach(marca => {
+        const badge = document.createElement('span');
+        badge.className = 'brand-badge';
+        badge.innerText = marca;
+        container.appendChild(badge);
+    });
+}
+
 // FILTRAR CATEGORÍAS
 function filtrarCategoria(cat, event) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -40,7 +52,7 @@ function filtrarCategoria(cat, event) {
     renderizarProductos(cat);
 }
 
-// FUNCIONALIDAD DEL CARRITO DE COMPRAS
+// LÓGICA DE CARRITO DE COMPRAS
 function agregarAlCarrito(id) {
     const existe = carrito.find(p => p.id === id);
     if (existe) {
@@ -115,7 +127,7 @@ function toggleMobileMenu() {
     document.getElementById('mobile-nav').classList.toggle('open');
 }
 
-// ENVIAR LISTADO SIN PRECIOS A WHATSAPP
+// ENVIAR SOLICITUD SIN PRECIOS A WHATSAPP
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) {
         alert('Por favor agrega al menos un producto a tu pedido.');
@@ -123,13 +135,13 @@ function enviarPedidoWhatsApp() {
     }
 
     let msg = "🛒 *SOLICITUD DE PEDIDO - LA CENTRAL*\n\n";
-    msg += "Hola, deseo consultar la disponibilidad y precios de los siguientes productos:\n\n";
+    msg += "Hola, deseo consultar la disponibilidad de los siguientes productos:\n\n";
 
     carrito.forEach(p => {
         msg += `• *${p.nombre}* (${p.cantidad} unidad${p.cantidad > 1 ? 'es' : ''})\n`;
     });
 
-    msg += "\n📍 *Ubicación del local:* Carrera 12 #8-11 Local 2, Floridablanca, Valle del Cauca.\n\n";
+    msg += "\n📍 *Ubicación:* Carrera 12 N.º 8-11 Local 2, Barrio La Cabaña, Florida, Valle.\n\n";
     msg += "Quedo atento a su respuesta. ¡Muchas gracias!";
 
     const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(msg)}`;
@@ -139,4 +151,5 @@ function enviarPedidoWhatsApp() {
 // INICIALIZACIÓN
 document.addEventListener('DOMContentLoaded', () => {
     renderizarProductos();
+    renderizarMarcas();
 });
