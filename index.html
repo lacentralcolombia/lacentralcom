@@ -57,17 +57,15 @@
         </ul>
     </div>
 
-    <!-- PORTADA PRINCIPAL DE IMPACTO -->
+    <!-- PORTADA PRINCIPAL -->
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <span class="hero-badge"><i class="fa-solid fa-award"></i> ¡La mejor opción en tu casa y tu negocio!</span>
-            
             <h1 class="hero-title">
                 LA CENTRAL
                 <span class="hero-subtitle-brand">QUESERA Y SALSAMENTARIA</span>
             </h1>
-            
             <p class="hero-subtitle">Descubre nuestra amplia variedad de quesos, embutidos, alimentos, frutos secos, insumos para coctelería y desechables.</p>
             <div class="hero-buttons">
                 <a href="#catalogo" class="btn-primary"><i class="fa-solid fa-store"></i> Explorar catálogo</a>
@@ -76,7 +74,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE BENEFICIOS -->
+    <!-- BENEFICIOS -->
     <section id="beneficios" class="benefits-section">
         <div class="benefits-grid">
             <div class="benefit-card">
@@ -87,7 +85,7 @@
             <div class="benefit-card">
                 <div class="benefit-icon"><i class="fa-solid fa-list-check"></i></div>
                 <h3>Arma tu pedido</h3>
-                <p>Elige las cantidades exactas y añade los productos fácilmente sin precios en pantalla.</p>
+                <p>Elige las cantidades exactas y añade los productos fácilmente a tu lista.</p>
             </div>
             <div class="benefit-card">
                 <div class="benefit-icon"><i class="fa-brands fa-whatsapp"></i></div>
@@ -97,15 +95,21 @@
         </div>
     </section>
 
-    <!-- CATÁLOGO CON LATERAL, SUBCATEGORÍAS Y SELECTOR DE CANTIDAD -->
+    <!-- CATÁLOGO ESTILO TREINTA CON BUSCADOR Y AMPLIACIÓN DE IMAGEN -->
     <section id="catalogo" class="catalog-section">
         <div class="section-header">
-            <h2 class="section-title">Catálogo de Productos</h2>
-            <p class="section-subtitle">Selecciona una categoría a la izquierda para desplegar sus productos y ajustar la cantidad deseada</p>
+            <h2 class="section-title">Catálogo Digital</h2>
+            <p class="section-subtitle">Haz clic en la imagen de cualquier producto para verla en tamaño grande</p>
+            
+            <!-- BUSCADOR RÁPIDO DE PRODUCTOS (ESTILO TREINTA) -->
+            <div class="search-bar-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="input-buscar" placeholder="Buscar producto (ej: salchicha, queso, maní...)" onkeyup="buscarProductos()">
+            </div>
         </div>
 
         <div class="catalog-layout">
-            <!-- LATERAL IZQUIERDA: MENÚ DE CATEGORÍAS -->
+            <!-- LATERAL IZQUIERDA: CATEGORÍAS Y SUBCATEGORÍAS -->
             <aside class="catalog-sidebar">
                 <h3 class="sidebar-title"><i class="fa-solid fa-layer-group"></i> Categorías</h3>
                 <ul class="sidebar-menu">
@@ -127,7 +131,6 @@
                             <span>Embutidos y Cárnicos</span>
                             <i class="fa-solid fa-chevron-down submenu-arrow"></i>
                         </button>
-                        <!-- SUBMENÚ DE EMBUTIDOS -->
                         <ul class="submenu-embutidos" id="submenu-embutidos">
                             <li><button class="sub-btn" onclick="filtrarCategoria('embutidos', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Ver todos los embutidos</button></li>
                             <li><button class="sub-btn" onclick="filtrarCategoria('embutidos', 'jamones', event)"><i class="fa-solid fa-slash-stroke"></i> Jamones</button></li>
@@ -164,28 +167,28 @@
                 </ul>
             </aside>
 
-            <!-- CONTENIDO DERECHO: GRID DE PRODUCTOS -->
+            <!-- CONTENIDO PRODUCTOS -->
             <main class="catalog-content">
                 <div class="catalog-status-bar">
                     <span id="categoria-activa-titulo">Mostrando: Todas las Categorías</span>
                 </div>
                 <div id="grid-productos" class="product-grid">
-                    <!-- Productos renderizados dinámicamente -->
+                    <!-- Productos dinámicos -->
                 </div>
             </main>
         </div>
     </section>
 
-    <!-- MARCAS DESTACADAS CON LOGOS -->
+    <!-- MARCAS DESTACADAS -->
     <section id="marcas" class="brands-section">
         <h3 class="brands-title"><i class="fa-solid fa-star"></i> Algunas de Nuestras Marcas Destacadas</h3>
         <p class="brands-subtitle">Trabajamos de la mano con los mejores proveedores para ofrecerte calidad garantizada.</p>
         <div class="brands-grid" id="brands-container">
-            <!-- Carga dinámica mediante JavaScript -->
+            <!-- Logos SVG -->
         </div>
     </section>
 
-    <!-- SECCIÓN NOSOTROS -->
+    <!-- SOBRE NOSOTROS -->
     <section id="nosotros" class="about-section">
         <div class="about-container">
             <div class="about-text">
@@ -203,7 +206,7 @@
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA / FOOTER -->
+    <!-- FOOTER -->
     <footer id="contacto">
         <div class="footer-container">
             <div class="footer-brand">
@@ -242,6 +245,13 @@
         </div>
     </footer>
 
+    <!-- MODAL LIGHTBOX PARA AMPLIAR FOTOGRAFÍAS (ESTILO TREINTA) -->
+    <div class="image-modal" id="image-modal" onclick="cerrarImagenModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="img-ampliada" alt="Imagen ampliada">
+        <div id="caption-modal" class="modal-caption"></div>
+    </div>
+
     <!-- OVERLAY Y CARRITO SLIDE-OVER -->
     <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
     <div class="cart-drawer" id="cart-drawer">
@@ -251,7 +261,7 @@
         </div>
 
         <div class="cart-body" id="cart-items-container">
-            <!-- Carga de ítems vía JS -->
+            <!-- Carga de ítems -->
         </div>
 
         <div class="cart-footer">
