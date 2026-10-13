@@ -25,7 +25,7 @@
         <nav class="nav-desktop">
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#catalogo" class="nav-menu-highlight"><i class="fa-solid fa-utensils"></i> Menú / Catálogo</a></li>
+                <li><a href="#catalogo">Menú / Catálogo</a></li>
                 <li><a href="#beneficios">Beneficios</a></li>
                 <li><a href="#marcas">Marcas</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
@@ -45,16 +45,40 @@
         </div>
     </header>
 
-    <!-- MENÚ DESPLEGABLE MÓVIL -->
+    <!-- MENÚ DE PANTALLA COMPLETA ROJO ELEGANTE (RAYITAS) -->
     <div class="mobile-nav" id="mobile-nav">
-        <ul>
-            <li><a href="#inicio" onclick="toggleMobileMenu()">Inicio</a></li>
-            <li><a href="#catalogo" onclick="toggleMobileMenu()">Menú / Catálogo</a></li>
-            <li><a href="#beneficios" onclick="toggleMobileMenu()">Beneficios</a></li>
-            <li><a href="#marcas" onclick="toggleMobileMenu()">Marcas</a></li>
-            <li><a href="#nosotros" onclick="toggleMobileMenu()">Nosotros</a></li>
-            <li><a href="#contacto" onclick="toggleMobileMenu()">Contacto</a></li>
-        </ul>
+        <!-- EFECTOS LUMINOSOS DORADOS DE FONDO -->
+        <div class="red-menu-glow red-glow-1"></div>
+        <div class="red-menu-glow red-glow-2"></div>
+
+        <div class="mobile-nav-header">
+            <div class="mobile-nav-brand">
+                <img src="assetslogo..jpg" alt="LA CENTRAL Logo" class="mobile-logo-img">
+                <div>
+                    <span class="mobile-brand-title">LA CENTRAL</span>
+                    <span class="mobile-brand-sub">Quesera & Salsamentaria</span>
+                </div>
+            </div>
+            <button class="close-mobile-nav" onclick="toggleMobileMenu()" aria-label="Cerrar menú">&times;</button>
+        </div>
+
+        <div class="mobile-nav-body">
+            <p class="mobile-nav-subtitle"><i class="fa-solid fa-compass text-gold"></i> MENÚ DE NAVEGACIÓN</p>
+            <ul class="mobile-nav-links">
+                <li><a href="#inicio" onclick="irASeccion('#inicio')"><i class="fa-solid fa-house text-gold"></i> Inicio</a></li>
+                <li><a href="#catalogo" onclick="irASeccion('#catalogo')"><i class="fa-solid fa-utensils text-gold"></i> Menú / Catálogo completo</a></li>
+                <li><a href="#beneficios" onclick="irASeccion('#beneficios')"><i class="fa-solid fa-star text-gold"></i> Beneficios</a></li>
+                <li><a href="#marcas" onclick="irASeccion('#marcas')"><i class="fa-solid fa-award text-gold"></i> Nuestras Marcas</a></li>
+                <li><a href="#nosotros" onclick="irASeccion('#nosotros')"><i class="fa-solid fa-building text-gold"></i> Nosotros</a></li>
+                <li><a href="#contacto" onclick="irASeccion('#contacto')"><i class="fa-solid fa-headset text-gold"></i> Contacto y Ubicación</a></li>
+            </ul>
+        </div>
+
+        <div class="mobile-nav-footer">
+            <a href="https://wa.me/573116017186" target="_blank" class="mobile-wa-btn">
+                <i class="fa-brands fa-whatsapp"></i> Chatear por WhatsApp
+            </a>
+        </div>
     </div>
 
     <!-- PORTADA PRINCIPAL -->
@@ -95,16 +119,11 @@
         </div>
     </section>
 
-    <!-- CATÁLOGO / MENÚ CON FONDO ESPECIAL Y MENÚ FIJO -->
+    <!-- CATÁLOGO / MENÚ DIGITAL -->
     <section id="catalogo" class="catalog-section">
-        <!-- EFECTOS LUMINOSOS AMBIENTALES DE FONDO -->
-        <div class="ambient-glow glow-gold"></div>
-        <div class="ambient-glow glow-red"></div>
-
         <div class="section-header">
-            <span class="menu-pill-badge"><i class="fa-solid fa-book-open"></i> NUESTRA CARTA DIGITAL</span>
-            <h2 class="section-title">Menú & Catálogo Digital</h2>
-            <p class="section-subtitle">Selecciona una categoría o busca tu producto favorito. Presiona la imagen para ampliarla.</p>
+            <h2 class="section-title">Menú y Catálogo Digital</h2>
+            <p class="section-subtitle">Haz clic en la imagen de cualquier producto para verla en tamaño grande</p>
             
             <!-- BUSCADOR RÁPIDO DE PRODUCTOS -->
             <div class="search-bar-container">
@@ -114,8 +133,8 @@
         </div>
 
         <div class="catalog-layout-full">
-            <!-- BARRA HORIZONTAL PEGAJOSA (STICKY) DE CATEGORÍAS -->
-            <nav class="catalog-top-nav" id="sticky-menu-bar">
+            <!-- BARRA HORIZONTAL DE CATEGORÍAS -->
+            <nav class="catalog-top-nav">
                 <div class="top-nav-menu">
                     <button class="top-nav-btn active" onclick="filtrarCategoria('todos', null, event)">
                         <i class="fa-solid fa-border-all"></i> Todas
@@ -128,7 +147,7 @@
                     <!-- DESPLEGABLE EMBUTIDOS -->
                     <div class="top-dropdown">
                         <button class="top-nav-btn" onclick="toggleTopDropdown('dropdown-embutidos', event)">
-                            <i class="fa-solid fa-drumstick-bite"></i> Embutidos <i class="fa-solid fa-chevron-down arrow"></i>
+                            <i class="fa-solid fa-drumstick-bite"></i> Embutidos y Cárnicos <i class="fa-solid fa-chevron-down arrow"></i>
                         </button>
                         <div class="top-dropdown-content" id="dropdown-embutidos">
                             <button onclick="filtrarCategoria('embutidos', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Ver todos los embutidos</button>
@@ -141,7 +160,7 @@
                     </div>
 
                     <button class="top-nav-btn" onclick="filtrarCategoria('alimentos', null, event)">
-                        <i class="fa-solid fa-jar"></i> Alimentos & Condimentos
+                        <i class="fa-solid fa-jar"></i> Alimentos y Condimentos
                     </button>
 
                     <button class="top-nav-btn" onclick="filtrarCategoria('frutos-secos', null, event)">
@@ -150,82 +169,12 @@
 
                     <!-- DESPLEGABLE COCTELERÍA Y LIQUIPOPS -->
                     <div class="top-dropdown">
-                        <button class="top-nav-btn highlight-gold" onclick="toggleTopDropdown('dropdown-cocteleria', event)">
-                            <i class="fa-solid fa-wine-glass-sparkles"></i> Coctelería <i class="fa-solid fa-chevron-down arrow"></i>
+                        <button class="top-nav-btn" onclick="toggleTopDropdown('dropdown-cocteleria', event)">
+                            <i class="fa-solid fa-wine-glass-sparkles"></i> Coctelería y Micheladas <i class="fa-solid fa-chevron-down arrow"></i>
                         </button>
                         <div class="top-dropdown-content" id="dropdown-cocteleria">
                             <button onclick="filtrarCategoria('cocteleria', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Toda coctelería</button>
                             
                             <div class="sub-dropdown-header"><i class="fa-solid fa-burst text-gold"></i> Perlas Explosivas (Liqui POPS):</div>
                             <div class="liqui-subgrid">
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-blueberry', event)"><i class="fa-solid fa-circle" style="color: #4a90e2;"></i> Blueberry</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-coco', event)"><i class="fa-solid fa-circle" style="color: #ffffff;"></i> Coco</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-cereza', event)"><i class="fa-solid fa-circle" style="color: #e3211b;"></i> Cereza</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-lychee', event)"><i class="fa-solid fa-circle" style="color: #f5a623;"></i> Lychee</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-sandia', event)"><i class="fa-solid fa-circle" style="color: #7ed321;"></i> Sandía</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-icepink', event)"><i class="fa-solid fa-circle" style="color: #ff69b4;"></i> Ice Pink</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-fresa', event)"><i class="fa-solid fa-circle" style="color: #e3211b;"></i> Fresa</button>
-                            </div>
-
-                            <button onclick="filtrarCategoria('cocteleria', 'siropes', event)"><i class="fa-solid fa-bottle-droplet"></i> Siropes y Chamoy</button>
-                            <button onclick="filtrarCategoria('cocteleria', 'escarchas', event)"><i class="fa-solid fa-compact-disc"></i> Escarchas y Micheladas</button>
-                        </div>
-                    </div>
-
-                    <button class="top-nav-btn" onclick="filtrarCategoria('desechables', null, event)">
-                        <i class="fa-solid fa-box-open"></i> Desechables
-                    </button>
-                </div>
-            </nav>
-
-            <!-- PRODUCTOS EN CUADRÍCULA COMPLETA -->
-            <main class="catalog-content-full">
-                <div class="catalog-status-bar" id="catalog-status-anchor">
-                    <span id="categoria-activa-titulo">Mostrando: Todas las Categorías</span>
-                </div>
-                <div id="grid-productos" class="product-grid-full">
-                    <!-- Productos dinámicos -->
-                </div>
-            </main>
-        </div>
-    </section>
-
-    <!-- MARCAS DESTACADAS -->
-    <section id="marcas" class="brands-section">
-        <h3 class="brands-title"><i class="fa-solid fa-star"></i> Algunas de Nuestras Marcas Destacadas</h3>
-        <p class="brands-subtitle">Trabajamos de la mano con los mejores proveedores para ofrecerte calidad garantizada.</p>
-        <div class="brands-grid" id="brands-container">
-            <!-- Logos SVG -->
-        </div>
-    </section>
-
-    <!-- SOBRE NOSOTROS -->
-    <section id="nosotros" class="about-section">
-        <div class="about-container">
-            <div class="about-text">
-                <h2>Sobre QUESERA Y SALSAMENTARIA LA CENTRAL</h2>
-                <p>Somos tu mejor opción en Florida, Valle del Cauca. Brindamos soluciones completas tanto para el hogar como para tu negocio, con productos seleccionados, máxima higiene y una atención amable.</p>
-                <div class="about-features">
-                    <div class="feature-item"><i class="fa-solid fa-check text-gold"></i> Gran surtido en quesos, embutidos y especias</div>
-                    <div class="feature-item"><i class="fa-solid fa-check text-gold"></i> Insumos para micheladas, cócteles y eventos</div>
-                    <div class="feature-item"><i class="fa-solid fa-check text-gold"></i> Venta al por mayor y al detal</div>
-                </div>
-            </div>
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=800" alt="LA CENTRAL Productos">
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="contacto">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <img src="assetslogo..jpg" alt="LA CENTRAL Logo" class="footer-logo">
-                <p><strong>Quesera y Salsamentaria LA CENTRAL</strong><br>¡La mejor opción en tu casa y tu negocio!</p>
-            </div>
-
-            <div class="footer-info">
-                <h4><i class="fa-solid fa-location-dot text-gold"></i> Ubicación</h4>
-                <p>Carrera 12 N.º 8-11 • Local 2<br>Barrio La Cabaña • Florida, Valle del Cauca, Colombia</p>
-                <a href="
+                                <button onclick="filtrarCategoria('cocteleria', 'liqui-blueberry', event)"><i class="fa-solid fa-circle
