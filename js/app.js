@@ -18,6 +18,7 @@ const nombresCategorias = {
     'chorizos': 'Embutidos - Chorizos',
     'mortadelas': 'Embutidos - Mortadelas',
     'tocinetas': 'Embutidos - Tocinetas',
+    'liqui-todos': 'Todas las Perlas Explosivas (Liqui POPS)',
     'liqui-manzana': 'Liquipops | Manzana',
     'liqui-blueberry': 'Liquipops | Blueberry',
     'liqui-coco': 'Liquipops | Coco',
@@ -30,7 +31,6 @@ const nombresCategorias = {
     'escarchas': 'Escarchas y Micheladas'
 };
 
-// OBTENER PRODUCTOS DE MANERA SEGURA DE CUALQUIER ÁMBITO
 function getProductos() {
     if (typeof productosData !== 'undefined' && Array.isArray(productosData)) {
         return productosData;
@@ -41,7 +41,6 @@ function getProductos() {
     return [];
 }
 
-// OBTENER MARCAS DE MANERA SEGURA
 function getMarcas() {
     if (typeof marcasData !== 'undefined' && Array.isArray(marcasData)) {
         return marcasData;
@@ -52,16 +51,16 @@ function getMarcas() {
     return [];
 }
 
-// EFECTO DE EXPLOSIÓN DE PERLAS
+// EFECTO DE EXPLOSIÓN DE PERLAS CON SONIDO POP
 function crearEfectoExplosion(event, colorHex) {
     reproducirSonidoPop();
 
     const originX = event ? (event.clientX || window.innerWidth / 2) : window.innerWidth / 2;
     const originY = event ? (event.clientY || window.innerHeight / 2) : window.innerHeight / 2;
 
-    const cantidadParticulas = 32;
+    const cantidadParticulas = 36;
     const colorBase = colorHex || '#E6B64F';
-    const paletaSecundaria = [colorBase, '#ffffff', '#E6B64F', '#2ecc71', '#ff69b4'];
+    const paletaSecundaria = [colorBase, '#ffffff', '#E6B64F', '#2ecc71', '#ff69b4', '#4a90e2'];
 
     for (let i = 0; i < cantidadParticulas; i++) {
         const particula = document.createElement('div');
@@ -78,7 +77,7 @@ function crearEfectoExplosion(event, colorHex) {
         particula.style.boxShadow = `0 0 16px ${color}`;
 
         const angulo = Math.random() * Math.PI * 2;
-        const distancia = Math.floor(Math.random() * 200) + 80;
+        const distancia = Math.floor(Math.random() * 220) + 80;
         const destX = Math.cos(angulo) * distancia;
         const destY = Math.sin(angulo) * distancia - 45;
 
@@ -114,9 +113,7 @@ function reproducirSonidoPop() {
 
         osc.start();
         osc.stop(ctx.currentTime + 0.09);
-    } catch (e) {
-        // Ignorar restricciones de reproducción automática
-    }
+    } catch (e) {}
 }
 
 // MENÚ MÓVIL Y NAVEGACIÓN
@@ -188,7 +185,10 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
         filtrados = filtrados.filter(p => p.categoria === categoria);
     }
 
-    if (subcat && subcat !== 'todos') {
+    // SI ELIGE MOSTRAR TODOS LOS SABORES DE LIQUI POPS
+    if (subcat === 'liqui-todos') {
+        filtrados = filtrados.filter(p => p.subcategoria && p.subcategoria.startsWith('liqui-'));
+    } else if (subcat && subcat !== 'todos') {
         filtrados = filtrados.filter(p => p.subcategoria === subcat);
     }
 
@@ -412,27 +412,34 @@ function abrirCarrito() {
     }
 }
 
+// MENSAJE WHATSAPP: SOLO PRODUCTO + CANTIDAD + ENLACE A FOTO (SIN DIRECCIÓN NI UBICACIÓN)
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) {
         alert('Por favor agrega al menos un producto a tu lista de pedido.');
         return;
     }
 
-    let msg = "🛒 *SOLICITUD DE PEDIDO - QUESERA Y SALSAMENTARIA LA CENTRAL*\n\n";
-    msg += "Hola, deseo consultar disponibilidad de los siguientes productos:\n\n";
+    let msg = "🛒 *SOLICITUD DE PEDIDO*\n\n";
+    msg += "Hola, deseo consultar disponibilidad de:\n\n";
 
     carrito.forEach(p => {
+        let urlImagen = p.imagen;
+        if (!urlImagen.startsWith('http')) {
+            const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+            urlImagen = baseUrl + p.imagen;
+        }
+
         msg += `• *${p.nombre}* (${p.cantidad} unidad${p.cantidad > 1 ? 'es' : ''})\n`;
+        msg += `  🖼️ Ver imagen: ${urlImagen}\n\n`;
     });
 
-    msg += "\n📍 *Ubicación del local:* Carrera 12 N.º 8-11 Local 2, Barrio La Cabaña, Florida, Valle del Cauca.\n\n";
     msg += "Quedo atento a su respuesta. ¡Muchas gracias!";
 
     const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
 }
 
-// INICIALIZACIÓN CON REINTENTO AUTOMÁTICO
+// INICIALIZACIÓN
 function iniciarApp() {
     renderizarProductos();
     renderizarMarcas();
@@ -444,5 +451,4 @@ if (document.readyState === 'loading') {
     iniciarApp();
 }
 
-// Reintento de respaldo por si data.js tarda en responder
 window.addEventListener('load', iniciarApp);
