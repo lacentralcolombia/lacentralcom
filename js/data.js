@@ -1,9 +1,40 @@
-// MARCAS DESTACADAS
+// MARCAS DESTACADAS CON SUS LOGOS OFICIALES
 const marcasData = [
-    "Zenú", "Alpina", "Alquería", "Differ", "Rica", "Bimbo", "Darnel", "El Rey", "Liqui POPS", "Salsa Emanuel", "Panvalle"
+    {
+        nombre: "Zenú",
+        logo: "https://seeklogo.com/images/Z/zenu-logo-670CA20641-seeklogo.com.png"
+    },
+    {
+        nombre: "Alpina",
+        logo: "https://seeklogo.com/images/A/alpina-logo-2782BB2FB8-seeklogo.com.png"
+    },
+    {
+        nombre: "Alquería",
+        logo: "https://seeklogo.com/images/A/alqueria-logo-4E15ED103B-seeklogo.com.png"
+    },
+    {
+        nombre: "Rica",
+        logo: "https://seeklogo.com/images/R/rica-rondo-logo-E31BC81B34-seeklogo.com.png"
+    },
+    {
+        nombre: "Bimbo",
+        logo: "https://seeklogo.com/images/B/bimbo-logo-07A57813FD-seeklogo.com.png"
+    },
+    {
+        nombre: "Darnel",
+        logo: "https://seeklogo.com/images/D/darnel-logo-D384D0A9EE-seeklogo.com.png"
+    },
+    {
+        nombre: "El Rey",
+        logo: "https://seeklogo.com/images/E/el-rey-logo-DFE8B4C0FE-seeklogo.com.png"
+    },
+    {
+        nombre: "Nestlé",
+        logo: "https://seeklogo.com/images/N/nestle-logo-D5B41EB81A-seeklogo.com.png"
+    }
 ];
 
-// PRODUCTOS DEL CATÁLOGO (SIN PRECIOS)
+// PRODUCTOS DEL CATÁLOGO (Mantiene tus categorías oficiales)
 const productosData = [
     // QUESOS
     {
