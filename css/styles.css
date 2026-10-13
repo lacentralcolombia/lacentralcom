@@ -1,17 +1,18 @@
-/* VARIABLES DE MARCA Y PALETA DE COLORES */
+/* PALETA OFICIAL LA CENTRAL */
 :root {
     --red-brand: #E3211B;
     --red-hover: #C21813;
     --gold-brand: #E6B64F;
-    --gold-hover: #CCA03E;
     --black-bg: #171714;
     --dark-card: #20201C;
     --dark-surface: #292924;
     --white-warm: #FFFDF8;
     --cream-soft: #F7F2E8;
     --text-muted: #B8B5AD;
-    --whatsapp-green: #25D366;
-    --whatsapp-hover: #1EBE57;
+    /* Redes Sociales Oficiales */
+    --fb-color: #1877F2;
+    --tiktok-color: #000000;
+    --wa-color: #25D366;
 }
 
 * {
@@ -31,13 +32,13 @@ body {
 
 .text-gold { color: var(--gold-brand); }
 
-/* NAVEGACIÓN Y CABECERA */
+/* NAVEGACIÓN */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(23, 23, 20, 0.92);
-    backdrop-filter: blur(12px);
+    background: rgba(23, 23, 20, 0.95);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,7 +55,7 @@ body {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 28px;
+    gap: 25px;
 }
 
 .nav-links a {
@@ -86,7 +87,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: background 0.3s, transform 0.2s;
+    transition: transform 0.2s, background 0.3s;
 }
 
 .btn-cart:hover {
@@ -119,18 +120,14 @@ body {
     padding: 15px 0;
 }
 
-.mobile-nav.open {
-    display: block;
-}
+.mobile-nav.open { display: block; }
 
 .mobile-nav ul {
     list-style: none;
     text-align: center;
 }
 
-.mobile-nav li {
-    margin: 12px 0;
-}
+.mobile-nav li { margin: 12px 0; }
 
 .mobile-nav a {
     color: var(--white-warm);
@@ -203,7 +200,7 @@ body {
     padding: 14px 32px;
     border-radius: 30px;
     font-weight: 700;
-    transition: background 0.3s, transform 0.2s;
+    transition: all 0.3s;
 }
 
 .btn-primary:hover {
@@ -298,15 +295,16 @@ body {
 .category-filter {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     margin-bottom: 45px;
+    flex-wrap: wrap;
 }
 
 .filter-btn {
     background: var(--dark-card);
     border: 1px solid var(--dark-surface);
     color: var(--text-muted);
-    padding: 10px 26px;
+    padding: 10px 22px;
     border-radius: 25px;
     cursor: pointer;
     font-weight: 600;
@@ -342,12 +340,12 @@ body {
 
 .product-img {
     width: 100%;
-    height: 220px;
+    height: 200px;
     object-fit: cover;
 }
 
 .product-info {
-    padding: 22px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -362,9 +360,9 @@ body {
 }
 
 .product-title {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    margin: 6px 0 10px;
+    margin: 6px 0 8px;
 }
 
 .product-desc {
@@ -399,13 +397,47 @@ body {
     gap: 8px;
 }
 
-.btn-add-item:hover {
-    background: var(--red-hover);
+.btn-add-item:hover { background: var(--red-hover); }
+
+/* MARCAS DESTACADAS */
+.brands-section {
+    padding: 60px 6%;
+    background: var(--dark-card);
+    text-align: center;
+    border-top: 1px solid var(--dark-surface);
+    border-bottom: 1px solid var(--dark-surface);
 }
 
-/* SECCIÓN NOSOTROS */
+.brands-title {
+    color: var(--gold-brand);
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.brands-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.brands-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.brand-badge {
+    background: var(--black-bg);
+    border: 1px solid var(--gold-brand);
+    color: var(--white-warm);
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* NOSOTROS */
 .about-section {
-    background: var(--dark-card);
     padding: 80px 6%;
 }
 
@@ -419,7 +451,7 @@ body {
 }
 
 .about-text h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     color: var(--gold-brand);
     margin-bottom: 20px;
 }
@@ -435,17 +467,13 @@ body {
     gap: 12px;
 }
 
-.feature-item {
-    font-weight: 600;
-}
-
 .about-image img {
     width: 100%;
     border-radius: 20px;
     border: 2px solid var(--gold-brand);
 }
 
-/* FOOTER */
+/* FOOTER Y REDES SOCIALES OFICIALES */
 footer {
     background: #0D0D0B;
     border-top: 2px solid var(--gold-brand);
@@ -479,28 +507,44 @@ footer {
     font-weight: 600;
 }
 
+/* REDES SOCIALES CON SUS COLORES REALES DE MARCA */
 .social-links {
     display: flex;
     gap: 15px;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background: var(--dark-surface);
+.social-btn {
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white-warm);
+    color: white;
+    font-size: 1.3rem;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.social-links a:hover {
-    background: var(--gold-brand);
-    color: var(--black-bg);
+.social-btn.facebook {
+    background-color: var(--fb-color);
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
+}
+
+.social-btn.tiktok {
+    background-color: var(--tiktok-color);
+    border: 1px solid #333;
+    box-shadow: 0 4px 12px rgba(0, 242, 254, 0.2);
+}
+
+.social-btn.whatsapp-btn {
+    background-color: var(--wa-color);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+.social-btn:hover {
+    transform: translateY(-4px) scale(1.08);
 }
 
 .footer-bottom {
@@ -604,7 +648,7 @@ footer {
 
 .btn-whatsapp-send {
     width: 100%;
-    background: var(--whatsapp-green);
+    background: var(--wa-color);
     color: white;
     border: none;
     padding: 14px;
@@ -619,16 +663,14 @@ footer {
     transition: background 0.3s;
 }
 
-.btn-whatsapp-send:hover {
-    background: var(--whatsapp-hover);
-}
+.btn-whatsapp-send:hover { background: #1ebe57; }
 
-/* BOTÓN WHATSAPP FLOTANTE */
+/* BOTÓN FLOTANTE WHATSAPP */
 .whatsapp-float {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: var(--whatsapp-green);
+    background: var(--wa-color);
     color: white;
     width: 60px;
     height: 60px;
@@ -643,11 +685,8 @@ footer {
     transition: transform 0.3s;
 }
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
+.whatsapp-float:hover { transform: scale(1.1); }
 
-/* RESPONSIVO */
 @media (max-width: 900px) {
     .nav-desktop { display: none; }
     .mobile-menu-toggle { display: block; }
