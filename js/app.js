@@ -6,6 +6,7 @@ let cantidadesTarjetas = {};
 
 const nombresCategorias = {
     'todos': 'Todas las Categorías',
+    'general': 'General',
     'quesos': 'Quesos y Lácteos',
     'embutidos': 'Embutidos y Cárnicos',
     'alimentos': 'Alimentos y Condimentos',
@@ -28,7 +29,7 @@ const nombresCategorias = {
     'escarchas': 'Escarchas y Micheladas'
 };
 
-// 1. ABRIR Y CERRAR EL MENÚ ROJO ELEGANTE (RAYITAS)
+// 1. ABRIR Y CERRAR EL MENÚ ROJO ELEGANTE
 function toggleMobileMenu() {
     const mobileNav = document.getElementById('mobile-nav');
     if (mobileNav) {
@@ -37,7 +38,7 @@ function toggleMobileMenu() {
     }
 }
 
-// 2. NAVEGAR A SECCIÓN Y CERRAR MENÚ ROJO AUTOMÁTICAMENTE
+// 2. NAVEGAR A SECCIÓN Y CERRAR MENÚ AUTOMÁTICAMENTE
 function irASeccion(idSeccion) {
     const mobileNav = document.getElementById('mobile-nav');
     if (mobileNav) {
@@ -45,16 +46,16 @@ function irASeccion(idSeccion) {
         document.body.classList.remove('menu-open');
     }
 
-    setTimeout(() => {
-        const elemento = document.querySelector(idSeccion);
-        if (elemento) {
-            elemento.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, 150);
+    const targetId = idSeccion.replace('#', '');
+    const elemento = document.getElementById(targetId);
+    if (elemento) {
+        elemento.scrollIntoView({ behavior: 'smooth' });
+    }
 }
 
-// 3. RENDERIZAR MARCAS EN EL INICIO
+// 3. RENDERIZAR MARCAS
 function renderizarMarcas() {
+    if (typeof marcasData === 'undefined' || !Array.isArray(marcasData)) return;
     const container = document.getElementById('brands-container');
     if (!container) return;
     container.innerHTML = '';
@@ -67,8 +68,10 @@ function renderizarMarcas() {
     });
 }
 
-// 4. RENDERIZAR PRODUCTOS Y FILTROS
+// 4. RENDERIZAR PRODUCTOS
 function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '') {
+    if (typeof productosData === 'undefined' || !Array.isArray(productosData)) return;
+
     const grid = document.getElementById('grid-productos');
     const statusText = document.getElementById('categoria-activa-titulo');
     if (!grid) return;
@@ -82,7 +85,7 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
 
     let filtrados = productosData;
 
-    if (categoria !== 'todos') {
+    if (categoria && categoria !== 'todos') {
         filtrados = filtrados.filter(p => p.categoria === categoria);
     }
 
@@ -113,15 +116,19 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
             cantidadesTarjetas[prod.id] = 1;
         }
 
+        const catNombre = (prod.subcategoria && prod.subcategoria !== 'general' && nombresCategorias[prod.subcategoria]) 
+            ? nombresCategorias[prod.subcategoria] 
+            : (nombresCategorias[prod.categoria] || prod.categoria);
+
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
             <div class="product-img-wrapper" onclick="ampliarImagen('${prod.imagen}', '${prod.nombre}')">
-                <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img">
+                <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img" onerror="this.src='https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=500'">
                 <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver foto</span>
             </div>
             <div class="product-info">
-                <span class="product-category">${nombresCategorias[prod.subcategoria] || nombresCategorias[prod.categoria]}</span>
+                <span class="product-category">${catNombre}</span>
                 <h3 class="product-title">${prod.nombre}</h3>
                 <p class="product-desc">${prod.descripcion}</p>
                 <div class="product-status">
@@ -143,7 +150,7 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
     });
 }
 
-// 5. CONTROL DE MENÚS DESPLEGABLES DE CATEGORÍA
+// 5. NAVEGACIÓN DE CATEGORÍAS
 function toggleTopDropdown(idDropdown, event) {
     if (event) event.stopPropagation();
     
@@ -163,7 +170,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// 6. MODAL PARA AMPLIAR FOTOS DE PRODUCTOS
+// 6. MODAL PARA AMPLIAR IMÁGENES
 function ampliarImagen(url, titulo) {
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('img-ampliada');
@@ -260,12 +267,16 @@ function actualizarCarritoUI() {
     } else {
         carrito.forEach(prod => {
             totalItems += prod.cantidad;
+            const subName = (prod.subcategoria && prod.subcategoria !== 'general' && nombresCategorias[prod.subcategoria]) 
+                ? nombresCategorias[prod.subcategoria] 
+                : (nombresCategorias[prod.categoria] || prod.categoria);
+
             const itemDiv = document.createElement('div');
             itemDiv.className = 'cart-item';
             itemDiv.innerHTML = `
                 <div>
                     <h4 style="font-size: 0.95rem;">${prod.nombre}</h4>
-                    <span style="font-size: 0.8rem; color: var(--gold-brand);">${nombresCategorias[prod.subcategoria] || nombresCategorias[prod.categoria]}</span>
+                    <span style="font-size: 0.8rem; color: var(--gold-brand);">${subName}</span>
                 </div>
                 <div class="cart-item-qty">
                     <button class="qty-btn" onclick="cambiarCantidadCarrito(${prod.id}, -1)">-</button>
@@ -318,7 +329,8 @@ function enviarPedidoWhatsApp() {
     window.open(url, '_blank');
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+// INICIALIZAR CUANDO EL DOM ESTÉ LISTO
+window.addEventListener('DOMContentLoaded', () => {
     renderizarProductos();
     renderizarMarcas();
 });
