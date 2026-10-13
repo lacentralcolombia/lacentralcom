@@ -203,7 +203,7 @@ const productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-blueberry",
         descripcion: "Perlas explosivas de mora azul con centro líquido estallante para cócteles, sodas y micheladas.",
-        imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500"
+        imagen: "liquipopsBlueberry.jpg"
     },
     {
         id: 102,
