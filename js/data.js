@@ -211,7 +211,7 @@ const productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-cereza",
         descripcion: "Perlas explosivas con el toque dulce e intenso de la cereza para acompañar tus tragos.",
-        imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500"
+        imagen: "liquicereza.jpg"
     },
     {
         id: 104,
@@ -219,7 +219,7 @@ const productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-lychee",
         descripcion: "Sabor exótico y súper refrescante de lychee en perlas estallantes de textura suave.",
-        imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500"
+        imagen: "liquilychee.jpg"
     },
     {
         id: 105,
