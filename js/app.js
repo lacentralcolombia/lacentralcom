@@ -30,6 +30,76 @@ const nombresCategorias = {
     'escarchas': 'Escarchas y Micheladas'
 };
 
+// ============================================================
+// EFECTO DE EXPLOSIÓN DE PERLAS (POPPING SPHERES) CON AUDIO POP
+// ============================================================
+function crearEfectoExplosion(event, colorHex) {
+    reproducirSonidoPop();
+
+    const originX = event ? (event.clientX || window.innerWidth / 2) : window.innerWidth / 2;
+    const originY = event ? (event.clientY || window.innerHeight / 2) : window.innerHeight / 2;
+
+    const cantidadParticulas = 32;
+    const colorBase = colorHex || '#E6B64F';
+    const paletaSecundaria = [colorBase, '#ffffff', '#E6B64F', '#2ecc71', '#ff69b4'];
+
+    for (let i = 0; i < cantidadParticulas; i++) {
+        const particula = document.createElement('div');
+        particula.className = 'pop-sphere-particle';
+
+        const color = i % 2 === 0 ? colorBase : paletaSecundaria[Math.floor(Math.random() * paletaSecundaria.length)];
+        const tamaño = Math.floor(Math.random() * 22) + 12;
+
+        particula.style.width = `${tamaño}px`;
+        particula.style.height = `${tamaño}px`;
+        particula.style.left = `${originX}px`;
+        particula.style.top = `${originY}px`;
+        particula.style.background = `radial-gradient(circle at 35% 35%, #ffffff, ${color} 70%, #000000 100%)`;
+        particula.style.boxShadow = `0 0 16px ${color}`;
+
+        const angulo = Math.random() * Math.PI * 2;
+        const distancia = Math.floor(Math.random() * 200) + 80;
+        const destX = Math.cos(angulo) * distancia;
+        const destY = Math.sin(angulo) * distancia - 45;
+
+        particula.style.setProperty('--dx', `${destX}px`);
+        particula.style.setProperty('--dy', `${destY}px`);
+
+        document.body.appendChild(particula);
+
+        setTimeout(() => {
+            particula.remove();
+        }, 800);
+    }
+}
+
+// SINTETIZADOR AUDIO "POP" DE PERLA
+function reproducirSonidoPop() {
+    try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(320, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(850, ctx.currentTime + 0.08);
+
+        gain.gain.setValueAtTime(0.4, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        osc.stop(ctx.currentTime + 0.09);
+    } catch (e) {
+        // Ignorar restricciones de audio del navegador
+    }
+}
+
 // 1. ABRIR Y CERRAR EL MENÚ ROJO ELEGANTE
 function toggleMobileMenu() {
     const mobileNav = document.getElementById('mobile-nav');
@@ -151,7 +221,7 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
     });
 }
 
-// 5. NAVEGACIÓN DE CATEGORÍAS
+// 5. NAVEGACIÓN DE CATEGORÍAS Y EXPLOSIÓN DE SABORES
 function toggleTopDropdown(idDropdown, event) {
     if (event) event.stopPropagation();
     
@@ -205,7 +275,11 @@ function modificarCantidadTarjeta(id, cambio) {
     if (spanQty) spanQty.innerText = cantidadesTarjetas[id];
 }
 
-function filtrarCategoria(cat, subcat = null, event = null) {
+function filtrarCategoria(cat, subcat = null, event = null, colorExplosion = null) {
+    if (colorExplosion && event) {
+        crearEfectoExplosion(event, colorExplosion);
+    }
+
     document.querySelectorAll('.top-nav-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.top-dropdown-content button').forEach(b => b.classList.remove('active'));
 
@@ -330,7 +404,7 @@ function enviarPedidoWhatsApp() {
     window.open(url, '_blank');
 }
 
-// INICIALIZAR CUANDO EL DOM ESTÉ LISTO
+// INICIALIZACIÓN
 window.addEventListener('DOMContentLoaded', () => {
     renderizarProductos();
     renderizarMarcas();
