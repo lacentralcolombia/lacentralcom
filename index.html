@@ -1,314 +1,269 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quesera y Salsamentaria LA CENTRAL | Catálogo Oficial</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#151515">
 
-    <!-- FontAwesome Íconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Hoja de Estilos Externa -->
-    <link rel="stylesheet" href="./css/styles.css">
+  <title>LA CENTRAL | Quesera y Salsamentaria</title>
+
+  <meta name="description"
+    content="Descubre el catálogo de Quesera y Salsamentaria LA CENTRAL. Consulta disponibilidad y precios por WhatsApp.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
 </head>
+
 <body>
+  <div class="announcement">
+    <span class="announcement-dot"></span>
+    Calidad, sabor y tradición en un solo lugar
+  </div>
 
-    <!-- BARRA DE NAVEGACIÓN PRINCIPAL -->
-    <header class="navbar">
-        <div class="logo-container">
-            <a href="#inicio">
-                <img src="assetslogo..jpg" alt="LA CENTRAL Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/150x60?text=LA+CENTRAL'">
-            </a>
-        </div>
-
-        <nav class="nav-desktop">
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#catalogo">Menú / Catálogo</a></li>
-                <li><a href="#beneficios">Beneficios</a></li>
-                <li><a href="#marcas">Marcas</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-
-        <div class="header-actions">
-            <button class="btn-cart" onclick="toggleCart()" aria-label="Ver mi pedido">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="btn-cart-text">Mi pedido</span>
-                <span class="cart-badge" id="cart-count">0</span>
-            </button>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Abrir menú">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-    </header>
-
-    <!-- MENÚ DE PANTALLA COMPLETA ROJO ELEGANTE (RAYITAS) -->
-    <div class="mobile-nav" id="mobile-nav">
-        <!-- EFECTOS LUMINOSOS AMBIENTALES -->
-        <div class="red-menu-glow red-glow-1"></div>
-        <div class="red-menu-glow red-glow-2"></div>
-
-        <div class="mobile-nav-header">
-            <div class="mobile-nav-brand">
-                <img src="assetslogo..jpg" alt="LA CENTRAL Logo" class="mobile-logo-img" onerror="this.src='https://via.placeholder.com/100x50?text=LA+CENTRAL'">
-                <div>
-                    <span class="mobile-brand-title">LA CENTRAL</span>
-                    <span class="mobile-brand-sub">Quesera & Salsamentaria</span>
-                </div>
-            </div>
-            <button class="close-mobile-nav" onclick="toggleMobileMenu()" aria-label="Cerrar menú">&times;</button>
-        </div>
-
-        <div class="mobile-nav-body">
-            <p class="mobile-nav-subtitle"><i class="fa-solid fa-compass text-gold"></i> NAVEGACIÓN PRINCIPAL</p>
-            <ul class="mobile-nav-links">
-                <li><a href="javascript:void(0)" onclick="irASeccion('inicio')"><i class="fa-solid fa-house text-gold"></i> Inicio</a></li>
-                <li><a href="javascript:void(0)" onclick="irASeccion('catalogo')"><i class="fa-solid fa-utensils text-gold"></i> Menú / Catálogo Completo</a></li>
-                <li><a href="javascript:void(0)" onclick="irASeccion('beneficios')"><i class="fa-solid fa-star text-gold"></i> Beneficios</a></li>
-                <li><a href="javascript:void(0)" onclick="irASeccion('marcas')"><i class="fa-solid fa-award text-gold"></i> Nuestras Marcas</a></li>
-                <li><a href="javascript:void(0)" onclick="irASeccion('nosotros')"><i class="fa-solid fa-building text-gold"></i> Nosotros</a></li>
-                <li><a href="javascript:void(0)" onclick="irASeccion('contacto')"><i class="fa-solid fa-headset text-gold"></i> Contacto y Ubicación</a></li>
-            </ul>
-        </div>
-
-        <div class="mobile-nav-footer">
-            <a href="https://wa.me/573116017186" target="_blank" class="mobile-wa-btn">
-                <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
-            </a>
-        </div>
-    </div>
-
-    <!-- PORTADA PRINCIPAL -->
-    <section id="inicio" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="hero-badge"><i class="fa-solid fa-award"></i> ¡La mejor opción en tu casa y tu negocio!</span>
-            <h1 class="hero-title">
-                LA CENTRAL
-                <span class="hero-subtitle-brand">QUESERA Y SALSAMENTARIA</span>
-            </h1>
-            <p class="hero-subtitle">Descubre nuestra amplia variedad de quesos, embutidos, alimentos, frutos secos, insumos para coctelería y desechables.</p>
-            <div class="hero-buttons">
-                <a href="#catalogo" class="btn-primary"><i class="fa-solid fa-utensils"></i> Ver Menú Completo</a>
-                <a href="#nosotros" class="btn-secondary"><i class="fa-solid fa-circle-info"></i> Conócenos</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- BENEFICIOS -->
-    <section id="beneficios" class="benefits-section">
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <div class="benefit-icon"><i class="fa-solid fa-cheese"></i></div>
-                <h3>Quesos y Embutidos</h3>
-                <p>Variedad de quesos frescos, artesanales, jamones y cárnicos de las mejores marcas.</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon"><i class="fa-solid fa-list-check"></i></div>
-                <h3>Arma tu pedido</h3>
-                <p>Elige las cantidades exactas y añade los productos fácilmente a tu lista.</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                <h3>Atención Directa</h3>
-                <p>Consulta disponibilidad y confirma tu pedido de forma inmediata por WhatsApp.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CATÁLOGO / MENÚ DIGITAL -->
-    <section id="catalogo" class="catalog-section">
-        <div class="section-header">
-            <h2 class="section-title">Menú y Catálogo Digital</h2>
-            <p class="section-subtitle">Haz clic en la imagen de cualquier producto para verla en tamaño grande</p>
-            
-            <!-- BUSCADOR RÁPIDO DE PRODUCTOS -->
-            <div class="search-bar-container">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text" id="input-buscar" placeholder="Buscar producto (ej: liquipops, salchicha, queso...)" onkeyup="buscarProductos()">
-            </div>
-        </div>
-
-        <div class="catalog-layout-full">
-            <!-- BARRA HORIZONTAL DE CATEGORÍAS -->
-            <nav class="catalog-top-nav">
-                <div class="top-nav-menu">
-                    <button class="top-nav-btn active" onclick="filtrarCategoria('todos', null, event)">
-                        <i class="fa-solid fa-border-all"></i> Todas
-                    </button>
-                    
-                    <button class="top-nav-btn" onclick="filtrarCategoria('quesos', null, event)">
-                        <i class="fa-solid fa-cheese"></i> Quesos y Lácteos
-                    </button>
-
-                    <!-- DESPLEGABLE EMBUTIDOS -->
-                    <div class="top-dropdown">
-                        <button class="top-nav-btn" onclick="toggleTopDropdown('dropdown-embutidos', event)">
-                            <i class="fa-solid fa-drumstick-bite"></i> Embutidos y Cárnicos <i class="fa-solid fa-chevron-down arrow"></i>
-                        </button>
-                        <div class="top-dropdown-content" id="dropdown-embutidos">
-                            <button onclick="filtrarCategoria('embutidos', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Ver todos los embutidos</button>
-                            <button onclick="filtrarCategoria('embutidos', 'jamones', event)"><i class="fa-solid fa-slash-stroke"></i> Jamones</button>
-                            <button onclick="filtrarCategoria('embutidos', 'salchichas', event)"><i class="fa-solid fa-hotdog"></i> Salchichas</button>
-                            <button onclick="filtrarCategoria('embutidos', 'chorizos', event)"><i class="fa-solid fa-bacon"></i> Chorizos</button>
-                            <button onclick="filtrarCategoria('embutidos', 'mortadelas', event)"><i class="fa-solid fa-circle"></i> Mortadelas</button>
-                            <button onclick="filtrarCategoria('embutidos', 'tocinetas', event)"><i class="fa-solid fa-stripes"></i> Tocinetas</button>
-                        </div>
-                    </div>
-
-                    <button class="top-nav-btn" onclick="filtrarCategoria('alimentos', null, event)">
-                        <i class="fa-solid fa-jar"></i> Alimentos y Condimentos
-                    </button>
-
-                    <button class="top-nav-btn" onclick="filtrarCategoria('frutos-secos', null, event)">
-                        <i class="fa-solid fa-seedling"></i> Frutos Secos
-                    </button>
-
-                    <!-- DESPLEGABLE COCTELERÍA Y LIQUIPOPS -->
-                    <div class="top-dropdown">
-                        <button class="top-nav-btn" onclick="toggleTopDropdown('dropdown-cocteleria', event)">
-                            <i class="fa-solid fa-wine-glass-sparkles"></i> Coctelería y Micheladas <i class="fa-solid fa-chevron-down arrow"></i>
-                        </button>
-                        <div class="top-dropdown-content" id="dropdown-cocteleria">
-                            <button onclick="filtrarCategoria('cocteleria', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Toda coctelería</button>
-                            
-                            <div class="sub-dropdown-header"><i class="fa-solid fa-burst text-gold"></i> Perlas Explosivas (Liqui POPS):</div>
-                            <div class="liqui-subgrid">
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-blueberry', event)"><i class="fa-solid fa-circle" style="color: #4a90e2;"></i> Blueberry</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-coco', event)"><i class="fa-solid fa-circle" style="color: #ffffff;"></i> Coco</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-cereza', event)"><i class="fa-solid fa-circle" style="color: #e3211b;"></i> Cereza</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-lychee', event)"><i class="fa-solid fa-circle" style="color: #f5a623;"></i> Lychee</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-sandia', event)"><i class="fa-solid fa-circle" style="color: #7ed321;"></i> Sandía</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-icepink', event)"><i class="fa-solid fa-circle" style="color: #ff69b4;"></i> Ice Pink</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-fresa', event)"><i class="fa-solid fa-circle" style="color: #e3211b;"></i> Fresa</button>
-                            </div>
-
-                            <button onclick="filtrarCategoria('cocteleria', 'siropes', event)"><i class="fa-solid fa-bottle-droplet"></i> Siropes y Chamoy</button>
-                            <button onclick="filtrarCategoria('cocteleria', 'escarchas', event)"><i class="fa-solid fa-compact-disc"></i> Escarchas y Micheladas</button>
-                        </div>
-                    </div>
-
-                    <button class="top-nav-btn" onclick="filtrarCategoria('desechables', null, event)">
-                        <i class="fa-solid fa-box-open"></i> Plásticos y Desechables
-                    </button>
-                </div>
-            </nav>
-
-            <!-- PRODUCTOS EN CUADRÍCULA COMPLETA -->
-            <main class="catalog-content-full">
-                <div class="catalog-status-bar">
-                    <span id="categoria-activa-titulo">Mostrando: Todas las Categorías</span>
-                </div>
-                <div id="grid-productos" class="product-grid-full">
-                    <!-- Productos dinámicos generados por JS -->
-                </div>
-            </main>
-        </div>
-    </section>
-
-    <!-- MARCAS DESTACADAS -->
-    <section id="marcas" class="brands-section">
-        <h3 class="brands-title"><i class="fa-solid fa-star"></i> Algunas de Nuestras Marcas Destacadas</h3>
-        <p class="brands-subtitle">Trabajamos de la mano con los mejores proveedores para ofrecerte calidad garantizada.</p>
-        <div class="brands-grid" id="brands-container">
-            <!-- Logos SVG -->
-        </div>
-    </section>
-
-    <!-- SOBRE NOSOTROS -->
-    <section id="nosotros" class="about-section">
-        <div class="about-container">
-            <div class="about-text">
-                <h2>Sobre QUESERA Y SALSAMENTARIA LA CENTRAL</h2>
-                <p>Somos tu mejor opción en Florida, Valle del Cauca. Brindamos soluciones completas tanto para el hogar como para tu negocio, con productos seleccionados, máxima higiene y una atención amable.</p>
-                <div class="about-features">
-                    <div class="feature-item"><i class="fa-solid fa-check text-gold"></i> Gran surtido en quesos, embutidos y especias</div>
-                    <div class="feature-item"><i class="fa-solid fa-check text-gold"></i> Insumos para micheladas, cócteles y eventos</div>
-                    <div class="feature-item"><i class="fa-solid fa-check text-gold"></i> Venta al por mayor y al detal</div>
-                </div>
-            </div>
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=800" alt="LA CENTRAL Productos">
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="contacto">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <img src="assetslogo..jpg" alt="LA CENTRAL Logo" class="footer-logo" onerror="this.src='https://via.placeholder.com/150x60?text=LA+CENTRAL'">
-                <p><strong>Quesera y Salsamentaria LA CENTRAL</strong><br>¡La mejor opción en tu casa y tu negocio!</p>
-            </div>
-
-            <div class="footer-info">
-                <h4><i class="fa-solid fa-location-dot text-gold"></i> Ubicación</h4>
-                <p>Carrera 12 N.º 8-11 • Local 2<br>Barrio La Cabaña • Florida, Valle del Cauca, Colombia</p>
-                <a href="https://maps.google.com/?q=Carrera+12+N.8-11+Local+2+Barrio+La+Caba%C3%B1a+Florida+Valle+del+Cauca" target="_blank" class="location-link">
-                    <i class="fa-solid fa-map-location-dot"></i> Abrir en Google Maps
-                </a>
-            </div>
-
-            <div class="footer-contact">
-                <h4><i class="fa-solid fa-headset text-gold"></i> Contacto y Redes</h4>
-                <p><i class="fa-brands fa-whatsapp text-gold"></i> <strong>WhatsApp:</strong> 311 601 7186</p>
-
-                <div class="social-links">
-                    <a href="https://www.facebook.com/share/1BhdTaXum8/?mibextid=wwXIfr" target="_blank" class="social-btn facebook" aria-label="Facebook">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@lacentral.qs?_r=1&_t=ZS-9AWUgTF5RSi" target="_blank" class="social-btn tiktok" aria-label="TikTok">
-                        <i class="fa-brands fa-tiktok"></i>
-                    </a>
-                    <a href="https://wa.me/573116017186" target="_blank" class="social-btn whatsapp-btn" aria-label="WhatsApp">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 QUESERA Y SALSAMENTARIA LA CENTRAL. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- MODAL LIGHTBOX PARA AMPLIAR FOTOGRAFÍAS -->
-    <div class="image-modal" id="image-modal" onclick="cerrarImagenModal()">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="img-ampliada" alt="Imagen ampliada">
-        <div id="caption-modal" class="modal-caption"></div>
-    </div>
-
-    <!-- OVERLAY Y CARRITO SLIDE-OVER -->
-    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
-    <div class="cart-drawer" id="cart-drawer">
-        <div class="cart-header">
-            <h3><i class="fa-solid fa-bag-shopping text-gold"></i> Mi Pedido</h3>
-            <button class="close-cart" onclick="toggleCart()">&times;</button>
-        </div>
-
-        <div class="cart-body" id="cart-items-container">
-            <!-- Carga de ítems vía JS -->
-        </div>
-
-        <div class="cart-footer">
-            <p class="cart-note"><i class="fa-solid fa-circle-info"></i> Al hacer clic en el botón se enviará la lista directamente a nuestro WhatsApp para informarte sobre disponibilidad y atención.</p>
-            <button class="btn-whatsapp-send" onclick="enviarPedidoWhatsApp()">
-                <i class="fa-brands fa-whatsapp"></i> Consultar Pedido por WhatsApp
-            </button>
-        </div>
-    </div>
-
-    <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/573116017186?text=Hola%20LA%20CENTRAL,%20quisiera%20consultar%20disponibilidad%20de%20sus%20productos." class="whatsapp-float" target="_blank" aria-label="Chatear por WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
+  <header class="header">
+    <a href="#inicio" class="brand" aria-label="LA CENTRAL, inicio">
+      <img src="assets/logo.jpg" alt="Logotipo de LA CENTRAL"
+        class="brand-logo"
+        onerror="this.style.display='none';document.querySelector('.brand-fallback').style.display='block'">
+      <span class="brand-fallback">LA CENTRAL</span>
     </a>
 
-    <!-- Lógica JavaScript -->
-    <script src="./js/data.js"></script>
-    <script src="./js/app.js"></script>
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="navigation" id="navigation">
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#contacto">Contacto</a>
+      <button class="cart-button" id="openCart" type="button">
+        <span aria-hidden="true">🛒</span>
+        Mi pedido
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="eyebrow"><span></span> EL BUEN SABOR NOS UNE</span>
+
+        <h1>Calidad que se nota.<br>
+          <span>Sabor que enamora.</span>
+        </h1>
+
+        <p>
+          Encuentra tus quesos y salsamentaria favoritos.
+          Productos seleccionados para compartir los mejores momentos.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#catalogo">
+            Explorar catálogo <span>→</span>
+          </a>
+          <a class="btn btn-outline"
+            href="https://wa.me/573116017186?text=Hola%2C%20quiero%20consultar%20el%20cat%C3%A1logo%20de%20LA%20CENTRAL."
+            target="_blank" rel="noopener">
+            <span>WhatsApp</span>
+          </a>
+        </div>
+
+        <div class="hero-note">
+          <span class="note-line"></span>
+          Consulta disponibilidad y precios directamente con nosotros.
+        </div>
+      </div>
+
+      <div class="hero-badge">
+        <span class="badge-star">✦</span>
+        <span>BUENA CALIDAD</span>
+        <small>EN CADA ELECCIÓN</small>
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Beneficios">
+      <article class="benefit">
+        <span class="benefit-icon">✦</span>
+        <div>
+          <h3>Calidad seleccionada</h3>
+          <p>Productos para disfrutar y compartir.</p>
+        </div>
+      </article>
+      <article class="benefit">
+        <span class="benefit-icon">♡</span>
+        <div>
+          <h3>Atención cercana</h3>
+          <p>Estamos para ayudarte con tu pedido.</p>
+        </div>
+      </article>
+      <article class="benefit">
+        <span class="benefit-icon">✓</span>
+        <div>
+          <h3>Pedido sencillo</h3>
+          <p>Consulta y solicita por WhatsApp.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="about section" id="nosotros">
+      <div class="about-mark">LC</div>
+      <div class="about-copy">
+        <span class="section-kicker">BIENVENIDO A LA CENTRAL</span>
+        <h2>El sabor de elegir <span>bien.</span></h2>
+        <p>
+          En Quesera y Salsamentaria LA CENTRAL queremos acompañarte
+          con una selección de productos para tu mesa, tu negocio y
+          esos momentos especiales. Explora nuestro catálogo y
+          pregúntanos por la disponibilidad y los precios.
+        </p>
+        <a href="#catalogo" class="text-link">Conoce nuestros productos <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="catalog section" id="catalogo">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">NUESTRA SELECCIÓN</span>
+          <h2>Explora el <span>catálogo</span></h2>
+          <p>Encuentra tus favoritos y arma tu pedido en pocos pasos.</p>
+        </div>
+        <div class="catalog-label">LA CENTRAL <span>✦</span></div>
+      </div>
+
+      <div class="catalog-tools">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search"
+            placeholder="Buscar un producto..." aria-label="Buscar productos">
+          <button id="clearSearch" type="button" aria-label="Limpiar búsqueda">×</button>
+        </label>
+      </div>
+
+      <div class="category-list" id="categoryList" aria-label="Categorías">
+        <button class="category-chip active" data-category="Todos" type="button">Todos</button>
+        <button class="category-chip" data-category="Quesos" type="button">Quesos</button>
+        <button class="category-chip" data-category="Jamones y embutidos" type="button">Jamones y embutidos</button>
+        <button class="category-chip" data-category="Salchichas" type="button">Salchichas</button>
+        <button class="category-chip" data-category="Otros" type="button">Otros</button>
+      </div>
+
+      <div class="results-info">
+        <span id="resultsCount">Cargando productos...</span>
+        <span class="no-prices-note">Precios y disponibilidad por WhatsApp</span>
+      </div>
+
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <span>⌕</span>
+        <h3>No encontramos productos</h3>
+        <p>Prueba con otra búsqueda o selecciona otra categoría.</p>
+        <button class="btn btn-dark" id="resetFilters" type="button">Ver todo el catálogo</button>
+      </div>
+
+      <div class="catalog-cta">
+        <div>
+          <span class="section-kicker">¿BUSCAS ALGO ESPECIAL?</span>
+          <h3>Estamos listos para atenderte.</h3>
+          <p>Pregúntanos por productos, marcas y disponibilidad.</p>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/573116017186?text=Hola%2C%20quiero%20consultar%20por%20un%20producto%20de%20LA%20CENTRAL."
+          target="_blank" rel="noopener">Consultar por WhatsApp ↗</a>
+      </div>
+    </section>
+
+    <section class="contact section" id="contacto">
+      <div class="contact-panel">
+        <div class="contact-copy">
+          <span class="section-kicker">HABLEMOS</span>
+          <h2>Tu próximo pedido<br>comienza <span>aquí.</span></h2>
+          <p>
+            Escríbenos para consultar precios, disponibilidad y
+            detalles de los productos. Te atenderemos por WhatsApp.
+          </p>
+          <a class="btn btn-light"
+            href="https://wa.me/573116017186?text=Hola%2C%20me%20comunico%20con%20LA%20CENTRAL."
+            target="_blank" rel="noopener">
+            <span>◉</span> Contactar por WhatsApp
+          </a>
+        </div>
+        <div class="contact-decoration" aria-hidden="true">
+          <div class="contact-circle">LC<span>✦</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#inicio" class="footer-brand">LA <span>CENTRAL</span></a>
+    <p>Quesera y Salsamentaria · Calidad y sabor para tu mesa.</p>
+    <div class="footer-links">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="currentYear"></span> LA CENTRAL. Todos los derechos reservados.</span>
+      <a href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <a class="floating-whatsapp"
+    href="https://wa.me/573116017186?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20LA%20CENTRAL."
+    target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <span>◉</span>
+    <span class="floating-label">¿Hablamos?</span>
+  </a>
+
+  <div class="modal-backdrop" id="cartBackdrop" hidden>
+    <section class="cart-modal" role="dialog"
+      aria-modal="true" aria-labelledby="cartTitle">
+      <div class="cart-header">
+        <div>
+          <span class="section-kicker">LA CENTRAL</span>
+          <h2 id="cartTitle">Mi pedido</h2>
+        </div>
+        <button class="close-modal" id="closeCart" type="button"
+          aria-label="Cerrar carrito">×</button>
+      </div>
+
+      <p class="cart-description">
+        Revisa las cantidades y envía tu solicitud por WhatsApp.
+        Los precios se consultan directamente con nosotros.
+      </p>
+
+      <div id="cartItems" class="cart-items"></div>
+
+      <div id="cartEmpty" class="cart-empty">
+        <span>🛒</span>
+        <h3>Tu pedido está vacío</h3>
+        <p>Agrega productos del catálogo para comenzar.</p>
+        <button class="btn btn-dark" id="continueShopping" type="button">
+          Explorar catálogo
+        </button>
+      </div>
+
+      <div class="cart-footer" id="cartFooter" hidden>
+        <label for="customerNote">Nota para tu pedido (opcional)</label>
+        <textarea id="customerNote" rows="3"
+          placeholder="Ej. Quiero consultar las marcas disponibles..."></textarea>
+        <button class="btn btn-primary btn-full" id="sendOrder" type="button">
+          Enviar pedido por WhatsApp ↗
+        </button>
+        <p class="privacy-note">El pedido se enviará para confirmar disponibilidad y precios.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
