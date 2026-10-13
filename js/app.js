@@ -4,10 +4,8 @@
 const NUMERO_WHATSAPP = "573116017186";
 
 let carrito = [];
-// ESTADO LOCAL DE CANTIDADES EN TARJETAS DE PRODUCTOS
 let cantidadesTarjetas = {};
 
-// MAPA DE NOMBRES PARA TITULARES Y BANNERS
 const nombresCategorias = {
     'todos': 'Todas las Categorías',
     'quesos': 'Quesos y Lácteos',
@@ -23,29 +21,22 @@ const nombresCategorias = {
     'tocinetas': 'Embutidos - Tocinetas'
 };
 
-// =========================================================
-// 1. CARGAR Y MOSTRAR MARCAS DESTACADAS
-// =========================================================
+// 1. MARCAS CON SVG
 function renderizarMarcas() {
     const container = document.getElementById('brands-container');
     if (!container) return;
-
     container.innerHTML = '';
     
     marcasData.forEach(marca => {
         const card = document.createElement('div');
         card.className = 'brand-card';
-        card.innerHTML = `
-            <img src="${marca.logo}" alt="Logo ${marca.nombre}" class="brand-img">
-        `;
+        card.innerHTML = `<img src="${marca.logo}" alt="Logo ${marca.nombre}" class="brand-img">`;
         container.appendChild(card);
     });
 }
 
-// =========================================================
-// 2. CARGAR Y MOSTRAR PRODUCTOS CON SELECTOR DE CANTIDAD
-// =========================================================
-function renderizarProductos(categoria = 'todos', subcat = null) {
+// 2. MOSTRAR PRODUCTOS CON CLIC PARA AMPLIAR FOTO
+function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '') {
     const grid = document.getElementById('grid-productos');
     const statusText = document.getElementById('categoria-activa-titulo');
     if (!grid) return;
@@ -67,10 +58,19 @@ function renderizarProductos(categoria = 'todos', subcat = null) {
         filtrados = filtrados.filter(p => p.subcategoria === subcat);
     }
 
+    if (filtroTexto.trim() !== '') {
+        const query = filtroTexto.toLowerCase();
+        filtrados = filtrados.filter(p => 
+            p.nombre.toLowerCase().includes(query) || 
+            p.descripcion.toLowerCase().includes(query)
+        );
+    }
+
     if (filtrados.length === 0) {
         grid.innerHTML = `
             <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">
-                <p>No se encontraron productos en esta categoría.</p>
+                <i class="fa-solid fa-magnifying-glass" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+                <p>No se encontraron productos que coincidan con la búsqueda.</p>
             </div>
         `;
         return;
@@ -84,7 +84,10 @@ function renderizarProductos(categoria = 'todos', subcat = null) {
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
-            <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img">
+            <div class="product-img-wrapper" onclick="ampliarImagen('${prod.imagen}', '${prod.nombre}')">
+                <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img">
+                <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver foto</span>
+            </div>
             <div class="product-info">
                 <span class="product-category">${nombresCategorias[prod.subcategoria] || nombresCategorias[prod.categoria]}</span>
                 <h3 class="product-title">${prod.nombre}</h3>
@@ -108,32 +111,44 @@ function renderizarProductos(categoria = 'todos', subcat = null) {
     });
 }
 
-// MODIFICAR CANTIDAD DE LA TARJETA
+// 3. FUNCIONALIDAD DE AMPLIAR IMAGEN (LIGHTBOX)
+function ampliarImagen(url, titulo) {
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('img-ampliada');
+    const captionText = document.getElementById('caption-modal');
+
+    if (modal && modalImg && captionText) {
+        modal.style.display = "block";
+        modalImg.src = url;
+        captionText.innerHTML = titulo;
+    }
+}
+
+function cerrarImagenModal() {
+    const modal = document.getElementById('image-modal');
+    if (modal) modal.style.display = "none";
+}
+
+// 4. BUSCADOR RÁPIDO
+function buscarProductos() {
+    const texto = document.getElementById('input-buscar').value;
+    renderizarProductos('todos', null, texto);
+}
+
+// 5. CANTIDADES EN TARJETAS
 function modificarCantidadTarjeta(id, cambio) {
     if (!cantidadesTarjetas[id]) cantidadesTarjetas[id] = 1;
-    
     cantidadesTarjetas[id] += cambio;
     if (cantidadesTarjetas[id] < 1) cantidadesTarjetas[id] = 1;
 
     const spanQty = document.getElementById(`card-qty-${id}`);
-    if (spanQty) {
-        spanQty.innerText = cantidadesTarjetas[id];
-    }
+    if (spanQty) spanQty.innerText = cantidadesTarjetas[id];
 }
 
-// =========================================================
-// 3. DESPLIEGUE Y FILTRADO POR CATEGORÍAS / SUBMENÚ
-// =========================================================
 function toggleSubmenuEmbutidos(event) {
     if (event) event.stopPropagation();
     const submenu = document.getElementById('submenu-embutidos');
-    const parentBtn = event ? event.currentTarget : null;
-
-    if (submenu) {
-        submenu.classList.toggle('open');
-    }
-    
-    // Activa la categoría principal Embutidos
+    if (submenu) submenu.classList.toggle('open');
     filtrarCategoria('embutidos', 'todos', event);
 }
 
@@ -144,13 +159,10 @@ function filtrarCategoria(cat, subcat = null, event = null) {
     if (event && event.currentTarget) {
         event.currentTarget.classList.add('active');
     }
-
     renderizarProductos(cat, subcat);
 }
 
-// =========================================================
-// 4. LÓGICA DEL CARRITO DE COMPRAS
-// =========================================================
+// 6. CARRITO Y WHATSAPP
 function agregarAlCarritoConCantidad(id) {
     const cantidadSeleccionada = cantidadesTarjetas[id] || 1;
     const existe = carrito.find(p => p.id === id);
@@ -164,7 +176,6 @@ function agregarAlCarritoConCantidad(id) {
         }
     }
 
-    // Reinicia el contador de la tarjeta a 1
     cantidadesTarjetas[id] = 1;
     const spanQty = document.getElementById(`card-qty-${id}`);
     if (spanQty) spanQty.innerText = 1;
@@ -189,7 +200,6 @@ function actualizarCarritoUI() {
     const badge = document.getElementById('cart-count');
 
     if (!container || !badge) return;
-
     container.innerHTML = '';
     let totalItems = 0;
 
@@ -223,9 +233,6 @@ function actualizarCarritoUI() {
     badge.innerText = totalItems;
 }
 
-// =========================================================
-// 5. INTERFAZ Y MENÚS
-// =========================================================
 function toggleCart() {
     const drawer = document.getElementById('cart-drawer');
     const overlay = document.getElementById('cart-overlay');
@@ -246,14 +253,9 @@ function abrirCarrito() {
 
 function toggleMobileMenu() {
     const mobileNav = document.getElementById('mobile-nav');
-    if (mobileNav) {
-        mobileNav.classList.toggle('open');
-    }
+    if (mobileNav) mobileNav.classList.toggle('open');
 }
 
-// =========================================================
-// 6. ENVIAR SOLICITUD DE PEDIDO A WHATSAPP
-// =========================================================
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) {
         alert('Por favor agrega al menos un producto a tu lista de pedido.');
@@ -274,9 +276,6 @@ function enviarPedidoWhatsApp() {
     window.open(url, '_blank');
 }
 
-// =========================================================
-// INICIALIZACIÓN
-// =========================================================
 document.addEventListener('DOMContentLoaded', () => {
     renderizarProductos();
     renderizarMarcas();
