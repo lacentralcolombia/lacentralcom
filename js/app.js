@@ -5,6 +5,17 @@ const NUMERO_WHATSAPP = "573116017186";
 
 let carrito = [];
 
+// MAPA DE NOMBRES PARA BANNERS E INDICADORES
+const nombresCategorias = {
+    'todos': 'Todas las Categorías',
+    'quesos': 'Quesos y Lácteos',
+    'embutidos': 'Embutidos y Cárnicos',
+    'alimentos': 'Alimentos y Condimentos',
+    'frutos-secos': 'Frutos Secos',
+    'cocteleria': 'Coctelería y Micheladas',
+    'desechables': 'Plásticos y Desechables'
+};
+
 // =========================================================
 // 1. CARGAR Y MOSTRAR MARCAS DESTACADAS CON LOGOS
 // =========================================================
@@ -32,7 +43,12 @@ function renderizarMarcas() {
 // =========================================================
 function renderizarProductos(categoria = 'todos') {
     const grid = document.getElementById('grid-productos');
+    const statusText = document.getElementById('categoria-activa-titulo');
     if (!grid) return;
+
+    if (statusText) {
+        statusText.innerText = `Mostrando: ${nombresCategorias[categoria] || categoria}`;
+    }
 
     grid.innerHTML = '';
 
@@ -55,7 +71,7 @@ function renderizarProductos(categoria = 'todos') {
         card.innerHTML = `
             <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img">
             <div class="product-info">
-                <span class="product-category">${prod.categoria.replace('-', ' ')}</span>
+                <span class="product-category">${nombresCategorias[prod.categoria] || prod.categoria}</span>
                 <h3 class="product-title">${prod.nombre}</h3>
                 <p class="product-desc">${prod.descripcion}</p>
                 <div class="product-status">
@@ -71,12 +87,13 @@ function renderizarProductos(categoria = 'todos') {
 }
 
 // =========================================================
-// 3. FILTRAR POR CATEGORÍAS
+// 3. FILTRAR POR CATEGORÍAS DESDE EL SIDEBAR
 // =========================================================
 function filtrarCategoria(cat, event) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    if (event && event.target) {
-        event.target.classList.add('active');
+    document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+    
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
     }
     renderizarProductos(cat);
 }
@@ -133,7 +150,7 @@ function actualizarCarritoUI() {
             itemDiv.innerHTML = `
                 <div>
                     <h4 style="font-size: 0.95rem;">${prod.nombre}</h4>
-                    <span style="font-size: 0.8rem; color: var(--gold-brand); text-transform: capitalize;">${prod.categoria.replace('-', ' ')}</span>
+                    <span style="font-size: 0.8rem; color: var(--gold-brand);">${nombresCategorias[prod.categoria] || prod.categoria}</span>
                 </div>
                 <div class="cart-item-qty">
                     <button class="qty-btn" onclick="cambiarCantidad(${prod.id}, -1)">-</button>
