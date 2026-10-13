@@ -188,7 +188,7 @@ const productosData = [
         imagen: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=500"
     },
 
-    // --- COCTELERÍA Y MICHELADAS (LIQUIPOPS) ---
+    // --- COCTELERÍA Y MICHELADAS (LIQUIPOPS CON IMÁGENES OFICIALES) ---
     {
         id: 101,
         nombre: "Liquipops | Blueberry",
