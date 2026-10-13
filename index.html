@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LA CENTRAL | Catálogo Oficial</title>
+    <title>Quesera y Salsamentaria LA CENTRAL | Catálogo Oficial</title>
 
     <!-- FontAwesome Íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Hoja de Estilos -->
+    <!-- Hoja de Estilos Externa -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <!-- CABECERA Y MENÚ DE NAVEGACIÓN -->
+    <!-- NAVEGACIÓN PRINCIPAL -->
     <header class="navbar">
         <div class="logo-container">
             <a href="#inicio">
@@ -27,6 +27,7 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#beneficios">Beneficios</a></li>
                 <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#marcas">Marcas</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -50,18 +51,19 @@
             <li><a href="#inicio" onclick="toggleMobileMenu()">Inicio</a></li>
             <li><a href="#beneficios" onclick="toggleMobileMenu()">Beneficios</a></li>
             <li><a href="#catalogo" onclick="toggleMobileMenu()">Catálogo</a></li>
+            <li><a href="#marcas" onclick="toggleMobileMenu()">Marcas</a></li>
             <li><a href="#nosotros" onclick="toggleMobileMenu()">Nosotros</a></li>
             <li><a href="#contacto" onclick="toggleMobileMenu()">Contacto</a></li>
         </ul>
     </div>
 
-    <!-- PORTADA PRINCIPAL DE IMPACTO -->
+    <!-- PORTADA PRINCIPAL -->
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="hero-badge"><i class="fa-solid fa-award"></i> Sabor y Calidad Tradicional</span>
+            <span class="hero-badge"><i class="fa-solid fa-award"></i> ¡La mejor opción en tu casa y tu negocio!</span>
             <h1 class="hero-title">El buen sabor se disfruta en <span class="text-gold">LA CENTRAL</span></h1>
-            <p class="hero-subtitle">Descubre nuestra selección de quesos y embutidos para tus desayunos, recetas, reuniones y momentos especiales.</p>
+            <p class="hero-subtitle">Descubre nuestra amplia variedad de quesos, embutidos, alimentos, frutos secos, insumos para coctelería y desechables.</p>
             <div class="hero-buttons">
                 <a href="#catalogo" class="btn-primary"><i class="fa-solid fa-store"></i> Explorar catálogo</a>
                 <a href="#nosotros" class="btn-secondary"><i class="fa-solid fa-circle-info"></i> Conócenos</a>
@@ -69,42 +71,55 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE BENEFICIOS -->
+    <!-- SECCIÓN BENEFICIOS -->
     <section id="beneficios" class="benefits-section">
         <div class="benefits-grid">
             <div class="benefit-card">
                 <div class="benefit-icon"><i class="fa-solid fa-cheese"></i></div>
-                <h3>Quesos y embutidos</h3>
-                <p>Opciones seleccionadas con los más altos estándares de calidad para todos los gustos.</p>
+                <h3>Quesos y Embutidos</h3>
+                <p>Variedad de quesos frescos, artesanales, jamones y cárnicos de las mejores marcas.</p>
             </div>
             <div class="benefit-card">
                 <div class="benefit-icon"><i class="fa-solid fa-list-check"></i></div>
                 <h3>Arma tu pedido</h3>
-                <p>Selecciona fácilmente tus productos favoritos desde nuestro catálogo digital sin complicaciones.</p>
+                <p>Añade fácilmente los productos a tu lista sin preocuparte por precios ocultos.</p>
             </div>
             <div class="benefit-card">
                 <div class="benefit-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                <h3>Atención directa</h3>
-                <p>Haz tus consultas, verifica disponibilidad y coordina entregas de forma personalizada vía WhatsApp.</p>
+                <h3>Atención Directa</h3>
+                <p>Consulta disponibilidad y confirma tu pedido de forma inmediata por WhatsApp.</p>
             </div>
         </div>
     </section>
 
-    <!-- CATÁLOGO DE PRODUCTOS -->
+    <!-- CATÁLOGO -->
     <section id="catalogo" class="catalog-section">
         <div class="section-header">
             <h2 class="section-title">Catálogo de Productos</h2>
-            <p class="section-subtitle">Selecciona los productos de tu interés y recíbelos en tu hogar</p>
+            <p class="section-subtitle">Selecciona los productos de tu interés para consultar disponibilidad</p>
         </div>
 
         <div class="category-filter">
             <button class="filter-btn active" onclick="filtrarCategoria('todos', event)">Todos</button>
             <button class="filter-btn" onclick="filtrarCategoria('quesos', event)">Quesos</button>
             <button class="filter-btn" onclick="filtrarCategoria('embutidos', event)">Embutidos</button>
+            <button class="filter-btn" onclick="filtrarCategoria('alimentos', event)">Alimentos</button>
+            <button class="filter-btn" onclick="filtrarCategoria('frutos-secos', event)">Frutos Secos</button>
+            <button class="filter-btn" onclick="filtrarCategoria('cocteleria', event)">Coctelería</button>
+            <button class="filter-btn" onclick="filtrarCategoria('desechables', event)">Desechables</button>
         </div>
 
         <div id="grid-productos" class="product-grid">
-            <!-- Carga dinámica por JavaScript -->
+            <!-- Carga dinámica mediante JavaScript (data.js y app.js) -->
+        </div>
+    </section>
+
+    <!-- MARCAS DESTACADAS -->
+    <section id="marcas" class="brands-section">
+        <h3 class="brands-title"><i class="fa-solid fa-star"></i> Algunas de Nuestras Marcas Destacadas</h3>
+        <p class="brands-subtitle">Trabajamos de la mano con los mejores proveedores para ofrecerte calidad garantizada.</p>
+        <div class="brands-grid" id="brands-container">
+            <!-- Carga desde JS -->
         </div>
     </section>
 
@@ -112,53 +127,60 @@
     <section id="nosotros" class="about-section">
         <div class="about-container">
             <div class="about-text">
-                <h2>Sobre LA CENTRAL</h2>
-                <p>En <strong>LA CENTRAL</strong> nos dedicamos a ofrecer productos alimenticios de primera calidad. Nos apasiona llevar a tu mesa los mejores quesos y embutidos con un sabor inigualable y una atención cercana y eficiente.</p>
+                <h2>Sobre QUESERA Y SALSAMENTARIA LA CENTRAL</h2>
+                <p>Somos tu mejor opción en Florida, Valle del Cauca. Brindamos soluciones completas tanto para el hogar como para tu negocio, con productos seleccionados, máxima higiene y una atención amable.</p>
                 <div class="about-features">
-                    <div class="feature-item"><i class="fa-solid fa-check text-gold"></i> Productos frescos e higiénicos</div>
-                    <div class="feature-item"><i class="fa-solid fa-check text-gold"></i> Variedad para reuniones y eventos</div>
-                    <div class="feature-item"><i class="fa-solid fa-check text-gold"></i> Atención rápida y cordial</div>
+                    <div class="feature-item"><i class="fa-solid fa-check text-gold"></i> Gran surtido en quesos, embutidos y especias</div>
+                    <div class="feature-item"><i class="fa-solid fa-check text-gold"></i> Insumos para micheladas, cócteles y eventos</div>
+                    <div class="feature-item"><i class="fa-solid fa-check text-gold"></i> Venta al por mayor y al detal</div>
                 </div>
             </div>
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=800" alt="Quesos y Embutidos de Calidad">
+                <img src="https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=800" alt="LA CENTRAL Productos">
             </div>
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA Y CONTACTO -->
+    <!-- FOOTER / PIE DE PÁGINA -->
     <footer id="contacto">
         <div class="footer-container">
             <div class="footer-brand">
                 <img src="assetslogo..jpg" alt="LA CENTRAL Logo" class="footer-logo">
-                <p>El punto de encuentro con la calidad, frescura y el buen sabor.</p>
+                <p>Quesera y Salsamentaria LA CENTRAL<br>¡La mejor opción en tu casa y tu negocio!</p>
             </div>
 
             <div class="footer-info">
                 <h4><i class="fa-solid fa-location-dot text-gold"></i> Ubicación</h4>
-                <p>Carrera 12 #8-11 Local 2<br>Floridablanca, Valle del Cauca, Colombia</p>
-                <a href="https://maps.google.com/?q=Carrera+12+%238-11+Local+2+Floridablanca+Valle+del+Cauca+Colombia" target="_blank" class="location-link">
-                    <i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps
+                <p>Carrera 12 N.º 8-11 • Local 2<br>Barrio La Cabaña • Florida, Valle del Cauca, Colombia</p>
+                <a href="https://maps.google.com/?q=Carrera+12+N.8-11+Local+2+Barrio+La+Caba%C3%B1a+Florida+Valle+del+Cauca" target="_blank" class="location-link">
+                    <i class="fa-solid fa-map-location-dot"></i> Abrir en Google Maps
                 </a>
             </div>
 
             <div class="footer-contact">
-                <h4><i class="fa-solid fa-headset text-gold"></i> Atención</h4>
+                <h4><i class="fa-solid fa-headset text-gold"></i> Contacto y Redes</h4>
                 <p><i class="fa-brands fa-whatsapp text-gold"></i> <strong>WhatsApp:</strong> 311 601 7186</p>
+                
                 <div class="social-links">
-                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/share/1BhdTaXum8/?mibextid=wwXIfr" target="_blank" class="social-btn facebook" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@lacentral.qs?_r=1&_t=ZS-9AWUgTF5RSi" target="_blank" class="social-btn tiktok" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/573116017186" target="_blank" class="social-btn whatsapp-btn" aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 LA CENTRAL. Todos los derechos reservados.</p>
+            <p>&copy; 2026 QUESERA Y SALSAMENTARIA LA CENTRAL. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- CARRITO DE COMPRAS SLIDE-OVER -->
+    <!-- OVERLAY Y PANORAMA DEL CARRITO -->
     <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
     <div class="cart-drawer" id="cart-drawer">
         <div class="cart-header">
@@ -167,23 +189,23 @@
         </div>
 
         <div class="cart-body" id="cart-items-container">
-            <!-- Carga de ítems vía JS -->
+            <!-- Ítems del carrito -->
         </div>
 
         <div class="cart-footer">
-            <p class="cart-note"><i class="fa-solid fa-shield-halved"></i> Al confirmar, se enviará la lista detallada de tus productos elegidos a nuestro WhatsApp para informarte la disponibilidad y atención inmediata.</p>
+            <p class="cart-note"><i class="fa-solid fa-circle-info"></i> Al hacer clic en el botón se enviará la lista directamente a nuestro WhatsApp para informarte sobre disponibilidad y atención.</p>
             <button class="btn-whatsapp-send" onclick="enviarPedidoWhatsApp()">
-                <i class="fa-brands fa-whatsapp"></i> Confirmar Pedido por WhatsApp
+                <i class="fa-brands fa-whatsapp"></i> Consultar Pedido por WhatsApp
             </button>
         </div>
     </div>
 
-    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-    <a href="https://wa.me/573116017186?text=Hola%20LA%20CENTRAL,%20quisiera%20consultar%20disponibilidad%20de%20sus%20productos." class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/573116017186?text=Hola%20LA%20CENTRAL,%20quisiera%20consultar%20disponibilidad%20de%20sus%20productos." class="whatsapp-float" target="_blank" aria-label="Chatear por WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- SCRIPTS -->
+    <!-- Carga de Archivos de Lógica -->
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
 </body>
