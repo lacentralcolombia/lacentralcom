@@ -240,15 +240,33 @@ var productosData = [
         imagen: "liquipopsblueberry3400gramos.jpg"
     },
 
-    // --- OTROS SABORES LIQUIPOPS ---
+    // --- COCTELERÍA Y LIQUIPOPS COCO ---
     {
-        id: 102,
-        nombre: "Liquipops | Coco",
+        id: 1021,
+        nombre: "Liquipops x 350 gramos | Coco🥥",
         categoria: "cocteleria",
         subcategoria: "liqui-coco",
-        descripcion: "Perlas explosivas sabor a coco cremoso, ideales para piña colada y bebidas tropicales.",
-        imagen: "liquipopscoco.jpg"
+        descripcion: "Perlas explosivas sabor a coco cremoso con centro líquido estallante (Presentación de 350 gramos).",
+        imagen: "liquipopscoco350gramos.jpg"
     },
+    {
+        id: 1022,
+        nombre: "Liquipops x 1,150 gramos | Coco🥥",
+        categoria: "cocteleria",
+        subcategoria: "liqui-coco",
+        descripcion: "Perlas explosivas sabor a coco cremoso con centro líquido estallante (Presentación de 1,150 gramos).",
+        imagen: "liquipopscoco1150gramos.jpg"
+    },
+    {
+        id: 1023,
+        nombre: "Liquipops x 3,400 gramos | Coco🥥",
+        categoria: "cocteleria",
+        subcategoria: "liqui-coco",
+        descripcion: "Perlas explosivas sabor a coco cremoso con centro líquido estallante (Presentación de 3,400 gramos).",
+        imagen: "liquipopscoco3400gramos.jpg"
+    },
+
+    // --- OTROS SABORES LIQUIPOPS ---
     {
         id: 103,
         nombre: "Liquipops | Cereza",
