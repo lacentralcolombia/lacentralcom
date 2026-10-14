@@ -190,28 +190,32 @@ const productosData = [
 
     // --- COCTELERÍA Y LIQUIPOPS ---
     {
-        id: 1081,
-        nombre: "Liquipops x 350 gramos | Manzana verde🍏",
+        id: 108,
+        nombre: "Liquipops | Manzana verde🍏",
         categoria: "cocteleria",
         subcategoria: "liqui-manzana",
-        descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 350 gramos).",
-        imagen: "liquipopsmanzana350gr.jpg"
-    },
-    {
-        id: 1082,
-        nombre: "Liquipops x 1,150 gramos | Manzana verde🍏",
-        categoria: "cocteleria",
-        subcategoria: "liqui-manzana",
-        descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 1,150 gramos).",
-        imagen: "liquipops1150gramos.jpg"
-    },
-    {
-        id: 1083,
-        nombre: "Liquipops x 3,400 gramos | Manzana verde🍏",
-        categoria: "cocteleria",
-        subcategoria: "liqui-manzana",
-        descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 3,400 gramos).",
-        imagen: "liquipopsmanzana3400.jpg"
+        descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante. Haz clic en 'Ver más' para ver las 3 presentaciones disponibles.",
+        imagen: "liquipopsmanzana.jpg",
+        presentaciones: [
+            {
+                idPres: 1081,
+                nombre: "Liquipops x 350 gramos | Manzana verde🍏",
+                gramaje: "350g",
+                imagen: "liquipopsmanzana350gr.jpg"
+            },
+            {
+                idPres: 1082,
+                nombre: "Liquipops x 1,150 gramos | Manzana verde🍏",
+                gramaje: "1,150g",
+                imagen: "liquipops1150gramos.jpg"
+            },
+            {
+                idPres: 1083,
+                nombre: "Liquipops x 3,400 gramos | Manzana verde🍏",
+                gramaje: "3,400g",
+                imagen: "liquipopsmanzana3400.jpg"
+            }
+        ]
     },
     {
         id: 101,
