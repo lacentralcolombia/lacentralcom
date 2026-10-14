@@ -555,7 +555,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "siropes",
         descripcion: "Jarabes concentrados adicionales y chamoy agridulce para escarchar y bordear vasos.",
-        imagen: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=500"
+        imagen: "imagenlacentral.jpeg"
     },
 
     // --- ESCARCHAS ---
@@ -565,7 +565,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "escarchas",
         descripcion: "Sales picantes, polvos azucarados y mezclas de sabores (milo, pimienta, tajín, frutos rojos).",
-        imagen: "https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=500"
+        imagen: "imagenlacentral.jpeg"
     },
 
     // --- PLÁSTICOS Y DESECHABLES ---
@@ -575,7 +575,7 @@ var productosData = [
         categoria: "desechables",
         subcategoria: "general",
         descripcion: "Vasos transparentes, tipo domo y térmicos marca Darnel en varias medidas.",
-        imagen: "https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?q=80&w=500"
+        imagen: "imagenlacentral.jpeg"
     },
     {
         id: 23,
@@ -583,7 +583,7 @@ var productosData = [
         categoria: "desechables",
         subcategoria: "general",
         descripcion: "Platos hondos, panderos, tenedores, cucharas y cuchillos resistentes.",
-        imagen: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=500"
+        imagen: "imagenlacentral.jpeg"
     },
     {
         id: 24,
@@ -591,7 +591,7 @@ var productosData = [
         categoria: "desechables",
         subcategoria: "general",
         descripcion: "Recipientes porta-comida, bolsas transparentes y para empaque al vacío.",
-        imagen: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?q=80&w=500"
+        imagen: "imagenlacentral.jpeg"
     }
 ];
 
