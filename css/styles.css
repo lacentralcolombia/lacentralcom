@@ -870,6 +870,20 @@ body.menu-open {
     z-index: 900;
 }
 
+/* ================================================================= */
+/* EFECTO HOVER: Resplandor rojo profesional y elegante en tarjetas   */
+/* ================================================================= */
+.producto-card, .card, .product-item {
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(229, 231, 235, 1);
+}
+
+.producto-card:hover, .card:hover, .product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.4), 0 0 10px rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.6) !important;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .nav-desktop {
@@ -884,20 +898,4 @@ body.menu-open {
     .hero-title {
         font-size: 2rem;
     }
-    /* ================================================================= */
-/* EFECTO HOVER: Resplandor rojo profesional y elegante en tarjetas */
-/* ================================================================= */
-
-.producto-card, .card, .product-item {
-    transition: all 0.3s ease-in-out;
-    border: 1px solid rgba(229, 231, 235, 1); /* Borde base sutil */
-}
-
-.producto-card:hover, .card:hover, .product-item:hover {
-    transform: translateY(-5px);
-    /* Resplandor rojo elegante (glow) */
-    box-shadow: 0 0 20px rgba(220, 38, 38, 0.4), 0 0 10px rgba(239, 68, 68, 0.2);
-    /* Borde que toma un tono rojo sutil al pasar el mouse */
-    border-color: rgba(239, 68, 68, 0.6) !important;
-}
 }
