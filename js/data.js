@@ -52,11 +52,11 @@ var productosData = [
     },
     {
         id: 6,
-        nombre: "Jamones Tradicionales y Especiales",
+        nombre: "Jamón Sevilla x 450 gramos | 22 Tajadas",
         categoria: "embutidos",
         subcategoria: "jamones",
-        descripcion: "Lajas seleccionadas de jamón de cerdo, pavo y finas hierbas (Zenú, Rica, Differ).",
-        imagen: "https://images.unsplash.com/photo-1541529086526-db283c563270?q=80&w=500"
+        descripcion: "Exquisito Jamón marca Sevilla en presentación de 450 gramos (22 tajadas), ideal para tus sándwiches, desayunos y preparaciones diarias.",
+        imagen: "jamonsevilla450gramos.jpg"
     },
     {
         id: 601,
