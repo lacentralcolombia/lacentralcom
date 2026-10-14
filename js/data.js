@@ -1,12 +1,12 @@
 var marcasData = [
-    { nombre: "Zenú", logo: "" },
-    { nombre: "Alpina", logo: "" },
-    { nombre: "Alquería", logo: "" },
-    { nombre: "Rica", logo: "" },
-    { nombre: "Bimbo", logo: "" },
-    { nombre: "Darnel", logo: "" },
-    { nombre: "El Rey", logo: "" },
-    { nombre: "Nestlé", logo: "" }
+    { nombre: "Zenú", logo: "../imagenlacentral.jpeg" },
+    { nombre: "Alpina", logo: "../imagenlacentral.jpeg" },
+    { nombre: "Alquería", logo: "../imagenlacentral.jpeg" },
+    { nombre: "Rica", logo: "../imagenlacentral.jpeg" },
+    { nombre: "Bimbo", logo: "../imagenlacentral.jpeg" },
+    { nombre: "Darnel", logo: "../imagenlacentral.jpeg" },
+    { nombre: "El Rey", logo: "../imagenlacentral.jpeg" },
+    { nombre: "Nestlé", logo: "../imagenlacentral.jpeg" }
 ];
 
 var productosData = [
@@ -160,7 +160,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-manzana",
         descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 350 gramos).",
-        imagen: "liquipopsmanzana350gr.jpg"
+        imagen: "../liquipopsmanzana350gr.jpg"
     },
     {
         id: 1082,
@@ -168,7 +168,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-manzana",
         descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 1,150 gramos).",
-        imagen: "liquipops1150gramos.jpg"
+        imagen: "../liquipops1150gramos.jpg"
     },
     {
         id: 1083,
@@ -176,7 +176,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-manzana",
         descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 3,400 gramos).",
-        imagen: "liquipopsmanzana3400.jpg"
+        imagen: "../liquipopsmanzana3400.jpg"
     },
     {
         id: 1011,
@@ -184,7 +184,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-blueberry",
         descripcion: "Perlas explosivas sabor a mora azul / blueberry con centro líquido estallante (Presentación de 350 gramos).",
-        imagen: "liquipopsblueberry350gramos.jpg"
+        imagen: "../liquipopsblueberry350gramos.jpg"
     },
     {
         id: 1012,
@@ -192,7 +192,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-blueberry",
         descripcion: "Perlas explosivas sabor a mora azul / blueberry con centro líquido estallante (Presentación de 1,150 gramos).",
-        imagen: "liquipopsblueberry1150gramos.jpg"
+        imagen: "../liquipopsblueberry1150gramos.jpg"
     },
     {
         id: 1013,
@@ -200,7 +200,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-blueberry",
         descripcion: "Perlas explosivas sabor a mora azul / blueberry con centro líquido estallante (Presentación de 3,400 gramos).",
-        imagen: "liquipopsblueberry3400gramos.jpg"
+        imagen: "../liquipopsblueberry3400gramos.jpg"
     },
     {
         id: 1021,
@@ -208,7 +208,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-coco",
         descripcion: "Perlas explosivas sabor a coco cremoso con centro líquido estallante (Presentación de 350 gramos).",
-        imagen: "liquipopscoco350gramos.jpg"
+        imagen: "../liquipopscoco350gramos.jpg"
     },
     {
         id: 1022,
@@ -216,7 +216,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-coco",
         descripcion: "Perlas explosivas sabor a coco cremoso con centro líquido estallante (Presentación de 1,150 gramos).",
-        imagen: "liquipopscoco1150gramos.jpg"
+        imagen: "../liquipopscoco1150gramos.jpg"
     },
     {
         id: 1023,
@@ -224,7 +224,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-coco",
         descripcion: "Perlas explosivas sabor a coco cremoso con centro líquido estallante (Presentación de 3,400 gramos).",
-        imagen: "liquipopscoco3400gramos.jpg"
+        imagen: "../liquipopscoco3400gramos.jpg"
     },
     {
         id: 1031,
@@ -232,7 +232,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-cereza",
         descripcion: "Perlas explosivas sabor a cereza dulce e intensa con centro líquido estallante (Presentación de 350 gramos).",
-        imagen: "liquipopscereza350gramos.jpg"
+        imagen: "../liquipopscereza350gramos.jpg"
     },
     {
         id: 1032,
@@ -240,7 +240,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-cereza",
         descripcion: "Perlas explosivas sabor a cereza dulce e intensa con centro líquido estallante (Presentación de 1,150 gramos).",
-        imagen: "liquipopscereza1150gramos.jpg"
+        imagen: "../liquipopscereza1150gramos.jpg"
     },
     {
         id: 1033,
@@ -248,7 +248,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-cereza",
         descripcion: "Perlas explosivas sabor a cereza dulce e intensa con centro líquido estallante (Presentación de 3,400 gramos).",
-        imagen: "liquipopscereza3400gramos.jpg"
+        imagen: "../liquipopscereza3400gramos.jpg"
     },
     {
         id: 1041,
@@ -256,7 +256,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-lychee",
         descripcion: "Perlas explosivas sabor exótico a lychee con centro líquido estallante (Presentación de 350 gramos).",
-        imagen: "liquipopslychee350gramos.jpg"
+        imagen: "../liquipopslychee350gramos.jpg"
     },
     {
         id: 1042,
@@ -264,7 +264,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-lychee",
         descripcion: "Perlas explosivas sabor exótico a lychee con centro líquido estallante (Presentación de 1,150 gramos).",
-        imagen: "liquipopslychee1150gramos.jpg"
+        imagen: "../liquipopslychee1150gramos.jpg"
     },
     {
         id: 1043,
@@ -272,7 +272,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-lychee",
         descripcion: "Perlas explosivas sabor exótico a lychee con centro líquido estallante (Presentación de 3,400 gramos).",
-        imagen: "liquipopslychee3400gramos.jpg"
+        imagen: "../liquipopslychee3400gramos.jpg"
     },
     {
         id: 1051,
@@ -280,7 +280,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-sandia",
         descripcion: "Perlas explosivas sabor a jugosa sandía con centro líquido estallante (Presentación de 350 gramos).",
-        imagen: "liquipopssandia350gramos.jpg"
+        imagen: "../liquipopssandia350gramos.jpg"
     },
     {
         id: 1052,
@@ -288,7 +288,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-sandia",
         descripcion: "Perlas explosivas sabor a jugosa sandía con centro líquido estallante (Presentación de 1,150 gramos).",
-        imagen: "liquipopssandia1150gramos.jpg"
+        imagen: "../liquipopssandia1150gramos.jpg"
     },
     {
         id: 1053,
@@ -296,7 +296,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-sandia",
         descripcion: "Perlas explosivas sabor a jugosa sandía con centro líquido estallante (Presentación de 3,400 gramos).",
-        imagen: "liquipopssandia3400gramos.jpg"
+        imagen: "../liquipopssandia3400gramos.jpg"
     },
     {
         id: 1061,
@@ -304,7 +304,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-icepink",
         descripcion: "Perlas de edición especial frutos rosados y toque frío helado (Presentación de 350 gramos).",
-        imagen: "liquipopsicepink350gramos.jpg"
+        imagen: "../liquipopsicepink350gramos.jpg"
     },
     {
         id: 1062,
@@ -312,7 +312,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-icepink",
         descripcion: "Perlas de edición especial frutos rosados y toque frío helado (Presentación de 1,150 gramos).",
-        imagen: "liquipopsicepink1150gramos.jpg"
+        imagen: "../liquipopsicepink1150gramos.jpg"
     },
     {
         id: 1063,
@@ -320,7 +320,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-icepink",
         descripcion: "Perlas de edición especial frutos rosados y toque frío helado (Presentación de 3,400 gramos).",
-        imagen: "liquipopsicepink3400gramos.jpg"
+        imagen: "../liquipopsicepink3400gramos.jpg"
     },
     {
         id: 1071,
@@ -328,7 +328,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-fresa",
         descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso (Presentación de 350 gramos).",
-        imagen: "liquipopsfresa350gramos.jpg"
+        imagen: "../liquipopsfresa350gramos.jpg"
     },
     {
         id: 1072,
@@ -336,7 +336,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-fresa",
         descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso (Presentación de 1,150 gramos).",
-        imagen: "liquipopsfresa1150gramos.jpg"
+        imagen: "../liquipopsfresa1150gramos.jpg"
     },
     {
         id: 1073,
@@ -344,7 +344,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-fresa",
         descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso (Presentación de 3,400 gramos).",
-        imagen: "liquipopsfresa3400gramos.jpg"
+        imagen: "../liquipopsfresa3400gramos.jpg"
     },
     {
         id: 1091,
@@ -352,7 +352,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-chicle",
         descripcion: "Perlas explosivas con dulce y divertido sabor a chicle (Presentación de 350 gramos).",
-        imagen: "liquipopschicle350gramos.jpg"
+        imagen: "../liquipopschicle350gramos.jpg"
     },
     {
         id: 1092,
@@ -360,7 +360,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-chicle",
         descripcion: "Perlas explosivas con dulce y divertido sabor a chicle (Presentación de 1,150 gramos).",
-        imagen: "liquipopschicle1150gramos.jpg"
+        imagen: "../liquipopschicle1150gramos.jpg"
     },
     {
         id: 1093,
@@ -368,7 +368,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-chicle",
         descripcion: "Perlas explosivas con dulce y divertido sabor a chicle (Presentación de 3,400 gramos).",
-        imagen: "liquipopschicle3400gramos.jpg"
+        imagen: "../liquipopschicle3400gramos.jpg"
     },
     {
         id: 1101,
@@ -376,7 +376,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-mango",
         descripcion: "Sabor ácido y refrescante a mango biche con centro estallante (Presentación de 350 gramos).",
-        imagen: "liquipopsmango350gramos.jpg"
+        imagen: "../liquipopsmango350gramos.jpg"
     },
     {
         id: 1102,
@@ -384,7 +384,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-mango",
         descripcion: "Sabor ácido y refrescante a mango biche con centro estallante (Presentación de 1,150 gramos).",
-        imagen: "liquipopsmango1150gramos.jpg"
+        imagen: "../liquipopsmango1150gramos.jpg"
     },
     {
         id: 1103,
@@ -392,7 +392,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-mango",
         descripcion: "Sabor ácido y refrescante a mango biche con centro estallante (Presentación de 3,400 gramos).",
-        imagen: "liquipopsmango3400gramos.jpg"
+        imagen: "../liquipopsmango3400gramos.jpg"
     },
     {
         id: 1111,
@@ -400,7 +400,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-maracuya",
         descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 350 gramos).",
-        imagen: "liquipopsmaracuya350gramos.jpg"
+        imagen: "../liquipopsmaracuya350gramos.jpg"
     },
     {
         id: 1112,
@@ -408,7 +408,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-maracuya",
         descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 1,150 gramos).",
-        imagen: "liquipopsmaracuya1150gramos.jpg"
+        imagen: "../liquipopsmaracuya1150gramos.jpg"
     },
     {
         id: 1113,
@@ -416,7 +416,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-maracuya",
         descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 3,400 gramos).",
-        imagen: "liquipopsmaracuya3400gramos.jpg"
+        imagen: "../liquipopsmaracuya3400gramos.jpg"
     },
     {
         id: 1121,
@@ -424,7 +424,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-cafe",
         descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 350 gramos).",
-        imagen: "liquipopscafe350gramos.jpg"
+        imagen: "../liquipopscafe350gramos.jpg"
     },
     {
         id: 1122,
@@ -432,7 +432,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-cafe",
         descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 1,150 gramos).",
-        imagen: "liquipopscafe1150gramos.jpg"
+        imagen: "../liquipopscafe1150gramos.jpg"
     },
     {
         id: 1123,
@@ -440,7 +440,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "liqui-cafe",
         descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 3,400 gramos).",
-        imagen: "liquipopscafe3400gramos.jpg"
+        imagen: "../liquipopscafe3400gramos.jpg"
     },
     {
         id: 2001,
@@ -448,7 +448,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "siropes",
         descripcion: "Sirope concentrado marca Geniality sabor Fresa x 1.000 ml, perfecto para granizados, frappés, sodas saborizadas y cócteles.",
-        imagen: "siropefresa1000ml.jpg"
+        imagen: "../siropefresa1000ml.jpg"
     },
     {
         id: 2002,
@@ -456,7 +456,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "siropes",
         descripcion: "Sirope concentrado marca Geniality sabor Cereza x 1.000 ml, ideal para dar un toque dulce e intenso a bebidas y postres.",
-        imagen: "siropecereza1000.jpg"
+        imagen: "../siropecereza1000.jpg"
     },
     {
         id: 2003,
@@ -464,7 +464,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "siropes",
         descripcion: "Sirope concentrado marca Geniality sabor Lychee x 1.000 ml, con notas tropicales exóticas para coctelería de autor.",
-        imagen: "siropelyche.jpg"
+        imagen: "../siropelyche.jpg"
     },
     {
         id: 2004,
@@ -472,7 +472,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "siropes",
         descripcion: "Sirope concentrado marca Geniality sabor Blueberry x 1.000 ml, con el sabor característico y vibrante de la mora azul.",
-        imagen: "siropeBlueberry.jpg"
+        imagen: "../siropeBlueberry.jpg"
     },
     {
         id: 2005,
@@ -480,7 +480,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "siropes",
         descripcion: "Sirope concentrado marca Geniality sabor Manzana Verde x 1.000 ml, refrescante y ácido para sodas y frappés.",
-        imagen: "siropemanzana.jpg"
+        imagen: "../siropemanzana.jpg"
     },
     {
         id: 2006,
@@ -488,7 +488,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "siropes",
         descripcion: "Sirope concentrado marca Geniality sabor Maracuyá x 1.000 ml, con un balance perfecto entre dulce y cítrico.",
-        imagen: "siropemaracuya.jpg"
+        imagen: "../siropemaracuya.jpg"
     },
     {
         id: 2007,
@@ -496,7 +496,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "siropes",
         descripcion: "Jarabes concentrados adicionales y chamoy agridulce para escarchar y bordear vasos.",
-        imagen: "imagenlacentral.jpeg"
+        imagen: "../imagenlacentral.jpeg"
     },
     {
         id: 21,
@@ -504,7 +504,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "escarchas",
         descripcion: "Sales picantes, polvos azucarados y mezclas de sabores (milo, pimienta, tajín, frutos rojos).",
-        imagen: "imagenlacentral.jpeg"
+        imagen: "../imagenlacentral.jpeg"
     },
     {
         id: 22,
@@ -512,7 +512,7 @@ var productosData = [
         categoria: "desechables",
         subcategoria: "general",
         descripcion: "Vasos transparentes, tipo domo y térmicos marca Darnel en varias medidas.",
-        imagen: "imagenlacentral.jpeg"
+        imagen: "../imagenlacentral.jpeg"
     },
     {
         id: 23,
@@ -520,7 +520,7 @@ var productosData = [
         categoria: "desechables",
         subcategoria: "general",
         descripcion: "Platos hondos, panderos, tenedores, cucharas y cuchillos resistentes.",
-        imagen: "imagenlacentral.jpeg"
+        imagen: "../imagenlacentral.jpeg"
     },
     {
         id: 24,
@@ -528,7 +528,7 @@ var productosData = [
         categoria: "desechables",
         subcategoria: "general",
         descripcion: "Recipientes porta-comida, bolsas transparentes y para empaque al vacío.",
-        imagen: "imagenlacentral.jpeg"
+        imagen: "../imagenlacentral.jpeg"
     }
 ];
 
