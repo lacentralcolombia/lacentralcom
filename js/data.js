@@ -83,6 +83,14 @@ var productosData = [
         imagen: "ranchera3.jpg"
     },
     {
+        id: 703,
+        nombre: "Salchicha Súper Perro La Vitta x 12 Unidades | 1000 gramos",
+        categoria: "embutidos",
+        subcategoria: "salchichas",
+        descripcion: "Salchicha Súper Perro marca Carnes Frías La Vitta en presentación institucional de 1.000 gramos y 12 unidades.",
+        imagen: "salchcialavillasuperperro.jpg"
+    },
+    {
         id: 8,
         nombre: "Chorizos Ahumados y Santarrosanos",
         categoria: "embutidos",
