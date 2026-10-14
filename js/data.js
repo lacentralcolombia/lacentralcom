@@ -500,7 +500,7 @@ var productosData = [
         imagen: "liquipopscafe3400gramos.jpg"
     },
 
-    // --- SIROPES Y CHAMOY ---
+    // --- SIROPES Y CHAMOY (GENIALITY X 1.000 ML) ---
     {
         id: 2001,
         nombre: "Sirope de Geniality x 1.000 ml | Fresa",
@@ -511,10 +511,50 @@ var productosData = [
     },
     {
         id: 2002,
+        nombre: "Sirope de Geniality x 1.000 ml | Cereza 🍒",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope concentrado marca Geniality sabor Cereza x 1.000 ml, ideal para dar un toque dulce e intenso a bebidas y postres.",
+        imagen: "siropecereza1000.jpg"
+    },
+    {
+        id: 2003,
+        nombre: "Sirope de Geniality x 1.000 ml | Lychee 🍚",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope concentrado marca Geniality sabor Lychee x 1.000 ml, con notas tropicales exóticas para coctelería de autor.",
+        imagen: "siropelyche.jpg"
+    },
+    {
+        id: 2004,
+        nombre: "Sirope de Geniality x 1.000 ml | Blueberry 🔵",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope concentrado marca Geniality sabor Blueberry x 1.000 ml, con el sabor característico y vibrante de la mora azul.",
+        imagen: "siropeBlueberry.jpg"
+    },
+    {
+        id: 2005,
+        nombre: "Sirope de Geniality x 1.000 ml | Manzana Verde 🍏",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope concentrado marca Geniality sabor Manzana Verde x 1.000 ml, refrescante y ácido para sodas y frappés.",
+        imagen: "siropemanzana.jpg"
+    },
+    {
+        id: 2006,
+        nombre: "Sirope de Geniality x 1.000 ml | Maracuyá 🍋",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope concentrado marca Geniality sabor Maracuyá x 1.000 ml, con un balance perfecto entre dulce y cítrico.",
+        imagen: "siropemaracuya.jpg"
+    },
+    {
+        id: 2007,
         nombre: "Siropes Concentrados y Chamoy Variados",
         categoria: "cocteleria",
         subcategoria: "siropes",
-        descripcion: "Jarabes concentrados de múltiples sabores y chamoy agridulce para escarchar y bordear vasos.",
+        descripcion: "Jarabes concentrados adicionales y chamoy agridulce para escarchar y bordear vasos.",
         imagen: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=500"
     },
 
