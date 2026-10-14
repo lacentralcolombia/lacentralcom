@@ -148,11 +148,11 @@ var productosData = [
     },
     {
         id: 10,
-        nombre: "Tocineta Ahumada",
+        nombre: "Tocineta Ahumada Chorival | 450 gramos",
         categoria: "embutidos",
         subcategoria: "tocinetas",
-        descripcion: "Cortes de tocineta ahumada crujiente ideal para hamburguesas y recetas.",
-        imagen: "https://images.unsplash.com/photo-1606851094655-b2593a9af63f?q=80&w=500"
+        descripcion: "Exquisita tocineta ahumada marca Chorival en presentación de 450 gramos, perfecta para darle un toque crujiente y delicioso a tus hamburguesas y recetas.",
+        imagen: "tocineta ahumada chorival450gramos.jpg"
     },
     {
         id: 11,
