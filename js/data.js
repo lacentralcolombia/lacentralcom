@@ -318,15 +318,33 @@ var productosData = [
         imagen: "liquipopslychee3400gramos.jpg"
     },
 
-    // --- OTROS SABORES LIQUIPOPS ---
+    // --- COCTELERÍA Y LIQUIPOPS SANDÍA ---
     {
-        id: 105,
-        nombre: "Liquipop | Sandia",
+        id: 1051,
+        nombre: "Liquipops x 350 gramos | Sandia🍉",
         categoria: "cocteleria",
         subcategoria: "liqui-sandia",
-        descripcion: "Explosión refrescante de jugosa sandía para escarchar y combinar en tus micheladas.",
-        imagen: "liquipopssandia.jpg"
+        descripcion: "Perlas explosivas sabor a jugosa sandía con centro líquido estallante (Presentación de 350 gramos).",
+        imagen: "liquipopssandia350gramos.jpg"
     },
+    {
+        id: 1052,
+        nombre: "Liquipops x 1,150 gramos | Sandía🍉",
+        categoria: "cocteleria",
+        subcategoria: "liqui-sandia",
+        descripcion: "Perlas explosivas sabor a jugosa sandía con centro líquido estallante (Presentación de 1,150 gramos).",
+        imagen: "liquipopssandia1150gramos.jpg"
+    },
+    {
+        id: 1053,
+        nombre: "Liquipops x 3,400 gramos | Sandia🍉",
+        categoria: "cocteleria",
+        subcategoria: "liqui-sandia",
+        descripcion: "Perlas explosivas sabor a jugosa sandía con centro líquido estallante (Presentación de 3,400 gramos).",
+        imagen: "liquipopssandia3400gramos.jpg"
+    },
+
+    // --- OTROS SABORES LIQUIPOPS ---
     {
         id: 106,
         nombre: "Liquipops | Ice Pink",
@@ -361,7 +379,7 @@ var productosData = [
     },
     {
         id: 111,
-        nombre: "Liquipops | Maracuyá",
+        nombre: "Liquipops x 350 gramos | Maracuyá",
         categoria: "cocteleria",
         subcategoria: "liqui-maracuya",
         descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá para cócteles y sodas.",
