@@ -89,18 +89,15 @@ function toggleTopDropdown(idDropdown, event) {
 
     const estaAbierto = target.classList.contains('open');
 
-    // Cerrar los demás desplegables
     document.querySelectorAll('.top-dropdown-content').forEach(d => {
         d.classList.remove('open');
     });
 
-    // Abrir el seleccionado si estaba cerrado
     if (!estaAbierto) {
         target.classList.add('open');
     }
 }
 
-// CERRAR DESPLEGABLES AL HACER CLIC FUERA
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.top-dropdown')) {
         document.querySelectorAll('.top-dropdown-content').forEach(d => {
@@ -109,7 +106,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// EFECTO DE EXPLOSIÓN DE PERLAS Y SONIDO POP
+// EFECTO DE EXPLOSIÓN DE PERLAS CON SONIDO POP
 function crearEfectoExplosion(event, colorHex) {
     reproducirSonidoPop();
 
@@ -260,7 +257,7 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
         card.className = 'product-card';
         card.innerHTML = `
             <div class="product-img-wrapper" onclick="ampliarImagen('${imgLimpia}', '${nombreLimpio}')">
-                <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img" onerror="this.src='https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=500'">
+                <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img" onerror="this.src='https://via.placeholder.com/500?text=Producto'">
                 <span class="zoom-hint"><i class="fa-solid fa-eye"></i> Ver más</span>
             </div>
             <div class="product-info">
