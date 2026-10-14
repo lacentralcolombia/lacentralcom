@@ -115,6 +115,14 @@ var productosData = [
         imagen: "chorizopaisa12unidades500gramos.jpg"
     },
     {
+        id: 803,
+        nombre: "Chorizo de Cerdo Chorival | 1200 gramos",
+        categoria: "embutidos",
+        subcategoria: "chorizos",
+        descripcion: "Auténtico Chorizo de Cerdo marca Chorival en presentación de 1.200 gramos, con sabores naturales y frescos ideales para asados.",
+        imagen: "chorivaldecerdo1200gramos.jpeg"
+    },
+    {
         id: 9,
         nombre: "Mortadelas Especiales",
         categoria: "embutidos",
