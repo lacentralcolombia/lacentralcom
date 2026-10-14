@@ -67,6 +67,14 @@ var productosData = [
         imagen: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=500"
     },
     {
+        id: 701,
+        nombre: "Salchicha Premium Ranchera x 480gr x 14 Unidades",
+        categoria: "embutidos",
+        subcategoria: "salchichas",
+        descripcion: "Deliciosas salchichas premium marca Ranchera en presentación de 480 gramos y 14 unidades, empaque resellable zip-pak.",
+        imagen: "ranchera14.jpg"
+    },
+    {
         id: 8,
         nombre: "Chorizos Ahumados y Santarrosanos",
         categoria: "embutidos",
