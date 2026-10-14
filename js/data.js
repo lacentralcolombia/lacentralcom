@@ -266,15 +266,33 @@ var productosData = [
         imagen: "liquipopscoco3400gramos.jpg"
     },
 
-    // --- OTROS SABORES LIQUIPOPS ---
+    // --- COCTELERÍA Y LIQUIPOPS CEREZA ---
     {
-        id: 103,
-        nombre: "Liquipops | Cereza",
+        id: 1031,
+        nombre: "Liquipops x 350 gramos | Cereza🍒",
         categoria: "cocteleria",
         subcategoria: "liqui-cereza",
-        descripcion: "Perlas explosivas con el toque dulce e intenso de la cereza para acompañar tus tragos.",
-        imagen: "liquipopscereza.jpg"
+        descripcion: "Perlas explosivas sabor a cereza dulce e intensa con centro líquido estallante (Presentación de 350 gramos).",
+        imagen: "liquipopscereza350gramos.jpg"
     },
+    {
+        id: 1032,
+        nombre: "Liquipops x 1,150 gramos | Cereza🍒",
+        categoria: "cocteleria",
+        subcategoria: "liqui-cereza",
+        descripcion: "Perlas explosivas sabor a cereza dulce e intensa con centro líquido estallante (Presentación de 1,150 gramos).",
+        imagen: "liquipopscereza1150gramos.jpg"
+    },
+    {
+        id: 1033,
+        nombre: "Liquipops x 3,400 gramos | Cereza🍒",
+        categoria: "cocteleria",
+        subcategoria: "liqui-cereza",
+        descripcion: "Perlas explosivas sabor a cereza dulce e intensa con centro líquido estallante (Presentación de 3,400 gramos).",
+        imagen: "liquipopscereza3400gramos.jpg"
+    },
+
+    // --- OTROS SABORES LIQUIPOPS ---
     {
         id: 104,
         nombre: "Liquipops | Lychee",
