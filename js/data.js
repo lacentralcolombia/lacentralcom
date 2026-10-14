@@ -548,11 +548,43 @@ var productosData = [
     },
     {
         id: 3001,
-        nombre: "Jellys Yexis de Fresa x 1.100 g 🍓",
+        nombre: "Yexis x 1,100 gramos | Fresa 🍓",
         categoria: "cocteleria",
-        subcategoria: "jellys",
-        descripcion: "¡Disfruta del dulce y vibrante sabor de las Jellys Yexis de Fresa! Presentación de 1.100 g ideal para agregar un toque masticable y delicioso a bubble tea, sodas masticables, frappés, jugos, cafés fríos, granizados y limonadas.",
-        imagen: "jellysyexisfresa1100gr.jpg"
+        subcategoria: "yexis",
+        descripcion: "Caramelo blando en almíbar con sabor artificial a fresa. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
+        imagen: "yexisfresa.jpg"
+    },
+    {
+        id: 3002,
+        nombre: "Yexis x 1,100 gramos | Blue Berry 🔵",
+        categoria: "cocteleria",
+        subcategoria: "yexis",
+        descripcion: "Caramelo blando en almíbar con sabor artificial a blueberry. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
+        imagen: "yexisblueberry.jpg"
+    },
+    {
+        id: 3003,
+        nombre: "Yexis x 1,100 gramos | Lychee 🍚",
+        categoria: "cocteleria",
+        subcategoria: "yexis",
+        descripcion: "Caramelo blando en almíbar con sabor artificial a lychee. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
+        imagen: "yexislychee.jpg"
+    },
+    {
+        id: 3004,
+        nombre: "Yexis x 1,100 gramos | Maracuyá 🍋",
+        categoria: "cocteleria",
+        subcategoria: "yexis",
+        descripcion: "Caramelo blando en almíbar con sabor artificial a maracuyá. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
+        imagen: "yexismaracuya.jpg"
+    },
+    {
+        id: 3005,
+        nombre: "Yexis x 1,100 gramos | Coco 🥥",
+        categoria: "cocteleria",
+        subcategoria: "yexis",
+        descripcion: "Caramelo blando en almíbar con sabor artificial a coco. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
+        imagen: "yexiscoco.jpg"
     },
     {
         id: 22,
