@@ -75,6 +75,14 @@ var productosData = [
         imagen: "ranchera14.jpg"
     },
     {
+        id: 702,
+        nombre: "Salchicha Premium Ranchera x 3 Unidades",
+        categoria: "embutidos",
+        subcategoria: "salchichas",
+        descripcion: "Salchicha premium marca Ranchera en presentación práctica de 3 unidades (Peso neto 75 g), ideal para porciones individuales.",
+        imagen: "ranchera3.jpg"
+    },
+    {
         id: 8,
         nombre: "Chorizos Ahumados y Santarrosanos",
         categoria: "embutidos",
