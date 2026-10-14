@@ -188,7 +188,7 @@ var productosData = [
         imagen: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=500"
     },
 
-    // --- COCTELERÍA Y LIQUIPOPS ---
+    // --- COCTELERÍA Y LIQUIPOPS MANZANA VERDE ---
     {
         id: 1081,
         nombre: "Liquipops x 350 gramos | Manzana verde🍏",
@@ -213,14 +213,34 @@ var productosData = [
         descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 3,400 gramos).",
         imagen: "liquipopsmanzana3400.jpg"
     },
+
+    // --- COCTELERÍA Y LIQUIPOPS BLUEBERRY ---
     {
-        id: 101,
-        nombre: "Liquipops | Blueberry",
+        id: 1011,
+        nombre: "Liquipops x 350 gramos | Blueberry🔵",
         categoria: "cocteleria",
         subcategoria: "liqui-blueberry",
-        descripcion: "Perlas explosivas de mora azul con centro líquido estallante para cócteles, sodas y micheladas.",
-        imagen: "liquipopsBlueberry.jpg"
+        descripcion: "Perlas explosivas sabor a mora azul / blueberry con centro líquido estallante (Presentación de 350 gramos).",
+        imagen: "liquipopsblueberry350gramos.jpg"
     },
+    {
+        id: 1012,
+        nombre: "Liquipops x 1,150 gramos | Blueberry 🫐",
+        categoria: "cocteleria",
+        subcategoria: "liqui-blueberry",
+        descripcion: "Perlas explosivas sabor a mora azul / blueberry con centro líquido estallante (Presentación de 1,150 gramos).",
+        imagen: "liquipopsblueberry1150gramos.jpg"
+    },
+    {
+        id: 1013,
+        nombre: "Liquipops x 3,400 gramos | Blueberry🔵",
+        categoria: "cocteleria",
+        subcategoria: "liqui-blueberry",
+        descripcion: "Perlas explosivas sabor a mora azul / blueberry con centro líquido estallante (Presentación de 3,400 gramos).",
+        imagen: "liquipopsblueberry3400gramos.jpg"
+    },
+
+    // --- OTROS SABORES LIQUIPOPS ---
     {
         id: 102,
         nombre: "Liquipops | Coco",
