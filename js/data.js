@@ -155,6 +155,14 @@ var productosData = [
         imagen: "tocineta ahumada chorival450gramos.jpg"
     },
     {
+        id: 1001,
+        nombre: "Tocineta Ahumada Premium La Americanísima | 450 gramos",
+        categoria: "embutidos",
+        subcategoria: "tocinetas",
+        descripcion: "Exclusiva Tocineta Ahumada Premium marca La Americanísima en presentación de 450 gramos, seleccionada para dar máxima calidad y sabor gourmet.",
+        imagen: "TOCINETAAUMADAPREMIUN450G.JPG"
+    },
+    {
         id: 11,
         nombre: "Aliños a Granel",
         categoria: "alimentos",
