@@ -503,7 +503,7 @@ var productosData = [
         nombre: "Azúcar para michelar Skarcha x 500 gramos | Cereza 🍒",
         categoria: "cocteleria",
         subcategoria: "escarchas",
-        descripcion: "Mezcla de azúcar con sabor artificial a cereza para escarchar y decorar bebidas (Presentación de 500 gramos)[cite: 8].",
+        descripcion: "Mezcla de azúcar con sabor artificial a cereza para escarchar y decorar bebidas (Presentación de 500 gramos).",
         imagen: "azucarcereza.jpg"
     },
     {
@@ -511,7 +511,7 @@ var productosData = [
         nombre: "Azúcar para michelar Skarcha x 500 gramos | Sandía 🍉",
         categoria: "cocteleria",
         subcategoria: "escarchas",
-        descripcion: "Mezcla de azúcar con sabor artificial a sandía para escarchar y decorar bebidas (Presentación de 500 gramos)[cite: 9].",
+        descripcion: "Mezcla de azúcar con sabor artificial a sandía para escarchar y decorar bebidas (Presentación de 500 gramos).",
         imagen: "azucarsandia.jpg"
     },
     {
@@ -519,7 +519,7 @@ var productosData = [
         nombre: "Azúcar para michelar Skarcha x 500 gramos | Blueberry 🔵",
         categoria: "cocteleria",
         subcategoria: "escarchas",
-        descripcion: "Mezcla de azúcar con sabor artificial a blueberry para escarchar y decorar bebidas (Presentación de 500 gramos)[cite: 10].",
+        descripcion: "Mezcla de azúcar con sabor artificial a blueberry para escarchar y decorar bebidas (Presentación de 500 gramos).",
         imagen: "azucarbluberry.jpg"
     },
     {
@@ -527,7 +527,7 @@ var productosData = [
         nombre: "Azúcar para michelar Skarcha x 500 gramos | Chicle 🫧",
         categoria: "cocteleria",
         subcategoria: "escarchas",
-        descripcion: "Mezcla de azúcar con sabor artificial a chicle para escarchar y decorar bebidas (Presentación de 500 gramos)[cite: 11].",
+        descripcion: "Mezcla de azúcar con sabor artificial a chicle para escarchar y decorar bebidas (Presentación de 500 gramos).",
         imagen: "azucarchicle.jpg"
     },
     {
@@ -535,7 +535,7 @@ var productosData = [
         nombre: "Sal Mix para michelar Skarcha x 500 gramos | Maracuyá 🍋",
         categoria: "cocteleria",
         subcategoria: "escarchas",
-        descripcion: "Mezcla de sal con sabor artificial a maracuyá para escarchar y decorar bebidas (Presentación de 500 gramos)[cite: 12].",
+        descripcion: "Mezcla de sal con sabor artificial a maracuyá para escarchar y decorar bebidas (Presentación de 500 gramos).",
         imagen: "salmaracuya.jpg"
     },
     {
