@@ -58,17 +58,21 @@ function getMarcas() {
 // CONTROL DEL MENÚ MÓVIL
 function toggleMobileMenu() {
     const mobileNav = document.getElementById('mobile-nav');
+    const overlay = document.getElementById('mobile-nav-overlay');
     if (mobileNav) {
         mobileNav.classList.toggle('open');
         document.body.classList.toggle('menu-open');
+        if (overlay) overlay.classList.toggle('open');
     }
 }
 
 function irASeccion(idSeccion) {
     const mobileNav = document.getElementById('mobile-nav');
+    const overlay = document.getElementById('mobile-nav-overlay');
     if (mobileNav) {
         mobileNav.classList.remove('open');
         document.body.classList.remove('menu-open');
+        if (overlay) overlay.classList.remove('open');
     }
 
     const targetId = idSeccion.replace('#', '');
@@ -76,6 +80,12 @@ function irASeccion(idSeccion) {
     if (elemento) {
         elemento.scrollIntoView({ behavior: 'smooth' });
     }
+}
+
+// FUNCIÓN PARA NAVEGAR Y FILTRAR DESDE EL MENÚ MÓVIL SIN ERRORES
+function navegarYFiltrar(categoria, subcategoria = null, idSeccion = 'catalogo', event = null, colorExplosion = null) {
+    irASeccion(idSeccion);
+    filtrarCategoria(categoria, subcategoria, event, colorExplosion);
 }
 
 // CONTROL DE DESPLEGABLES SUPERIORES
@@ -110,8 +120,18 @@ document.addEventListener('click', (e) => {
 function crearEfectoExplosion(event, colorHex) {
     reproducirSonidoPop();
 
-    const originX = event ? (event.clientX || window.innerWidth / 2) : window.innerWidth / 2;
-    const originY = event ? (event.clientY || window.innerHeight / 2) : window.innerHeight / 2;
+    let originX = window.innerWidth / 2;
+    let originY = window.innerHeight / 2;
+
+    if (event) {
+        if (event.clientX !== undefined) {
+            originX = event.clientX;
+            originY = event.clientY;
+        } else if (event.touches && event.touches[0]) {
+            originX = event.touches[0].clientX;
+            originY = event.touches[0].clientY;
+        }
+    }
 
     const cantidadParticulas = 28;
     const colorBase = colorHex || '#E6B64F';
@@ -323,7 +343,7 @@ function filtrarCategoria(cat, subcat = null, event = null, colorExplosion = nul
     document.querySelectorAll('.top-nav-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.top-dropdown-content button').forEach(b => b.classList.remove('active'));
 
-    if (event && event.currentTarget) {
+    if (event && event.currentTarget && event.currentTarget.classList) {
         event.currentTarget.classList.add('active');
     }
     
