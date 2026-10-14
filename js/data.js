@@ -444,4 +444,95 @@ var productosData = [
     },
     {
         id: 2001,
-        nombre: "
+        nombre: "Sirope de Geniality x 1.000 ml | Fresa",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope concentrado marca Geniality sabor Fresa x 1.000 ml, perfecto para granizados, frappés, sodas saborizadas y cócteles.",
+        imagen: "../siropefresa1000ml.jpg"
+    },
+    {
+        id: 2002,
+        nombre: "Sirope de Geniality x 1.000 ml | Cereza 🍒",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope concentrado marca Geniality sabor Cereza x 1.000 ml, ideal para dar un toque dulce e intenso a bebidas y postres.",
+        imagen: "../siropecereza1000.jpg"
+    },
+    {
+        id: 2003,
+        nombre: "Sirope de Geniality x 1.000 ml | Lychee 🍚",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope concentrado marca Geniality sabor Lychee x 1.000 ml, con notas tropicales exóticas para coctelería de autor.",
+        imagen: "../siropelyche.jpg"
+    },
+    {
+        id: 2004,
+        nombre: "Sirope de Geniality x 1.000 ml | Blueberry 🔵",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope concentrado marca Geniality sabor Blueberry x 1.000 ml, con el sabor característico y vibrante de la mora azul.",
+        imagen: "../siropeBlueberry.jpg"
+    },
+    {
+        id: 2005,
+        nombre: "Sirope de Geniality x 1.000 ml | Manzana Verde 🍏",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope concentrado marca Geniality sabor Manzana Verde x 1.000 ml, refrescante y ácido para sodas y frappés.",
+        imagen: "../siropemanzana.jpg"
+    },
+    {
+        id: 2006,
+        nombre: "Sirope de Geniality x 1.000 ml | Maracuyá 🍋",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope concentrado marca Geniality sabor Maracuyá x 1.000 ml, con un balance perfecto entre dulce y cítrico.",
+        imagen: "../siropemaracuya.jpg"
+    },
+    {
+        id: 2007,
+        nombre: "Siropes Concentrados y Chamoy Variados",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Jarabes concentrados adicionales y chamoy agridulce para escarchar y bordear vasos.",
+        imagen: "../imagenlacentral.jpeg"
+    },
+    {
+        id: 21,
+        nombre: "Escarchas para Micheladas",
+        categoria: "cocteleria",
+        subcategoria: "escarchas",
+        descripcion: "Sales picantes, polvos azucarados y mezclas de sabores (milo, pimienta, tajín, frutos rojos).",
+        imagen: "../imagenlacentral.jpeg"
+    },
+    {
+        id: 22,
+        nombre: "Vasos Desechables Darnel",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Vasos transparentes, tipo domo y térmicos marca Darnel en varias medidas.",
+        imagen: "../imagenlacentral.jpeg"
+    },
+    {
+        id: 23,
+        nombre: "Platos y Cubiertos",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Platos hondos, panderos, tenedores, cucharas y cuchillos resistentes.",
+        imagen: "../imagenlacentral.jpeg"
+    },
+    {
+        id: 24,
+        nombre: "Envases y Bolsas de Empaque",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Recipientes porta-comida, bolsas transparentes y para empaque al vacío.",
+        imagen: "../imagenlacentral.jpeg"
+    }
+];
+
+if (typeof window !== 'undefined') {
+    window.marcasData = marcasData;
+    window.productosData = productosData;
+}
