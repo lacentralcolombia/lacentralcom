@@ -60,11 +60,11 @@ var productosData = [
     },
     {
         id: 7,
-        nombre: "Salchichas Manguera y Ranchera",
+        nombre: "Salchicha Campesina Deli x 16 Unidades | 500 gramos",
         categoria: "embutidos",
         subcategoria: "salchichas",
-        descripcion: "Salchichas manguera especial, rancheras y mangueras para perritos o desayunos.",
-        imagen: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=500"
+        descripcion: "Deliciosa salchicha mixta de pollo y cerdo marca Deli Campesina en presentación de 500 gramos y 16 porciones aprox.",
+        imagen: "campesina16.jpg"
     },
     {
         id: 701,
