@@ -92,11 +92,11 @@ var productosData = [
     },
     {
         id: 8,
-        nombre: "Chorizos Ahumados y Santarrosanos",
+        nombre: "Chorizo Ideal Rica x 3 Porciones | 150 gramos",
         categoria: "embutidos",
         subcategoria: "chorizos",
-        descripcion: "Chorizo santarrosano, antioqueño y de la casa con sazón ahumada.",
-        imagen: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=500"
+        descripcion: "Delicioso Chorizo Ideal marca Rica en presentación de 3 porciones (Peso neto 150 gramos), práctico y con gran sabor.",
+        imagen: "chorizrica3porciones.jpg"
     },
     {
         id: 801,
@@ -111,7 +111,7 @@ var productosData = [
         nombre: "Chorizo Paisa La Vitta x 12 Unidades | 500 gramos",
         categoria: "embutidos",
         subcategoria: "chorizos",
-        descripcion: "Tradicional Chorizo Paisa marca La Villa en presentación de 500 gramos y 12 unidades, con el auténtico sabor antioqueño.",
+        descripcion: "Tradicional Chorizo Paisa marca La Vitta en presentación de 500 gramos y 12 unidades, con el auténtico sabor antioqueño.",
         imagen: "chorizopaisa12unidades500gramos.jpg"
     },
     {
