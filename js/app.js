@@ -113,28 +113,28 @@ function crearEfectoExplosion(event, colorHex) {
     const originX = event ? (event.clientX || window.innerWidth / 2) : window.innerWidth / 2;
     const originY = event ? (event.clientY || window.innerHeight / 2) : window.innerHeight / 2;
 
-    const cantidadParticulas = 30;
+    const cantidadParticulas = 28;
     const colorBase = colorHex || '#E6B64F';
-    const paletaSecundaria = [colorBase, '#ffffff', '#E6B64F', '#2ecc71', '#ff69b4', '#4a90e2', '#00bfff', '#8b4513'];
+    const paletaSecundaria = [colorBase, '#ffffff', '#E6B64F', '#2ecc71', '#ff69b4', '#00bfff', '#8b4513'];
 
     for (let i = 0; i < cantidadParticulas; i++) {
         const particula = document.createElement('div');
         particula.className = 'pop-sphere-particle';
 
         const color = i % 2 === 0 ? colorBase : paletaSecundaria[Math.floor(Math.random() * paletaSecundaria.length)];
-        const tamaño = Math.floor(Math.random() * 20) + 10;
+        const tamano = Math.floor(Math.random() * 18) + 10;
 
-        particula.style.width = `${tamaño}px`;
-        particula.style.height = `${tamaño}px`;
+        particula.style.width = `${tamano}px`;
+        particula.style.height = `${tamano}px`;
         particula.style.left = `${originX}px`;
         particula.style.top = `${originY}px`;
-        particula.style.background = `radial-gradient(circle at 35% 35%, #ffffff, ${color} 70%, #000000 100%)`;
-        particula.style.boxShadow = `0 0 14px ${color}`;
+        particula.style.background = `radial-gradient(circle at 35% 35%, #ffffff 0%, ${color} 60%, #000000 100%)`;
+        particula.style.boxShadow = `0 0 12px ${color}`;
 
         const angulo = Math.random() * Math.PI * 2;
-        const distancia = Math.floor(Math.random() * 200) + 60;
+        const distancia = Math.floor(Math.random() * 180) + 50;
         const destX = Math.cos(angulo) * distancia;
-        const destY = Math.sin(angulo) * distancia - 40;
+        const destY = Math.sin(angulo) * distancia - 30;
 
         particula.style.setProperty('--dx', `${destX}px`);
         particula.style.setProperty('--dy', `${destY}px`);
@@ -143,7 +143,7 @@ function crearEfectoExplosion(event, colorHex) {
 
         setTimeout(() => {
             particula.remove();
-        }, 800);
+        }, 750);
     }
 }
 
@@ -157,10 +157,10 @@ function reproducirSonidoPop() {
         const gain = ctx.createGain();
 
         osc.type = 'sine';
-        osc.frequency.setValueAtTime(320, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(850, ctx.currentTime + 0.08);
+        osc.frequency.setValueAtTime(300, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(900, ctx.currentTime + 0.08);
 
-        gain.gain.setValueAtTime(0.3, ctx.currentTime);
+        gain.gain.setValueAtTime(0.35, ctx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
 
         osc.connect(gain);
