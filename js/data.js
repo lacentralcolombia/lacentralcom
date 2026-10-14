@@ -67,6 +67,14 @@ var productosData = [
         imagen: "JAMONIDEALRICA230GRAMOS.JPG"
     },
     {
+        id: 602,
+        nombre: "Jamón Ideal Rica x 400 gramos | 21 Tajadas",
+        categoria: "embutidos",
+        subcategoria: "jamones",
+        descripcion: "Rico y rendidor Jamón Ideal marca Rica en presentación familiar de 400 gramos (21 tajadas), excelente para compartir.",
+        imagen: "JAMONIDEALRICA400GRAMOS.JPG"
+    },
+    {
         id: 7,
         nombre: "Salchicha Campesina Deli x 16 Unidades | 500 gramos",
         categoria: "embutidos",
