@@ -100,11 +100,19 @@ var productosData = [
     },
     {
         id: 801,
-        nombre: "Chorizo Español La Villa x 15 Unidades | 1000 gramos",
+        nombre: "Chorizo Español La Vitta x 15 Unidades | 1000 gramos",
         categoria: "embutidos",
         subcategoria: "chorizos",
         descripcion: "Exquisito Chorizo Español marca La Vitta en presentación de 1.000 gramos y 15 unidades, ideal para asados y preparaciones especiales.",
         imagen: "chorizolavilla15.jpg"
+    },
+    {
+        id: 802,
+        nombre: "Chorizo Paisa La Vitta x 12 Unidades | 500 gramos",
+        categoria: "embutidos",
+        subcategoria: "chorizos",
+        descripcion: "Tradicional Chorizo Paisa marca La Vitta en presentación de 500 gramos y 12 unidades, con el auténtico sabor antioqueño.",
+        imagen: "chorizopaisa12unidades500gramos.jpg"
     },
     {
         id: 9,
