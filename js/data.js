@@ -1,4 +1,3 @@
-// MARCAS DESTACADAS (SIMPLIFICADAS Y LIGERAS)
 var marcasData = [
     { nombre: "Zenú", logo: "" },
     { nombre: "Alpina", logo: "" },
@@ -10,9 +9,7 @@ var marcasData = [
     { nombre: "Nestlé", logo: "" }
 ];
 
-// PRODUCTOS DEL CATÁLOGO COMPLETO
 var productosData = [
-    // --- QUESOS Y LÁCTEOS ---
     {
         id: 1,
         nombre: "Quesos y Yogures",
@@ -53,8 +50,6 @@ var productosData = [
         descripcion: "Queso listo para gratinar y acompañar tus pastas, lasañas o arepas.",
         imagen: "https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=500"
     },
-
-    // --- EMBUTIDOS ---
     {
         id: 6,
         nombre: "Jamones Tradicionales y Especiales",
@@ -95,8 +90,6 @@ var productosData = [
         descripcion: "Cortes de tocineta ahumada crujiente ideal para hamburguesas y recetas.",
         imagen: "https://images.unsplash.com/photo-1606851094655-b2593a9af63f?q=80&w=500"
     },
-
-    // --- ALIMENTOS Y CONDIMENTOS ---
     {
         id: 11,
         nombre: "Aliños a Granel",
@@ -129,8 +122,6 @@ var productosData = [
         descripcion: "Salsas artesanales, tártara, ajo, piña, rosada y especialidades.",
         imagen: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?q=80&w=500"
     },
-
-    // --- FRUTOS SECOS ---
     {
         id: 15,
         nombre: "Maní Variado",
@@ -163,11 +154,9 @@ var productosData = [
         descripcion: "Combinación equilibrada de maní, almendras, nueces, arándanos y pasas.",
         imagen: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=500"
     },
-
-    // --- LIQUIPOPS ---
     {
         id: 1081,
-        nombre: "Liquipops x 350 gramos | Manzana verde🍏",
+        nombre: "Liquipops x 350 gramos | Manzana verde 🍏",
         categoria: "cocteleria",
         subcategoria: "liqui-manzana",
         descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 350 gramos).",
@@ -175,7 +164,7 @@ var productosData = [
     },
     {
         id: 1082,
-        nombre: "Liquipops x 1,150 gramos | Manzana verde🍏",
+        nombre: "Liquipops x 1,150 gramos | Manzana verde 🍏",
         categoria: "cocteleria",
         subcategoria: "liqui-manzana",
         descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 1,150 gramos).",
@@ -183,7 +172,7 @@ var productosData = [
     },
     {
         id: 1083,
-        nombre: "Liquipops x 3,400 gramos | Manzana verde🍏",
+        nombre: "Liquipops x 3,400 gramos | Manzana verde 🍏",
         categoria: "cocteleria",
         subcategoria: "liqui-manzana",
         descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 3,400 gramos).",
@@ -191,7 +180,7 @@ var productosData = [
     },
     {
         id: 1011,
-        nombre: "Liquipops x 350 gramos | Blueberry🔵",
+        nombre: "Liquipops x 350 gramos | Blueberry 🔵",
         categoria: "cocteleria",
         subcategoria: "liqui-blueberry",
         descripcion: "Perlas explosivas sabor a mora azul / blueberry con centro líquido estallante (Presentación de 350 gramos).",
@@ -207,7 +196,7 @@ var productosData = [
     },
     {
         id: 1013,
-        nombre: "Liquipops x 3,400 gramos | Blueberry🔵",
+        nombre: "Liquipops x 3,400 gramos | Blueberry 🔵",
         categoria: "cocteleria",
         subcategoria: "liqui-blueberry",
         descripcion: "Perlas explosivas sabor a mora azul / blueberry con centro líquido estallante (Presentación de 3,400 gramos).",
@@ -215,7 +204,7 @@ var productosData = [
     },
     {
         id: 1021,
-        nombre: "Liquipops x 350 gramos | Coco🥥",
+        nombre: "Liquipops x 350 gramos | Coco 🥥",
         categoria: "cocteleria",
         subcategoria: "liqui-coco",
         descripcion: "Perlas explosivas sabor a coco cremoso con centro líquido estallante (Presentación de 350 gramos).",
@@ -223,7 +212,7 @@ var productosData = [
     },
     {
         id: 1022,
-        nombre: "Liquipops x 1,150 gramos | Coco🥥",
+        nombre: "Liquipops x 1,150 gramos | Coco 🥥",
         categoria: "cocteleria",
         subcategoria: "liqui-coco",
         descripcion: "Perlas explosivas sabor a coco cremoso con centro líquido estallante (Presentación de 1,150 gramos).",
@@ -231,7 +220,7 @@ var productosData = [
     },
     {
         id: 1023,
-        nombre: "Liquipops x 3,400 gramos | Coco🥥",
+        nombre: "Liquipops x 3,400 gramos | Coco 🥥",
         categoria: "cocteleria",
         subcategoria: "liqui-coco",
         descripcion: "Perlas explosivas sabor a coco cremoso con centro líquido estallante (Presentación de 3,400 gramos).",
@@ -239,7 +228,7 @@ var productosData = [
     },
     {
         id: 1031,
-        nombre: "Liquipops x 350 gramos | Cereza🍒",
+        nombre: "Liquipops x 350 gramos | Cereza 🍒",
         categoria: "cocteleria",
         subcategoria: "liqui-cereza",
         descripcion: "Perlas explosivas sabor a cereza dulce e intensa con centro líquido estallante (Presentación de 350 gramos).",
@@ -247,7 +236,7 @@ var productosData = [
     },
     {
         id: 1032,
-        nombre: "Liquipops x 1,150 gramos | Cereza🍒",
+        nombre: "Liquipops x 1,150 gramos | Cereza 🍒",
         categoria: "cocteleria",
         subcategoria: "liqui-cereza",
         descripcion: "Perlas explosivas sabor a cereza dulce e intensa con centro líquido estallante (Presentación de 1,150 gramos).",
@@ -255,7 +244,7 @@ var productosData = [
     },
     {
         id: 1033,
-        nombre: "Liquipops x 3,400 gramos | Cereza🍒",
+        nombre: "Liquipops x 3,400 gramos | Cereza 🍒",
         categoria: "cocteleria",
         subcategoria: "liqui-cereza",
         descripcion: "Perlas explosivas sabor a cereza dulce e intensa con centro líquido estallante (Presentación de 3,400 gramos).",
@@ -263,7 +252,7 @@ var productosData = [
     },
     {
         id: 1041,
-        nombre: "Liquipops x 350 gramos | Lychee🍚",
+        nombre: "Liquipops x 350 gramos | Lychee 🍚",
         categoria: "cocteleria",
         subcategoria: "liqui-lychee",
         descripcion: "Perlas explosivas sabor exótico a lychee con centro líquido estallante (Presentación de 350 gramos).",
@@ -271,7 +260,7 @@ var productosData = [
     },
     {
         id: 1042,
-        nombre: "Liquipops x 1,150 gramos | Lychee🍚",
+        nombre: "Liquipops x 1,150 gramos | Lychee 🍚",
         categoria: "cocteleria",
         subcategoria: "liqui-lychee",
         descripcion: "Perlas explosivas sabor exótico a lychee con centro líquido estallante (Presentación de 1,150 gramos).",
@@ -279,7 +268,7 @@ var productosData = [
     },
     {
         id: 1043,
-        nombre: "Liquipops x 3,400 gramos | Lychee🍚",
+        nombre: "Liquipops x 3,400 gramos | Lychee 🍚",
         categoria: "cocteleria",
         subcategoria: "liqui-lychee",
         descripcion: "Perlas explosivas sabor exótico a lychee con centro líquido estallante (Presentación de 3,400 gramos).",
@@ -287,7 +276,7 @@ var productosData = [
     },
     {
         id: 1051,
-        nombre: "Liquipops x 350 gramos | Sandia🍉",
+        nombre: "Liquipops x 350 gramos | Sandia 🍉",
         categoria: "cocteleria",
         subcategoria: "liqui-sandia",
         descripcion: "Perlas explosivas sabor a jugosa sandía con centro líquido estallante (Presentación de 350 gramos).",
@@ -295,7 +284,7 @@ var productosData = [
     },
     {
         id: 1052,
-        nombre: "Liquipops x 1,150 gramos | Sandía🍉",
+        nombre: "Liquipops x 1,150 gramos | Sandía 🍉",
         categoria: "cocteleria",
         subcategoria: "liqui-sandia",
         descripcion: "Perlas explosivas sabor a jugosa sandía con centro líquido estallante (Presentación de 1,150 gramos).",
@@ -303,7 +292,7 @@ var productosData = [
     },
     {
         id: 1053,
-        nombre: "Liquipops x 3,400 gramos | Sandia🍉",
+        nombre: "Liquipops x 3,400 gramos | Sandia 🍉",
         categoria: "cocteleria",
         subcategoria: "liqui-sandia",
         descripcion: "Perlas explosivas sabor a jugosa sandía con centro líquido estallante (Presentación de 3,400 gramos).",
@@ -335,7 +324,7 @@ var productosData = [
     },
     {
         id: 1071,
-        nombre: "Liquipops x 350 gramos | Fresa🍓",
+        nombre: "Liquipops x 350 gramos | Fresa 🍓",
         categoria: "cocteleria",
         subcategoria: "liqui-fresa",
         descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso (Presentación de 350 gramos).",
@@ -343,7 +332,7 @@ var productosData = [
     },
     {
         id: 1072,
-        nombre: "Liquipops x 1,150 gramos | Fresa🍓",
+        nombre: "Liquipops x 1,150 gramos | Fresa 🍓",
         categoria: "cocteleria",
         subcategoria: "liqui-fresa",
         descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso (Presentación de 1,150 gramos).",
@@ -351,7 +340,7 @@ var productosData = [
     },
     {
         id: 1073,
-        nombre: "Liquipops x 3,400 gramos | Fresa🍓",
+        nombre: "Liquipops x 3,400 gramos | Fresa 🍓",
         categoria: "cocteleria",
         subcategoria: "liqui-fresa",
         descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso (Presentación de 3,400 gramos).",
@@ -359,7 +348,7 @@ var productosData = [
     },
     {
         id: 1091,
-        nombre: "Liquipops x 350 gramos | Chicle💦",
+        nombre: "Liquipops x 350 gramos | Chicle 💦",
         categoria: "cocteleria",
         subcategoria: "liqui-chicle",
         descripcion: "Perlas explosivas con dulce y divertido sabor a chicle (Presentación de 350 gramos).",
@@ -367,7 +356,7 @@ var productosData = [
     },
     {
         id: 1092,
-        nombre: "Liquipops x 1,150 gramos | Chicle💦",
+        nombre: "Liquipops x 1,150 gramos | Chicle 💦",
         categoria: "cocteleria",
         subcategoria: "liqui-chicle",
         descripcion: "Perlas explosivas con dulce y divertido sabor a chicle (Presentación de 1,150 gramos).",
@@ -375,7 +364,7 @@ var productosData = [
     },
     {
         id: 1093,
-        nombre: "Liquipops x 3,400 gramos | Chicle💦",
+        nombre: "Liquipops x 3,400 gramos | Chicle 💦",
         categoria: "cocteleria",
         subcategoria: "liqui-chicle",
         descripcion: "Perlas explosivas con dulce y divertido sabor a chicle (Presentación de 3,400 gramos).",
@@ -383,7 +372,7 @@ var productosData = [
     },
     {
         id: 1101,
-        nombre: "Liquipops x 350 gramos | Mango🥭",
+        nombre: "Liquipops x 350 gramos | Mango 🥭",
         categoria: "cocteleria",
         subcategoria: "liqui-mango",
         descripcion: "Sabor ácido y refrescante a mango biche con centro estallante (Presentación de 350 gramos).",
@@ -391,7 +380,7 @@ var productosData = [
     },
     {
         id: 1102,
-        nombre: "Liquipops x 1,150 gramos | Mango Biche🥭",
+        nombre: "Liquipops x 1,150 gramos | Mango Biche 🥭",
         categoria: "cocteleria",
         subcategoria: "liqui-mango",
         descripcion: "Sabor ácido y refrescante a mango biche con centro estallante (Presentación de 1,150 gramos).",
@@ -399,7 +388,7 @@ var productosData = [
     },
     {
         id: 1103,
-        nombre: "Liquipops x 3,400 gramos | Mango🥭",
+        nombre: "Liquipops x 3,400 gramos | Mango 🥭",
         categoria: "cocteleria",
         subcategoria: "liqui-mango",
         descripcion: "Sabor ácido y refrescante a mango biche con centro estallante (Presentación de 3,400 gramos).",
@@ -407,7 +396,7 @@ var productosData = [
     },
     {
         id: 1111,
-        nombre: "Liquipops x 350 gramos | Maracuya🍋",
+        nombre: "Liquipops x 350 gramos | Maracuya 🍋",
         categoria: "cocteleria",
         subcategoria: "liqui-maracuya",
         descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 350 gramos).",
@@ -415,7 +404,7 @@ var productosData = [
     },
     {
         id: 1112,
-        nombre: "Liquipops x 1,150 gramos | Maracuya🍋",
+        nombre: "Liquipops x 1,150 gramos | Maracuya 🍋",
         categoria: "cocteleria",
         subcategoria: "liqui-maracuya",
         descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 1,150 gramos).",
@@ -423,7 +412,7 @@ var productosData = [
     },
     {
         id: 1113,
-        nombre: "Liquipops x 3,400 gramos | Maracuyá🍋",
+        nombre: "Liquipops x 3,400 gramos | Maracuyá 🍋",
         categoria: "cocteleria",
         subcategoria: "liqui-maracuya",
         descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 3,400 gramos).",
@@ -431,7 +420,7 @@ var productosData = [
     },
     {
         id: 1121,
-        nombre: "Liquipops x 350 gramos | Café🤎",
+        nombre: "Liquipops x 350 gramos | Café 🤎",
         categoria: "cocteleria",
         subcategoria: "liqui-cafe",
         descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 350 gramos).",
@@ -439,7 +428,7 @@ var productosData = [
     },
     {
         id: 1122,
-        nombre: "Liquipops x 1,150 gramos | Café🤎",
+        nombre: "Liquipops x 1,150 gramos | Café 🤎",
         categoria: "cocteleria",
         subcategoria: "liqui-cafe",
         descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 1,150 gramos).",
@@ -447,14 +436,12 @@ var productosData = [
     },
     {
         id: 1123,
-        nombre: "Liquipops x 3,400 gramos | Café🤎",
+        nombre: "Liquipops x 3,400 gramos | Café 🤎",
         categoria: "cocteleria",
         subcategoria: "liqui-cafe",
         descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 3,400 gramos).",
         imagen: "liquipopscafe3400gramos.jpg"
     },
-
-    // --- SIROPES Y CHAMOY (GENIALITY X 1.000 ML) ---
     {
         id: 2001,
         nombre: "Sirope de Geniality x 1.000 ml | Fresa",
@@ -511,8 +498,6 @@ var productosData = [
         descripcion: "Jarabes concentrados adicionales y chamoy agridulce para escarchar y bordear vasos.",
         imagen: "imagenlacentral.jpeg"
     },
-
-    // --- ESCARCHAS Y DESECHABLES ---
     {
         id: 21,
         nombre: "Escarchas para Micheladas",
