@@ -123,6 +123,14 @@ var productosData = [
         imagen: "chorivaldecerdo1200gramos.jpeg"
     },
     {
+        id: 804,
+        nombre: "Chorizo de Pollo Chorival x 10 Unidades",
+        categoria: "embutidos",
+        subcategoria: "chorizos",
+        descripcion: "Suave y saludable Chorizo de Pollo marca Chorival en presentación de 10 unidades, sin sabores artificiales y 100% natural.",
+        imagen: "chorivalchorizodepolllo10unidades.jpg"
+    },
+    {
         id: 9,
         nombre: "Mortadelas Especiales",
         categoria: "embutidos",
