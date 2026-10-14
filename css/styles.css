@@ -282,7 +282,7 @@ a {
     position: absolute;
     top: 100%;
     left: 0;
-    min-width: 280px;
+    min-width: 290px;
     background-color: #1a1a1a;
     border: 1px solid var(--gold-brand);
     border-radius: 8px;
@@ -303,6 +303,8 @@ a {
     color: white;
     text-align: left;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .top-dropdown-content button:hover {
@@ -327,6 +329,54 @@ a {
     font-size: 0.85rem;
     padding: 6px 10px;
     border-radius: 4px;
+}
+
+/* ===================================================
+   BURBUJAS / PERLAS 3D GLOSSY REALISTAS (LIQUI POPS)
+   =================================================== */
+.liqui-subgrid button i.fa-circle,
+.liqui-bubble {
+    font-size: 0 !important;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 8px;
+    background: radial-gradient(circle at 35% 35%, #ffffff 0%, currentColor 55%, #000000 100%) !important;
+    box-shadow: 0 0 8px currentColor, inset -2px -2px 4px rgba(0, 0, 0, 0.7), inset 1px 1px 3px rgba(255, 255, 255, 0.9);
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+}
+
+.liqui-subgrid button:hover i.fa-circle,
+.liqui-subgrid button:hover .liqui-bubble {
+    transform: scale(1.4);
+    box-shadow: 0 0 14px currentColor, inset -2px -2px 4px rgba(0, 0, 0, 0.5), inset 1px 1px 4px #ffffff;
+}
+
+/* PARTÍCULAS DE EXPLOSIÓN Y ANIMACIÓN POP */
+.pop-sphere-particle {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 99999;
+    animation: explosionAnim 0.75s ease-out forwards;
+}
+
+@keyframes explosionAnim {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        opacity: 0.95;
+        transform: translate(var(--dx), var(--dy)) scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(var(--dx) * 1.3), calc(var(--dy) * 1.3 + 30px)) scale(0);
+    }
 }
 
 /* PRODUCT GRID */
