@@ -292,15 +292,33 @@ var productosData = [
         imagen: "liquipopscereza3400gramos.jpg"
     },
 
-    // --- OTROS SABORES LIQUIPOPS ---
+    // --- COCTELERÍA Y LIQUIPOPS LYCHEE ---
     {
-        id: 104,
-        nombre: "Liquipops | Lychee",
+        id: 1041,
+        nombre: "Liquipops x 350 gramos | Lychee🍚",
         categoria: "cocteleria",
         subcategoria: "liqui-lychee",
-        descripcion: "Sabor exótico y súper refrescante de lychee en perlas estallantes de textura suave.",
-        imagen: "liquilychee.jpg"
+        descripcion: "Perlas explosivas sabor exótico a lychee con centro líquido estallante (Presentación de 350 gramos).",
+        imagen: "liquipopslychee350gramos.jpg"
     },
+    {
+        id: 1042,
+        nombre: "Liquipops x 1,150 gramos | Lychee🍚",
+        categoria: "cocteleria",
+        subcategoria: "liqui-lychee",
+        descripcion: "Perlas explosivas sabor exótico a lychee con centro líquido estallante (Presentación de 1,150 gramos).",
+        imagen: "liquipopslychee1150gramos.jpg"
+    },
+    {
+        id: 1043,
+        nombre: "Liquipops x 3,400 gramos | Lychee🍚",
+        categoria: "cocteleria",
+        subcategoria: "liqui-lychee",
+        descripcion: "Perlas explosivas sabor exótico a lychee con centro líquido estallante (Presentación de 3,400 gramos).",
+        imagen: "liquipopslychee3400gramos.jpg"
+    },
+
+    // --- OTROS SABORES LIQUIPOPS ---
     {
         id: 105,
         nombre: "Liquipop | Sandia",
