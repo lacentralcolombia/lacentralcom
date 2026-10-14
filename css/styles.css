@@ -1,4 +1,4 @@
-/* ESTILOS DE VISIBILIDAD DE MENÚS Y DESPLEGABLES */
+/* REGLAS DE VISIBILIDAD PARA EL MENÚ Y DESPLEGABLES */
 .top-dropdown {
     position: relative;
     display: inline-block;
@@ -11,7 +11,7 @@
     left: 0;
     min-width: 280px;
     background-color: #1a1a1a;
-    border: 1px solid var(--gold-brand, #E6B64F);
+    border: 1px solid #E6B64F;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     z-index: 1000;
@@ -22,7 +22,6 @@
     display: block !important;
 }
 
-/* MENÚ MÓVIL LATERAL */
 .mobile-nav {
     position: fixed;
     top: 0;
@@ -32,11 +31,10 @@
     height: 100vh;
     background: linear-gradient(135deg, #8b0000 0%, #e3211b 50%, #5a0000 100%);
     z-index: 9999;
-    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: right 0.35s ease;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    box-shadow: -5px 0 25px rgba(0,0,0,0.7);
 }
 
 .mobile-nav.open {
@@ -45,36 +43,4 @@
 
 body.menu-open {
     overflow: hidden !important;
-}
-
-/* CARRITO SLIDE-OVER */
-.cart-drawer {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    max-width: 400px;
-    height: 100vh;
-    background: #121212;
-    z-index: 10000;
-    transition: right 0.35s ease;
-}
-
-.cart-drawer.open {
-    right: 0 !important;
-}
-
-.cart-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.6);
-    z-index: 9998;
-    display: none;
-}
-
-.cart-overlay.open {
-    display: block !important;
 }
