@@ -3,6 +3,7 @@ const NUMERO_WHATSAPP = "573116017186";
 
 let carrito = [];
 let cantidadesTarjetas = {};
+let presentacionSeleccionada = {}; // Para productos con múltiples gramajes
 
 const nombresCategorias = {
     'todos': 'Todas las Categorías',
@@ -219,19 +220,43 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
             : (nombresCategorias[prod.categoria] || prod.categoria);
 
         const nombreLimpio = prod.nombre.replace(/'/g, "\\'");
-        const imgLimpia = prod.imagen.replace(/'/g, "\\'");
+        
+        let clickImagenAccion = `ampliarImagen('${prod.imagen.replace(/'/g, "\\'")}', '${nombreLimpio}')`;
+        let selectorHTML = '';
+        let imagenActual = prod.imagen;
+
+        if (prod.presentaciones && prod.presentaciones.length > 0) {
+            clickImagenAccion = `abrirModalPresentaciones(${prod.id})`;
+            if (presentacionSeleccionada[prod.id] === undefined) {
+                presentacionSeleccionada[prod.id] = 0;
+            }
+            const presActual = prod.presentaciones[presentacionSeleccionada[prod.id]];
+            imagenActual = presActual ? presActual.imagen : prod.imagen;
+
+            selectorHTML = `
+                <div class="pres-selector-container">
+                    <label class="pres-label"><i class="fa-solid fa-weight-hanging text-gold"></i> Presentación:</label>
+                    <select class="pres-select" onchange="cambiarPresentacionCard(${prod.id}, this.value)">
+                        ${prod.presentaciones.map((p, idx) => `
+                            <option value="${idx}" ${idx === presentacionSeleccionada[prod.id] ? 'selected' : ''}>${p.gramaje}</option>
+                        `).join('')}
+                    </select>
+                </div>
+            `;
+        }
 
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
-            <div class="product-img-wrapper" onclick="ampliarImagen('${imgLimpia}', '${nombreLimpio}')">
-                <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img" onerror="this.src='https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=500'">
+            <div class="product-img-wrapper" onclick="${clickImagenAccion}">
+                <img id="img-prod-${prod.id}" src="${imagenActual}" alt="${prod.nombre}" class="product-img" onerror="this.src='https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=500'">
                 <span class="zoom-hint"><i class="fa-solid fa-eye"></i> Ver más</span>
             </div>
             <div class="product-info">
                 <span class="product-category">${catNombre}</span>
                 <h3 class="product-title">${prod.nombre}</h3>
                 <p class="product-desc">${prod.descripcion}</p>
+                ${selectorHTML}
                 <div class="product-status">
                     <i class="fa-solid fa-circle-check"></i> Consultar disponibilidad
                 </div>
@@ -251,201 +276,100 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
     });
 }
 
-function toggleTopDropdown(idDropdown, event) {
-    if (event) event.stopPropagation();
+function cambiarPresentacionCard(prodId, indexPres) {
+    const productos = getProductos();
+    const prod = productos.find(p => p.id === prodId);
+    if (!prod || !prod.presentaciones) return;
+
+    presentacionSeleccionada[prodId] = parseInt(indexPres);
+    const pres = prod.presentaciones[presentacionSeleccionada[prodId]];
     
-    document.querySelectorAll('.top-dropdown-content').forEach(d => {
-        if (d.id !== idDropdown) d.classList.remove('open');
+    const imgEl = document.getElementById(`img-prod-${prodId}`);
+    if (imgEl && pres) {
+        imgEl.src = pres.imagen;
+    }
+}
+
+function abrirModalPresentaciones(prodId) {
+    const productos = getProductos();
+    const prod = productos.find(p => p.id === prodId);
+    if (!prod || !prod.presentaciones) return;
+
+    const modal = document.getElementById('modal-presentaciones');
+    const container = document.getElementById('grid-presentaciones-modal');
+    const titulo = document.getElementById('titulo-modal-presentaciones');
+
+    if (!modal || !container || !titulo) return;
+
+    titulo.innerText = `${prod.nombre} - Presentaciones`;
+    container.innerHTML = '';
+
+    prod.presentaciones.forEach((pres, idx) => {
+        if (!cantidadesTarjetas[pres.idPres]) {
+            cantidadesTarjetas[pres.idPres] = 1;
+        }
+
+        const nombreLimpio = pres.nombre.replace(/'/g, "\\'");
+        const imgLimpia = pres.imagen.replace(/'/g, "\\'");
+
+        const presCard = document.createElement('div');
+        presCard.className = 'card-pres-modal';
+        presCard.innerHTML = `
+            <img src="${pres.imagen}" alt="${pres.nombre}" onclick="ampliarImagen('${imgLimpia}', '${nombreLimpio}')">
+            <h4>${pres.nombre}</h4>
+            <span class="pres-badge">${pres.gramaje}</span>
+            <div class="card-action-row" style="margin-top: 15px; width: 100%;">
+                <div class="card-qty-selector">
+                    <button class="card-qty-btn" onclick="modificarCantidadTarjeta(${pres.idPres}, -1)">-</button>
+                    <span class="card-qty-num" id="card-qty-${pres.idPres}">${cantidadesTarjetas[pres.idPres]}</span>
+                    <button class="card-qty-btn" onclick="modificarCantidadTarjeta(${pres.idPres}, 1)">+</button>
+                </div>
+                <button class="btn-add-item" onclick="agregarPresentacionDirecta(${prodId}, ${idx})">
+                    <i class="fa-solid fa-cart-plus"></i> Agregar
+                </button>
+            </div>
+        `;
+        container.appendChild(presCard);
     });
 
-    const target = document.getElementById(idDropdown);
-    if (target) {
-        target.classList.toggle('open');
-    }
+    modal.style.display = "block";
 }
 
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.top-dropdown')) {
-        document.querySelectorAll('.top-dropdown-content').forEach(d => d.classList.remove('open'));
-    }
-});
-
-function ampliarImagen(url, titulo) {
-    const modal = document.getElementById('image-modal');
-    const modalImg = document.getElementById('img-ampliada');
-    const captionText = document.getElementById('caption-modal');
-
-    if (modal && modalImg && captionText) {
-        modal.style.display = "block";
-        modalImg.src = url;
-        captionText.innerHTML = titulo;
-    }
-}
-
-function cerrarImagenModal() {
-    const modal = document.getElementById('image-modal');
+function cerrarModalPresentaciones() {
+    const modal = document.getElementById('modal-presentaciones');
     if (modal) modal.style.display = "none";
 }
 
-function buscarProductos() {
-    const input = document.getElementById('input-buscar');
-    const texto = input ? input.value : '';
-    renderizarProductos('todos', null, texto);
-}
-
-function modificarCantidadTarjeta(id, cambio) {
-    if (!cantidadesTarjetas[id]) cantidadesTarjetas[id] = 1;
-    cantidadesTarjetas[id] += cambio;
-    if (cantidadesTarjetas[id] < 1) cantidadesTarjetas[id] = 1;
-
-    const spanQty = document.getElementById(`card-qty-${id}`);
-    if (spanQty) spanQty.innerText = cantidadesTarjetas[id];
-}
-
-function filtrarCategoria(cat, subcat = null, event = null, colorExplosion = null) {
-    if (colorExplosion && event) {
-        crearEfectoExplosion(event, colorExplosion);
-    }
-
-    document.querySelectorAll('.top-nav-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.top-dropdown-content button').forEach(b => b.classList.remove('active'));
-
-    if (event && event.currentTarget) {
-        event.currentTarget.classList.add('active');
-    }
-    
-    document.querySelectorAll('.top-dropdown-content').forEach(d => d.classList.remove('open'));
-    renderizarProductos(cat, subcat);
-}
-
-function agregarAlCarritoConCantidad(id) {
-    const cantidadSeleccionada = cantidadesTarjetas[id] || 1;
-    const existe = carrito.find(p => p.id === id);
+function agregarPresentacionDirecta(prodId, presIndex) {
     const productos = getProductos();
+    const prod = productos.find(p => p.id === prodId);
+    if (!prod || !prod.presentaciones) return;
+
+    const pres = prod.presentaciones[presIndex];
+    const cantidadSeleccionada = cantidadesTarjetas[pres.idPres] || 1;
+
+    const existe = carrito.find(p => p.id === pres.idPres);
 
     if (existe) {
         existe.cantidad += cantidadSeleccionada;
     } else {
-        const prod = productos.find(p => p.id === id);
-        if (prod) {
-            carrito.push({ ...prod, cantidad: cantidadSeleccionada });
-        }
+        carrito.push({
+            id: pres.idPres,
+            nombre: pres.nombre,
+            categoria: prod.categoria,
+            subcategoria: prod.subcategoria,
+            descripcion: `Presentación de ${pres.gramaje}`,
+            imagen: pres.imagen,
+            cantidad: cantidadSeleccionada
+        });
     }
 
-    cantidadesTarjetas[id] = 1;
-    const spanQty = document.getElementById(`card-qty-${id}`);
+    cantidadesTarjetas[pres.idPres] = 1;
+    const spanQty = document.getElementById(`card-qty-${pres.idPres}`);
     if (spanQty) spanQty.innerText = 1;
 
     actualizarCarritoUI();
     abrirCarrito();
 }
 
-function cambiarCantidadCarrito(id, cambio) {
-    const item = carrito.find(p => p.id === id);
-    if (item) {
-        item.cantidad += cambio;
-        if (item.cantidad <= 0) {
-            carrito = carrito.filter(p => p.id !== id);
-        }
-    }
-    actualizarCarritoUI();
-}
-
-function actualizarCarritoUI() {
-    const container = document.getElementById('cart-items-container');
-    const badge = document.getElementById('cart-count');
-
-    if (!container || !badge) return;
-    container.innerHTML = '';
-    let totalItems = 0;
-
-    if (carrito.length === 0) {
-        container.innerHTML = `
-            <div style="text-align: center; color: var(--text-muted); margin-top: 40px;">
-                <i class="fa-solid fa-basket-shopping" style="font-size: 3rem; margin-bottom: 10px;"></i>
-                <p>Tu lista de pedido está vacía.</p>
-            </div>
-        `;
-    } else {
-        carrito.forEach(prod => {
-            totalItems += prod.cantidad;
-            const subName = (prod.subcategoria && prod.subcategoria !== 'general' && nombresCategorias[prod.subcategoria]) 
-                ? nombresCategorias[prod.subcategoria] 
-                : (nombresCategorias[prod.categoria] || prod.categoria);
-
-            const itemDiv = document.createElement('div');
-            itemDiv.className = 'cart-item';
-            itemDiv.innerHTML = `
-                <div>
-                    <h4 style="font-size: 0.95rem;">${prod.nombre}</h4>
-                    <span style="font-size: 0.8rem; color: var(--gold-brand);">${subName}</span>
-                </div>
-                <div class="cart-item-qty">
-                    <button class="qty-btn" onclick="cambiarCantidadCarrito(${prod.id}, -1)">-</button>
-                    <span>${prod.cantidad}</span>
-                    <button class="qty-btn" onclick="cambiarCantidadCarrito(${prod.id}, 1)">+</button>
-                </div>
-            `;
-            container.appendChild(itemDiv);
-        });
-    }
-
-    badge.innerText = totalItems;
-}
-
-function toggleCart() {
-    const drawer = document.getElementById('cart-drawer');
-    const overlay = document.getElementById('cart-overlay');
-    if (drawer && overlay) {
-        drawer.classList.toggle('open');
-        overlay.classList.toggle('open');
-    }
-}
-
-function abrirCarrito() {
-    const drawer = document.getElementById('cart-drawer');
-    const overlay = document.getElementById('cart-overlay');
-    if (drawer && overlay) {
-        drawer.classList.add('open');
-        overlay.classList.add('open');
-    }
-}
-
-function enviarPedidoWhatsApp() {
-    if (carrito.length === 0) {
-        alert('Por favor agrega al menos un producto a tu lista de pedido.');
-        return;
-    }
-
-    let msg = "🛒 *SOLICITUD DE PEDIDO*\n\n";
-    msg += "Hola, deseo consultar disponibilidad de:\n\n";
-
-    carrito.forEach(p => {
-        let urlImagen = p.imagen;
-        if (!urlImagen.startsWith('http')) {
-            const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
-            urlImagen = baseUrl + p.imagen;
-        }
-
-        msg += `• *${p.nombre}* (${p.cantidad} unidad${p.cantidad > 1 ? 'es' : ''})\n`;
-        msg += `  🖼️ Ver imagen: ${urlImagen}\n\n`;
-    });
-
-    msg += "Quedo atento a su respuesta. ¡Muchas gracias!";
-
-    const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-}
-
-function iniciarApp() {
-    renderizarProductos();
-    renderizarMarcas();
-}
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', iniciarApp);
-} else {
-    iniciarApp();
-}
-
-window.addEventListener('load', iniciarApp);
+function toggleTopDropdown(idDropdown, event)
