@@ -1,37 +1,13 @@
-// MARCAS DESTACADAS CON VECTORES SVG NATIVOS
+// MARCAS DESTACADAS (SIMPLIFICADAS Y LIGERAS)
 var marcasData = [
-    {
-        nombre: "Zenú",
-        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black, sans-serif' font-size='38' font-weight='900' font-style='italic' fill='%23e60000'>Zenú</text></svg>"
-    },
-    {
-        nombre: "Alpina",
-        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><path d='M70 50 L100 20 L130 50 Z' fill='%230055a5'/><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' font-family='Georgia, serif' font-size='30' font-weight='bold' font-style='italic' fill='%230055a5'>Alpina</text></svg>"
-    },
-    {
-        nombre: "Alquería",
-        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><rect x='20' y='15' width='160' height='50' rx='25' fill='%23e3211b'/><text x='50%' y='52%' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='%23ffffff'>Alquería</text></svg>"
-    },
-    {
-        nombre: "Rica",
-        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Impact, sans-serif' font-size='42' font-style='italic' fill='%23e3211b' stroke='%23000000' stroke-width='1'>Rica</text></svg>"
-    },
-    {
-        nombre: "Bimbo",
-        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black, sans-serif' font-size='36' font-weight='900' fill='%23d61b22'>BIMBO</text></svg>"
-    },
-    {
-        nombre: "Darnel",
-        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><rect x='15' y='18' width='170' height='44' rx='8' fill='%230033a0'/><text x='50%' y='53%' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='26' font-weight='bold' fill='%23ffffff'>DARNEL</text></svg>"
-    },
-    {
-        nombre: "El Rey",
-        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><polygon points='80,22 100,10 120,22 115,32 85,32' fill='%23e6b64f'/><text x='50%' y='62%' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black, sans-serif' font-size='26' font-weight='bold' fill='%23e3211b'>EL REY</text></svg>"
-    },
-    {
-        nombre: "Nestlé",
-        logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Georgia, serif' font-size='34' font-weight='bold' fill='%23185a9d'>Nestlé</text></svg>"
-    }
+    { nombre: "Zenú", logo: "" },
+    { nombre: "Alpina", logo: "" },
+    { nombre: "Alquería", logo: "" },
+    { nombre: "Rica", logo: "" },
+    { nombre: "Bimbo", logo: "" },
+    { nombre: "Darnel", logo: "" },
+    { nombre: "El Rey", logo: "" },
+    { nombre: "Nestlé", logo: "" }
 ];
 
 // PRODUCTOS DEL CATÁLOGO COMPLETO
@@ -188,7 +164,7 @@ var productosData = [
         imagen: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=500"
     },
 
-    // --- COCTELERÍA Y LIQUIPOPS MANZANA VERDE ---
+    // --- LIQUIPOPS ---
     {
         id: 1081,
         nombre: "Liquipops x 350 gramos | Manzana verde🍏",
@@ -213,8 +189,6 @@ var productosData = [
         descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 3,400 gramos).",
         imagen: "liquipopsmanzana3400.jpg"
     },
-
-    // --- COCTELERÍA Y LIQUIPOPS BLUEBERRY ---
     {
         id: 1011,
         nombre: "Liquipops x 350 gramos | Blueberry🔵",
@@ -239,8 +213,6 @@ var productosData = [
         descripcion: "Perlas explosivas sabor a mora azul / blueberry con centro líquido estallante (Presentación de 3,400 gramos).",
         imagen: "liquipopsblueberry3400gramos.jpg"
     },
-
-    // --- COCTELERÍA Y LIQUIPOPS COCO ---
     {
         id: 1021,
         nombre: "Liquipops x 350 gramos | Coco🥥",
@@ -265,8 +237,6 @@ var productosData = [
         descripcion: "Perlas explosivas sabor a coco cremoso con centro líquido estallante (Presentación de 3,400 gramos).",
         imagen: "liquipopscoco3400gramos.jpg"
     },
-
-    // --- COCTELERÍA Y LIQUIPOPS CEREZA ---
     {
         id: 1031,
         nombre: "Liquipops x 350 gramos | Cereza🍒",
@@ -291,8 +261,6 @@ var productosData = [
         descripcion: "Perlas explosivas sabor a cereza dulce e intensa con centro líquido estallante (Presentación de 3,400 gramos).",
         imagen: "liquipopscereza3400gramos.jpg"
     },
-
-    // --- COCTELERÍA Y LIQUIPOPS LYCHEE ---
     {
         id: 1041,
         nombre: "Liquipops x 350 gramos | Lychee🍚",
@@ -317,8 +285,6 @@ var productosData = [
         descripcion: "Perlas explosivas sabor exótico a lychee con centro líquido estallante (Presentación de 3,400 gramos).",
         imagen: "liquipopslychee3400gramos.jpg"
     },
-
-    // --- COCTELERÍA Y LIQUIPOPS SANDÍA ---
     {
         id: 1051,
         nombre: "Liquipops x 350 gramos | Sandia🍉",
@@ -343,8 +309,6 @@ var productosData = [
         descripcion: "Perlas explosivas sabor a jugosa sandía con centro líquido estallante (Presentación de 3,400 gramos).",
         imagen: "liquipopssandia3400gramos.jpg"
     },
-
-    // --- COCTELERÍA Y LIQUIPOPS ICE PINK ---
     {
         id: 1061,
         nombre: "Liquipops x 350 gramos | Ice pink 🫧",
@@ -369,8 +333,6 @@ var productosData = [
         descripcion: "Perlas de edición especial frutos rosados y toque frío helado (Presentación de 3,400 gramos).",
         imagen: "liquipopsicepink3400gramos.jpg"
     },
-
-    // --- COCTELERÍA Y LIQUIPOPS FRESA ---
     {
         id: 1071,
         nombre: "Liquipops x 350 gramos | Fresa🍓",
@@ -395,8 +357,6 @@ var productosData = [
         descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso (Presentación de 3,400 gramos).",
         imagen: "liquipopsfresa3400gramos.jpg"
     },
-
-    // --- COCTELERÍA Y LIQUIPOPS CHICLE ---
     {
         id: 1091,
         nombre: "Liquipops x 350 gramos | Chicle💦",
@@ -421,8 +381,6 @@ var productosData = [
         descripcion: "Perlas explosivas con dulce y divertido sabor a chicle (Presentación de 3,400 gramos).",
         imagen: "liquipopschicle3400gramos.jpg"
     },
-
-    // --- COCTELERÍA Y LIQUIPOPS MANGO ---
     {
         id: 1101,
         nombre: "Liquipops x 350 gramos | Mango🥭",
@@ -447,8 +405,6 @@ var productosData = [
         descripcion: "Sabor ácido y refrescante a mango biche con centro estallante (Presentación de 3,400 gramos).",
         imagen: "liquipopsmango3400gramos.jpg"
     },
-
-    // --- COCTELERÍA Y LIQUIPOPS MARACUYÁ ---
     {
         id: 1111,
         nombre: "Liquipops x 350 gramos | Maracuya🍋",
@@ -473,8 +429,6 @@ var productosData = [
         descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 3,400 gramos).",
         imagen: "liquipopsmaracuya3400gramos.jpg"
     },
-
-    // --- COCTELERÍA Y LIQUIPOPS CAFÉ ---
     {
         id: 1121,
         nombre: "Liquipops x 350 gramos | Café🤎",
@@ -558,7 +512,7 @@ var productosData = [
         imagen: "imagenlacentral.jpeg"
     },
 
-    // --- ESCARCHAS ---
+    // --- ESCARCHAS Y DESECHABLES ---
     {
         id: 21,
         nombre: "Escarchas para Micheladas",
@@ -567,8 +521,6 @@ var productosData = [
         descripcion: "Sales picantes, polvos azucarados y mezclas de sabores (milo, pimienta, tajín, frutos rojos).",
         imagen: "imagenlacentral.jpeg"
     },
-
-    // --- PLÁSTICOS Y DESECHABLES ---
     {
         id: 22,
         nombre: "Vasos Desechables Darnel",
