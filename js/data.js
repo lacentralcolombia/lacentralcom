@@ -344,31 +344,85 @@ var productosData = [
         imagen: "liquipopssandia3400gramos.jpg"
     },
 
-    // --- OTROS SABORES LIQUIPOPS ---
+    // --- COCTELERÍA Y LIQUIPOPS ICE PINK ---
     {
-        id: 106,
-        nombre: "Liquipops | Ice Pink",
+        id: 1061,
+        nombre: "Liquipops x 350 gramos | Ice pink 🫧",
         categoria: "cocteleria",
         subcategoria: "liqui-icepink",
-        descripcion: "Perlas de edición especial frutos rosados y toque frío helado para frappés y granizados.",
-        imagen: "liquipopsicepink.jpg"
+        descripcion: "Perlas de edición especial frutos rosados y toque frío helado (Presentación de 350 gramos).",
+        imagen: "liquipopsicepink350gramos.jpg"
     },
     {
-        id: 107,
-        nombre: "Liquipops | Fresa",
+        id: 1062,
+        nombre: "Liquipops x 1,150 gramos | Ice pink 🫧",
+        categoria: "cocteleria",
+        subcategoria: "liqui-icepink",
+        descripcion: "Perlas de edición especial frutos rosados y toque frío helado (Presentación de 1,150 gramos).",
+        imagen: "liquipopsicepink1150gramos.jpg"
+    },
+    {
+        id: 1063,
+        nombre: "Liquipops x 3,400 gramos | Ice pink 🫧",
+        categoria: "cocteleria",
+        subcategoria: "liqui-icepink",
+        descripcion: "Perlas de edición especial frutos rosados y toque frío helado (Presentación de 3,400 gramos).",
+        imagen: "liquipopsicepink3400gramos.jpg"
+    },
+
+    // --- COCTELERÍA Y LIQUIPOPS FRESA ---
+    {
+        id: 1071,
+        nombre: "Liquipops x 350 gramos | Fresa🍓",
         categoria: "cocteleria",
         subcategoria: "liqui-fresa",
-        descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso para cócteles y micheladas.",
-        imagen: "liquipfresa.jpg"
+        descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso (Presentación de 350 gramos).",
+        imagen: "liquipopsfresa350gramos.jpg"
     },
     {
-        id: 109,
-        nombre: "Liquipops | Chicle",
+        id: 1072,
+        nombre: "Liquipops x 1,150 gramos | Fresa🍓",
+        categoria: "cocteleria",
+        subcategoria: "liqui-fresa",
+        descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso (Presentación de 1,150 gramos).",
+        imagen: "liquipopsfresa1150gramos.jpg"
+    },
+    {
+        id: 1073,
+        nombre: "Liquipops x 3,400 gramos | Fresa🍓",
+        categoria: "cocteleria",
+        subcategoria: "liqui-fresa",
+        descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso (Presentación de 3,400 gramos).",
+        imagen: "liquipopsfresa3400gramos.jpg"
+    },
+
+    // --- COCTELERÍA Y LIQUIPOPS CHICLE ---
+    {
+        id: 1091,
+        nombre: "Liquipops x 350 gramos | Chicle💦",
         categoria: "cocteleria",
         subcategoria: "liqui-chicle",
-        descripcion: "Perlas explosivas con dulce y divertido sabor a chicle para cócteles, sodas y frappés.",
-        imagen: "liquipopschicle.jpg"
+        descripcion: "Perlas explosivas con dulce y divertido sabor a chicle (Presentación de 350 gramos).",
+        imagen: "liquipopschicle350gramos.jpg"
     },
+    {
+        id: 1092,
+        nombre: "Liquipops x 1,150 gramos | Chicle💦",
+        categoria: "cocteleria",
+        subcategoria: "liqui-chicle",
+        descripcion: "Perlas explosivas con dulce y divertido sabor a chicle (Presentación de 1,150 gramos).",
+        imagen: "liquipopschicle1150gramos.jpg"
+    },
+    {
+        id: 1093,
+        nombre: "Liquipops x 3,400 gramos | Chicle💦",
+        categoria: "cocteleria",
+        subcategoria: "liqui-chicle",
+        descripcion: "Perlas explosivas con dulce y divertido sabor a chicle (Presentación de 3,400 gramos).",
+        imagen: "liquipopschicle3400gramos.jpg"
+    },
+
+    // --- OTROS SABORES LIQUIPOPS ---
     {
         id: 110,
         nombre: "Liquipops | Mango Biche",
