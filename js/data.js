@@ -454,4 +454,108 @@ var productosData = [
         nombre: "Liquipops x 350 gramos | Maracuya🍋",
         categoria: "cocteleria",
         subcategoria: "liqui-maracuya",
-        descripcion: "Perlas explosivas con el toque tropical y cít
+        descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 350 gramos).",
+        imagen: "liquipopsmaracuya350gramos.jpg"
+    },
+    {
+        id: 1112,
+        nombre: "Liquipops x 1,150 gramos | Maracuya🍋",
+        categoria: "cocteleria",
+        subcategoria: "liqui-maracuya",
+        descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 1,150 gramos).",
+        imagen: "liquipopsmaracuya1150gramos.jpg"
+    },
+    {
+        id: 1113,
+        nombre: "Liquipops x 3,400 gramos | Maracuyá🍋",
+        categoria: "cocteleria",
+        subcategoria: "liqui-maracuya",
+        descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 3,400 gramos).",
+        imagen: "liquipopsmaracuya3400gramos.jpg"
+    },
+
+    // --- COCTELERÍA Y LIQUIPOPS CAFÉ ---
+    {
+        id: 1121,
+        nombre: "Liquipops x 350 gramos | Café🤎",
+        categoria: "cocteleria",
+        subcategoria: "liqui-cafe",
+        descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 350 gramos).",
+        imagen: "liquipopscafe350gramos.jpg"
+    },
+    {
+        id: 1122,
+        nombre: "Liquipops x 1,150 gramos | Café🤎",
+        categoria: "cocteleria",
+        subcategoria: "liqui-cafe",
+        descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 1,150 gramos).",
+        imagen: "liquipopscafe1150gramos.jpg"
+    },
+    {
+        id: 1123,
+        nombre: "Liquipops x 3,400 gramos | Café🤎",
+        categoria: "cocteleria",
+        subcategoria: "liqui-cafe",
+        descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 3,400 gramos).",
+        imagen: "liquipopscafe3400gramos.jpg"
+    },
+
+    // --- SIROPES Y CHAMOY ---
+    {
+        id: 2001,
+        nombre: "Sirope de Geniality x 1.000 ml | Fresa",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope concentrado marca Geniality sabor Fresa x 1.000 ml, perfecto para granizados, frappés, sodas saborizadas y cócteles.",
+        imagen: "siropefresa1000ml.jpg"
+    },
+    {
+        id: 2002,
+        nombre: "Siropes Concentrados y Chamoy Variados",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Jarabes concentrados de múltiples sabores y chamoy agridulce para escarchar y bordear vasos.",
+        imagen: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=500"
+    },
+
+    // --- ESCARCHAS ---
+    {
+        id: 21,
+        nombre: "Escarchas para Micheladas",
+        categoria: "cocteleria",
+        subcategoria: "escarchas",
+        descripcion: "Sales picantes, polvos azucarados y mezclas de sabores (milo, pimienta, tajín, frutos rojos).",
+        imagen: "https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=500"
+    },
+
+    // --- PLÁSTICOS Y DESECHABLES ---
+    {
+        id: 22,
+        nombre: "Vasos Desechables Darnel",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Vasos transparentes, tipo domo y térmicos marca Darnel en varias medidas.",
+        imagen: "https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?q=80&w=500"
+    },
+    {
+        id: 23,
+        nombre: "Platos y Cubiertos",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Platos hondos, panderos, tenedores, cucharas y cuchillos resistentes.",
+        imagen: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=500"
+    },
+    {
+        id: 24,
+        nombre: "Envases y Bolsas de Empaque",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Recipientes porta-comida, bolsas transparentes y para empaque al vacío.",
+        imagen: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?q=80&w=500"
+    }
+];
+
+if (typeof window !== 'undefined') {
+    window.marcasData = marcasData;
+    window.productosData = productosData;
+}
