@@ -547,6 +547,14 @@ var productosData = [
         imagen: "azucarmaracuya.jpg"
     },
     {
+        id: 3001,
+        nombre: "Jellys Yexis de Fresa x 1.100 g 🍓",
+        categoria: "cocteleria",
+        subcategoria: "jellys",
+        descripcion: "¡Disfruta del dulce y vibrante sabor de las Jellys Yexis de Fresa! Presentación de 1.100 g ideal para agregar un toque masticable y delicioso a bubble tea, sodas masticables, frappés, jugos, cafés fríos, granizados y limonadas.",
+        imagen: "jellysyexisfresa1100gr.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
