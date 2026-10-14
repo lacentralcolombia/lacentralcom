@@ -72,7 +72,7 @@ var productosData = [
         categoria: "embutidos",
         subcategoria: "jamones",
         descripcion: "Rico y rendidor Jamón Ideal marca Rica en presentación familiar de 400 gramos (21 tajadas), excelente para compartir.",
-        imagen: "JAMONIDEALRICA400GRAMOS.JPG"
+        imagen: "JAMONIDEALRICA400GRAMOS.jpg"
     },
     {
         id: 7,
