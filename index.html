@@ -39,11 +39,16 @@
                 <span class="btn-cart-text">Mi pedido</span>
                 <span class="cart-badge" id="cart-count">0</span>
             </button>
+            
+            <!-- BOTÓN DE TRES RAYITAS EN ROJO -->
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Abrir menú">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
     </header>
+
+    <!-- CAPA OSCURA PARA CERRAR EL MENÚ MÓVIL AL TOCAR AFUERA -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay" onclick="toggleMobileMenu()"></div>
 
     <!-- MENÚ MÓVIL LATERAL ROJO -->
     <div class="mobile-nav" id="mobile-nav">
@@ -61,13 +66,13 @@
         <div class="mobile-nav-body">
             <p class="mobile-nav-subtitle"><i class="fa-solid fa-compass text-gold"></i> NAVEGACIÓN PRINCIPAL</p>
             <ul class="mobile-nav-links">
-                <li><a href="javascript:void(0)" onclick="irASeccion('inicio')"><i class="fa-solid fa-house text-gold"></i> Inicio</a></li>
-                <li><a href="javascript:void(0)" onclick="irASeccion('catalogo')"><i class="fa-solid fa-utensils text-gold"></i> Menú / Catálogo Completo</a></li>
-                <li><a href="javascript:void(0)" onclick="filtrarCategoria('cocteleria', 'liqui-todos', event, '#e6b64f'); irASeccion('catalogo');"><i class="fa-solid fa-burst text-gold"></i> Ver Todos los Sabores Liqui POPS</a></li>
-                <li><a href="javascript:void(0)" onclick="irASeccion('beneficios')"><i class="fa-solid fa-star text-gold"></i> Beneficios</a></li>
-                <li><a href="javascript:void(0)" onclick="irASeccion('marcas')"><i class="fa-solid fa-award text-gold"></i> Nuestras Marcas</a></li>
-                <li><a href="javascript:void(0)" onclick="irASeccion('nosotros')"><i class="fa-solid fa-building text-gold"></i> Nosotros</a></li>
-                <li><a href="javascript:void(0)" onclick="irASeccion('contacto')"><i class="fa-solid fa-headset text-gold"></i> Contacto y Ubicación</a></li>
+                <li><a href="javascript:void(0)" onclick="navegarYFiltrar('todos', null, 'inicio')"><i class="fa-solid fa-house text-gold"></i> Inicio</a></li>
+                <li><a href="javascript:void(0)" onclick="navegarYFiltrar('todos', null, 'catalogo')"><i class="fa-solid fa-utensils text-gold"></i> Menú / Catálogo Completo</a></li>
+                <li><a href="javascript:void(0)" onclick="navegarYFiltrar('cocteleria', 'liqui-todos', 'catalogo', event, '#e6b64f')"><i class="fa-solid fa-burst text-gold"></i> Ver Todos los Sabores Liqui POPS</a></li>
+                <li><a href="javascript:void(0)" onclick="navegarYFiltrar('todos', null, 'beneficios')"><i class="fa-solid fa-star text-gold"></i> Beneficios</a></li>
+                <li><a href="javascript:void(0)" onclick="navegarYFiltrar('todos', null, 'marcas')"><i class="fa-solid fa-award text-gold"></i> Nuestras Marcas</a></li>
+                <li><a href="javascript:void(0)" onclick="navegarYFiltrar('todos', null, 'nosotros')"><i class="fa-solid fa-building text-gold"></i> Nosotros</a></li>
+                <li><a href="javascript:void(0)" onclick="navegarYFiltrar('todos', null, 'contacto')"><i class="fa-solid fa-headset text-gold"></i> Contacto y Ubicación</a></li>
             </ul>
         </div>
 
