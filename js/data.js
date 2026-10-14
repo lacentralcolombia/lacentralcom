@@ -131,6 +131,14 @@ var productosData = [
         imagen: "chorivalchorizodepolllo10unidades.jpg"
     },
     {
+        id: 805,
+        nombre: "Chorizo Paisita Sevilla x 6 Unidades | 200 gramos",
+        categoria: "embutidos",
+        subcategoria: "chorizos",
+        descripcion: "Auténtico Chorizo Paisita marca Sevilla en presentación de 6 unidades (Peso Neto 200 gramos), ideal para acompañar tus platos favoritos.",
+        imagen: "chorizopaisita6unidades.jpg"
+    },
+    {
         id: 9,
         nombre: "Mortadelas Especiales",
         categoria: "embutidos",
