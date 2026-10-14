@@ -100,7 +100,7 @@ var productosData = [
     },
     {
         id: 801,
-        nombre: "Chorizo Español La Vitta x 15 Unidades | 1000 gramos",
+        nombre: "Chorizo Español La Villa x 15 Unidades | 1000 gramos",
         categoria: "embutidos",
         subcategoria: "chorizos",
         descripcion: "Exquisito Chorizo Español marca La Vitta en presentación de 1.000 gramos y 15 unidades, ideal para asados y preparaciones especiales.",
