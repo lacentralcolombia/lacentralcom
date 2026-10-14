@@ -111,7 +111,7 @@ var productosData = [
         nombre: "Chorizo Paisa La Vitta x 12 Unidades | 500 gramos",
         categoria: "embutidos",
         subcategoria: "chorizos",
-        descripcion: "Tradicional Chorizo Paisa marca La Vitta en presentación de 500 gramos y 12 unidades, con el auténtico sabor antioqueño.",
+        descripcion: "Tradicional Chorizo Paisa marca La Villa en presentación de 500 gramos y 12 unidades, con el auténtico sabor antioqueño.",
         imagen: "chorizopaisa12unidades500gramos.jpg"
     },
     {
