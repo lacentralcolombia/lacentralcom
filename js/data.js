@@ -422,31 +422,85 @@ var productosData = [
         imagen: "liquipopschicle3400gramos.jpg"
     },
 
-    // --- OTROS SABORES LIQUIPOPS ---
+    // --- COCTELERÍA Y LIQUIPOPS MANGO ---
     {
-        id: 110,
-        nombre: "Liquipops | Mango Biche",
+        id: 1101,
+        nombre: "Liquipops x 350 gramos | Mango🥭",
         categoria: "cocteleria",
         subcategoria: "liqui-mango",
-        descripcion: "Sabor ácido y refrescante a mango biche con centro estallante, ideal para micheladas y bebidas.",
-        imagen: "liquipopsmango.jpg"
+        descripcion: "Sabor ácido y refrescante a mango biche con centro estallante (Presentación de 350 gramos).",
+        imagen: "liquipopsmango350gramos.jpg"
     },
     {
-        id: 111,
-        nombre: "Liquipops x 350 gramos | Maracuyá",
+        id: 1102,
+        nombre: "Liquipops x 1,150 gramos | Mango Biche🥭",
+        categoria: "cocteleria",
+        subcategoria: "liqui-mango",
+        descripcion: "Sabor ácido y refrescante a mango biche con centro estallante (Presentación de 1,150 gramos).",
+        imagen: "liquipopsmango1150gramos.jpg"
+    },
+    {
+        id: 1103,
+        nombre: "Liquipops x 3,400 gramos | Mango🥭",
+        categoria: "cocteleria",
+        subcategoria: "liqui-mango",
+        descripcion: "Sabor ácido y refrescante a mango biche con centro estallante (Presentación de 3,400 gramos).",
+        imagen: "liquipopsmango3400gramos.jpg"
+    },
+
+    // --- COCTELERÍA Y LIQUIPOPS MARACUYÁ ---
+    {
+        id: 1111,
+        nombre: "Liquipops x 350 gramos | Maracuya🍋",
         categoria: "cocteleria",
         subcategoria: "liqui-maracuya",
-        descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá para cócteles y sodas.",
-        imagen: "liquipopsmaracuya.jpg"
+        descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 350 gramos).",
+        imagen: "liquipopsmaracuya350gramos.jpg"
     },
     {
-        id: 112,
-        nombre: "Liquipops | Café",
+        id: 1112,
+        nombre: "Liquipops x 1,150 gramos | Maracuya🍋",
+        categoria: "cocteleria",
+        subcategoria: "liqui-maracuya",
+        descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 1,150 gramos).",
+        imagen: "liquipopsmaracuya1150gramos.jpg"
+    },
+    {
+        id: 1113,
+        nombre: "Liquipops x 3,400 gramos | Maracuyá🍋",
+        categoria: "cocteleria",
+        subcategoria: "liqui-maracuya",
+        descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 3,400 gramos).",
+        imagen: "liquipopsmaracuya3400gramos.jpg"
+    },
+
+    // --- COCTELERÍA Y LIQUIPOPS CAFÉ ---
+    {
+        id: 1121,
+        nombre: "Liquipops x 350 gramos | Café🤎",
         categoria: "cocteleria",
         subcategoria: "liqui-cafe",
-        descripcion: "Perlas de edición especial con intenso aroma y sabor a café para frappés, malteadas y cócteles.",
-        imagen: "liquipopscafe.jpg"
+        descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 350 gramos).",
+        imagen: "liquipopscafe350gramos.jpg"
     },
+    {
+        id: 1122,
+        nombre: "Liquipops x 1,150 gramos | Café🤎",
+        categoria: "cocteleria",
+        subcategoria: "liqui-cafe",
+        descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 1,150 gramos).",
+        imagen: "liquipopscafe1150gramos.jpg"
+    },
+    {
+        id: 1123,
+        nombre: "Liquipops x 3,400 gramos | Café🤎",
+        categoria: "cocteleria",
+        subcategoria: "liqui-cafe",
+        descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 3,400 gramos).",
+        imagen: "liquipopscafe3400gramos.jpg"
+    },
+
+    // --- OTROS PRODUCTOS DE COCTELERÍA ---
     {
         id: 20,
         nombre: "Siropes Concentrados y Chamoy",
