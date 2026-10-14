@@ -84,7 +84,7 @@ var productosData = [
     },
     {
         id: 703,
-        nombre: "Salchicha Súper Perro La Villa x 12 Unidades | 1000 gramos",
+        nombre: "Salchicha Súper Perro La Vitta x 12 Unidades | 1000 gramos",
         categoria: "embutidos",
         subcategoria: "salchichas",
         descripcion: "Salchicha Súper Perro marca Carnes Frías La Vitta en presentación institucional de 1.000 gramos y 12 unidades.",
@@ -97,6 +97,14 @@ var productosData = [
         subcategoria: "chorizos",
         descripcion: "Chorizo santarrosano, antioqueño y de la casa con sazón ahumada.",
         imagen: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=500"
+    },
+    {
+        id: 801,
+        nombre: "Chorizo Español La Vitta x 15 Unidades | 1000 gramos",
+        categoria: "embutidos",
+        subcategoria: "chorizos",
+        descripcion: "Exquisito Chorizo Español marca La Vitta en presentación de 1.000 gramos y 15 unidades, ideal para asados y preparaciones especiales.",
+        imagen: "chorizolavilla15.jpg"
     },
     {
         id: 9,
