@@ -59,6 +59,14 @@ var productosData = [
         imagen: "https://images.unsplash.com/photo-1541529086526-db283c563270?q=80&w=500"
     },
     {
+        id: 601,
+        nombre: "Jamón Ideal Rica x 230 gramos | 12 Tajadas",
+        categoria: "embutidos",
+        subcategoria: "jamones",
+        descripcion: "Delicioso Jamón Ideal marca Rica en presentación de 230 gramos (12 tajadas), perfecto para sándwiches y desayunos.",
+        imagen: "JAMONIDEALRICA230GRAMOS.JPG"
+    },
+    {
         id: 7,
         nombre: "Salchicha Campesina Deli x 16 Unidades | 500 gramos",
         categoria: "embutidos",
