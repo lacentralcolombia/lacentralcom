@@ -1,7 +1,4 @@
-/* ==========================================================
-   ESTILOS ORIGINALES DE LA CENTRAL (DISEÑO TERMINADO)
-   ========================================================== */
-
+/* --- ESTILOS GENERALES Y DISEÑO OSCURO --- */
 * {
     box-sizing: border-box;
 }
@@ -14,26 +11,26 @@ body {
     padding: 0;
 }
 
-/* Encabezado */
-.header-container, header {
-    background-color: #121212;
+.header-container {
     text-align: center;
     padding: 30px 20px;
+    background-color: #121212;
     border-bottom: 1px solid #222;
 }
 
-h1, .header-container h1 {
-    color: #f39c12 !important;
+.header-container h1 {
     font-size: 2.3rem;
+    color: #f39c12 !important;
     margin-bottom: 8px;
 }
 
-p {
+.header-container p {
     color: #bbbbbb;
+    font-size: 1rem;
+    margin-bottom: 15px;
 }
 
-/* Barra de búsqueda */
-.search-container input, .search-box input {
+.search-container input {
     width: 100%;
     max-width: 450px;
     padding: 12px 20px;
@@ -43,35 +40,20 @@ p {
     color: #fff;
     font-size: 15px;
     outline: none;
-    margin-top: 15px;
 }
 
-/* Menú de categorías horizontal y desplegables */
-.categorias-container, .menu-categorias, .filter-buttons {
+/* --- MENÚ DE CATEGORÍAS --- */
+.categorias-container {
     display: flex !important;
-    overflow-x: auto !important;
-    scroll-behavior: smooth;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
     gap: 12px;
     padding: 15px 25px;
     margin: 20px auto;
-    max-width: 95%;
-    width: 100%;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    align-items: center;
-    justify-content: center;
+    max-width: 1100px;
 }
 
-.categorias-container::-webkit-scrollbar {
-    display: none;
-}
-.categorias-container {
-    scrollbar-width: none;
-}
-
-/* Botones de categoría principales */
 .categoria-btn, .filter-btn {
-    flex: 0 0 auto;
     font-size: 15px;
     font-weight: 500;
     padding: 10px 20px;
@@ -81,7 +63,7 @@ p {
     color: #ffffff;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .categoria-btn.active, .filter-btn.active, .categoria-btn:hover, .filter-btn:hover {
@@ -90,7 +72,7 @@ p {
     color: #ffffff;
 }
 
-/* Cuadrícula de productos */
+/* --- CUADRÍCULA Y TARJETAS DE PRODUCTOS --- */
 .catalogo-container {
     display: grid !important;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
@@ -100,7 +82,6 @@ p {
     margin: 0 auto !important;
 }
 
-/* Tarjetas de productos oscuras y estilizadas */
 .producto-card {
     background-color: #1a1a1a !important;
     border: 1px solid #333 !important;
