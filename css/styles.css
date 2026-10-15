@@ -289,7 +289,6 @@ a {
     background: var(--gold-brand);
     border-radius: 10px;
 }
-}
 
 .top-nav-btn {
     background: #222;
@@ -299,6 +298,7 @@ a {
     border-radius: 20px;
     cursor: pointer;
     font-weight: 500;
+    white-space: nowrap; /* Evita que los textos de los botones se rompan en dos líneas */
 }
 
 .top-nav-btn.active, .top-nav-btn:hover {
