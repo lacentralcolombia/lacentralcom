@@ -1,6 +1,7 @@
-/* ==========================================================
-   CSS ORIGINAL DE LA CENTRAL (MANTENIENDO TU DISEÑO EXACTO)
-   ========================================================== */
+/* --- RESET Y FONDO OSCURO PRINCIPAL --- */
+* {
+    box-sizing: border-box;
+}
 
 body {
     background-color: #121212 !important;
@@ -10,27 +11,27 @@ body {
     padding: 0;
 }
 
-/* Encabezado original con logo y botón de pedido */
+/* Encabezado */
 .header-container, header {
     background-color: #121212;
     text-align: center;
-    padding: 20px;
+    padding: 30px 20px;
 }
 
 h1, .header-container h1 {
     color: #f39c12 !important;
-    font-size: 2.2rem;
-    margin-bottom: 5px;
+    font-size: 2.3rem;
+    margin-bottom: 8px;
 }
 
 p {
-    color: #cccccc;
+    color: #bbbbbb;
 }
 
 /* Barra de búsqueda */
 .search-container input, .search-box input {
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
     padding: 12px 20px;
     border-radius: 25px;
     border: 1px solid #333;
@@ -38,32 +39,41 @@ p {
     color: #fff;
     font-size: 15px;
     outline: none;
-    margin: 15px auto;
+    margin-top: 15px;
 }
 
-/* Contenedor de botones desplegables originales (como en tu foto) */
+/* Menú de categorías horizontal y deslizable */
 .categorias-container, .menu-categorias, .filter-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
     gap: 12px;
-    padding: 15px;
-    max-width: 900px;
-    margin: 0 auto;
+    padding: 15px 25px;
+    margin: 20px auto;
+    max-width: 95%;
+    width: 100%;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    align-items: center;
 }
 
-/* Estilo original de los botones y menús desplegables */
+.categorias-container::-webkit-scrollbar, 
+.menu-categorias::-webkit-scrollbar, 
+.filter-buttons::-webkit-scrollbar {
+    display: none;
+}
+
 .categoria-btn, .filter-btn {
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 18px;
-    border-radius: 25px;
+    flex: 0 0 auto;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     background-color: #1a1a1a;
     color: #ffffff;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
 
 .categoria-btn.active, .filter-btn.active, .categoria-btn:hover, .filter-btn:hover {
@@ -72,25 +82,17 @@ p {
     color: #ffffff;
 }
 
-/* Texto de estado "Mostrando: ..." */
-.mostrando-texto, p:has(+ .catalogo-container) {
-    text-align: center;
-    color: #f39c12;
-    font-weight: bold;
-    margin: 20px 0;
-}
-
-/* Cuadrícula de productos original */
+/* --- CUADRICULA DE PRODUCTOS (ARREGLA QUE NO SE ESTIREN) --- */
 .catalogo-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 20px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+    gap: 25px !important;
+    padding: 30px 40px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
 }
 
-/* Tarjetas de productos idénticas a tu imagen */
+/* Tarjetas de productos oscuras y profesionales */
 .producto-card {
     background-color: #1a1a1a !important;
     border: 1px solid #333 !important;
@@ -98,37 +100,42 @@ p {
     overflow: hidden !important;
     display: flex !important;
     flex-direction: column !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
 }
 
 .producto-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    background-color: #222 !important;
 }
 
 .producto-card h3 {
     color: #f39c12 !important;
-    font-size: 17px;
-    margin: 15px 15px 5px 15px;
+    font-size: 17px !important;
+    margin: 15px 15px 8px 15px !important;
 }
 
 .producto-card p {
-    color: #b0b0b0 !important;
-    font-size: 13px;
-    margin: 0 15px 15px 15px;
-    line-height: 1.4;
-    flex-grow: 1;
+    color: #aaaaaa !important;
+    font-size: 13px !important;
+    margin: 0 15px 15px 15px !important;
+    line-height: 1.4 !important;
+    flex-grow: 1 !important;
 }
 
 .producto-card a {
-    display: block;
-    background-color: #ff3b30;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    margin: 0 15px 15px 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
+    display: block !important;
+    background-color: #ff3b30 !important;
+    color: #fff !important;
+    text-align: center !important;
+    padding: 10px !important;
+    margin: 0 15px 15px 15px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+}
+
+.producto-card a:hover {
+    background-color: #e03229 !important;
 }
