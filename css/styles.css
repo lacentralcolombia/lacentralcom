@@ -1,106 +1,48 @@
-/* --- ESTILOS GENERALES Y RESET --- */
-body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.header-container {
-    text-align: center;
-    padding: 30px 20px;
-}
-
-.header-container h1 {
-    font-size: 2.5rem;
-    color: #f39c12;
-    margin-bottom: 10px;
-}
-
-.header-container p {
-    color: #bbb;
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-.search-container input {
-    width: 100%;
-    max-width: 500px;
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: 1px solid #333;
-    background-color: #1a1a1a;
-    color: #fff;
-    font-size: 16px;
-    outline: none;
-}
-
-/* --- MENÚ DE CATEGORÍAS DESLIZABLE (CARRUSEL HORIZONTAL) --- */
-.categorias-container, 
-.menu-categorias, 
-.filter-buttons {
+/* Menú de categorías horizontal, grande y corredizo */
+.categorias-container, .menu-categorias, .filter-buttons {
     display: flex !important;
     overflow-x: auto !important;
     scroll-behavior: smooth;
-    gap: 14px;
-    padding: 18px 25px;
-    margin: 25px auto;
+    gap: 12px;
+    padding: 15px 20px;
+    margin: 20px auto;
     max-width: 95%;
     width: 100%;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
     align-items: center;
-    box-sizing: border-box;
 }
 
-/* Ocultar barra de desplazamiento visual manteniendo la funcionalidad táctil y de rueda */
+/* Ocultar barra de desplazamiento manteniendo la funcionalidad táctil */
 .categorias-container::-webkit-scrollbar, 
 .menu-categorias::-webkit-scrollbar, 
 .filter-buttons::-webkit-scrollbar {
     display: none;
 }
 
-.categorias-container, 
-.menu-categorias, 
-.filter-buttons {
-    scrollbar-width: none; /* Firefox */
+.categorias-container, .menu-categorias, .filter-buttons {
+    scrollbar-width: none;
 }
 
-/* Botones de categoría profesionales y grandes */
-.categoria-btn, 
-.filter-btn {
+/* Tamaño y estilo profesional para los botones del menú */
+.categoria-btn, .filter-btn {
     flex: 0 0 auto;
     font-size: 16px;
     font-weight: 500;
-    padding: 13px 26px;
-    border-radius: 35px;
+    padding: 12px 24px;
+    border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     background-color: #1a1a1a;
     color: #ffffff;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Efecto hover y estado activo */
-.categoria-btn.active, 
-.filter-btn.active, 
-.categoria-btn:hover, 
-.filter-btn:hover {
+.categoria-btn.active, .filter-btn.active, .categoria-btn:hover, .filter-btn:hover {
     background-color: #ff3b30;
     border-color: #ff3b30;
     color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(255, 59, 48, 0.35);
-}
-
-/* --- CONTENEDOR DE PRODUCTOS --- */
-.catalogo-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+    box-shadow: 0 6px 12px rgba(255, 59, 48, 0.3);
 }
