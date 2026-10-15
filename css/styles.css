@@ -218,12 +218,17 @@ a {
     margin-bottom: 15px;
 }
 
-/* CATÁLOGO Y DESPLEGABLES CON Z-INDEX CORREGIDO */
+/* =========================================================
+   CATÁLOGO Y DESPLEGABLES (FIX: MENÚ AL FRENTE DE PRODUCTOS)
+   ========================================================= */
+
+/* La sección del catálogo sube de nivel para que su menú
+   quede sobre cualquier cosa que venga después */
 .catalog-section {
     padding: 60px 5%;
     position: relative;
-    z-index: 1;
-    overflow: visible !important; /* Evita que los menús desplegables se corten */
+    z-index: 20;
+    overflow: visible !important;
 }
 
 .section-header {
@@ -260,10 +265,11 @@ a {
     font-size: 1rem;
 }
 
+/* Barra de navegación del catálogo por encima de la grilla */
 .catalog-top-nav {
     margin-bottom: 30px;
     position: relative;
-    z-index: 999; /* Mantiene la barra de navegación del catálogo por encima */
+    z-index: 50;
 }
 
 /* --- MENÚ DE CATEGORÍAS DESLIZABLE HORIZONTALMENTE --- */
@@ -303,7 +309,7 @@ a {
     border-radius: 22px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 1.05rem; /* Tamaño de letra aumentado */
+    font-size: 1.05rem;
     white-space: nowrap;
 }
 
@@ -312,26 +318,28 @@ a {
     border-color: var(--red-brand);
 }
 
-/* DROPDOWN CON PRIORIDAD ABSOLUTA AL FRENTE */
+/* DROPDOWN: se saca del scroll horizontal con position: fixed
+   (la posición top/left la calcula el JS: dropdown.js) */
 .top-dropdown {
-    position: relative;
+    position: static;
     display: inline-block;
-    z-index: 9999;
 }
 
 .top-dropdown-content {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
+    position: fixed;
     min-width: 290px;
-    background-color: #1a1a1a;
+    max-width: 92vw;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: linear-gradient(180deg, #1f1f1f 0%, #141414 100%);
     border: 1px solid var(--gold-brand);
-    border-radius: 8px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.95);
-    z-index: 999999 !important; /* Capa más alta posible para que nunca quede detrás */
+    border-radius: 12px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9),
+                0 0 0 1px rgba(230, 182, 79, 0.15);
+    z-index: 100000 !important;
     padding: 10px 0;
-    margin-top: 5px;
+    margin-top: 0;
 }
 
 .top-dropdown-content.open {
@@ -420,7 +428,7 @@ a {
     }
 }
 
-/* PRODUCT GRID */
+/* PRODUCT GRID (nivel inferior al menú) */
 .product-grid-full {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -436,10 +444,13 @@ a {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 0;
 }
 
 .product-img-wrapper {
     position: relative;
+    z-index: 0;
     height: 200px;
     overflow: hidden;
     cursor: pointer;
@@ -652,7 +663,7 @@ footer {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.9);
-    z-index: 10000;
+    z-index: 200000;
     padding: 40px;
     text-align: center;
 }
@@ -677,7 +688,7 @@ footer {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.7);
-    z-index: 9998;
+    z-index: 100001;
 }
 
 .cart-overlay.open {
@@ -692,7 +703,7 @@ footer {
     max-width: 400px;
     height: 100vh;
     background: #141414;
-    z-index: 9999;
+    z-index: 100002;
     transition: right 0.35s ease;
     display: flex;
     flex-direction: column;
@@ -739,15 +750,15 @@ footer {
 }
 
 /* ===================================================
-   MENÚ MÓVIL CON FONDO ROJO Y NAVEGACIÓN COMPLETA
+   MENÚ MÓVIL PROFESIONAL (oscuro + acentos rojo/dorado)
    =================================================== */
 .mobile-nav-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 9998;
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 100001;
+    backdrop-filter: blur(5px);
 }
 
 .mobile-nav-overlay.open {
@@ -761,13 +772,16 @@ footer {
     width: 85%;
     max-width: 360px;
     height: 100vh;
-    background: linear-gradient(180deg, #e3211b 0%, #b81410 100%);
-    z-index: 9999;
+    background:
+        linear-gradient(180deg, rgba(139, 0, 0, 0.55) 0%, rgba(15, 15, 15, 0) 38%),
+        linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+    border-left: 2px solid var(--gold-brand);
+    z-index: 100002;
     transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
     padding: 20px;
-    box-shadow: -5px 0 25px rgba(0,0,0,0.5);
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.7);
     overflow-y: auto;
 }
 
@@ -779,7 +793,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.25);
+    border-bottom: 1px solid rgba(230, 182, 79, 0.35);
     padding-bottom: 15px;
 }
 
@@ -810,10 +824,10 @@ footer {
 }
 
 .close-mobile-nav {
-    background: rgba(0,0,0,0.3);
+    background: var(--red-brand);
     border: none;
     color: white;
-    font-size: 2rem;
+    font-size: 1.8rem;
     width: 38px;
     height: 38px;
     border-radius: 50%;
@@ -821,6 +835,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 8px rgba(227, 33, 27, 0.45);
 }
 
 .mobile-nav-body {
@@ -832,7 +847,7 @@ footer {
     font-size: 0.8rem;
     color: var(--gold-brand);
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     margin-bottom: 15px;
 }
 
@@ -841,7 +856,7 @@ footer {
 }
 
 .mobile-nav-links li {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .mobile-nav-links a {
@@ -851,20 +866,31 @@ footer {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 12px;
-    border-radius: 8px;
-    background: rgba(0, 0, 0, 0.15);
-    transition: background 0.2s ease;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--red-brand);
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
 }
 
-.mobile-nav-links a:active, .mobile-nav-links a:hover {
-    background: rgba(0, 0, 0, 0.35);
+.mobile-nav-links a i {
     color: var(--gold-brand);
+    width: 20px;
+    text-align: center;
+}
+
+.mobile-nav-links a:active,
+.mobile-nav-links a:hover {
+    background: #222;
+    border-left-color: var(--gold-brand);
+    color: var(--gold-brand);
+    transform: translateX(4px);
 }
 
 .mobile-nav-footer {
     padding-top: 15px;
-    border-top: 1px solid rgba(255,255,255,0.25);
+    border-top: 1px solid rgba(230, 182, 79, 0.35);
 }
 
 .mobile-wa-btn {
@@ -876,9 +902,9 @@ footer {
     color: white;
     font-weight: bold;
     padding: 12px;
-    border-radius: 8px;
+    border-radius: 10px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
 }
 
 body.menu-open {
@@ -915,6 +941,14 @@ body.menu-open {
     transform: translateY(-5px);
     box-shadow: 0 0 20px rgba(220, 38, 38, 0.4), 0 0 10px rgba(239, 68, 68, 0.2);
     border-color: rgba(239, 68, 68, 0.6) !important;
+}
+
+/* El hover de las tarjetas no debe elevar su capa sobre el menú */
+.producto-card:hover,
+.card:hover,
+.product-item:hover,
+.product-card:hover {
+    z-index: 1;
 }
 
 /* RESPONSIVE */
