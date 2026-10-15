@@ -966,3 +966,35 @@ body.menu-open {
         font-size: 2rem;
     }
 }
+/* LETRAS MÁS GRANDES EN EL DESPLEGABLE */
+.top-dropdown-content {
+    min-width: 320px;
+}
+
+.top-dropdown-content button {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 13px 18px;
+}
+
+.sub-dropdown-header {
+    font-size: 1rem;
+    padding: 10px 18px;
+}
+
+.liqui-subgrid {
+    gap: 6px;
+    padding: 6px 12px;
+}
+
+.liqui-subgrid button {
+    font-size: 1.05rem;
+    padding: 10px 12px;
+}
+
+/* Esferas un poco más grandes para acompañar el texto */
+.liqui-subgrid button i.fa-circle,
+.liqui-bubble {
+    width: 20px;
+    height: 20px;
+}
