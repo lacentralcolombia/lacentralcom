@@ -10,6 +10,7 @@ var marcasData = [
 ];
 
 var productosData = [
+    // --- QUESOS Y LÁCTEOS ---
     {
         id: 1,
         nombre: "Quesos y Yogures",
@@ -50,12 +51,14 @@ var productosData = [
         descripcion: "Queso listo para gratinar y acompañar tus pastas, lasañas o arepas.",
         imagen: "https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=500"
     },
+
+    // --- EMBUTIDOS Y CÁRNICOS ---
     {
         id: 6,
         nombre: "Jamón Sevilla x 450 gramos | 22 Tajadas",
         categoria: "embutidos",
         subcategoria: "jamones",
-        descripcion: "Exquisito Jamón marca Sevilla en presentación de 450 gramos (22 tajadas), ideal para tus sándwiches, desayunos y preparaciones diarias.",
+        descripcion: "Exquisito Jamón marca Sevilla en presentación de 450 gramos (22 tajadas), ideal para tus sándwiches y desayunos.",
         imagen: "jamonsevilla450gramos.jpg"
     },
     {
@@ -63,7 +66,7 @@ var productosData = [
         nombre: "Jamón Ideal Rica x 230 gramos | 12 Tajadas",
         categoria: "embutidos",
         subcategoria: "jamones",
-        descripcion: "Delicioso Jamón Ideal marca Rica en presentación de 230 gramos (12 tajadas), perfecto para sándwiches y desayunos.",
+        descripcion: "Delicioso Jamón Ideal marca Rica en presentación de 230 gramos (12 tajadas).",
         imagen: "JAMONIDEALRICA230GRAMOS.JPG"
     },
     {
@@ -71,15 +74,15 @@ var productosData = [
         nombre: "Jamón Ideal Rica x 400 gramos | 21 Tajadas",
         categoria: "embutidos",
         subcategoria: "jamones",
-        descripcion: "Rico y rendidor Jamón Ideal marca Rica en presentación familiar de 400 gramos (21 tajadas), excelente para compartir.",
+        descripcion: "Rico y rendidor Jamón Ideal marca Rica en presentación familiar de 400 gramos (21 tajadas).",
         imagen: "JAMONIDEALRICA400GRAMOS.JPG"
     },
     {
         id: 603,
-        nombre: "Jamón Sabor Ahumado Karvalle x 450 gramos | 13 Porciones Aprox.",
+        nombre: "Jamón Sabor Ahumado Karvalle x 450 gramos",
         categoria: "embutidos",
         subcategoria: "jamones",
-        descripcion: "Delicioso Jamón Sabor Ahumado marca Karvalle en presentación de 450 gramos (13 porciones aprox.), perfecto para acompañar cualquier platillo.",
+        descripcion: "Delicioso Jamón Sabor Ahumado marca Karvalle en presentación de 450 gramos (13 porciones aprox.).",
         imagen: "jamonkarvalle.jpg"
     },
     {
@@ -87,7 +90,7 @@ var productosData = [
         nombre: "Salchicha Campesina Deli x 16 Unidades | 500 gramos",
         categoria: "embutidos",
         subcategoria: "salchichas",
-        descripcion: "Deliciosa salchicha mixta de pollo y cerdo marca Deli Campesina en presentación de 500 gramos y 16 porciones aprox.",
+        descripcion: "Deliciosa salchicha mixta de pollo y cerdo marca Deli Campesina en presentación de 500 gramos.",
         imagen: "campesina16.jpg"
     },
     {
@@ -95,7 +98,7 @@ var productosData = [
         nombre: "Salchicha Premium Ranchera x 480gr x 14 Unidades",
         categoria: "embutidos",
         subcategoria: "salchichas",
-        descripcion: "Deliciosas salchichas premium marca Ranchera en presentación de 480 gramos y 14 unidades, empaque resellable zip-pak.",
+        descripcion: "Deliciosas salchichas premium marca Ranchera en presentación de 480 gramos y 14 unidades.",
         imagen: "ranchera14.jpg"
     },
     {
@@ -103,7 +106,7 @@ var productosData = [
         nombre: "Salchicha Premium Ranchera x 3 Unidades",
         categoria: "embutidos",
         subcategoria: "salchichas",
-        descripcion: "Salchicha premium marca Ranchera en presentación práctica de 3 unidades (Peso neto 75 g), ideal para porciones individuales.",
+        descripcion: "Salchicha premium marca Ranchera en presentación práctica de 3 unidades (75 g).",
         imagen: "ranchera3.jpg"
     },
     {
@@ -111,7 +114,7 @@ var productosData = [
         nombre: "Salchicha Súper Perro La Vitta x 12 Unidades | 1000 gramos",
         categoria: "embutidos",
         subcategoria: "salchichas",
-        descripcion: "Salchicha Súper Perro marca Carnes Frías La Vitta en presentación institucional de 1.000 gramos y 12 unidades.",
+        descripcion: "Salchicha Súper Perro marca Carnes Frías La Vitta en presentación institucional de 1.000 gramos.",
         imagen: "salchcialavillasuperperro.jpg"
     },
     {
@@ -119,7 +122,7 @@ var productosData = [
         nombre: "Chorizo Ideal Rica x 3 Porciones | 150 gramos",
         categoria: "embutidos",
         subcategoria: "chorizos",
-        descripcion: "Delicioso Chorizo Ideal marca Rica en presentación de 3 porciones (Peso neto 150 gramos), práctico y con gran sabor.",
+        descripcion: "Delicioso Chorizo Ideal marca Rica en presentación de 3 porciones (150 gramos).",
         imagen: "chorizrica3porciones.jpg"
     },
     {
@@ -127,7 +130,7 @@ var productosData = [
         nombre: "Chorizo Español La Vitta x 15 Unidades | 1000 gramos",
         categoria: "embutidos",
         subcategoria: "chorizos",
-        descripcion: "Exquisito Chorizo Español marca La Vitta en presentación de 1.000 gramos y 15 unidades, ideal para asados y preparaciones especiales.",
+        descripcion: "Exquisito Chorizo Español marca La Vitta en presentación de 1.000 gramos y 15 unidades.",
         imagen: "chorizolavilla15.jpg"
     },
     {
@@ -135,7 +138,7 @@ var productosData = [
         nombre: "Chorizo Paisa La Vitta x 12 Unidades | 500 gramos",
         categoria: "embutidos",
         subcategoria: "chorizos",
-        descripcion: "Tradicional Chorizo Paisa marca La Vitta en presentación de 500 gramos y 12 unidades, con el auténtico sabor antioqueño.",
+        descripcion: "Tradicional Chorizo Paisa marca La Vitta en presentación de 500 gramos y 12 unidades.",
         imagen: "chorizopaisa12unidades500gramos.jpg"
     },
     {
@@ -143,7 +146,7 @@ var productosData = [
         nombre: "Chorizo de Cerdo Chorival | 1200 gramos",
         categoria: "embutidos",
         subcategoria: "chorizos",
-        descripcion: "Auténtico Chorizo de Cerdo marca Chorival en presentación de 1.200 gramos, con sabores naturales y frescos ideales para asados.",
+        descripcion: "Auténtico Chorizo de Cerdo marca Chorival en presentación de 1.200 gramos.",
         imagen: "chorivaldecerdo1200gramos.jpeg"
     },
     {
@@ -151,7 +154,7 @@ var productosData = [
         nombre: "Chorizo de Pollo Chorival x 10 Unidades",
         categoria: "embutidos",
         subcategoria: "chorizos",
-        descripcion: "Suave y saludable Chorizo de Pollo marca Chorival en presentación de 10 unidades, sin sabores artificiales y 100% natural.",
+        descripcion: "Suave y saludable Chorizo de Pollo marca Chorival en presentación de 10 unidades.",
         imagen: "chorivalchorizodepolllo10unidades.jpg"
     },
     {
@@ -159,7 +162,7 @@ var productosData = [
         nombre: "Chorizo Paisita Sevilla x 6 Unidades | 200 gramos",
         categoria: "embutidos",
         subcategoria: "chorizos",
-        descripcion: "Auténtico Chorizo Paisita marca Sevilla en presentación de 6 unidades (Peso Neto 200 gramos), ideal para acompañar tus platos favoritos.",
+        descripcion: "Auténtico Chorizo Paisita marca Sevilla en presentación de 6 unidades (200 gramos).",
         imagen: "chorizopaisita6unidades.jpg"
     },
     {
@@ -175,7 +178,7 @@ var productosData = [
         nombre: "Tocineta Ahumada Chorival | 450 gramos",
         categoria: "embutidos",
         subcategoria: "tocinetas",
-        descripcion: "Exquisita tocineta ahumada marca Chorival en presentación de 450 gramos, perfecta para darle un toque crujiente y delicioso a tus hamburguesas y recetas.",
+        descripcion: "Exquisita tocineta ahumada marca Chorival en presentación de 450 gramos.",
         imagen: "tocineta ahumada chorival450gramos.jpg"
     },
     {
@@ -183,9 +186,109 @@ var productosData = [
         nombre: "Tocineta Ahumada Premium La Americanísima | 450 gramos",
         categoria: "embutidos",
         subcategoria: "tocinetas",
-        descripcion: "Exclusiva Tocineta Ahumada Premium marca La Americanísima en presentación de 450 gramos, seleccionada para dar máxima calidad y sabor gourmet.",
+        descripcion: "Exclusiva Tocineta Ahumada Premium marca La Americanísima en presentación de 450 gramos.",
         imagen: "TOCINETAAUMADAPREMIUN450G.JPG"
     },
+
+    // --- COCTELERÍA Y PERLAS EXPLOSIVAS (LIQUI POPS) ---
+    {
+        id: 301,
+        nombre: "Liqui Pops Perlas Explosivas - Manzana Verde (350g / 1150g / 3400g)",
+        categoria: "cocteleria",
+        subcategoria: "liquipops",
+        descripcion: "Perlas explosivas sabor Manzana Verde, ideales para coctelería, sodas saborizadas y malteadas.",
+        imagen: "azucarbluberry.jpg"
+    },
+    {
+        id: 302,
+        nombre: "Liqui Pops Perlas Explosivas - Blueberry (350g / 1150g / 3400g)",
+        categoria: "cocteleria",
+        subcategoria: "liquipops",
+        descripcion: "Deliciosas perlas sabor Blueberry con explosión de sabor en cada sorbo.",
+        imagen: "liquipopsBlueberry.jpg"
+    },
+    {
+        id: 303,
+        nombre: "Liqui Pops Perlas Explosivas - Coco (350g / 1150g / 3400g)",
+        categoria: "cocteleria",
+        subcategoria: "liquipops",
+        descripcion: "Perlas explosivas con auténtico toque tropical de coco para tus bebidas y postres.",
+        imagen: "liquipopscoco.jpg"
+    },
+    {
+        id: 304,
+        nombre: "Liqui Pops Perlas Explosivas - Cereza (350g / 1150g / 3400g)",
+        categoria: "cocteleria",
+        subcategoria: "liquipops",
+        descripcion: "Exquisitas perlas sabor Cereza para dar color y sabor único a tus preparaciones.",
+        imagen: "azucarcereza.jpg"
+    },
+    {
+        id: 305,
+        nombre: "Liqui Pops Perlas Explosivas - Lychee (350g / 1150g / 3400g)",
+        categoria: "cocteleria",
+        subcategoria: "liquipops",
+        descripcion: "Perlas explosivas exóticas sabor Lychee, perfectas para cocteles modernos.",
+        imagen: "liquilychee.jpg"
+    },
+    {
+        id: 306,
+        nombre: "Liqui Pops Perlas Explosivas - Sandía (350g / 1150g / 3400g)",
+        categoria: "cocteleria",
+        subcategoria: "liquipops",
+        descripcion: "Refrescantes perlas sabor Sandía para bebidas refrescantes y gomitas.",
+        imagen: "azucarsandia.jpg"
+    },
+    {
+        id: 307,
+        nombre: "Liqui Pops Perlas Explosivas - Ice Pink (350g / 1150g / 3400g)",
+        categoria: "cocteleria",
+        subcategoria: "liquipops",
+        descripcion: "Perlas explosivas Ice Pink con un toque dulce y refrescante especial.",
+        imagen: "liquipopsfresa.jpg"
+    },
+    {
+        id: 308,
+        nombre: "Liqui Pops Perlas Explosivas - Fresa (350g / 1150g / 3400g)",
+        categoria: "cocteleria",
+        subcategoria: "liquipops",
+        descripcion: "Clásicas y dulces perlas sabor Fresa que encantan a grandes y chicos.",
+        imagen: "liquipopsfresa.jpg"
+    },
+    {
+        id: 309,
+        nombre: "Liqui Pops Perlas Explosivas - Chicle (350g / 1150g / 3400g)",
+        categoria: "cocteleria",
+        subcategoria: "liquipops",
+        descripcion: "Divertidas perlas sabor Chicle para sodas infantiles y postres temáticos.",
+        imagen: "azucarchicle.jpg"
+    },
+    {
+        id: 310,
+        nombre: "Liqui Pops Perlas Explosivas - Mango Biche (350g / 1150g / 3400g)",
+        categoria: "cocteleria",
+        subcategoria: "liquipops",
+        descripcion: "Perlas explosivas con el toque acidito perfecto de Mango Biche colombiano.",
+        imagen: "liquipopschicle.jpg"
+    },
+    {
+        id: 311,
+        nombre: "Liqui Pops Perlas Explosivas - Maracuyá (350g / 1150g / 3400g)",
+        categoria: "cocteleria",
+        subcategoria: "liquipops",
+        descripcion: "Exóticas perlas sabor Maracuyá con un balance ideal entre dulce y ácido.",
+        imagen: "azucarmaracuya.jpg"
+    },
+    {
+        id: 312,
+        nombre: "Liqui Pops Perlas Explosivas - Café (350g / 1150g / 3400g)",
+        categoria: "cocteleria",
+        subcategoria: "liquipops",
+        descripcion: "Innovadoras perlas explosivas con sabor a Café para bebidas frías de café y postres.",
+        imagen: "liquipopscafe.jpg"
+    },
+
+    // --- ALIMENTOS Y FRUTOS SECOS ---
     {
         id: 11,
         nombre: "Aliños a Granel",
@@ -250,438 +353,8 @@ var productosData = [
         descripcion: "Combinación equilibrada de maní, almendras, nueces, arándanos y pasas.",
         imagen: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=500"
     },
-    {
-        id: 1081,
-        nombre: "Liquipops x 350 gramos | Manzana verde 🍏",
-        categoria: "cocteleria",
-        subcategoria: "liqui-manzana",
-        descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 350 gramos).",
-        imagen: "liquipopsmanzana350gr.jpg"
-    },
-    {
-        id: 1082,
-        nombre: "Liquipops x 1,150 gramos | Manzana verde 🍏",
-        categoria: "cocteleria",
-        subcategoria: "liqui-manzana",
-        descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 1,150 gramos).",
-        imagen: "liquipops1150gramos.jpg"
-    },
-    {
-        id: 1083,
-        nombre: "Liquipops x 3,400 gramos | Manzana verde 🍏",
-        categoria: "cocteleria",
-        subcategoria: "liqui-manzana",
-        descripcion: "Perlas explosivas sabor a manzana verde ácida y refrescante (Presentación de 3,400 gramos).",
-        imagen: "liquipopsmanzana3400.jpg"
-    },
-    {
-        id: 1011,
-        nombre: "Liquipops x 350 gramos | Blueberry 🔵",
-        categoria: "cocteleria",
-        subcategoria: "liqui-blueberry",
-        descripcion: "Perlas explosivas sabor a mora azul / blueberry con centro líquido estallante (Presentación de 350 gramos).",
-        imagen: "liquipopsblueberry350gramos.jpg"
-    },
-    {
-        id: 1012,
-        nombre: "Liquipops x 1,150 gramos | Blueberry 🫐",
-        categoria: "cocteleria",
-        subcategoria: "liqui-blueberry",
-        descripcion: "Perlas explosivas sabor a mora azul / blueberry con centro líquido estallante (Presentación de 1,150 gramos).",
-        imagen: "liquipopsblueberry1150gramos.jpg"
-    },
-    {
-        id: 1013,
-        nombre: "Liquipops x 3,400 gramos | Blueberry 🔵",
-        categoria: "cocteleria",
-        subcategoria: "liqui-blueberry",
-        descripcion: "Perlas explosivas sabor a mora azul / blueberry con centro líquido estallante (Presentación de 3,400 gramos).",
-        imagen: "liquipopsblueberry3400gramos.jpg"
-    },
-    {
-        id: 1021,
-        nombre: "Liquipops x 350 gramos | Coco 🥥",
-        categoria: "cocteleria",
-        subcategoria: "liqui-coco",
-        descripcion: "Perlas explosivas sabor a coco cremoso con centro líquido estallante (Presentación de 350 gramos).",
-        imagen: "liquipopscoco350gramos.jpg"
-    },
-    {
-        id: 1022,
-        nombre: "Liquipops x 1,150 gramos | Coco 🥥",
-        categoria: "cocteleria",
-        subcategoria: "liqui-coco",
-        descripcion: "Perlas explosivas sabor a coco cremoso con centro líquido estallante (Presentación de 1,150 gramos).",
-        imagen: "liquipopscoco1150gramos.jpg"
-    },
-    {
-        id: 1023,
-        nombre: "Liquipops x 3,400 gramos | Coco 🥥",
-        categoria: "cocteleria",
-        subcategoria: "liqui-coco",
-        descripcion: "Perlas explosivas sabor a coco cremoso con centro líquido estallante (Presentación de 3,400 gramos).",
-        imagen: "liquipopscoco3400gramos.jpg"
-    },
-    {
-        id: 1031,
-        nombre: "Liquipops x 350 gramos | Cereza 🍒",
-        categoria: "cocteleria",
-        subcategoria: "liqui-cereza",
-        descripcion: "Perlas explosivas sabor a cereza dulce e intensa con centro líquido estallante (Presentación de 350 gramos).",
-        imagen: "liquipopscereza350gramos.jpg"
-    },
-    {
-        id: 1032,
-        nombre: "Liquipops x 1,150 gramos | Cereza 🍒",
-        categoria: "cocteleria",
-        subcategoria: "liqui-cereza",
-        descripcion: "Perlas explosivas sabor a cereza dulce e intensa con centro líquido estallante (Presentación de 1,150 gramos).",
-        imagen: "liquipopscereza1150gramos.jpg"
-    },
-    {
-        id: 1033,
-        nombre: "Liquipops x 3,400 gramos | Cereza 🍒",
-        categoria: "cocteleria",
-        subcategoria: "liqui-cereza",
-        descripcion: "Perlas explosivas sabor a cereza dulce e intensa con centro líquido estallante (Presentación de 3,400 gramos).",
-        imagen: "liquipopscereza3400gramos.jpg"
-    },
-    {
-        id: 1041,
-        nombre: "Liquipops x 350 gramos | Lychee 🍚",
-        categoria: "cocteleria",
-        subcategoria: "liqui-lychee",
-        descripcion: "Perlas explosivas sabor exótico a lychee con centro líquido estallante (Presentación de 350 gramos).",
-        imagen: "liquipopslychee350gramos.jpg"
-    },
-    {
-        id: 1042,
-        nombre: "Liquipops x 1,150 gramos | Lychee 🍚",
-        categoria: "cocteleria",
-        subcategoria: "liqui-lychee",
-        descripcion: "Perlas explosivas sabor exótico a lychee con centro líquido estallante (Presentación de 1,150 gramos).",
-        imagen: "liquipopslychee1150gramos.jpg"
-    },
-    {
-        id: 1043,
-        nombre: "Liquipops x 3,400 gramos | Lychee 🍚",
-        categoria: "cocteleria",
-        subcategoria: "liqui-lychee",
-        descripcion: "Perlas explosivas sabor exótico a lychee con centro líquido estallante (Presentación de 3,400 gramos).",
-        imagen: "liquipopslychee3400gramos.jpg"
-    },
-    {
-        id: 1051,
-        nombre: "Liquipops x 350 gramos | Sandia 🍉",
-        categoria: "cocteleria",
-        subcategoria: "liqui-sandia",
-        descripcion: "Perlas explosivas sabor a jugosa sandía con centro líquido estallante (Presentación de 350 gramos).",
-        imagen: "liquipopssandia350gramos.jpg"
-    },
-    {
-        id: 1052,
-        nombre: "Liquipops x 1,150 gramos | Sandía 🍉",
-        categoria: "cocteleria",
-        subcategoria: "liqui-sandia",
-        descripcion: "Perlas explosivas sabor a jugosa sandía con centro líquido estallante (Presentación de 1,150 gramos).",
-        imagen: "liquipopssandia1150gramos.jpg"
-    },
-    {
-        id: 1053,
-        nombre: "Liquipops x 3,400 gramos | Sandia 🍉",
-        categoria: "cocteleria",
-        subcategoria: "liqui-sandia",
-        descripcion: "Perlas explosivas sabor a jugosa sandía con centro líquido estallante (Presentación de 3,400 gramos).",
-        imagen: "liquipopssandia3400gramos.jpg"
-    },
-    {
-        id: 1061,
-        nombre: "Liquipops x 350 gramos | Ice pink 🫧",
-        categoria: "cocteleria",
-        subcategoria: "liqui-icepink",
-        descripcion: "Perlas de edición especial frutos rosados y toque frío helado (Presentación de 350 gramos).",
-        imagen: "liquipopsicepink350gramos.jpg"
-    },
-    {
-        id: 1062,
-        nombre: "Liquipops x 1,150 gramos | Ice pink 🫧",
-        categoria: "cocteleria",
-        subcategoria: "liqui-icepink",
-        descripcion: "Perlas de edición especial frutos rosados y toque frío helado (Presentación de 1,150 gramos).",
-        imagen: "liquipopsicepink1150gramos.jpg"
-    },
-    {
-        id: 1063,
-        nombre: "Liquipops x 3,400 gramos | Ice pink 🫧",
-        categoria: "cocteleria",
-        subcategoria: "liqui-icepink",
-        descripcion: "Perlas de edición especial frutos rosados y toque frío helado (Presentación de 3,400 gramos).",
-        imagen: "liquipopsicepink3400gramos.jpg"
-    },
-    {
-        id: 1071,
-        nombre: "Liquipops x 350 gramos | Fresa 🍓",
-        categoria: "cocteleria",
-        subcategoria: "liqui-fresa",
-        descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso (Presentación de 350 gramos).",
-        imagen: "liquipopsfresa350gramos.jpg"
-    },
-    {
-        id: 1072,
-        nombre: "Liquipops x 1,150 gramos | Fresa 🍓",
-        categoria: "cocteleria",
-        subcategoria: "liqui-fresa",
-        descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso (Presentación de 1,150 gramos).",
-        imagen: "liquipopsfresa1150gramos.jpg"
-    },
-    {
-        id: 1073,
-        nombre: "Liquipops x 3,400 gramos | Fresa 🍓",
-        categoria: "cocteleria",
-        subcategoria: "liqui-fresa",
-        descripcion: "Perlas explosivas sabor a fresa natural con centro líquido jugoso (Presentación de 3,400 gramos).",
-        imagen: "liquipopsfresa3400gramos.jpg"
-    },
-    {
-        id: 1091,
-        nombre: "Liquipops x 350 gramos | Chicle 💦",
-        categoria: "cocteleria",
-        subcategoria: "liqui-chicle",
-        descripcion: "Perlas explosivas con dulce y divertido sabor a chicle (Presentación de 350 gramos).",
-        imagen: "liquipopschicle350gramos.jpg"
-    },
-    {
-        id: 1092,
-        nombre: "Liquipops x 1,150 gramos | Chicle 💦",
-        categoria: "cocteleria",
-        subcategoria: "liqui-chicle",
-        descripcion: "Perlas explosivas con dulce y divertido sabor a chicle (Presentación de 1,150 gramos).",
-        imagen: "liquipopschicle1150gramos.jpg"
-    },
-    {
-        id: 1093,
-        nombre: "Liquipops x 3,400 gramos | Chicle 💦",
-        categoria: "cocteleria",
-        subcategoria: "liqui-chicle",
-        descripcion: "Perlas explosivas con dulce y divertido sabor a chicle (Presentación de 3,400 gramos).",
-        imagen: "liquipopschicle3400gramos.jpg"
-    },
-    {
-        id: 1101,
-        nombre: "Liquipops x 350 gramos | Mango 🥭",
-        categoria: "cocteleria",
-        subcategoria: "liqui-mango",
-        descripcion: "Sabor ácido y refrescante a mango biche con centro estallante (Presentación de 350 gramos).",
-        imagen: "liquipopsmango350gramos.jpg"
-    },
-    {
-        id: 1102,
-        nombre: "Liquipops x 1,150 gramos | Mango Biche 🥭",
-        categoria: "cocteleria",
-        subcategoria: "liqui-mango",
-        descripcion: "Sabor ácido y refrescante a mango biche con centro estallante (Presentación de 1,150 gramos).",
-        imagen: "liquipopsmango1150gramos.jpg"
-    },
-    {
-        id: 1103,
-        nombre: "Liquipops x 3,400 gramos | Mango 🥭",
-        categoria: "cocteleria",
-        subcategoria: "liqui-mango",
-        descripcion: "Sabor ácido y refrescante a mango biche con centro estallante (Presentación de 3,400 gramos).",
-        imagen: "liquipopsmango3400gramos.jpg"
-    },
-    {
-        id: 1111,
-        nombre: "Liquipops x 350 gramos | Maracuya 🍋",
-        categoria: "cocteleria",
-        subcategoria: "liqui-maracuya",
-        descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 350 gramos).",
-        imagen: "liquipopsmaracuya350gramos.jpg"
-    },
-    {
-        id: 1112,
-        nombre: "Liquipops x 1,150 gramos | Maracuya 🍋",
-        categoria: "cocteleria",
-        subcategoria: "liqui-maracuya",
-        descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 1,150 gramos).",
-        imagen: "liquipopsmaracuya1150gramos.jpg"
-    },
-    {
-        id: 1113,
-        nombre: "Liquipops x 3,400 gramos | Maracuyá 🍋",
-        categoria: "cocteleria",
-        subcategoria: "liqui-maracuya",
-        descripcion: "Perlas explosivas con el toque tropical y cítrico de la maracuyá (Presentación de 3,400 gramos).",
-        imagen: "liquipopsmaracuya3400gramos.jpg"
-    },
-    {
-        id: 1121,
-        nombre: "Liquipops x 350 gramos | Café 🤎",
-        categoria: "cocteleria",
-        subcategoria: "liqui-cafe",
-        descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 350 gramos).",
-        imagen: "liquipopscafe350gramos.jpg"
-    },
-    {
-        id: 1122,
-        nombre: "Liquipops x 1,150 gramos | Café 🤎",
-        categoria: "cocteleria",
-        subcategoria: "liqui-cafe",
-        descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 1,150 gramos).",
-        imagen: "liquipopscafe1150gramos.jpg"
-    },
-    {
-        id: 1123,
-        nombre: "Liquipops x 3,400 gramos | Café 🤎",
-        categoria: "cocteleria",
-        subcategoria: "liqui-cafe",
-        descripcion: "Perlas de edición especial con intenso aroma y sabor a café (Presentación de 3,400 gramos).",
-        imagen: "liquipopscafe3400gramos.jpg"
-    },
-    {
-        id: 2001,
-        nombre: "Sirope de Geniality x 1.000 ml | Fresa",
-        categoria: "cocteleria",
-        subcategoria: "siropes",
-        descripcion: "Sirope concentrado marca Geniality sabor Fresa x 1.000 ml, perfecto para granizados, frappés, sodas saborizadas y cócteles.",
-        imagen: "siropefresa1000ml.jpg"
-    },
-    {
-        id: 2002,
-        nombre: "Sirope de Geniality x 1.000 ml | Cereza 🍒",
-        categoria: "cocteleria",
-        subcategoria: "siropes",
-        descripcion: "Sirope concentrado marca Geniality sabor Cereza x 1.000 ml, ideal para dar un toque dulce e intenso a bebidas y postres.",
-        imagen: "siropecereza1000.jpg"
-    },
-    {
-        id: 2003,
-        nombre: "Sirope de Geniality x 1.000 ml | Lychee 🍚",
-        categoria: "cocteleria",
-        subcategoria: "siropes",
-        descripcion: "Sirope concentrado marca Geniality sabor Lychee x 1.000 ml, con notas tropicales exóticas para coctelería de autor.",
-        imagen: "siropelyche.jpg"
-    },
-    {
-        id: 2004,
-        nombre: "Sirope de Geniality x 1.000 ml | Blueberry 🔵",
-        categoria: "cocteleria",
-        subcategoria: "siropes",
-        descripcion: "Sirope concentrado marca Geniality sabor Blueberry x 1.000 ml, con el sabor característico y vibrante de la mora azul.",
-        imagen: "siropeBlueberry.jpg"
-    },
-    {
-        id: 2005,
-        nombre: "Sirope de Geniality x 1.000 ml | Manzana Verde 🍏",
-        categoria: "cocteleria",
-        subcategoria: "siropes",
-        descripcion: "Sirope concentrado marca Geniality sabor Manzana Verde x 1.000 ml, refrescante y ácido para sodas y frappés.",
-        imagen: "siropemanzana.jpg"
-    },
-    {
-        id: 2006,
-        nombre: "Sirope de Geniality x 1.000 ml | Maracuyá 🍋",
-        categoria: "cocteleria",
-        subcategoria: "siropes",
-        descripcion: "Sirope concentrado marca Geniality sabor Maracuyá x 1.000 ml, con un balance perfecto entre dulce y cítrico.",
-        imagen: "siropemaracuya.jpg"
-    },
-    {
-        id: 2007,
-        nombre: "Siropes Concentrados y Chamoy Variados",
-        categoria: "cocteleria",
-        subcategoria: "siropes",
-        descripcion: "Jarabes concentrados adicionales y chamoy agridulce para escarchar y bordear vasos.",
-        imagen: "imagenlacentral.jpeg"
-    },
-    {
-        id: 2101,
-        nombre: "Azúcar para michelar Skarcha x 500 gramos | Cereza 🍒",
-        categoria: "cocteleria",
-        subcategoria: "escarchas",
-        descripcion: "Mezcla de azúcar con sabor artificial a cereza para escarchar y decorar bebidas (Presentación de 500 gramos).",
-        imagen: "azucarcereza.jpg"
-    },
-    {
-        id: 2102,
-        nombre: "Azúcar para michelar Skarcha x 500 gramos | Sandía 🍉",
-        categoria: "cocteleria",
-        subcategoria: "escarchas",
-        descripcion: "Mezcla de azúcar con sabor artificial a sandía para escarchar y decorar bebidas (Presentación de 500 gramos).",
-        imagen: "azucarsandia.jpg"
-    },
-    {
-        id: 2103,
-        nombre: "Azúcar para michelar Skarcha x 500 gramos | Blueberry 🔵",
-        categoria: "cocteleria",
-        subcategoria: "escarchas",
-        descripcion: "Mezcla de azúcar con sabor artificial a blueberry para escarchar y decorar bebidas (Presentación de 500 gramos).",
-        imagen: "azucarbluberry.jpg"
-    },
-    {
-        id: 2104,
-        nombre: "Azúcar para michelar Skarcha x 500 gramos | Chicle 🫧",
-        categoria: "cocteleria",
-        subcategoria: "escarchas",
-        descripcion: "Mezcla de azúcar con sabor artificial a chicle para escarchar y decorar bebidas (Presentación de 500 gramos).",
-        imagen: "azucarchicle.jpg"
-    },
-    {
-        id: 2105,
-        nombre: "Sal Mix para michelar Skarcha x 500 gramos | Maracuyá 🍋",
-        categoria: "cocteleria",
-        subcategoria: "escarchas",
-        descripcion: "Mezcla de sal con sabor artificial a maracuyá para escarchar y decorar bebidas (Presentación de 500 gramos).",
-        imagen: "salmaracuya.jpg"
-    },
-    {
-        id: 2106,
-        nombre: "Azúcar para michelar Skarcha x 500 gramos | Maracuyá 🍋",
-        categoria: "cocteleria",
-        subcategoria: "escarchas",
-        descripcion: "Mezcla de azúcar con sabor artificial a maracuyá para escarchar y decorar bebidas (Presentación de 500 gramos).",
-        imagen: "azucarmaracuya.jpg"
-    },
-    {
-        id: 3001,
-        nombre: "Yexis x 1,100 gramos | Fresa 🍓",
-        categoria: "cocteleria",
-        subcategoria: "siropes",
-        descripcion: "Caramelo blando en almíbar con sabor artificial a fresa. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
-        imagen: "yexisfresa.jpg"
-    },
-    {
-        id: 3002,
-        nombre: "Yexis x 1,100 gramos | Blue Berry 🔵",
-        categoria: "cocteleria",
-        subcategoria: "siropes",
-        descripcion: "Caramelo blando en almíbar con sabor artificial a blueberry. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
-        imagen: "yexisblueberry.jpg"
-    },
-    {
-        id: 3003,
-        nombre: "Yexis x 1,100 gramos | Lychee 🍚",
-        categoria: "cocteleria",
-        subcategoria: "siropes",
-        descripcion: "Caramelo blando en almíbar con sabor artificial a lychee. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
-        imagen: "yexislychee.jpg"
-    },
-    {
-        id: 3004,
-        nombre: "Yexis x 1,100 gramos | Maracuyá 🍋",
-        categoria: "cocteleria",
-        subcategoria: "siropes",
-        descripcion: "Caramelo blando en almíbar con sabor artificial a maracuyá. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
-        imagen: "yexismaracuya.jpg"
-    },
-    {
-        id: 3005,
-        nombre: "Yexis x 1,100 gramos | Coco 🥥",
-        categoria: "cocteleria",
-        subcategoria: "siropes",
-        descripcion: "Caramelo blando en almíbar con sabor artificial a coco. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
-        imagen: "yexiscoco.jpg"
-    },
+
+    // --- DESECHABLES ---
     {
         id: 22,
         nombre: "Vasos Desechables Darnel",
