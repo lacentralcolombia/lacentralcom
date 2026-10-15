@@ -72,7 +72,15 @@ var productosData = [
         categoria: "embutidos",
         subcategoria: "jamones",
         descripcion: "Rico y rendidor Jamón Ideal marca Rica en presentación familiar de 400 gramos (21 tajadas), excelente para compartir.",
-        imagen: "JAMONIDEALRICA400GRAMOS.jpg"
+        imagen: "JAMONIDEALRICA400GRAMOS.JPG"
+    },
+    {
+        id: 603,
+        nombre: "Jamón Sabor Ahumado Karvalle x 450 gramos | 13 Porciones Aprox.",
+        categoria: "embutidos",
+        subcategoria: "jamones",
+        descripcion: "Delicioso Jamón Sabor Ahumado marca Karvalle en presentación de 450 gramos (13 porciones aprox.), perfecto para acompañar cualquier platillo.",
+        imagen: "jamonkarvalle.jpg"
     },
     {
         id: 7,
