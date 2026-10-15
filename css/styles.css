@@ -657,30 +657,61 @@ footer {
     padding-top: 20px;
 }
 
-/* MODAL Y CARRITO */
+/* MODAL LIGHTBOX AMPLIADO Y CENTRADO */
 .image-modal {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.95); /* Fondo casi totalmente oscuro para destacar la foto */
     z-index: 200000;
-    padding: 40px;
+    padding: 10px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Fuerza que el modal muestre los elementos centrados en pantalla */
+.image-modal[style*="block"] {
+    display: flex !important;
 }
 
 .modal-content {
-    max-width: 90%;
-    max-height: 80vh;
-    border-radius: 8px;
+    max-width: 98vw !important;
+    max-height: 82vh !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(230, 182, 79, 0.3);
+}
+
+.modal-caption {
+    color: #ffffff;
+    margin-top: 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0 20px;
+    max-width: 90vw;
 }
 
 .close-modal {
     position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 2.5rem;
+    top: 15px;
+    right: 20px;
+    font-size: 2.8rem;
     color: white;
     cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200001;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .cart-overlay {
