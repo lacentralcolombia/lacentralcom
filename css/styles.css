@@ -1,95 +1,96 @@
-/* --- ESTILOS GENERALES Y DISEÑO ORIGINAL DE LA TIENDA --- */
+/* ==========================================================
+   CSS ORIGINAL DE LA CENTRAL (MANTENIENDO TU DISEÑO EXACTO)
+   ========================================================== */
+
 body {
-    background-color: #121212;
-    color: #ffffff;
+    background-color: #121212 !important;
+    color: #ffffff !important;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.header-container {
+/* Encabezado original con logo y botón de pedido */
+.header-container, header {
+    background-color: #121212;
     text-align: center;
-    padding: 30px 20px;
-    background-color: #1a1a1a;
-    border-bottom: 1px solid #333;
+    padding: 20px;
 }
 
-.header-container h1 {
-    font-size: 2.3rem;
-    color: #f39c12;
-    margin-bottom: 8px;
+h1, .header-container h1 {
+    color: #f39c12 !important;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
 }
 
-.header-container p {
-    color: #bbb;
-    font-size: 1rem;
-    margin-bottom: 15px;
+p {
+    color: #cccccc;
 }
 
-.search-container input {
+/* Barra de búsqueda */
+.search-container input, .search-box input {
     width: 100%;
-    max-width: 450px;
+    max-width: 500px;
     padding: 12px 20px;
     border-radius: 25px;
-    border: 1px solid #444;
-    background-color: #2a2a2a;
+    border: 1px solid #333;
+    background-color: #1a1a1a;
     color: #fff;
     font-size: 15px;
     outline: none;
+    margin: 15px auto;
 }
 
-/* --- MENÚ DE CATEGORÍAS HORIZONTAL Y DESLIZABLE --- */
-.categorias-container {
-    display: flex !important;
-    overflow-x: auto !important;
-    scroll-behavior: smooth;
+/* Contenedor de botones desplegables originales (como en tu foto) */
+.categorias-container, .menu-categorias, .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 12px;
-    padding: 15px 25px;
-    margin: 20px auto;
-    max-width: 95%;
-    width: 100%;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    align-items: center;
-    box-sizing: border-box;
+    padding: 15px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.categorias-container::-webkit-scrollbar {
-    display: none;
-}
-.categorias-container {
-    scrollbar-width: none;
-}
-
-.categoria-btn {
-    flex: 0 0 auto;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 10px 20px;
-    border-radius: 30px;
-    border: 1px solid #444;
-    background-color: #1e1e1e;
+/* Estilo original de los botones y menús desplegables */
+.categoria-btn, .filter-btn {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: #1a1a1a;
     color: #ffffff;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
-.categoria-btn.active, .categoria-btn:hover {
+.categoria-btn.active, .filter-btn.active, .categoria-btn:hover, .filter-btn:hover {
     background-color: #ff3b30;
     border-color: #ff3b30;
     color: #ffffff;
 }
 
-/* --- CONTENEDOR Y TARJETAS DE PRODUCTOS ORIGINALES --- */
+/* Texto de estado "Mostrando: ..." */
+.mostrando-texto, p:has(+ .catalogo-container) {
+    text-align: center;
+    color: #f39c12;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* Cuadrícula de productos original */
 .catalogo-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
-    padding: 30px 40px;
+    padding: 20px 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* Tarjetas de productos idénticas a tu imagen */
 .producto-card {
     background-color: #1a1a1a !important;
     border: 1px solid #333 !important;
@@ -97,30 +98,24 @@ body {
     overflow: hidden !important;
     display: flex !important;
     flex-direction: column !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4) !important;
-    transition: transform 0.3s ease;
-}
-
-.producto-card:hover {
-    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
 }
 
 .producto-card img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
-    background-color: #222;
 }
 
 .producto-card h3 {
-    font-size: 18px;
-    color: #fff;
-    margin: 15px 15px 8px 15px;
+    color: #f39c12 !important;
+    font-size: 17px;
+    margin: 15px 15px 5px 15px;
 }
 
 .producto-card p {
-    font-size: 14px;
-    color: #aaa;
+    color: #b0b0b0 !important;
+    font-size: 13px;
     margin: 0 15px 15px 15px;
     line-height: 1.4;
     flex-grow: 1;
@@ -135,9 +130,5 @@ body {
     margin: 0 15px 15px 15px;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: 500;
-}
-
-.producto-card a:hover {
-    background-color: #e03229;
+    font-weight: bold;
 }
