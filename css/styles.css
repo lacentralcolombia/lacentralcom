@@ -261,11 +261,34 @@ a {
     margin-bottom: 30px;
 }
 
+/* --- MENÚ DE CATEGORÍAS DESLIZABLE HORIZONTALMENTE --- */
 .top-nav-menu {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    gap: 12px;
+    justify-content: flex-start !important;
+    padding: 10px 15px 15px 15px;
+    max-width: 100%;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Estilo moderno para la barra de desplazamiento horizontal */
+.top-nav-menu::-webkit-scrollbar {
+    height: 6px;
+}
+
+.top-nav-menu::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 10px;
+}
+
+.top-nav-menu::-webkit-scrollbar-thumb {
+    background: var(--gold-brand);
+    border-radius: 10px;
+}
 }
 
 .top-nav-btn {
