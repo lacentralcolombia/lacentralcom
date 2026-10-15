@@ -4,33 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quesera y Salsamentaria La Central</title>
-    <!-- Hoja de estilos con la ruta correcta -->
+    
+    <!-- Hoja de estilos con la ruta exacta a la carpeta CSS -->
     <link rel="stylesheet" href="CSS/styles.css">
+
+    <!-- Librerías de animación y efectos para las burbujas explosivas (Liqui Pops) -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/canvas-confetti.min.js"></script>
 </head>
 <body>
 
-    <!-- Encabezado principal -->
+    <!-- Encabezado principal de la tienda -->
     <header class="header-container">
         <h1>Quesera y Salsamentaria La Central</h1>
         <p>Encuentra quesos, embutidos, tocinetas, perlas explosivas (Liqui Pops) y más</p>
         
-        <!-- Barra de búsqueda -->
+        <!-- Barra de búsqueda en tiempo real -->
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Buscar producto (ej: queso, jamón, tocineta, manzana...)">
         </div>
     </header>
 
-    <!-- Menú de categorías horizontal y deslizable -->
+    <!-- Menú de categorías y submenús desplegables -->
     <nav class="categorias-container" id="categoriasContainer">
-        <!-- Generado dinámicamente -->
+        <!-- Generado dinámicamente desde app.js -->
     </nav>
 
     <!-- Contenedor principal del catálogo de productos -->
     <main class="catalogo-container" id="catalogoContainer">
-        <!-- Los productos se cargan aquí automáticamente -->
+        <!-- Los productos de data.js se cargan aquí -->
     </main>
 
-    <!-- Archivos JavaScript vinculados -->
+    <!-- Archivos JavaScript vinculados con la ruta exacta a la carpeta js -->
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
 
