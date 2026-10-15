@@ -483,15 +483,26 @@ if (document.readyState === 'loading') {
 
 window.addEventListener('load', iniciarApp);
 /* ============================================================
-   FIX DESPLEGABLES AL FRENTE - pegar AL FINAL de tu app.js
-   No hay que modificar tu código actual: detecta cuando tu
-   código agrega la clase "open" a un .top-dropdown-content
-   y lo posiciona debajo de su botón (position: fixed).
+   FIX DESPLEGABLES AL FRENTE (PC + CELULAR)
+   Pegar AL FINAL de jsapp (reemplaza la versión anterior).
+   Mientras un menú está abierto, se mueve al <body> para que
+   ninguna capa del catálogo (scroll táctil, z-index) lo tape.
+   Al cerrarse, vuelve a su lugar original.
    ============================================================ */
 (function () {
-    function positionMenu(menu) {
-        const wrapper = menu.closest('.top-dropdown') || menu.parentElement;
-        const trigger = wrapper.querySelector(':scope > button, :scope > .top-nav-btn, :scope > a');
+    const homes = new WeakMap();
+
+    function openMenu(menu) {
+        // Guarda dónde estaba y lo mueve al body
+        if (menu.parentElement !== document.body) {
+            homes.set(menu, { parent: menu.parentElement, next: menu.nextSibling });
+            const home = homes.get(menu);
+            const trigger = home.parent.querySelector(':scope > button, :scope > .top-nav-btn, :scope > a');
+            if (trigger) menu._trigger = trigger;
+            document.body.appendChild(menu);
+        }
+
+        const trigger = menu._trigger;
         if (!trigger) return;
 
         const rect = trigger.getBoundingClientRect();
@@ -502,15 +513,20 @@ window.addEventListener('load', iniciarApp);
         menu.style.left = Math.max(10, left) + 'px';
     }
 
-    // Cada vez que un menú recibe la clase "open", lo posiciona
+    function closeMenu(menu) {
+        const home = homes.get(menu);
+        if (home && home.parent) {
+            home.parent.insertBefore(menu, home.next);
+            homes.delete(menu);
+        }
+    }
+
     new MutationObserver(mutations => {
         mutations.forEach(m => {
             const el = m.target;
-            if (el.classList &&
-                el.classList.contains('top-dropdown-content') &&
-                el.classList.contains('open')) {
-                positionMenu(el);
-            }
+            if (!el.classList || !el.classList.contains('top-dropdown-content')) return;
+            if (el.classList.contains('open')) openMenu(el);
+            else closeMenu(el);
         });
     }).observe(document.body, {
         subtree: true,
@@ -518,7 +534,7 @@ window.addEventListener('load', iniciarApp);
         attributeFilter: ['class']
     });
 
-    // Cierra los menús abiertos al hacer scroll de la página
+    // Cierra los menús al hacer scroll de la página
     window.addEventListener('scroll', () => {
         document.querySelectorAll('.top-dropdown-content.open')
             .forEach(m => m.classList.remove('open'));
