@@ -260,6 +260,18 @@ a {
 .catalog-top-nav {
     margin-bottom: 30px;
 }
+/* --- CATÁLOGO Y DESPLEGABLES --- */
+.catalog-section {
+    padding: 60px 5%;
+    position: relative; /* Mantiene el contexto de apilamiento */
+    z-index: 1;
+}
+
+.catalog-top-nav {
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 50; /* Eleva la barra de navegación superior */
+}
 
 /* --- MENÚ DE CATEGORÍAS DESLIZABLE HORIZONTALMENTE --- */
 .top-nav-menu {
@@ -298,7 +310,7 @@ a {
     border-radius: 20px;
     cursor: pointer;
     font-weight: 500;
-    white-space: nowrap; /* Evita que los textos de los botones se rompan en dos líneas */
+    white-space: nowrap;
 }
 
 .top-nav-btn.active, .top-nav-btn:hover {
@@ -306,10 +318,11 @@ a {
     border-color: var(--red-brand);
 }
 
-/* DROPDOWN */
+/* DROPDOWN CORREGIDO PARA QUEDAR AL FRENTE */
 .top-dropdown {
     position: relative;
     display: inline-block;
+    z-index: 100; /* Asegura prioridad sobre las demás tarjetas */
 }
 
 .top-dropdown-content {
@@ -321,13 +334,15 @@ a {
     background-color: #1a1a1a;
     border: 1px solid var(--gold-brand);
     border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-    z-index: 2000;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+    z-index: 9999 !important; /* Capa superior absoluta para que nunca quede detrás */
     padding: 10px 0;
+    margin-top: 5px;
 }
 
 .top-dropdown-content.open {
     display: block !important;
+}
 }
 
 .top-dropdown-content button {
