@@ -1,13 +1,47 @@
-/* ==========================================
-   MENÚ DE CATEGORÍAS - CORREDIZO Y PROFESIONAL
-   ========================================== */
+/* --- ESTILOS GENERALES Y RESET --- */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-/* Contenedor principal de las categorías: habilita el scroll horizontal fluido */
+.header-container {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.header-container h1 {
+    font-size: 2.5rem;
+    color: #f39c12;
+    margin-bottom: 10px;
+}
+
+.header-container p {
+    color: #bbb;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 1px solid #333;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+/* --- MENÚ DE CATEGORÍAS DESLIZABLE (CARRUSEL HORIZONTAL) --- */
 .categorias-container, 
 .menu-categorias, 
 .filter-buttons {
-    display: flex;
-    overflow-x: auto;
+    display: flex !important;
+    overflow-x: auto !important;
     scroll-behavior: smooth;
     gap: 14px;
     padding: 18px 25px;
@@ -20,11 +54,11 @@
     box-sizing: border-box;
 }
 
-/* Ocultar la barra de desplazamiento nativa pero conservar el deslizamiento táctil y con rueda del ratón */
+/* Ocultar barra de desplazamiento visual manteniendo la funcionalidad táctil y de rueda */
 .categorias-container::-webkit-scrollbar, 
 .menu-categorias::-webkit-scrollbar, 
 .filter-buttons::-webkit-scrollbar {
-    display: none; /* Safari y Chrome */
+    display: none;
 }
 
 .categorias-container, 
@@ -33,14 +67,14 @@
     scrollbar-width: none; /* Firefox */
 }
 
-/* Estilo mejorado, más grande y moderno para cada botón/pastilla de categoría */
+/* Botones de categoría profesionales y grandes */
 .categoria-btn, 
 .filter-btn {
     flex: 0 0 auto;
-    font-size: 16px; /* Texto más grande y legible */
+    font-size: 16px;
     font-weight: 500;
-    padding: 13px 26px; /* Mayor área táctil y presencia visual */
-    border-radius: 35px; /* Bordes totalmente redondeados y elegantes */
+    padding: 13px 26px;
+    border-radius: 35px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     background-color: #1a1a1a;
     color: #ffffff;
@@ -49,14 +83,24 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Efecto hover (al pasar el cursor) y estado activo o seleccionado */
+/* Efecto hover y estado activo */
 .categoria-btn.active, 
 .filter-btn.active, 
 .categoria-btn:hover, 
 .filter-btn:hover {
-    background-color: #ff3b30; /* Color rojo principal de acento */
+    background-color: #ff3b30;
     border-color: #ff3b30;
     color: #ffffff;
-    transform: translateY(-2px); /* Pequeña elevación elegante */
+    transform: translateY(-2px);
     box-shadow: 0 6px 14px rgba(255, 59, 48, 0.35);
+}
+
+/* --- CONTENEDOR DE PRODUCTOS --- */
+.catalogo-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
