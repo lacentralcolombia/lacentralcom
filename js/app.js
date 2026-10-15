@@ -482,3 +482,45 @@ if (document.readyState === 'loading') {
 }
 
 window.addEventListener('load', iniciarApp);
+/* ============================================================
+   FIX DESPLEGABLES AL FRENTE - pegar AL FINAL de tu app.js
+   No hay que modificar tu código actual: detecta cuando tu
+   código agrega la clase "open" a un .top-dropdown-content
+   y lo posiciona debajo de su botón (position: fixed).
+   ============================================================ */
+(function () {
+    function positionMenu(menu) {
+        const wrapper = menu.closest('.top-dropdown') || menu.parentElement;
+        const trigger = wrapper.querySelector(':scope > button, :scope > .top-nav-btn, :scope > a');
+        if (!trigger) return;
+
+        const rect = trigger.getBoundingClientRect();
+        menu.style.top = (rect.bottom + 6) + 'px';
+
+        const menuWidth = menu.offsetWidth || 290;
+        const left = Math.min(rect.left, window.innerWidth - menuWidth - 10);
+        menu.style.left = Math.max(10, left) + 'px';
+    }
+
+    // Cada vez que un menú recibe la clase "open", lo posiciona
+    new MutationObserver(mutations => {
+        mutations.forEach(m => {
+            const el = m.target;
+            if (el.classList &&
+                el.classList.contains('top-dropdown-content') &&
+                el.classList.contains('open')) {
+                positionMenu(el);
+            }
+        });
+    }).observe(document.body, {
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['class']
+    });
+
+    // Cierra los menús abiertos al hacer scroll de la página
+    window.addEventListener('scroll', () => {
+        document.querySelectorAll('.top-dropdown-content.open')
+            .forEach(m => m.classList.remove('open'));
+    }, { passive: true });
+})();
