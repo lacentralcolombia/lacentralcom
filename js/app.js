@@ -540,3 +540,51 @@ window.addEventListener('load', iniciarApp);
             .forEach(m => m.classList.remove('open'));
     }, { passive: true });
 })();
+/* ============================================================
+   COLORES DE LAS ESFERAS LIQUI POPS
+   Pegar AL FINAL de jsapp (debajo de dropdown.js).
+   Asigna a cada esfera el color de su sabor según el nombre.
+   Para cambiar un color, edita el código HEX de la lista.
+   ============================================================ */
+(function () {
+    const COLORES = {
+        'manzana verde': '#7ed321',
+        'blueberry':     '#2f5bd8',
+        'coco':          '#f3ead7',
+        'cereza':        '#d0101f',
+        'lychee':        '#f7b6c8',
+        'sandia':        '#ff3b5c',
+        'ice pink':      '#ff7ac8',
+        'fresa':         '#ff2a55',
+        'chicle':        '#ff8fd0',
+        'mango biche':   '#b6d235',
+        'maracuya':      '#ffb800',
+        'cafe':          '#6b3f22'
+    };
+
+    function limpiar(texto) {
+        return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                    .replace(/\s+/g, ' ').trim().toLowerCase();
+    }
+
+    function pintarEsferas(raiz) {
+        (raiz || document).querySelectorAll('.liqui-subgrid button').forEach(btn => {
+            const color = COLORES[limpiar(btn.textContent)];
+            const esfera = btn.querySelector('i.fa-circle, .liqui-bubble');
+            if (color && esfera) {
+                esfera.style.setProperty('color', color, 'important');
+            }
+        });
+    }
+
+    pintarEsferas();
+    document.addEventListener('DOMContentLoaded', () => pintarEsferas());
+
+    // Vuelve a pintar cuando se abre un menú o se crean botones nuevos
+    new MutationObserver(() => pintarEsferas()).observe(document.body, {
+        subtree: true,
+        childList: true,
+        attributes: true,
+        attributeFilter: ['class']
+    });
+})();
