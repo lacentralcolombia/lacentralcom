@@ -1485,3 +1485,29 @@ footer a:not(.social-btn):hover {
         scroll-behavior: auto !important;
     }
 }
+
+/* =========================================================
+   MEJORA DEL MENÚ DESLIZANTE (Indicadores y Movimiento Suave)
+   ========================================================= */
+
+/* 1. Movimiento ultra suave y fluido al deslizar (Inercia táctil) */
+.top-nav-menu {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    /* Efecto visual elegante para indicar que hay contenido oculto a los lados */
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+/* 2. Opcional: Pequeña animación de rebote o "aviso" inicial en los botones
+   para sugerir que se pueden mover (aparece al cargar la página) */
+@keyframes pulseHint {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(6px); }
+}
+
+/* Hace que el último botón visible tenga un sutil movimiento hacia la derecha 
+   invitando a deslizar (opcional) */
+.top-nav-menu .top-nav-btn:nth-last-child(2) {
+    animation: pulseHint 2s ease-in-out infinite;
+}
