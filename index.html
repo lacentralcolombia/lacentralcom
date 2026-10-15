@@ -3,34 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Central - Menú y Catálogo Digital</title>
-    <!-- Hoja de estilos -->
+    <title>Quesera y Salsamentaria La Central</title>
+    <!-- Ruta de los estilos en la carpeta CSS -->
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
 
-    <header>
-        <h1>Menú y Catálogo Digital</h1>
-        <p>Haz clic en "Ver más" en cualquier producto para ampliar la imagen</p>
+    <!-- Encabezado principal -->
+    <header class="header-container">
+        <h1>Quesera y Salsamentaria La Central</h1>
+        <p>Encuentra quesos, embutidos, tocinetas, licores, perlas explosivas y más</p>
         
-        <!-- Buscador -->
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Buscar producto (ej: manzana, queso, café...)">
+        <!-- Barra de búsqueda -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar productos...">
         </div>
     </header>
 
-    <!-- Menú de categorías horizontal corredizo -->
+    <!-- Menú de categorías horizontal y deslizable -->
     <nav class="categorias-container" id="categoriasContainer">
-        <!-- Generado dinámicamente o por tus scripts -->
+        <!-- Los botones de categoría se generan de forma dinámica -->
     </nav>
 
-    <!-- Contenedor del catálogo de productos -->
+    <!-- Contenedor principal donde se cargan los productos -->
     <main class="catalogo-container" id="catalogoContainer">
-        <!-- Los productos se cargan aquí -->
+        <!-- Los productos se cargan aquí desde el script -->
     </main>
 
-    <!-- Archivos JavaScript -->
+    <!-- Archivos JavaScript en la carpeta js -->
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
+
 </body>
 </html>
