@@ -52,7 +52,7 @@ var productosData = [
         imagen: "https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=500"
     },
 
-    // --- EMBUTIDOS Y CÁRNICOS ---
+    // --- EMBUTIDOS Y CÁRNICOS (JAMONES) ---
     {
         id: 6,
         nombre: "Jamón Sevilla x 450 gramos | 22 Tajadas",
@@ -85,6 +85,8 @@ var productosData = [
         descripcion: "Delicioso Jamón Sabor Ahumado marca Karvalle en presentación de 450 gramos (13 porciones aprox.).",
         imagen: "jamonkarvalle.jpg"
     },
+
+    // --- EMBUTIDOS Y CÁRNICOS (SALCHICHAS) ---
     {
         id: 7,
         nombre: "Salchicha Campesina Deli x 16 Unidades | 500 gramos",
@@ -117,6 +119,8 @@ var productosData = [
         descripcion: "Salchicha Súper Perro marca Carnes Frías La Vitta en presentación institucional de 1.000 gramos.",
         imagen: "salchcialavillasuperperro.jpg"
     },
+
+    // --- EMBUTIDOS Y CÁRNICOS (CHORIZOS) ---
     {
         id: 8,
         nombre: "Chorizo Ideal Rica x 3 Porciones | 150 gramos",
@@ -165,6 +169,8 @@ var productosData = [
         descripcion: "Auténtico Chorizo Paisita marca Sevilla en presentación de 6 unidades (200 gramos).",
         imagen: "chorizopaisita6unidades.jpg"
     },
+
+    // --- EMBUTIDOS Y CÁRNICOS (MORTADELAS Y TOCINETAS) ---
     {
         id: 9,
         nombre: "Mortadelas Especiales",
@@ -193,15 +199,15 @@ var productosData = [
     // --- COCTELERÍA Y PERLAS EXPLOSIVAS (LIQUI POPS) ---
     {
         id: 301,
-        nombre: "Liqui Pops Perlas Explosivas - Manzana Verde (350g / 1150g / 3400g)",
+        nombre: "Liqui Pops Perlas Explosivas - Manzana Verde",
         categoria: "cocteleria",
         subcategoria: "liquipops",
-        descripcion: "Perlas explosivas sabor Manzana Verde, ideales para coctelería, sodas saborizadas y malteadas.",
+        descripcion: "Perlas explosivas sabor Manzana Verde, ideales para coctelería y sodas.",
         imagen: "azucarbluberry.jpg"
     },
     {
         id: 302,
-        nombre: "Liqui Pops Perlas Explosivas - Blueberry (350g / 1150g / 3400g)",
+        nombre: "Liqui Pops Perlas Explosivas - Blueberry",
         categoria: "cocteleria",
         subcategoria: "liquipops",
         descripcion: "Deliciosas perlas sabor Blueberry con explosión de sabor en cada sorbo.",
@@ -209,15 +215,15 @@ var productosData = [
     },
     {
         id: 303,
-        nombre: "Liqui Pops Perlas Explosivas - Coco (350g / 1150g / 3400g)",
+        nombre: "Liqui Pops Perlas Explosivas - Coco",
         categoria: "cocteleria",
         subcategoria: "liquipops",
-        descripcion: "Perlas explosivas con auténtico toque tropical de coco para tus bebidas y postres.",
+        descripcion: "Perlas explosivas con auténtico toque tropical de coco para tus bebidas.",
         imagen: "liquipopscoco.jpg"
     },
     {
         id: 304,
-        nombre: "Liqui Pops Perlas Explosivas - Cereza (350g / 1150g / 3400g)",
+        nombre: "Liqui Pops Perlas Explosivas - Cereza",
         categoria: "cocteleria",
         subcategoria: "liquipops",
         descripcion: "Exquisitas perlas sabor Cereza para dar color y sabor único a tus preparaciones.",
@@ -225,7 +231,7 @@ var productosData = [
     },
     {
         id: 305,
-        nombre: "Liqui Pops Perlas Explosivas - Lychee (350g / 1150g / 3400g)",
+        nombre: "Liqui Pops Perlas Explosivas - Lychee",
         categoria: "cocteleria",
         subcategoria: "liquipops",
         descripcion: "Perlas explosivas exóticas sabor Lychee, perfectas para cocteles modernos.",
@@ -233,15 +239,15 @@ var productosData = [
     },
     {
         id: 306,
-        nombre: "Liqui Pops Perlas Explosivas - Sandía (350g / 1150g / 3400g)",
+        nombre: "Liqui Pops Perlas Explosivas - Sandía",
         categoria: "cocteleria",
         subcategoria: "liquipops",
-        descripcion: "Refrescantes perlas sabor Sandía para bebidas refrescantes y gomitas.",
+        descripcion: "Refrescantes perlas sabor Sandía para bebidas refrescantes.",
         imagen: "azucarsandia.jpg"
     },
     {
         id: 307,
-        nombre: "Liqui Pops Perlas Explosivas - Ice Pink (350g / 1150g / 3400g)",
+        nombre: "Liqui Pops Perlas Explosivas - Ice Pink",
         categoria: "cocteleria",
         subcategoria: "liquipops",
         descripcion: "Perlas explosivas Ice Pink con un toque dulce y refrescante especial.",
@@ -249,7 +255,7 @@ var productosData = [
     },
     {
         id: 308,
-        nombre: "Liqui Pops Perlas Explosivas - Fresa (350g / 1150g / 3400g)",
+        nombre: "Liqui Pops Perlas Explosivas - Fresa",
         categoria: "cocteleria",
         subcategoria: "liquipops",
         descripcion: "Clásicas y dulces perlas sabor Fresa que encantan a grandes y chicos.",
@@ -257,7 +263,7 @@ var productosData = [
     },
     {
         id: 309,
-        nombre: "Liqui Pops Perlas Explosivas - Chicle (350g / 1150g / 3400g)",
+        nombre: "Liqui Pops Perlas Explosivas - Chicle",
         categoria: "cocteleria",
         subcategoria: "liquipops",
         descripcion: "Divertidas perlas sabor Chicle para sodas infantiles y postres temáticos.",
@@ -265,7 +271,7 @@ var productosData = [
     },
     {
         id: 310,
-        nombre: "Liqui Pops Perlas Explosivas - Mango Biche (350g / 1150g / 3400g)",
+        nombre: "Liqui Pops Perlas Explosivas - Mango Biche",
         categoria: "cocteleria",
         subcategoria: "liquipops",
         descripcion: "Perlas explosivas con el toque acidito perfecto de Mango Biche colombiano.",
@@ -273,7 +279,7 @@ var productosData = [
     },
     {
         id: 311,
-        nombre: "Liqui Pops Perlas Explosivas - Maracuyá (350g / 1150g / 3400g)",
+        nombre: "Liqui Pops Perlas Explosivas - Maracuyá",
         categoria: "cocteleria",
         subcategoria: "liquipops",
         descripcion: "Exóticas perlas sabor Maracuyá con un balance ideal entre dulce y ácido.",
@@ -281,14 +287,58 @@ var productosData = [
     },
     {
         id: 312,
-        nombre: "Liqui Pops Perlas Explosivas - Café (350g / 1150g / 3400g)",
+        nombre: "Liqui Pops Perlas Explosivas - Café",
         categoria: "cocteleria",
         subcategoria: "liquipops",
         descripcion: "Innovadoras perlas explosivas con sabor a Café para bebidas frías de café y postres.",
         imagen: "liquipopscafe.jpg"
     },
 
-    // --- ALIMENTOS Y FRUTOS SECOS ---
+    // --- SIROPES Y SABORIZANTES ---
+    {
+        id: 401,
+        nombre: "Sirope Sabor a Maracuyá",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope concentrado sabor Maracuyá, ideal para endulzar cocteles, malteadas y postres.",
+        imagen: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=500"
+    },
+    {
+        id: 402,
+        nombre: "Sirope Sabor a Fresa",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Delicioso sirope de fresa para decorar y dar sabor a helados, malteadas y bebidas.",
+        imagen: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=500"
+    },
+    {
+        id: 403,
+        nombre: "Sirope Sabor a Chocolate",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope de chocolate espeso y brillante, perfecto para postres y cafés helados.",
+        imagen: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=500"
+    },
+    {
+        id: 404,
+        nombre: "Sirope Sabor a Menta / Frutos Rojos",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope especial para coctelería profesional y creaciones de autor.",
+        imagen: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=500"
+    },
+
+    // --- YEXIS Y HELADOS / POSTRES ---
+    {
+        id: 501,
+        nombre: "Yexis / Postres Helados Tradicionales",
+        categoria: "cocteleria",
+        subcategoria: "yexis",
+        descripcion: "Deliciosos postres y yexis cremosos para disfrutar en cualquier momento del día.",
+        imagen: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=500"
+    },
+
+    // --- ALIMENTOS Y CONDIMENTOS ---
     {
         id: 11,
         nombre: "Aliños a Granel",
@@ -321,6 +371,8 @@ var productosData = [
         descripcion: "Salsas artesanales, tártara, ajo, piña, rosada y especialidades.",
         imagen: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?q=80&w=500"
     },
+
+    // --- FRUTOS SECOS ---
     {
         id: 15,
         nombre: "Maní Variado",
@@ -354,7 +406,7 @@ var productosData = [
         imagen: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=500"
     },
 
-    // --- DESECHABLES ---
+    // --- PLÁSTICOS Y DESECHABLES ---
     {
         id: 22,
         nombre: "Vasos Desechables Darnel",
