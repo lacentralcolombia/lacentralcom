@@ -1039,3 +1039,88 @@ footer {
     }
     .product-img-wrapper { height: 140px; }
 }
+/* =========================================================
+   CORRECCIÓN: MENÚ MÓVIL (TRES RAYITAS) Y TEXTOS DORADOS
+   ========================================================= */
+
+/* Asegurar que el botón de las tres rayitas aparezca en móviles */
+@media (max-width: 992px) {
+    .nav-desktop {
+        display: none !important;
+    }
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+}
+
+/* Colores y estilos auxiliares para los textos e iconos */
+.text-gold {
+    color: var(--gold-brand) !important;
+}
+
+.mobile-nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mobile-logo-img {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--gold-brand);
+}
+
+.mobile-brand-title {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--gold-brand);
+    line-height: 1.1;
+}
+
+.mobile-brand-sub {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.mobile-nav-body {
+    padding: 20px 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.mobile-nav-subtitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.mobile-wa-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #25d366;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+/* Estilo para las flechas de los menús desplegables */
+.top-nav-btn .arrow {
+    font-size: 0.8rem;
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+}
+
+.top-dropdown.open .arrow {
+    transform: rotate(180deg);
+}
