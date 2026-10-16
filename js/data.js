@@ -75,7 +75,14 @@ var productosData = [
         descripcion: "Delicioso yogurt entero con dulce y trozos de fruta marca J.A en presentación familiar de 1.950 gramos. Disponible en sabores surtidos: Melocotón, Fresa y Mora.",
         imagen: "yogurtJA.jpg"
     },
-   
+    {
+        id: 510,
+        nombre: "Crema de Leche Original Semientera UHT Alquería Food Service x 1000 g",
+        categoria: "quesos",
+        subcategoria: "general",
+        descripcion: "Crema de leche original semientera UAT (UHT) Alquería Food Service para uso institucional. Ideal para batir, con cremosidad y textura inigualable. Presentación de 1.000 g.",
+        imagen: "cremadelechefood1000gramos.jpg"
+    },
    
     {
         id: 6,
