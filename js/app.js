@@ -201,7 +201,7 @@ function renderizarMarcas() {
     marcas.forEach(marca => {
         const card = document.createElement('div');
         card.className = 'brand-card';
-        card.innerHTML = `<img src="${marca.logo}" alt="Logo ${marca.nombre}" class="brand-img">`;
+        card.innerHTML = `<img src="${marca.logo}" alt="Logo ${marca.nombre}" class="brand-img" onerror="this.src='https://via.placeholder.com/150x50?text=Marca'">`;
         container.appendChild(card);
     });
 }
@@ -284,8 +284,8 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
                 <span class="product-category">${catNombre}</span>
                 <h3 class="product-title">${prod.nombre}</h3>
                 <p class="product-desc">${prod.descripcion}</p>
-                <div class="product-status">
-                    <i class="fa-solid fa-circle-check"></i> Consultar disponibilidad
+                <div class="product-status" style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">
+                    <i class="fa-solid fa-circle-check" style="color:var(--gold-brand);"></i> Disponible
                 </div>
                 <div class="card-action-row">
                     <div class="card-qty-selector">
@@ -309,7 +309,7 @@ function ampliarImagen(url, titulo) {
     const captionText = document.getElementById('caption-modal');
 
     if (modal && modalImg && captionText) {
-        modal.style.display = "block";
+        modal.style.display = "flex";
         modalImg.src = url;
         captionText.innerHTML = titulo;
     }
@@ -408,15 +408,16 @@ function actualizarCarritoUI() {
 
             const itemDiv = document.createElement('div');
             itemDiv.className = 'cart-item';
+            itemDiv.style.cssText = "display: flex; justify-content: space-between; align-items: center; background: #1c1c1c; padding: 12px; border-radius: 8px; margin-bottom: 10px; border: 1px solid var(--border-color);";
             itemDiv.innerHTML = `
-                <div>
-                    <h4 style="font-size: 0.95rem;">${prod.nombre}</h4>
-                    <span style="font-size: 0.8rem; color: var(--gold-brand);">${subName}</span>
+                <div style="flex-grow: 1; padding-right: 10px;">
+                    <h4 style="font-size: 0.95rem; color: #fff; margin-bottom: 2px;">${prod.nombre}</h4>
+                    <span style="font-size: 0.75rem; color: var(--gold-brand);">${subName}</span>
                 </div>
-                <div class="cart-item-qty">
-                    <button class="qty-btn" onclick="cambiarCantidadCarrito(${prod.id}, -1)">-</button>
-                    <span>${prod.cantidad}</span>
-                    <button class="qty-btn" onclick="cambiarCantidadCarrito(${prod.id}, 1)">+</button>
+                <div class="cart-item-qty" style="display: flex; align-items: center; gap: 8px; background: #252525; padding: 4px 8px; border-radius: 6px;">
+                    <button class="qty-btn" onclick="cambiarCantidadCarrito(${prod.id}, -1)" style="background:none; border:none; color:#fff; cursor:pointer; font-weight:bold;">-</button>
+                    <span style="color:#fff; font-weight:bold; font-size:0.9rem;">${prod.cantidad}</span>
+                    <button class="qty-btn" onclick="cambiarCantidadCarrito(${prod.id}, 1)" style="background:none; border:none; color:#fff; cursor:pointer; font-weight:bold;">+</button>
                 </div>
             `;
             container.appendChild(itemDiv);
@@ -455,9 +456,9 @@ function enviarPedidoWhatsApp() {
 
     carrito.forEach(p => {
         let urlImagen = p.imagen;
-        if (!urlImagen.startsWith('http')) {
-            const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
-            urlImagen = baseUrl + p.imagen;
+        if (!urlImagen.startsWith('http') && !urlImagen.startsWith('//')) {
+            const basePath = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+            urlImagen = basePath + p.imagen.replace(/^\.\//, '');
         }
 
         msg += `• *${p.nombre}* (${p.cantidad} unidad${p.cantidad > 1 ? 'es' : ''})\n`;
@@ -480,5 +481,3 @@ if (document.readyState === 'loading') {
 } else {
     iniciarApp();
 }
-
-window.addEventListener('load', iniciarApp);
