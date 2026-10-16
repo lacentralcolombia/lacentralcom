@@ -435,9 +435,19 @@
                         <i class="fa-solid fa-border-all"></i> Todas
                     </button>
                     
-                    <button class="top-nav-btn" onclick="filtrarCategoria('quesos', null, event)">
-                        <i class="fa-solid fa-cheese"></i> Quesos y Lácteos
-                    </button>
+                   <!-- DESPLEGABLE QUESOS Y LÁCTEOS -->
+                    <div class="top-dropdown">
+                        <button class="top-nav-btn" onclick="toggleTopDropdown('dropdown-quesos', event)">
+                            <i class="fa-solid fa-cheese"></i> Quesos y Lácteos <i class="fa-solid fa-chevron-down arrow"></i>
+                        </button>
+                        <div class="top-dropdown-content" id="dropdown-quesos">
+                            <button onclick="filtrarCategoria('quesos', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Ver todos los quesos</button>
+                            <button onclick="filtrarCategoria('quesos', 'general', event)"><i class="fa-solid fa-bowl-food"></i> Frescos y Yogures</button>
+                            <button onclick="filtrarCategoria('quesos', 'quesos-bloque', event)"><i class="fa-solid fa-cube"></i> Quesos en Bloque</button>
+                            <button onclick="filtrarCategoria('quesos', 'quesos-tajados', event)"><i class="fa-solid fa-layer-group"></i> Quesos Tajados</button>
+                            <button onclick="filtrarCategoria('quesos', 'quesos-frescos', event)"><i class="fa-solid fa-seedling"></i> Quesos Tradicionales / Costeño</button>
+                        </div>
+                    </div>
 
                     <!-- DESPLEGABLE EMBUTIDOS -->
                     <div class="top-dropdown">
