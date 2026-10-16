@@ -68,14 +68,13 @@ var productosData = [
         imagen: "quesocuajada500gramos.jpg"
     },
     {
-        id: 507,
-        nombre: "Yogurt Entero con Dulce Sabor a Melocoton con Trozos de Fruta J.A x 1950 g",
+        id: 508,
+        nombre: "Yogurt Entero con Dulce y Trozos de Fruta J.A x 1950 g (Sabores: Melocotón, Fresa y Mora)",
         categoria: "lacteos",
         subcategoria: "yogures",
-        descripcion: "Yogurt entero con dulce, sabor a melocotón y con deliciosos trozos de fruta, marca J.A en presentación familiar de 1.950 g.",
+        descripcion: "Delicioso yogurt entero con dulce y trozos de fruta marca J.A en presentación familiar de 1.950 gramos. Disponible en sabores surtidos: Melocotón, Fresa y Mora.",
         imagen: "yogurtJA.jpg"
     },
-   
    
    
     {
