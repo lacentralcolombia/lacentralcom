@@ -616,6 +616,7 @@ function iniciarMenuDeslizable() {
 function iniciarApp() {
     renderizarProductos();
     renderizarMarcas();
+    iniciarMenuDeslizable();
 
     // Si se desliza de lado la barra de categorías, el menú abierto la sigue
     const barraCategorias = document.querySelector('.top-nav-menu');
