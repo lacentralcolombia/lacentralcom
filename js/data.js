@@ -11,12 +11,12 @@ var marcasData = [
 
 var productosData = [
     {
-        id: 1,
-        nombre: "Quesos y Yogures",
+      id: 501,
+        nombre: "Queso Mozzarella Tajado Bloque Lácteos Villa Gloria",
         categoria: "quesos",
-        subcategoria: "general",
-        descripcion: "Surtido variado en quesos tajados, frescos y yogures lácteos de marcas reconocidas.",
-        imagen: "https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=500"
+        subcategoria: "quesos-bloque",
+        descripcion: "Queso fresco semiduro, semigraso y moldeado con cuajo, marca Lácteos Villa Gloria en práctico bloque tajado.",
+        imagen: "bloquequesomozzarelatajado.jpg"
     },
     {
         id: 2,
