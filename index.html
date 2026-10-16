@@ -418,8 +418,19 @@
         </div>
 
         <div class="catalog-layout-full">
-            <nav class="catalog-top-nav">
-                <div class="top-nav-menu">
+                       <nav class="catalog-top-nav" id="catalog-top-nav">
+                <div class="top-nav-fondo" aria-hidden="true"></div>
+                <div class="top-nav-pista" id="top-nav-pista" aria-hidden="true">
+                    <span>Desliza para ver más categorías</span>
+                    <i class="fa-solid fa-angles-right"></i>
+                </div>
+                <button type="button" class="top-nav-flecha izq" id="flecha-izq" aria-label="Categorías anteriores">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button type="button" class="top-nav-flecha der" id="flecha-der" aria-label="Más categorías">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <div class="top-nav-menu" id="top-nav-menu">
                     <button class="top-nav-btn active" onclick="filtrarCategoria('todos', null, event)">
                         <i class="fa-solid fa-border-all"></i> Todas
                     </button>
