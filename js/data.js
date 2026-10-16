@@ -67,15 +67,15 @@ var productosData = [
         descripcion: "Queso cuajada semigraso, semiduro y fresco, marca La Favorita en presentación empacada de 500 gramos.",
         imagen: "quesocuajada500gramos.jpg"
     },
-  
     {
-        id: 2,
-        nombre: "Quesos Artesanales",
-        categoria: "quesos",
-        subcategoria: "general",
-        descripcion: "Sabor campesino, tradicional y fresco de elaboración artesanal pura.",
-        imagen: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=500"
+        id: 507,
+        nombre: "Yogurt Entero con Dulce Sabor a Melocoton con Trozos de Fruta J.A x 1950 g",
+        categoria: "lacteos",
+        subcategoria: "yogures",
+        descripcion: "Yogurt entero con dulce, sabor a melocotón y con deliciosos trozos de fruta, marca J.A en presentación familiar de 1.950 g.",
+        imagen: "yogurtJA.jgp.jpg"
     },
+   
     {
         id: 3,
         nombre: "Mantequillas",
