@@ -83,7 +83,7 @@
         </div>
     </div>
 
-  <!-- PORTADA PRINCIPAL -->
+<!-- PORTADA PRINCIPAL -->
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -94,14 +94,19 @@
             </h1>
             <p class="hero-subtitle">Descubre nuestra amplia variedad de quesos, embutidos, alimentos, frutos secos, insumos para coctelería y desechables.</p>
             
-            <!-- CONTENEDOR DEL VIDEO PUBLICITARIO CON MARCO PROFESIONAL -->
+            <!-- CONTENEDOR DEL VIDEO CON CONTROLES DE AUDIO -->
             <div class="hero-video-container">
                 <div class="video-glow-border">
-                    <video autoplay muted loop playsinline class="hero-promo-video">
-                        <source src="video-lacentral.mp4" type="video/mp4">
+                    <!-- Añadimos 'controls' para que el usuario pueda activar el sonido fácilmente -->
+                    <video autoplay muted loop playsinline controls class="hero-promo-video" id="promo-video">
+                        <source src="videolacentral.mp4" type="video/mp4">
                         Tu navegador no soporta videos HTML5.
                     </video>
                 </div>
+                <!-- Botón flotante para activar el sonido con un clic -->
+                <button class="btn-sound-toggle" onclick="toggleAudioVideo()" id="sound-btn">
+                    <i class="fa-solid fa-volume-xmark"></i> Activar Sonido
+                </button>
             </div>
 
             <div class="hero-buttons">
@@ -110,7 +115,6 @@
             </div>
         </div>
     </section>
- 
 
     <!-- CATÁLOGO / MENÚ DIGITAL -->
     <section id="catalogo" class="catalog-section">
