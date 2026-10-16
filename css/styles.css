@@ -1574,28 +1574,26 @@ footer a:not(.social-btn):hover {
 }
 
 /* =========================================================
-   FONDO PROFESIONAL "MAGIA DE SABORES" EN TARJETAS DE LIQUIPOPS
+   FONDO "MAGIA DE SABORES" EXCLUSIVO PARA EL MENÚ DESPLEGABLE DE COCTELERÍA
    ========================================================= */
 
-/* Aplica la imagen de Magia de Sabores como fondo texturizado y amplio detrás del producto */
-.product-card:has(.product-category:not(:empty)) .product-img-wrapper {
-    position: relative;
-    background-image: linear-gradient(to bottom, rgba(10, 10, 12, 0.75), rgba(10, 10, 12, 0.90)), url('../magia-de-sabores.jpg') !important;
+/* Aplica la imagen de fondo solo al contenedor desplegable de coctelería */
+#dropdown-cocteleria {
+    background-image: linear-gradient(to bottom, rgba(15, 15, 18, 0.92), rgba(15, 15, 18, 0.96)), url('../magia-de-sabores.jpg') !important;
     background-size: cover !important;
     background-position: center !important;
-    overflow: hidden;
+    border: 1px solid rgba(230, 182, 79, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
 }
 
-/* Hace que la foto del frasco se vea más amplia, centrada y con un brillo natural */
-.product-card:has(.product-category:not(:empty)) .product-img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    transform: scale(1.08); /* Agranda ligeramente el producto para que destaque más */
-    transition: transform 0.3s ease;
+/* Excepción: Asegura que el botón especial de "Ver TODOS los Sabores de Liqui POPS" 
+   tenga su propio color sólido y limpio, sin verse afectado por el fondo general */
+#dropdown-cocteleria .btn-all-liqui {
+    background: linear-gradient(135deg, #222228, #1a1a20) !important;
+    border: 1px solid rgba(230, 182, 79, 0.5) !important;
 }
 
-/* Efecto de zoom suave al pasar el mouse sobre la tarjeta */
-.product-card:has(.product-category:not(:empty)):hover .product-img {
-    transform: scale(1.15);
+#dropdown-cocteleria .btn-all-liqui:hover {
+    background: linear-gradient(135deg, #e3211b, #b51915) !important;
+    border-color: #fff !important;
 }
