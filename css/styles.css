@@ -151,7 +151,7 @@ a {
 }
 
 /* =========================================================
-   HERO SECTION & VIDEO CON MARCO BRILLANTE (UNIFICADO)
+   HERO SECTION & VIDEO CON MARCO BRILLANTE
    ========================================================= */
 .hero {
     position: relative;
@@ -215,7 +215,7 @@ a {
 .hero-subtitle {
     font-size: 1.1rem;
     color: var(--text-muted);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -345,7 +345,7 @@ a {
 }
 
 /* =========================================================
-   CATÁLOGO Y MENÚ DESLIZANTE
+   CATÁLOGO Y MENÚ DESLIZANTE CON MOVIMIENTO Y LUCES
    ========================================================= */
 .catalog-section {
     padding: 60px 5%;
@@ -417,6 +417,8 @@ a {
     background: radial-gradient(circle at center, rgba(227, 33, 27, 0.12) 0%, rgba(230, 182, 79, 0.05) 50%, transparent 90%);
     border-radius: 16px;
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 
 .top-nav-menu::-webkit-scrollbar {
@@ -452,6 +454,15 @@ a {
 .top-nav-menu::after {
     right: 0;
     background: linear-gradient(to left, rgba(227, 33, 27, 0.25), transparent);
+}
+
+@keyframes pulseHint {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(6px); }
+}
+
+.top-nav-menu .top-nav-btn:nth-last-child(2) {
+    animation: pulseHint 2s ease-in-out infinite;
 }
 
 .top-nav-btn {
@@ -899,7 +910,7 @@ footer {
 }
 
 /* =========================================================
-   MENÚ MÓVIL Y WHATSAPP FLOTANTE
+   MENÚ MÓVIL Y WHATSAPP FLOTANTE CON DESTELLO Y PULSO
    ========================================================= */
 .mobile-nav-overlay {
     display: none;
@@ -982,8 +993,34 @@ footer {
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
     z-index: 900;
+    transition: transform 0.25s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08);
+}
+
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #25d366;
+    z-index: -1;
+    animation: waPulse 2.4s ease-out infinite;
+}
+
+@keyframes waPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
 }
 
 /* =========================================================
