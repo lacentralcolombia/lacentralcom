@@ -51,6 +51,14 @@ var productosData = [
         descripcion: "Queso fresco graso, molido y semiblando tipo campesino, marca La Favorita en presentación de 500 gramos.",
         imagen: "quesocampesino500gramos.jpg"
     },
+    {
+        id: 506,
+        nombre: "Queso Cuajada Semigraso Semiduro Fresco La Favorita x 500 g",
+        categoria: "quesos",
+        subcategoria: "quesos-frescos",
+        descripcion: "Queso cuajada semigraso, semiduro y fresco, marca La Favorita en presentación empacada de 500 gramos.",
+        imagen: "quesocuajada500gramos.jpg"
+    },
   
     {
         id: 2,
