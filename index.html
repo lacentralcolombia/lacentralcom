@@ -83,7 +83,7 @@
         </div>
     </div>
 
-<!-- PORTADA PRINCIPAL -->
+    <!-- PORTADA PRINCIPAL (LIMPIA, ÚNICA Y CON VIDEO) -->
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -106,54 +106,6 @@
             </div>
 
             <!-- BOTONES PRINCIPALES -->
-            <div class="hero-buttons">
-                <a href="#catalogo" class="btn-primary"><i class="fa-solid fa-utensils"></i> Ver Menú Completo</a>
-                <a href="#nosotros" class="btn-secondary"><i class="fa-solid fa-circle-info"></i> Conócenos</a>
-            </div>
-        </div>
-    </section>
-            <!-- CONTENEDOR DEL VIDEO CON MARCO BRILLANTE Y UN SOLO BOTÓN DE SONIDO -->
-            <div class="hero-video-container">
-                <div class="video-glow-border">
-                    <video autoplay muted loop playsinline preload="auto" class="hero-promo-video" id="promo-video">
-                        <source src="videolacentral.mp4" type="video/mp4">
-                        <source src="videolacentral.MOV" type="video/quicktime">
-                        Tu navegador no soporta videos HTML5.
-                    </video>
-                </div>
-                <button class="btn-sound-toggle" onclick="toggleAudioVideo()" id="sound-btn">
-                    <i class="fa-solid fa-volume-xmark"></i> Activar Sonido
-                </button>
-            </div>
-
-            <!-- BOTONES CENTRADOS ABAJO DEL VIDEO -->
-            <div class="hero-buttons">
-                <a href="#catalogo" class="btn-primary"><i class="fa-solid fa-utensils"></i> Ver Menú Completo</a>
-                <a href="#nosotros" class="btn-secondary"><i class="fa-solid fa-circle-info"></i> Conócenos</a>
-            </div>
-        </div>
-    </section>
-            
-          <!-- CONTENEDOR DEL VIDEO PUBLICITARIO CON REPRODUCCIÓN AUTOMÁTICA -->
-            <div class="hero-video-container">
-                <div class="video-glow-border">
-                    <video autoplay muted loop playsinline preload="auto" class="hero-promo-video" id="promo-video">
-                        <source src="videolacentral.MOV" type="video/quicktime">
-                        <source src="videolacentral.mp4" type="video/mp4">
-                        Tu navegador no soporta videos HTML5.
-                    </video>
-                </div>
-                <!-- Botón flotante elegante para activar el sonido con un clic -->
-                <button class="btn-sound-toggle" onclick="toggleAudioVideo()" id="sound-btn">
-                    <i class="fa-solid fa-volume-xmark"></i> Activar Sonido
-                </button>
-            </div>
-                <!-- Botón flotante para activar el sonido con un clic -->
-                <button class="btn-sound-toggle" onclick="toggleAudioVideo()" id="sound-btn">
-                    <i class="fa-solid fa-volume-xmark"></i> Activar Sonido
-                </button>
-            </div>
-
             <div class="hero-buttons">
                 <a href="#catalogo" class="btn-primary"><i class="fa-solid fa-utensils"></i> Ver Menú Completo</a>
                 <a href="#nosotros" class="btn-secondary"><i class="fa-solid fa-circle-info"></i> Conócenos</a>
@@ -207,7 +159,7 @@
                         <i class="fa-solid fa-seedling"></i> Frutos Secos
                     </button>
 
-                 <!-- DESPLEGABLE COCTELERÍA Y LIQUIPOPS -->
+                    <!-- DESPLEGABLE COCTELERÍA Y LIQUIPOPS -->
                     <div class="top-dropdown">
                         <button class="top-nav-btn" onclick="toggleTopDropdown('dropdown-cocteleria', event)">
                             <i class="fa-solid fa-wine-glass-sparkles"></i> Coctelería <i class="fa-solid fa-chevron-down arrow"></i>
@@ -226,7 +178,7 @@
                                 <i class="fa-solid fa-layer-group text-gold"></i> <strong>Ver TODOS los Sabores de Liqui POPS</strong>
                             </button>
 
-                            <!-- CUADRÍCULA DE SABORES (Única fuente de los sabores) -->
+                            <!-- CUADRÍCULA DE SABORES -->
                             <div class="liqui-subgrid">
                                 <button onclick="filtrarCategoria('cocteleria', 'liqui-manzana', event, '#2ecc71')"><i class="fa-solid fa-circle" style="color: #2ecc71;"></i> Manzana Verde</button>
                                 <button onclick="filtrarCategoria('cocteleria', 'liqui-blueberry', event, '#4a90e2')"><i class="fa-solid fa-circle" style="color: #4a90e2;"></i> Blueberry</button>
@@ -291,7 +243,7 @@
         </div>
     </section>
 
-       <!-- BENEFICIOS -->
+    <!-- BENEFICIOS -->
     <section id="beneficios" class="benefits-section">
         <div class="benefits-grid">
             <div class="benefit-card">
@@ -311,6 +263,7 @@
             </div>
         </div>
     </section>
+
     <!-- FOOTER -->
     <footer id="contacto">
         <div class="footer-container">
