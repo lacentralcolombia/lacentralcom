@@ -76,30 +76,8 @@ var productosData = [
         imagen: "yogurtJA.jpg"
     },
    
-    {
-        id: 3,
-        nombre: "Mantequillas",
-        categoria: "quesos",
-        subcategoria: "general",
-        descripcion: "Mantequillas de excelente consistencia y sabor para tus desayunos y cocina.",
-        imagen: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=500"
-    },
-    {
-        id: 4,
-        nombre: "Crema y Derivados",
-        categoria: "quesos",
-        subcategoria: "general",
-        descripcion: "Crema de leche, suero costeño y derivados de consistencia cremosa y fresca.",
-        imagen: "https://images.unsplash.com/photo-1528751014936-863e6e7a319c?q=80&w=500"
-    },
-    {
-        id: 5,
-        nombre: "Queso Rallado",
-        categoria: "quesos",
-        subcategoria: "general",
-        descripcion: "Queso listo para gratinar y acompañar tus pastas, lasañas o arepas.",
-        imagen: "https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=500"
-    },
+   
+   
     {
         id: 6,
         nombre: "Jamón Sevilla x 450 gramos | 22 Tajadas",
