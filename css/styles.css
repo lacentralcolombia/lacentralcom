@@ -899,3 +899,73 @@ body.menu-open {
         font-size: 2rem;
     }
 }
+/* =========================================================
+   FIX: MENÚ DESPLEGABLE AL FRENTE DE LOS PRODUCTOS
+   ========================================================= */
+
+/* La sección del catálogo sube de nivel para que su menú
+   quede sobre cualquier cosa que venga después */
+.catalog-section {
+    position: relative;
+    z-index: 20;
+    overflow: visible !important;
+}
+
+/* La grilla de productos queda en un nivel inferior */
+.product-grid-full {
+    position: relative;
+    z-index: 1;
+}
+
+/* Las tarjetas y sus imágenes nunca deben superar al menú */
+.product-card,
+.product-img-wrapper,
+.product-img {
+    position: relative;
+    z-index: 0;
+}
+
+/* Barra de navegación del catálogo por encima de la grilla */
+.catalog-top-nav {
+    position: relative;
+    z-index: 50;
+    margin-bottom: 30px;
+}
+
+/* El hover de las tarjetas no debe elevar su capa sobre el menú */
+.producto-card:hover,
+.card:hover,
+.product-item:hover,
+.product-card:hover {
+    z-index: 1;
+}
+
+/* ---------------------------------------------------------
+   DROPDOWN: se saca del flujo del scroll horizontal
+   usando position: fixed (lo posiciona el JS, ver abajo)
+   --------------------------------------------------------- */
+.top-dropdown {
+    position: static;      /* ya no es el ancla del menú */
+    display: inline-block;
+}
+
+.top-dropdown-content {
+    display: none;
+    position: fixed;       /* escapa del overflow del scroll */
+    min-width: 290px;
+    max-width: 92vw;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: linear-gradient(180deg, #1f1f1f 0%, #141414 100%);
+    border: 1px solid var(--gold-brand);
+    border-radius: 12px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9),
+                0 0 0 1px rgba(230, 182, 79, 0.15);
+    z-index: 100000 !important;
+    padding: 10px 0;
+    margin-top: 0;
+}
+
+.top-dropdown-content.open {
+    display: block !important;
+}
