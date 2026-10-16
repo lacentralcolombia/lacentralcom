@@ -94,15 +94,20 @@
             </h1>
             <p class="hero-subtitle">Descubre nuestra amplia variedad de quesos, embutidos, alimentos, frutos secos, insumos para coctelería y desechables.</p>
             
-            <!-- CONTENEDOR DEL VIDEO CON CONTROLES DE AUDIO -->
+          <!-- CONTENEDOR DEL VIDEO PUBLICITARIO CON REPRODUCCIÓN AUTOMÁTICA -->
             <div class="hero-video-container">
                 <div class="video-glow-border">
-                    <!-- Añadimos 'controls' para que el usuario pueda activar el sonido fácilmente -->
-                    <video autoplay muted loop playsinline controls class="hero-promo-video" id="promo-video">
+                    <video autoplay muted loop playsinline preload="auto" class="hero-promo-video" id="promo-video">
+                        <source src="videolacentral.MOV" type="video/quicktime">
                         <source src="videolacentral.mp4" type="video/mp4">
                         Tu navegador no soporta videos HTML5.
                     </video>
                 </div>
+                <!-- Botón flotante elegante para activar el sonido con un clic -->
+                <button class="btn-sound-toggle" onclick="toggleAudioVideo()" id="sound-btn">
+                    <i class="fa-solid fa-volume-xmark"></i> Activar Sonido
+                </button>
+            </div>
                 <!-- Botón flotante para activar el sonido con un clic -->
                 <button class="btn-sound-toggle" onclick="toggleAudioVideo()" id="sound-btn">
                     <i class="fa-solid fa-volume-xmark"></i> Activar Sonido
