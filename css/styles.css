@@ -1546,3 +1546,318 @@ footer a:not(.social-btn):hover {
         padding: 8px 12px;
     }
 }
+
+/* =========================================================
+   MENÚ DESLIZABLE PROFESIONAL (categorías del catálogo)
+   ========================================================= */
+
+.catalog-section {
+    background:
+        radial-gradient(ellipse 80% 45% at 50% 0%, rgba(230, 182, 79, 0.09), transparent 70%),
+        linear-gradient(180deg, #0f0f0f 0%, #131313 55%, #0f0f0f 100%);
+}
+
+.catalog-top-nav {
+    --pad-top: 34px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid rgba(230, 182, 79, 0.32);
+    background: #0d0d0d;
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.55),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+        0 0 28px rgba(230, 182, 79, 0.08);
+    isolation: isolate;
+}
+
+.catalog-top-nav.sin-pista,
+.catalog-top-nav.sin-desborde {
+    --pad-top: 14px;
+}
+
+.top-nav-fondo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: url('../magia-de-sabores-fondo.jpg') 50% 6% / cover no-repeat;
+    opacity: 0.62;
+    transform: scale(1.06);
+    animation: navFondoMover 28s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.top-nav-fondo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(13, 13, 13, 0.80) 0%, rgba(13, 13, 13, 0.30) 50%, rgba(13, 13, 13, 0.80) 100%),
+        linear-gradient(180deg, rgba(13, 13, 13, 0.20), rgba(13, 13, 13, 0.55));
+}
+
+@keyframes navFondoMover {
+    from { transform: scale(1.06) translateX(-1.5%); }
+    to   { transform: scale(1.12) translateX(1.5%); }
+}
+
+.top-nav-menu {
+    position: relative;
+    z-index: 2;
+    gap: 12px;
+    padding: var(--pad-top) 22px 16px 22px !important;
+    scroll-padding: 0 60px;
+    transition: padding-top 0.45s ease;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(230, 182, 79, 0.8) rgba(255, 255, 255, 0.06);
+}
+
+.top-nav-menu::-webkit-scrollbar { height: 5px; }
+.top-nav-menu::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    margin: 0 22px;
+}
+.top-nav-menu::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #c59b3f, #E6B64F, #c59b3f);
+    border-radius: 10px;
+}
+
+.top-nav-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(230, 182, 79, 0.28);
+    color: #f4f4f4;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    letter-spacing: 0.01em;
+    animation: navBtnEntrada 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.top-nav-menu > :nth-child(1) .top-nav-btn, .top-nav-menu > .top-nav-btn:nth-child(1) { animation-delay: 0.05s; }
+.top-nav-menu > :nth-child(2) .top-nav-btn, .top-nav-menu > .top-nav-btn:nth-child(2) { animation-delay: 0.12s; }
+.top-nav-menu > :nth-child(3) .top-nav-btn, .top-nav-menu > .top-nav-btn:nth-child(3) { animation-delay: 0.19s; }
+.top-nav-menu > :nth-child(4) .top-nav-btn, .top-nav-menu > .top-nav-btn:nth-child(4) { animation-delay: 0.26s; }
+.top-nav-menu > :nth-child(5) .top-nav-btn, .top-nav-menu > .top-nav-btn:nth-child(5) { animation-delay: 0.33s; }
+.top-nav-menu > :nth-child(6) .top-nav-btn, .top-nav-menu > .top-nav-btn:nth-child(6) { animation-delay: 0.40s; }
+.top-nav-menu > :nth-child(7) .top-nav-btn, .top-nav-menu > .top-nav-btn:nth-child(7) { animation-delay: 0.47s; }
+
+@keyframes navBtnEntrada {
+    from { opacity: 0; transform: translateX(26px); }
+    to   { opacity: 1; transform: none; }
+}
+
+.top-nav-btn i:first-child { color: var(--gold-brand); transition: color 0.25s ease; }
+
+.top-nav-btn:hover {
+    background: rgba(230, 182, 79, 0.16);
+    border-color: var(--gold-brand);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 16px rgba(230, 182, 79, 0.25);
+}
+
+.top-nav-btn.active {
+    background: linear-gradient(135deg, #f3c862 0%, #E6B64F 50%, #c59b3f 100%);
+    border-color: #f3c862;
+    color: #17120a;
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(230, 182, 79, 0.45);
+}
+
+.top-nav-btn.active i:first-child,
+.top-nav-btn.active .arrow { color: #17120a; }
+
+/* Degradados en los bordes: avisan que hay más contenido */
+.catalog-top-nav::before,
+.catalog-top-nav::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 64px;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+.catalog-top-nav::before { left: 0;  background: linear-gradient(90deg,  #0d0d0d 10%, transparent); }
+.catalog-top-nav::after  { right: 0; background: linear-gradient(270deg, #0d0d0d 10%, transparent); }
+.catalog-top-nav.puede-izq::before { opacity: 1; }
+.catalog-top-nav.puede-der::after  { opacity: 1; }
+
+/* Pista "Desliza para ver más" */
+.top-nav-pista {
+    position: absolute;
+    top: 9px;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(230, 182, 79, 0.95);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.top-nav-pista i { animation: navPistaFlecha 1.2s ease-in-out infinite; }
+.catalog-top-nav.sin-pista .top-nav-pista,
+.catalog-top-nav.sin-desborde .top-nav-pista {
+    opacity: 0;
+    transform: translateY(-8px);
+}
+
+@keyframes navPistaFlecha {
+    0%, 100% { transform: translateX(0);   opacity: 0.55; }
+    50%      { transform: translateX(7px); opacity: 1; }
+}
+
+/* Flechas circulares */
+.top-nav-flecha {
+    position: absolute;
+    top: calc(50% + (var(--pad-top) - 16px) / 2);
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(230, 182, 79, 0.7);
+    background: rgba(15, 15, 15, 0.85);
+    color: var(--gold-brand);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, background 0.25s ease, color 0.25s ease, top 0.45s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 14px rgba(230, 182, 79, 0.25);
+}
+.top-nav-flecha.izq { left: 8px; }
+.top-nav-flecha.der { right: 8px; animation: none; }
+.top-nav-flecha:hover { background: var(--gold-brand); color: #17120a; }
+
+.catalog-top-nav.puede-izq .top-nav-flecha.izq,
+.catalog-top-nav.puede-der .top-nav-flecha.der {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.catalog-top-nav:not(.sin-pista).puede-der .top-nav-flecha.der {
+    animation: navFlechaLatido 1.6s ease-in-out infinite;
+}
+@keyframes navFlechaLatido {
+    0%, 100% { box-shadow: 0 4px 14px rgba(0,0,0,.6), 0 0 0 0 rgba(230,182,79,.55); }
+    50%      { box-shadow: 0 4px 14px rgba(0,0,0,.6), 0 0 0 10px rgba(230,182,79,0); }
+}
+
+/* Desplegables: más finos y con aparición suave */
+.top-dropdown-content {
+    border-radius: 16px;
+    border-color: rgba(230, 182, 79, 0.65);
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(230, 182, 79, 0.7) transparent;
+}
+.top-dropdown-content.open {
+    animation: ddEntrada 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes ddEntrada {
+    from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* Coctelería: imagen de fondo muy transparente */
+#dropdown-cocteleria {
+    background:
+        linear-gradient(180deg, rgba(24, 24, 24, 0.93) 0%, rgba(16, 16, 16, 0.96) 100%),
+        url('../magia-de-sabores-fondo.jpg') 78% 40% / cover no-repeat;
+}
+
+/* Tarjeta "Magia de Sabores" */
+.top-dropdown-content button.magia-card {
+    display: block;
+    position: relative;
+    width: calc(100% - 24px);
+    margin: 4px 12px 12px;
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(230, 182, 79, 0.65);
+    background: #000;
+    box-shadow: 0 0 18px rgba(230, 182, 79, 0.25), 0 10px 24px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.top-dropdown-content button.magia-card:hover,
+.top-dropdown-content button.magia-card.active {
+    background: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(230, 182, 79, 0.5), 0 14px 30px rgba(0, 0, 0, 0.6);
+}
+.magia-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+.magia-card:hover img { transform: scale(1.07); }
+
+.magia-card::before {
+    content: "";
+    position: absolute;
+    top: -20%; bottom: -20%;
+    width: 22%;
+    left: -40%;
+    background: linear-gradient(100deg, transparent, rgba(255, 240, 190, 0.28), transparent);
+    transform: skewX(-18deg);
+    z-index: 2;
+    pointer-events: none;
+    animation: magiaBrillo 4.8s ease-in-out infinite;
+}
+@keyframes magiaBrillo {
+    0%       { left: -40%; }
+    55%,100% { left: 140%; }
+}
+
+.magia-card-pie {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 18px 12px 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #f3c862;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+}
+.magia-card-pie i { transition: transform 0.3s ease; }
+.magia-card:hover .magia-card-pie i { transform: translateX(5px); }
+
+/* Celular */
+@media (max-width: 600px) {
+    .catalog-top-nav { border-radius: 16px; --pad-top: 32px; }
+    .top-nav-menu { padding-left: 14px !important; padding-right: 14px !important; gap: 10px; }
+    .top-nav-btn { padding: 11px 18px; font-size: 1rem; }
+    .top-nav-flecha { width: 34px; height: 34px; }
+    .catalog-top-nav::before, .catalog-top-nav::after { width: 44px; }
+    .top-nav-pista { font-size: 0.7rem; }
+}
+
+/* Menos movimiento si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+    .top-nav-fondo,
+    .top-nav-pista i,
+    .magia-card::before,
+    .catalog-top-nav:not(.sin-pista).puede-der .top-nav-flecha.der { animation: none; }
+    .top-nav-btn { animation: none; }
+}
