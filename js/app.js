@@ -527,6 +527,92 @@ function enviarPedidoWhatsApp() {
     window.open(url, '_blank');
 }
 
+/* =========================================================
+   MENÚ DESLIZABLE: invita al cliente a deslizar
+   ========================================================= */
+function iniciarMenuDeslizable() {
+    const nav = document.getElementById('catalog-top-nav');
+    const menu = document.getElementById('top-nav-menu');
+    const flechaIzq = document.getElementById('flecha-izq');
+    const flechaDer = document.getElementById('flecha-der');
+    if (!nav || !menu) return;
+
+    const reducirMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let usuarioInteractuo = false;
+    let visible = false;
+    let temporizador = null;
+
+    function actualizarBordes() {
+        const max = menu.scrollWidth - menu.clientWidth;
+        nav.classList.toggle('puede-izq', menu.scrollLeft > 8);
+        nav.classList.toggle('puede-der', menu.scrollLeft < max - 8);
+        nav.classList.toggle('sin-desborde', max <= 4);
+    }
+
+    function marcarInteraccion() {
+        if (usuarioInteractuo) return;
+        usuarioInteractuo = true;
+        clearTimeout(temporizador);
+        nav.classList.add('sin-pista');
+    }
+
+    function asomar() {
+        const max = menu.scrollWidth - menu.clientWidth;
+        const hayDropdownAbierto = document.querySelector('.top-dropdown-content.open');
+        if (usuarioInteractuo || reducirMovimiento || max < 20 || hayDropdownAbierto) return;
+        menu.scrollTo({ left: Math.min(max, 120), behavior: 'smooth' });
+        setTimeout(() => {
+            if (!usuarioInteractuo) menu.scrollTo({ left: 0, behavior: 'smooth' });
+        }, 850);
+    }
+
+    function programar(espera) {
+        clearTimeout(temporizador);
+        if (usuarioInteractuo || !visible) return;
+        temporizador = setTimeout(() => {
+            asomar();
+            programar(4800);
+        }, espera);
+    }
+
+    ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach(ev => {
+        menu.addEventListener(ev, marcarInteraccion, { passive: true });
+    });
+
+    if (flechaDer) {
+        flechaDer.addEventListener('click', () => {
+            marcarInteraccion();
+            menu.scrollBy({ left: Math.max(200, menu.clientWidth * 0.6), behavior: 'smooth' });
+        });
+    }
+    if (flechaIzq) {
+        flechaIzq.addEventListener('click', () => {
+            marcarInteraccion();
+            menu.scrollBy({ left: -Math.max(200, menu.clientWidth * 0.6), behavior: 'smooth' });
+        });
+    }
+
+    menu.addEventListener('scroll', actualizarBordes, { passive: true });
+    window.addEventListener('resize', actualizarBordes);
+    window.addEventListener('load', actualizarBordes);
+    actualizarBordes();
+
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(entradas => {
+            visible = entradas[0].isIntersecting;
+            if (visible) {
+                actualizarBordes();
+                programar(1200);
+            } else {
+                clearTimeout(temporizador);
+            }
+        }, { threshold: 0.6 }).observe(nav);
+    } else {
+        visible = true;
+        programar(1500);
+    }
+}
+
 function iniciarApp() {
     renderizarProductos();
     renderizarMarcas();
