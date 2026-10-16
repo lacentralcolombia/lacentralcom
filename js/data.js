@@ -71,7 +71,7 @@ var productosData = [
         id: 508,
         nombre: "Yogurt Entero con Dulce y Trozos de Fruta J.A x 1950 g (Sabores: Melocotón, Fresa y Mora)",
         categoria: "quesos",
-        subcategoria: "general",
+        subcategoria: "leche-yogures",
         descripcion: "Delicioso yogurt entero con dulce y trozos de fruta marca J.A en presentación familiar de 1.950 gramos. Disponible en sabores surtidos: Melocotón, Fresa y Mora.",
         imagen: "yogurtJA.jpg"
     },
@@ -79,7 +79,7 @@ var productosData = [
         id: 510,
         nombre: "Crema de Leche Original Semientera UHT Alquería Food Service x 1000 g",
         categoria: "quesos",
-        subcategoria: "general",
+        subcategoria: "leche-yogures",
         descripcion: "Crema de leche original semientera UAT (UHT) Alquería Food Service para uso institucional. Ideal para batir, con cremosidad y textura inigualable. Presentación de 1.000 g.",
         imagen: "cremadelechefood1000gramos.jpg"
     },
