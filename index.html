@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    <!-- PORTADA PRINCIPAL (LIMPIA, ÚNICA Y CON VIDEO) -->
+    <!-- PORTADA PRINCIPAL -->
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -93,25 +93,14 @@
                 <span class="hero-subtitle-brand">QUESERA Y SALSAMENTARIA</span>
             </h1>
             <p class="hero-subtitle">Descubre nuestra amplia variedad de quesos, embutidos, alimentos, frutos secos, insumos para coctelería y desechables.</p>
-            
-            <!-- VIDEO PUBLICITARIO CON MARCO BRILLANTE -->
-            <div class="hero-video-container">
-                <div class="video-glow-border">
-                    <video autoplay muted loop playsinline class="hero-promo-video">
-                        <source src="videolacentral.mp4" type="video/mp4">
-                        <source src="videolacentral.MOV" type="video/quicktime">
-                        Tu navegador no soporta videos HTML5.
-                    </video>
-                </div>
-            </div>
-
-            <!-- BOTONES PRINCIPALES -->
             <div class="hero-buttons">
                 <a href="#catalogo" class="btn-primary"><i class="fa-solid fa-utensils"></i> Ver Menú Completo</a>
                 <a href="#nosotros" class="btn-secondary"><i class="fa-solid fa-circle-info"></i> Conócenos</a>
             </div>
         </div>
     </section>
+
+ 
 
     <!-- CATÁLOGO / MENÚ DIGITAL -->
     <section id="catalogo" class="catalog-section">
@@ -162,23 +151,16 @@
                     <!-- DESPLEGABLE COCTELERÍA Y LIQUIPOPS -->
                     <div class="top-dropdown">
                         <button class="top-nav-btn" onclick="toggleTopDropdown('dropdown-cocteleria', event)">
-                            <i class="fa-solid fa-wine-glass-sparkles"></i> Coctelería <i class="fa-solid fa-chevron-down arrow"></i>
+                            <i class="fa-solid fa-wine-glass-sparkles"></i> Coctelería y Micheladas <i class="fa-solid fa-chevron-down arrow"></i>
                         </button>
                         <div class="top-dropdown-content" id="dropdown-cocteleria">
-                            
-                            <!-- BANNER MAGIA DE SABORES -->
-                            <div class="dropdown-banner-container" onclick="filtrarCategoria('cocteleria', 'todos', event)">
-                                <img src="magia-de-sabores.jpg" alt="Magia de Sabores - Todo en Coctelería" class="dropdown-banner-img" onerror="this.style.display='none'">
-                            </div>
-
-                            <button onclick="filtrarCategoria('cocteleria', 'todos', event)"><i class="fa-solid fa-sparkles text-gold"></i> Magia de Sabores (Ver todo)</button>
+                            <button onclick="filtrarCategoria('cocteleria', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Magia de Sabores</button>
                             
                             <div class="sub-dropdown-header"><i class="fa-solid fa-burst text-gold"></i> Perlas Explosivas (Liqui POPS):</div>
                             <button class="btn-all-liqui" onclick="filtrarCategoria('cocteleria', 'liqui-todos', event, '#e6b64f')">
                                 <i class="fa-solid fa-layer-group text-gold"></i> <strong>Ver TODOS los Sabores de Liqui POPS</strong>
                             </button>
 
-                            <!-- CUADRÍCULA DE SABORES -->
                             <div class="liqui-subgrid">
                                 <button onclick="filtrarCategoria('cocteleria', 'liqui-manzana', event, '#2ecc71')"><i class="fa-solid fa-circle" style="color: #2ecc71;"></i> Manzana Verde</button>
                                 <button onclick="filtrarCategoria('cocteleria', 'liqui-blueberry', event, '#4a90e2')"><i class="fa-solid fa-circle" style="color: #4a90e2;"></i> Blueberry</button>
@@ -243,7 +225,7 @@
         </div>
     </section>
 
-    <!-- BENEFICIOS -->
+       <!-- BENEFICIOS -->
     <section id="beneficios" class="benefits-section">
         <div class="benefits-grid">
             <div class="benefit-card">
@@ -263,7 +245,6 @@
             </div>
         </div>
     </section>
-
     <!-- FOOTER -->
     <footer id="contacto">
         <div class="footer-container">
