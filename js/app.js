@@ -7,7 +7,9 @@ let cantidadesTarjetas = {};
 const nombresCategorias = {
     'todos': 'Todas las Categorías',
     'general': 'General',
-    'quesos': 'Quesos y Lácteos',
+    'quesos-bloque': 'Quesos y Lácteos - En Bloque',
+    'quesos-tajados': 'Quesos y Lácteos - Tajados',
+    'quesos-frescos': 'Quesos y Lácteos - Frescos y Tradicionales',
     'embutidos': 'Embutidos y Cárnicos',
     'alimentos': 'Alimentos y Condimentos',
     'frutos-secos': 'Frutos Secos',
