@@ -1572,3 +1572,26 @@ footer a:not(.social-btn):hover {
     transform: scale(1.02);
     filter: brightness(1.1);
 }
+
+/* =========================================================
+   FONDO PROFESIONAL Y LIMPIO PARA LAS TARJETAS DE LIQUIPOPS
+   ========================================================= */
+
+/* Detecta específicamente las tarjetas que pertenecen a los sabores individuales de Liqui POPS */
+.product-card:has(.product-category:not(:empty)) .product-img-wrapper {
+    /* Fondo oscuro base con un destello radial suave y elegante inspirado en coctelería de alta gama */
+    background: radial-gradient(circle at 50% 30%, #222228 0%, #111115 65%, #08080a 100%) !important;
+}
+
+/* Efecto de luz ambiental sutil detrás de la imagen del tarro */
+.product-card:has(.product-category:not(:empty)) .product-img {
+    mix-blend-mode: luminosity; /* Da un acabado mate y cinematográfico a la foto del producto */
+    opacity: 0.92;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.product-card:has(.product-category:not(:empty)):hover .product-img {
+    mix-blend-mode: normal; /* Al pasar el mouse recupera su color vibrante original */
+    opacity: 1;
+    transform: scale(1.06);
+}
