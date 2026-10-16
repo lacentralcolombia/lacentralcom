@@ -1663,3 +1663,59 @@ body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
         margin: 15px auto;
     }
 }
+/* =========================================================
+   CORRECCIÓN DE ESPACIOS EN LA PORTADA Y BOTÓN DE SONIDO
+   ========================================================= */
+
+.hero {
+    height: auto !important;
+    min-height: 90vh;
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Botón flotante para activar el sonido sobre el video */
+.hero-video-container {
+    position: relative;
+}
+
+.btn-sound-toggle {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    border: 1px solid rgba(230, 182, 79, 0.6);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    backdrop-filter: blur(4px);
+    z-index: 5;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-sound-toggle:hover {
+    transform: scale(1.05);
+    background: var(--red-brand);
+}
