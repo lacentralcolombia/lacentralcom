@@ -588,3 +588,24 @@ window.addEventListener('load', iniciarApp);
         attributeFilter: ['class']
     });
 })();
+// CONTROL DE AUDIO PARA EL VIDEO DE LA PORTADA
+function toggleAudioVideo() {
+    const video = document.getElementById('promo-video');
+    const btn = document.getElementById('sound-btn');
+    if (!video) return;
+
+    if (video.muted) {
+        video.muted = false;
+        video.play();
+        if (btn) {
+            btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Silenciar';
+            btn.style.background = 'var(--red-brand)';
+        }
+    } else {
+        video.muted = true;
+        if (btn) {
+            btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i> Activar Sonido';
+            btn.style.background = 'rgba(0, 0, 0, 0.75)';
+        }
+    }
+}
