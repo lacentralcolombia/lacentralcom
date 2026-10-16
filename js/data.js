@@ -73,7 +73,7 @@ var productosData = [
         categoria: "lacteos",
         subcategoria: "yogures",
         descripcion: "Yogurt entero con dulce, sabor a melocotón y con deliciosos trozos de fruta, marca J.A en presentación familiar de 1.950 g.",
-        imagen: "yogurtJA.jgp.jpg"
+        imagen: "yogurtJA.jpg"
     },
    
     {
