@@ -48,8 +48,8 @@ var productosData = [
         nombre: "Queso Tajado Semigraso Semiduro Frescocrema La Favorita x 500 g",
         categoria: "quesos",
         subcategoria: "quesos-tajados",
-        descripcion: "Queso semigraso, semiduro y fresco crema marca La Favorita en presentación tajada de 400 gramos.",
-        imagen: "quesotajadolafavorita400gramos.jpg"
+        descripcion: "Queso semigraso, semiduro y fresco crema marca La Favorita en presentación tajada de 500 gramos.",
+        imagen: "quesotajadolafavorita500gramos.jpg"
     },
     {
         id: 506,
