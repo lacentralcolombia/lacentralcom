@@ -35,6 +35,14 @@ var productosData = [
         descripcion: "Queso semigraso, semiduro y fresco crema marca La Favorita en práctica presentación tajada de 200 g.",
         imagen: "quesotajadolafavorita200gramos.jpg"
     },
+      {
+        id: 505,
+        nombre: "Queso Tajado Semigraso Semiduro Frescocrema La Favorita x 400 g",
+        categoria: "quesos",
+        subcategoria: "quesos-tajados",
+        descripcion: "Queso semigraso, semiduro y fresco crema marca La Favorita en presentación tajada de 400 gramos.",
+        imagen: "quesotajadolafavorita400gramos.jpg"
+    },
     {
         id: 504,
         nombre: "Queso Campesino Fresco Graso Molido Semiblando La Favorita x 500 g",
@@ -43,14 +51,7 @@ var productosData = [
         descripcion: "Queso fresco graso, molido y semiblando tipo campesino, marca La Favorita en presentación de 500 gramos.",
         imagen: "quesocampesino500gramos.jpg"
     },
-    {
-        id: 505,
-        nombre: "Queso Tajado Semigraso Semiduro Frescocrema La Favorita x 400 g",
-        categoria: "quesos",
-        subcategoria: "quesos-tajados",
-        descripcion: "Queso semigraso, semiduro y fresco crema marca La Favorita en presentación tajada de 400 gramos.",
-        imagen: "quesotajadolafavorita400gramos.jpg"
-    },
+  
     {
         id: 2,
         nombre: "Quesos Artesanales",
