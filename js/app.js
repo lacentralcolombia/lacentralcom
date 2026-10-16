@@ -60,6 +60,7 @@ function toggleMobileMenu() {
     const mobileNav = document.getElementById('mobile-nav');
     const overlay = document.getElementById('mobile-nav-overlay');
     if (mobileNav) {
+        cerrarTodosLosDropdowns();
         mobileNav.classList.toggle('open');
         document.body.classList.toggle('menu-open');
         if (overlay) overlay.classList.toggle('open');
@@ -88,33 +89,86 @@ function navegarYFiltrar(categoria, subcategoria = null, idSeccion = 'catalogo',
     filtrarCategoria(categoria, subcategoria, event, colorExplosion);
 }
 
-// CONTROL DE DESPLEGABLES SUPERIORES
+/* =========================================================
+   DESPLEGABLES SUPERIORES (siempre al frente de los productos)
+   Mientras un menú está abierto se mueve al <body> y se
+   posiciona justo debajo de su botón. Al cerrarse vuelve a
+   su lugar. Así ninguna capa del catálogo lo puede tapar,
+   ni en PC ni en celular.
+   ========================================================= */
+const dropdownHogar = new Map(); // menu -> { padre, boton }
+
+function posicionarDropdown(menu, boton) {
+    if (!menu || !boton) return;
+    const rect = boton.getBoundingClientRect();
+    menu.style.top = (rect.bottom + 6) + 'px';
+
+    const ancho = menu.offsetWidth || 320;
+    const left = Math.min(rect.left, window.innerWidth - ancho - 10);
+    menu.style.left = Math.max(10, left) + 'px';
+}
+
+function cerrarDropdown(menu) {
+    menu.classList.remove('open');
+    const hogar = dropdownHogar.get(menu);
+    if (hogar && hogar.padre) {
+        hogar.padre.appendChild(menu);
+    }
+    dropdownHogar.delete(menu);
+}
+
+function cerrarTodosLosDropdowns() {
+    document.querySelectorAll('.top-dropdown-content.open').forEach(cerrarDropdown);
+}
+
+function reposicionarDropdownsAbiertos() {
+    dropdownHogar.forEach((hogar, menu) => {
+        const rect = hogar.boton.getBoundingClientRect();
+        // Si el botón sale de la pantalla, se cierra el menú
+        if (rect.bottom < 60 || rect.top > window.innerHeight) {
+            cerrarDropdown(menu);
+        } else {
+            posicionarDropdown(menu, hogar.boton);
+        }
+    });
+}
+
 function toggleTopDropdown(idDropdown, event) {
     if (event && typeof event.stopPropagation === 'function') {
         event.stopPropagation();
     }
-    
-    const target = document.getElementById(idDropdown);
-    if (!target) return;
 
-    const estaAbierto = target.classList.contains('open');
+    const menu = document.getElementById(idDropdown);
+    if (!menu) return;
 
-    document.querySelectorAll('.top-dropdown-content').forEach(d => {
-        d.classList.remove('open');
-    });
+    const boton = (event && event.currentTarget)
+        || document.querySelector(`[onclick*="${idDropdown}"]`);
 
-    if (!estaAbierto) {
-        target.classList.add('open');
-    }
+    const estabaAbierto = menu.classList.contains('open');
+    cerrarTodosLosDropdowns();
+    if (estabaAbierto) return;
+
+    dropdownHogar.set(menu, { padre: menu.parentElement, boton: boton });
+    document.body.appendChild(menu);
+    menu.classList.add('open');
+    posicionarDropdown(menu, boton);
 }
 
+// Cerrar al hacer clic fuera
 document.addEventListener('click', (e) => {
-    if (!e.target.closest('.top-dropdown')) {
-        document.querySelectorAll('.top-dropdown-content').forEach(d => {
-            d.classList.remove('open');
-        });
+    if (!e.target.closest('.top-dropdown') && !e.target.closest('.top-dropdown-content')) {
+        cerrarTodosLosDropdowns();
     }
 });
+
+// Cerrar con la tecla Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') cerrarTodosLosDropdowns();
+});
+
+// Mantener el menú pegado a su botón al hacer scroll o girar el celular
+window.addEventListener('scroll', reposicionarDropdownsAbiertos, { passive: true });
+window.addEventListener('resize', reposicionarDropdownsAbiertos);
 
 // EFECTO DE EXPLOSIÓN DE PERLAS CON SONIDO POP
 function crearEfectoExplosion(event, colorHex) {
@@ -197,11 +251,11 @@ function renderizarMarcas() {
     const container = document.getElementById('brands-container');
     if (!container) return;
     container.innerHTML = '';
-    
+
     marcas.forEach(marca => {
         const card = document.createElement('div');
         card.className = 'brand-card';
-        card.innerHTML = `<img src="${marca.logo}" alt="Logo ${marca.nombre}" class="brand-img" onerror="this.src='https://via.placeholder.com/150x50?text=Marca'">`;
+        card.innerHTML = `<img src="${marca.logo}" alt="Logo ${marca.nombre}" class="brand-img" loading="lazy" onerror="this.src='https://via.placeholder.com/150x50?text=Marca'">`;
         container.appendChild(card);
     });
 }
@@ -245,8 +299,8 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
 
     if (filtroTexto.trim() !== '') {
         const query = filtroTexto.toLowerCase();
-        filtrados = filtrados.filter(p => 
-            p.nombre.toLowerCase().includes(query) || 
+        filtrados = filtrados.filter(p =>
+            p.nombre.toLowerCase().includes(query) ||
             p.descripcion.toLowerCase().includes(query)
         );
     }
@@ -266,8 +320,8 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
             cantidadesTarjetas[prod.id] = 1;
         }
 
-        const catNombre = (prod.subcategoria && prod.subcategoria !== 'general' && nombresCategorias[prod.subcategoria]) 
-            ? nombresCategorias[prod.subcategoria] 
+        const catNombre = (prod.subcategoria && prod.subcategoria !== 'general' && nombresCategorias[prod.subcategoria])
+            ? nombresCategorias[prod.subcategoria]
             : (nombresCategorias[prod.categoria] || prod.categoria);
 
         const nombreLimpio = prod.nombre.replace(/'/g, "\\'");
@@ -277,7 +331,7 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
         card.className = 'product-card';
         card.innerHTML = `
             <div class="product-img-wrapper" onclick="ampliarImagen('${imgLimpia}', '${nombreLimpio}')">
-                <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img" onerror="this.src='https://via.placeholder.com/500?text=Producto'">
+                <img src="${prod.imagen}" alt="${prod.nombre}" class="product-img" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/500?text=Producto'">
                 <span class="zoom-hint"><i class="fa-solid fa-eye"></i> Ver más</span>
             </div>
             <div class="product-info">
@@ -346,8 +400,8 @@ function filtrarCategoria(cat, subcat = null, event = null, colorExplosion = nul
     if (event && event.currentTarget && event.currentTarget.classList) {
         event.currentTarget.classList.add('active');
     }
-    
-    document.querySelectorAll('.top-dropdown-content').forEach(d => d.classList.remove('open'));
+
+    cerrarTodosLosDropdowns();
     renderizarProductos(cat, subcat);
 }
 
@@ -402,8 +456,8 @@ function actualizarCarritoUI() {
     } else {
         carrito.forEach(prod => {
             totalItems += prod.cantidad;
-            const subName = (prod.subcategoria && prod.subcategoria !== 'general' && nombresCategorias[prod.subcategoria]) 
-                ? nombresCategorias[prod.subcategoria] 
+            const subName = (prod.subcategoria && prod.subcategoria !== 'general' && nombresCategorias[prod.subcategoria])
+                ? nombresCategorias[prod.subcategoria]
                 : (nombresCategorias[prod.categoria] || prod.categoria);
 
             const itemDiv = document.createElement('div');
@@ -460,6 +514,8 @@ function enviarPedidoWhatsApp() {
             const basePath = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
             urlImagen = basePath + p.imagen.replace(/^\.\//, '');
         }
+        // Codifica espacios y caracteres especiales para que el enlace funcione en WhatsApp
+        urlImagen = encodeURI(urlImagen);
 
         msg += `• *${p.nombre}* (${p.cantidad} unidad${p.cantidad > 1 ? 'es' : ''})\n`;
         msg += `  🖼️ Ver imagen: ${urlImagen}\n\n`;
@@ -474,6 +530,12 @@ function enviarPedidoWhatsApp() {
 function iniciarApp() {
     renderizarProductos();
     renderizarMarcas();
+
+    // Si se desliza de lado la barra de categorías, el menú abierto la sigue
+    const barraCategorias = document.querySelector('.top-nav-menu');
+    if (barraCategorias) {
+        barraCategorias.addEventListener('scroll', reposicionarDropdownsAbiertos, { passive: true });
+    }
 }
 
 if (document.readyState === 'loading') {
