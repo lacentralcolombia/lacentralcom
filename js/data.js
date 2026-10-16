@@ -36,6 +36,14 @@ var productosData = [
         imagen: "quesotajadolafavorita200gramos.jpg"
     },
     {
+        id: 504,
+        nombre: "Queso Campesino Fresco Graso Molido Semiblando La Favorita x 500 g",
+        categoria: "quesos",
+        subcategoria: "quesos-frescos",
+        descripcion: "Queso fresco graso, molido y semiblando tipo campesino, marca La Favorita en presentación de 500 gramos.",
+        imagen: "quesocampesino500gramos.jpg"
+    },
+    {
         id: 2,
         nombre: "Quesos Artesanales",
         categoria: "quesos",
