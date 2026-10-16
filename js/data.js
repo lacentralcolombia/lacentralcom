@@ -29,7 +29,7 @@ var productosData = [
     },
     {
         id: 503,
-        nombre: "Queso Tajado Semigraso Semiduro Frescocrema La Favorita x 200 g",
+        nombre: "Queso Tajado 200g Semigraso Semiduro Frescocrema La Favorita ",
         categoria: "quesos",
         subcategoria: "quesos-tajados",
         descripcion: "Queso semigraso, semiduro y fresco crema marca La Favorita en práctica presentación tajada de 200 g.",
@@ -37,7 +37,7 @@ var productosData = [
     },
       {
         id: 504,
-        nombre: "Queso Tajado Semigraso Semiduro Frescocrema La Favorita x 400 g",
+        nombre: "Queso Tajado 400g Semigraso Semiduro Frescocrema La Favorita ",
         categoria: "quesos",
         subcategoria: "quesos-tajados",
         descripcion: "Queso semigraso, semiduro y fresco crema marca La Favorita en presentación tajada de 400 gramos.",
@@ -45,7 +45,7 @@ var productosData = [
     },
     {
         id: 505,
-        nombre: "Queso Tajado Semigraso Semiduro Frescocrema La Favorita x 500 g",
+        nombre: "Queso Tajado 500g Semigraso Semiduro Frescocrema La Favorita ",
         categoria: "quesos",
         subcategoria: "quesos-tajados",
         descripcion: "Queso semigraso, semiduro y fresco crema marca La Favorita en presentación tajada de 500 gramos.",
@@ -53,7 +53,7 @@ var productosData = [
     },
     {
         id: 506,
-        nombre: "Queso Campesino Fresco Graso Molido Semiblando La Favorita x 500 g",
+        nombre: "Queso Campesino 500g Fresco Graso Molido Semiblando La Favorita ",
         categoria: "quesos",
         subcategoria: "quesos-frescos",
         descripcion: "Queso fresco graso, molido y semiblando tipo campesino, marca La Favorita en presentación de 500 gramos.",
@@ -61,7 +61,7 @@ var productosData = [
     },
     {
         id: 507,
-        nombre: "Queso Cuajada Semigraso Semiduro Fresco La Favorita x 500 g",
+        nombre: "Queso Cuajada 500g Semigraso Semiduro Fresco La Favorita",
         categoria: "quesos",
         subcategoria: "quesos-frescos",
         descripcion: "Queso cuajada semigraso, semiduro y fresco, marca La Favorita en presentación empacada de 500 gramos.",
