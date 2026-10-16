@@ -657,32 +657,64 @@ footer {
     padding-top: 20px;
 }
 
-/* MODAL Y CARRITO */
+/* MODAL Y CARRITO CORREGIDO */
 .image-modal {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.92);
     z-index: 200000;
-    padding: 40px;
+    padding: 30px 20px;
     text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-modal.open {
+    display: flex !important;
 }
 
 .modal-content {
     max-width: 90%;
-    max-height: 80vh;
+    max-height: 72vh;
+    object-fit: contain;
     border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
 }
 
 .close-modal {
     position: absolute;
     top: 20px;
-    right: 30px;
-    font-size: 2.5rem;
+    right: 25px;
+    font-size: 2rem;
     color: white;
     cursor: pointer;
+    z-index: 200005;
+    background: rgba(0, 0, 0, 0.6);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
 }
 
+.close-modal:hover {
+    background: var(--red-brand);
+}
+
+/* Texto o título debajo de la imagen ampliada */
+.modal-caption, #caption-modal {
+    margin-top: 15px;
+    color: #fff;
+    font-size: 0.95rem;
+    max-width: 600px;
+    padding: 0 15px;
+    z-index: 200005;
+    word-wrap: break-word;
+}
 .cart-overlay {
     display: none;
     position: fixed;
