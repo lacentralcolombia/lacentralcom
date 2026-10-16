@@ -148,44 +148,27 @@
                         <i class="fa-solid fa-seedling"></i> Frutos Secos
                     </button>
 
-                  <!-- DESPLEGABLE COCTELERÍA Y LIQUIPOPS -->
+                 <!-- DESPLEGABLE COCTELERÍA Y LIQUIPOPS -->
                     <div class="top-dropdown">
                         <button class="top-nav-btn" onclick="toggleTopDropdown('dropdown-cocteleria', event)">
                             <i class="fa-solid fa-wine-glass-sparkles"></i> Coctelería y Micheladas <i class="fa-solid fa-chevron-down arrow"></i>
                         </button>
                         <div class="top-dropdown-content" id="dropdown-cocteleria">
                             
-                            <!-- IMAGEN DESTACADA MAGIA DE SABORES -->
+                            <!-- BANNER MAGIA DE SABORES -->
                             <div class="dropdown-banner-container" onclick="filtrarCategoria('cocteleria', 'todos', event)">
                                 <img src="magia-de-sabores.jpg" alt="Magia de Sabores - Todo en Coctelería" class="dropdown-banner-img" onerror="this.style.display='none'">
                             </div>
 
-                            <button onclick="filtrarCategoria('cocteleria', 'todos', event)"><i class="fa-solid fa-sparkles text-gold"></i> Magia de Sabores</button>
+                            <button onclick="filtrarCategoria('cocteleria', 'todos', event)"><i class="fa-solid fa-sparkles text-gold"></i> Magia de Sabores (Ver todo)</button>
                             
                             <div class="sub-dropdown-header"><i class="fa-solid fa-burst text-gold"></i> Perlas Explosivas (Liqui POPS):</div>
                             <button class="btn-all-liqui" onclick="filtrarCategoria('cocteleria', 'liqui-todos', event, '#e6b64f')">
                                 <i class="fa-solid fa-layer-group text-gold"></i> <strong>Ver TODOS los Sabores de Liqui POPS</strong>
                             </button>
 
+                            <!-- CUADRÍCULA DE SABORES (Única fuente de los sabores) -->
                             <div class="liqui-subgrid">
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-manzana', event, '#2ecc71')"><i class="fa-solid fa-circle" style="color: #2ecc71;"></i> Manzana Verde</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-blueberry', event, '#4a90e2')"><i class="fa-solid fa-circle" style="color: #4a90e2;"></i> Blueberry</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-coco', event, '#ffffff')"><i class="fa-solid fa-circle" style="color: #ffffff;"></i> Coco</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-cereza', event, '#e3211b')"><i class="fa-solid fa-circle" style="color: #e3211b;"></i> Cereza</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-lychee', event, '#ff69b4')"><i class="fa-solid fa-circle" style="color: #ff69b4;"></i> Lychee</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-sandia', event, '#ff4757')"><i class="fa-solid fa-circle" style="color: #ff4757;"></i> Sandía</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-icepink', event, '#ff69b4')"><i class="fa-solid fa-circle" style="color: #ff69b4;"></i> Ice Pink</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-fresa', event, '#e3211b')"><i class="fa-solid fa-circle" style="color: #e3211b;"></i> Fresa</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-chicle', event, '#00bfff')"><i class="fa-solid fa-circle" style="color: #00bfff;"></i> Chicle</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-mango', event, '#2ecc71')"><i class="fa-solid fa-circle" style="color: #2ecc71;"></i> Mango Biche</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-maracuya', event, '#f5a623')"><i class="fa-solid fa-circle" style="color: #f5a623;"></i> Maracuyá</button>
-                                <button onclick="filtrarCategoria('cocteleria', 'liqui-cafe', event, '#8b4513')"><i class="fa-solid fa-circle" style="color: #8b4513;"></i> Café</button>
-                            </div>
-
-                            <button onclick="filtrarCategoria('cocteleria', 'siropes', event)"><i class="fa-solid fa-bottle-droplet"></i> Siropes y Chamoy</button>
-                            <button onclick="filtrarCategoria('cocteleria', 'escarchas', event)"><i class="fa-solid fa-compact-disc"></i> Escarchas y Micheladas</button>
-                        </div>
-                    </div>
                                 <button onclick="filtrarCategoria('cocteleria', 'liqui-manzana', event, '#2ecc71')"><i class="fa-solid fa-circle" style="color: #2ecc71;"></i> Manzana Verde</button>
                                 <button onclick="filtrarCategoria('cocteleria', 'liqui-blueberry', event, '#4a90e2')"><i class="fa-solid fa-circle" style="color: #4a90e2;"></i> Blueberry</button>
                                 <button onclick="filtrarCategoria('cocteleria', 'liqui-coco', event, '#ffffff')"><i class="fa-solid fa-circle" style="color: #ffffff;"></i> Coco</button>
