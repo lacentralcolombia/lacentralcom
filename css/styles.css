@@ -1422,3 +1422,127 @@ footer a:not(.social-btn):hover {
         scroll-behavior: auto !important;
     }
 }
+
+/* =========================================================
+   AJUSTES FINALES
+   ========================================================= */
+
+/* Clase usada en el HTML para los íconos dorados */
+.text-gold {
+    color: var(--gold-brand);
+}
+
+/* ---------- DESPLEGABLES: letras más grandes ---------- */
+.top-dropdown-content {
+    min-width: 320px;
+    max-height: 70vh;
+    max-height: 70dvh;
+}
+
+.top-dropdown-content button {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 13px 18px;
+}
+
+.top-dropdown-content button > i {
+    width: 22px;
+    text-align: center;
+    margin-right: 8px;
+}
+
+.sub-dropdown-header {
+    font-size: 1rem;
+    padding: 10px 18px;
+}
+
+.liqui-subgrid {
+    gap: 6px;
+    padding: 6px 12px;
+}
+
+.liqui-subgrid button {
+    font-size: 1.05rem;
+    padding: 10px 12px;
+}
+
+.liqui-subgrid button i.fa-circle,
+.liqui-bubble {
+    width: 20px;
+    height: 20px;
+}
+
+.top-nav-btn .arrow {
+    margin-left: 6px;
+    font-size: 0.8em;
+}
+
+.top-nav-menu {
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-brand) #1a1a1a;
+}
+
+/* ---------- MENÚ MÓVIL: apertura suave y elegante ---------- */
+.mobile-nav-overlay {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-nav-overlay.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mobile-nav {
+    height: 100vh;
+    height: 100dvh;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    visibility: hidden;
+    transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.4s;
+}
+
+.mobile-nav.open {
+    visibility: visible;
+    transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+}
+
+/* Los botones del menú aparecen uno tras otro */
+.mobile-nav-links li {
+    opacity: 0;
+    transform: translateX(24px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.mobile-nav.open .mobile-nav-links li {
+    opacity: 1;
+    transform: none;
+}
+
+.mobile-nav.open .mobile-nav-links li:nth-child(1) { transition-delay: 0.12s; }
+.mobile-nav.open .mobile-nav-links li:nth-child(2) { transition-delay: 0.18s; }
+.mobile-nav.open .mobile-nav-links li:nth-child(3) { transition-delay: 0.24s; }
+.mobile-nav.open .mobile-nav-links li:nth-child(4) { transition-delay: 0.30s; }
+.mobile-nav.open .mobile-nav-links li:nth-child(5) { transition-delay: 0.36s; }
+.mobile-nav.open .mobile-nav-links li:nth-child(6) { transition-delay: 0.42s; }
+.mobile-nav.open .mobile-nav-links li:nth-child(7) { transition-delay: 0.48s; }
+
+/* El carrito también se ajusta a la altura real del celular */
+.cart-drawer {
+    height: 100vh;
+    height: 100dvh;
+}
+
+/* ---------- CELULARES PEQUEÑOS ---------- */
+@media (max-width: 480px) {
+    .btn-cart-text {
+        display: none;
+    }
+
+    .btn-cart {
+        padding: 8px 12px;
+    }
+}
