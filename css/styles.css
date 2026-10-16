@@ -1597,3 +1597,12 @@ footer a:not(.social-btn):hover {
     background: linear-gradient(135deg, #e3211b, #b51915) !important;
     border-color: #fff !important;
 }
+
+/* =========================================================
+   OCULTAR SECCIÓN DE MARCAS CUANDO SE FILTRA COCTELERÍA
+   ========================================================= */
+
+/* Cuando la página está mostrando productos de coctelería, oculta automáticamente la sección de marcas */
+body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
+    display: none !important;
+}
