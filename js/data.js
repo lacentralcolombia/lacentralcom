@@ -18,6 +18,15 @@ var productosData = [
         descripcion: "Queso fresco semiduro, semigraso y moldeado con cuajo, marca Lácteos Villa Gloria en práctico bloque tajado.",
         imagen: "bloquequesomozzarelatajado.jpg"
     },
+
+    {
+        id: 502,
+        nombre: "Queso Bloque Semigraso Semiduro Frescocrema La Favorita x 2.500 g",
+        categoria: "quesos",
+        subcategoria: "quesos-bloque",
+        descripcion: "Queso semigraso, semiduro y fresco crema marca La Favorita en presentación de bloque con peso neto de 2.500 g.",
+        imagen: "quesobloquelafavorita.jpg"
+    },
     {
         id: 2,
         nombre: "Quesos Artesanales",
