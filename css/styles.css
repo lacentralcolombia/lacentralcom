@@ -1,6 +1,4 @@
-/* =========================================================
-   VARIABLES GLOBALES
-   ========================================================= */
+/* VARIABLES GLOBALES */
 :root {
     --bg-dark: #0f0f0f;
     --bg-card: #181818;
@@ -12,14 +10,10 @@
     --border-color: #2a2a2a;
 }
 
-*, *::before, *::after {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
@@ -27,12 +21,6 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-light);
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-}
-
-[id] {
-    scroll-margin-top: 90px;
 }
 
 a {
@@ -40,9 +28,7 @@ a {
     color: inherit;
 }
 
-/* =========================================================
-   NAVBAR
-   ========================================================= */
+/* NAVBAR */
 .navbar {
     position: fixed;
     top: 0;
@@ -56,7 +42,6 @@ a {
     padding: 12px 5%;
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
 .logo-img {
@@ -72,24 +57,7 @@ a {
 
 .nav-links a {
     font-weight: 500;
-    position: relative;
-    padding: 6px 0;
     transition: color 0.3s;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gold-brand);
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
 }
 
 .nav-links a:hover {
@@ -113,13 +81,6 @@ a {
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 14px rgba(230, 182, 79, 0.3);
-}
-
-.btn-cart:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(230, 182, 79, 0.45);
 }
 
 .cart-badge {
@@ -130,6 +91,7 @@ a {
     font-size: 0.8rem;
 }
 
+/* BOTÓN DE TRES RAYITAS DESTACADO EN ROJO */
 .mobile-menu-toggle {
     display: none;
     background: var(--red-brand);
@@ -150,20 +112,18 @@ a {
     transform: scale(0.95);
 }
 
-/* =========================================================
-   HERO SECTION & VIDEO CON MARCO BRILLANTE
-   ========================================================= */
+/* HERO SECTION */
 .hero {
     position: relative;
-    min-height: 100vh;
-    height: auto !important;
+    height: 80vh;
+    min-height: 500px;
     background: url('https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=1600') center/cover no-repeat;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 130px 20px 80px 20px;
+    padding: 0 20px;
+    margin-top: 70px;
 }
 
 .hero-overlay {
@@ -174,14 +134,8 @@ a {
 
 .hero-content {
     position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 850px;
-    margin: 0 auto;
+    z-index: 1;
+    max-width: 800px;
 }
 
 .hero-badge {
@@ -193,16 +147,13 @@ a {
     font-size: 0.9rem;
     margin-bottom: 15px;
     display: inline-block;
-    backdrop-filter: blur(6px);
 }
 
 .hero-title {
-    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-size: 3rem;
     font-weight: 900;
     color: var(--red-brand);
     margin-bottom: 10px;
-    line-height: 1.15;
-    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
 }
 
 .hero-subtitle-brand {
@@ -215,101 +166,33 @@ a {
 .hero-subtitle {
     font-size: 1.1rem;
     color: var(--text-muted);
-    margin-bottom: 15px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Contenedor del video publicitario */
-.hero-video-container {
-    position: relative;
-    width: 100%;
-    max-width: 520px;
-    margin: 10px auto 20px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@keyframes borderGlowPulse {
-    0% {
-        box-shadow: 0 0 15px rgba(230, 182, 79, 0.4), inset 0 0 15px rgba(230, 182, 79, 0.2);
-        border-color: #e6b64f;
-    }
-    50% {
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 50px rgba(227, 33, 27, 0.4), inset 0 0 25px rgba(255, 215, 0, 0.5);
-        border-color: #fff275;
-    }
-    100% {
-        box-shadow: 0 0 15px rgba(230, 182, 79, 0.4), inset 0 0 15px rgba(230, 182, 79, 0.2);
-        border-color: #e6b64f;
-    }
-}
-
-.video-glow-border {
-    position: relative;
-    width: 100%;
-    border-radius: 14px;
-    border: 3px solid #e6b64f;
-    padding: 4px;
-    background: rgba(0, 0, 0, 0.85);
-    animation: borderGlowPulse 3s ease-in-out infinite;
-    overflow: hidden;
-}
-
-.hero-promo-video {
-    width: 100%;
-    height: auto;
-    max-height: 360px;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
+    margin-bottom: 25px;
 }
 
 .hero-buttons {
     display: flex;
     gap: 15px;
     justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-.btn-primary,
-.btn-secondary {
-    display: inline-block;
-    padding: 12px 28px;
-    border-radius: 25px;
-    font-weight: 700;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .btn-primary {
     background-color: var(--red-brand);
     color: white;
-    box-shadow: 0 6px 20px rgba(227, 33, 27, 0.4);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 28px rgba(227, 33, 27, 0.55);
-    background-color: #f02a24;
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-weight: 700;
+    transition: transform 0.2s;
 }
 
 .btn-secondary {
     border: 2px solid white;
     color: white;
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-weight: 700;
 }
 
-.btn-secondary:hover {
-    background: #ffffff;
-    color: #0f0f0f;
-    transform: translateY(-3px);
-}
-
-/* =========================================================
-   BENEFICIOS
-   ========================================================= */
+/* BENEFICIOS */
 .benefits-section {
     padding: 60px 5%;
     background-color: #141414;
@@ -327,31 +210,17 @@ a {
     border-radius: 12px;
     border: 1px solid var(--border-color);
     text-align: center;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .benefit-icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--gold-brand);
-    margin: 0 auto 18px;
-    width: 72px;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(230, 182, 79, 0.1);
-    border: 1px solid rgba(230, 182, 79, 0.3);
+    margin-bottom: 15px;
 }
 
-/* =========================================================
-   CATÁLOGO Y MENÚ DESLIZANTE CON MOVIMIENTO Y LUCES
-   ========================================================= */
+/* CATÁLOGO Y DESPLEGABLES */
 .catalog-section {
     padding: 60px 5%;
-    position: relative;
-    z-index: 20;
-    overflow: visible !important;
 }
 
 .section-header {
@@ -362,7 +231,6 @@ a {
 .section-title {
     font-size: 2.2rem;
     color: var(--gold-brand);
-    font-weight: 800;
 }
 
 .search-bar-container {
@@ -387,94 +255,27 @@ a {
     background: #1f1f1f;
     color: white;
     font-size: 1rem;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-#input-buscar:focus {
-    outline: none;
-    border-color: var(--gold-brand);
-    box-shadow: 0 0 0 3px rgba(230, 182, 79, 0.2);
 }
 
 .catalog-top-nav {
     margin-bottom: 30px;
-    position: relative;
-    z-index: 50;
 }
 
 .top-nav-menu {
     display: flex;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    overflow-y: visible !important;
-    gap: 12px;
-    justify-content: flex-start !important;
-    padding: 12px 15px 18px 15px;
-    max-width: 100%;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    position: relative;
-    background: radial-gradient(circle at center, rgba(227, 33, 27, 0.12) 0%, rgba(230, 182, 79, 0.05) 50%, transparent 90%);
-    border-radius: 16px;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
-    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-}
-
-.top-nav-menu::-webkit-scrollbar {
-    height: 6px;
-}
-
-.top-nav-menu::-webkit-scrollbar-track {
-    background: #1a1a1a;
-    border-radius: 10px;
-}
-
-.top-nav-menu::-webkit-scrollbar-thumb {
-    background: var(--gold-brand);
-    border-radius: 10px;
-}
-
-.top-nav-menu::before,
-.top-nav-menu::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 30px;
-    height: 100%;
-    pointer-events: none;
-    z-index: 5;
-}
-
-.top-nav-menu::before {
-    left: 0;
-    background: linear-gradient(to right, rgba(230, 182, 79, 0.25), transparent);
-}
-
-.top-nav-menu::after {
-    right: 0;
-    background: linear-gradient(to left, rgba(227, 33, 27, 0.25), transparent);
-}
-
-@keyframes pulseHint {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(6px); }
-}
-
-.top-nav-menu .top-nav-btn:nth-last-child(2) {
-    animation: pulseHint 2s ease-in-out infinite;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
 
 .top-nav-btn {
     background: #222;
     border: 1px solid var(--border-color);
     color: white;
-    padding: 12px 22px;
-    border-radius: 22px;
+    padding: 10px 20px;
+    border-radius: 20px;
     cursor: pointer;
-    font-weight: 600;
-    font-size: 1.05rem;
-    white-space: nowrap;
+    font-weight: 500;
 }
 
 .top-nav-btn.active, .top-nav-btn:hover {
@@ -482,23 +283,23 @@ a {
     border-color: var(--red-brand);
 }
 
+/* DROPDOWN */
 .top-dropdown {
-    position: static;
+    position: relative;
     display: inline-block;
 }
 
 .top-dropdown-content {
     display: none;
-    position: fixed;
-    min-width: 320px;
-    max-width: 92vw;
-    max-height: 70vh;
-    overflow-y: auto;
-    background: linear-gradient(180deg, #1f1f1f 0%, #141414 100%);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 290px;
+    background-color: #1a1a1a;
     border: 1px solid var(--gold-brand);
-    border-radius: 12px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
-    z-index: 100000 !important;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    z-index: 2000;
     padding: 10px 0;
 }
 
@@ -508,7 +309,7 @@ a {
 
 .top-dropdown-content button {
     width: 100%;
-    padding: 13px 18px;
+    padding: 10px 15px;
     background: none;
     border: none;
     color: white;
@@ -516,8 +317,6 @@ a {
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: 1.1rem;
-    font-weight: 500;
 }
 
 .top-dropdown-content button:hover {
@@ -525,8 +324,8 @@ a {
 }
 
 .sub-dropdown-header {
-    padding: 10px 18px;
-    font-size: 1rem;
+    padding: 8px 15px;
+    font-size: 0.85rem;
     color: var(--gold-brand);
     font-weight: bold;
 }
@@ -534,71 +333,67 @@ a {
 .liqui-subgrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 6px;
-    padding: 6px 12px;
+    gap: 5px;
+    padding: 5px 10px;
 }
 
 .liqui-subgrid button {
-    font-size: 1.05rem;
-    padding: 10px 12px;
+    font-size: 0.85rem;
+    padding: 6px 10px;
     border-radius: 4px;
 }
 
+/* BURBUJAS / PERLAS 3D GLOSSY REALISTAS */
 .liqui-subgrid button i.fa-circle,
 .liqui-bubble {
     font-size: 0 !important;
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     position: relative;
     vertical-align: middle;
     margin-right: 8px;
     background: radial-gradient(circle at 35% 35%, #ffffff 0%, currentColor 55%, #000000 100%) !important;
-    box-shadow: 0 0 8px currentColor, inset -2px -2px 4px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 8px currentColor, inset -2px -2px 4px rgba(0, 0, 0, 0.7), inset 1px 1px 3px rgba(255, 255, 255, 0.9);
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
 }
 
-.dropdown-banner-container {
-    padding: 8px 12px;
-    text-align: center;
-    cursor: pointer;
+.liqui-subgrid button:hover i.fa-circle,
+.liqui-subgrid button:hover .liqui-bubble {
+    transform: scale(1.4);
+    box-shadow: 0 0 14px currentColor, inset -2px -2px 4px rgba(0, 0, 0, 0.5), inset 1px 1px 4px #ffffff;
 }
 
-.dropdown-banner-img {
-    width: 100%;
-    max-height: 130px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid var(--gold-brand);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+/* PARTÍCULAS DE EXPLOSIÓN Y ANIMACIÓN POP */
+.pop-sphere-particle {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 99999;
+    animation: explosionAnim 0.75s ease-out forwards;
 }
 
-#dropdown-cocteleria {
-    background-image: linear-gradient(to bottom, rgba(15, 15, 18, 0.92), rgba(15, 15, 18, 0.96)), url('../magia-de-sabores.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    border: 1px solid rgba(230, 182, 79, 0.3);
+@keyframes explosionAnim {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        opacity: 0.95;
+        transform: translate(var(--dx), var(--dy)) scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(var(--dx) * 1.3), calc(var(--dy) * 1.3 + 30px)) scale(0);
+    }
 }
 
-#dropdown-cocteleria .btn-all-liqui {
-    background: linear-gradient(135deg, #222228, #1a1a20) !important;
-    border: 1px solid rgba(230, 182, 79, 0.5) !important;
-}
-
-/* Ocultar sección marcas en coctelería */
-body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
-    display: none !important;
-}
-
-/* =========================================================
-   PRODUCTOS Y GRILLA
-   ========================================================= */
+/* PRODUCT GRID */
 .product-grid-full {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 25px;
-    position: relative;
-    z-index: 1;
 }
 
 .product-card {
@@ -608,14 +403,6 @@ body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(239, 68, 68, 0.6);
-    box-shadow: 0 0 20px rgba(220, 38, 38, 0.35);
 }
 
 .product-img-wrapper {
@@ -632,7 +419,7 @@ body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
     transition: transform 0.3s;
 }
 
-.product-card:hover .product-img {
+.product-img-wrapper:hover .product-img {
     transform: scale(1.05);
 }
 
@@ -664,7 +451,6 @@ body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
 .product-title {
     font-size: 1.1rem;
     margin: 5px 0;
-    font-weight: 600;
 }
 
 .product-desc {
@@ -672,6 +458,12 @@ body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
     color: var(--text-muted);
     margin-bottom: 15px;
     flex-grow: 1;
+}
+
+.product-status {
+    font-size: 0.8rem;
+    color: #2ecc71;
+    margin-bottom: 15px;
 }
 
 .card-action-row {
@@ -684,7 +476,6 @@ body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
     align-items: center;
     background: #252525;
     border-radius: 6px;
-    border: 1px solid var(--border-color);
 }
 
 .card-qty-btn {
@@ -708,12 +499,9 @@ body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
     border-radius: 6px;
     font-weight: 600;
     cursor: pointer;
-    padding: 10px 12px;
 }
 
-/* =========================================================
-   MARCAS, NOSOTROS Y FOOTER
-   ========================================================= */
+/* MARCAS */
 .brands-section {
     padding: 60px 5%;
     text-align: center;
@@ -731,7 +519,6 @@ body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
     background: #1c1c1c;
     padding: 20px;
     border-radius: 8px;
-    border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -740,9 +527,9 @@ body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
 .brand-img {
     max-width: 100%;
     max-height: 50px;
-    object-fit: contain;
 }
 
+/* ABOUT */
 .about-section {
     padding: 60px 5%;
 }
@@ -757,9 +544,9 @@ body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
 .about-image img {
     width: 100%;
     border-radius: 12px;
-    border: 1px solid var(--border-color);
 }
 
+/* FOOTER */
 footer {
     background: #080808;
     padding: 60px 5% 20px;
@@ -778,6 +565,7 @@ footer {
     margin-bottom: 15px;
 }
 
+/* COLORES OFICIALES DE REDES SOCIALES */
 .social-links {
     display: flex;
     gap: 15px;
@@ -793,12 +581,29 @@ footer {
     justify-content: center;
     font-size: 1.25rem;
     color: #ffffff;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
 }
 
-.social-btn.facebook { background-color: #1877f2; }
-.social-btn.tiktok { background-color: #000000; border: 1px solid #333; }
-.social-btn.whatsapp-btn { background-color: #25d366; }
+.social-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.15);
+}
+
+.social-btn.facebook {
+    background-color: #1877f2;
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
+}
+
+.social-btn.tiktok {
+    background-color: #000000;
+    border: 1px solid #333333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.social-btn.whatsapp-btn {
+    background-color: #25d366;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
 
 .footer-bottom {
     text-align: center;
@@ -808,49 +613,30 @@ footer {
     padding-top: 20px;
 }
 
-/* =========================================================
-   MODAL Y CARRITO LATERAL
-   ========================================================= */
+/* MODAL Y CARRITO */
 .image-modal {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.95);
-    z-index: 200000;
-    padding: 10px;
+    background: rgba(0,0,0,0.9);
+    z-index: 10000;
+    padding: 40px;
     text-align: center;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.image-modal[style*="block"] {
-    display: flex !important;
 }
 
 .modal-content {
-    max-width: 98vw !important;
-    max-height: 82vh !important;
-    object-fit: contain;
-    border-radius: 10px;
-    border: 1px solid rgba(230, 182, 79, 0.3);
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
 }
 
 .close-modal {
     position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 2.8rem;
+    top: 20px;
+    right: 30px;
+    font-size: 2.5rem;
     color: white;
     cursor: pointer;
-    background: rgba(0, 0, 0, 0.5);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 200001;
 }
 
 .cart-overlay {
@@ -858,10 +644,12 @@ footer {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.7);
-    z-index: 100001;
+    z-index: 9998;
 }
 
-.cart-overlay.open { display: block !important; }
+.cart-overlay.open {
+    display: block !important;
+}
 
 .cart-drawer {
     position: fixed;
@@ -871,14 +659,15 @@ footer {
     max-width: 400px;
     height: 100vh;
     background: #141414;
-    z-index: 100002;
+    z-index: 9999;
     transition: right 0.35s ease;
     display: flex;
     flex-direction: column;
-    border-left: 1px solid var(--border-color);
 }
 
-.cart-drawer.open { right: 0 !important; }
+.cart-drawer.open {
+    right: 0 !important;
+}
 
 .cart-header {
     padding: 20px;
@@ -891,6 +680,13 @@ footer {
     padding: 20px;
     flex-grow: 1;
     overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #222;
 }
 
 .cart-footer {
@@ -909,18 +705,21 @@ footer {
     cursor: pointer;
 }
 
-/* =========================================================
-   MENÚ MÓVIL Y WHATSAPP FLOTANTE CON DESTELLO Y PULSO
-   ========================================================= */
+/* ===================================================
+   MENÚ MÓVIL CON FONDO ROJO Y NAVEGACIÓN COMPLETA
+   =================================================== */
 .mobile-nav-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-    z-index: 100001;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9998;
+    backdrop-filter: blur(4px);
 }
 
-.mobile-nav-overlay.open { display: block !important; }
+.mobile-nav-overlay.open {
+    display: block !important;
+}
 
 .mobile-nav {
     position: fixed;
@@ -929,43 +728,88 @@ footer {
     width: 85%;
     max-width: 360px;
     height: 100vh;
-    background: #1a1a1a;
-    border-left: 2px solid var(--gold-brand);
-    z-index: 100002;
-    transition: right 0.35s ease;
+    background: linear-gradient(180deg, #e3211b 0%, #b81410 100%);
+    z-index: 9999;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
     padding: 20px;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.5);
     overflow-y: auto;
 }
 
-.mobile-nav.open { right: 0 !important; }
+.mobile-nav.open {
+    right: 0 !important;
+}
 
 .mobile-nav-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(230, 182, 79, 0.35);
+    border-bottom: 1px solid rgba(255,255,255,0.25);
     padding-bottom: 15px;
 }
 
+.mobile-nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-logo-img {
+    height: 40px;
+    border-radius: 6px;
+    background: white;
+    padding: 2px;
+}
+
+.mobile-brand-title {
+    display: block;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+.mobile-brand-sub {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--gold-brand);
+}
+
 .close-mobile-nav {
-    background: var(--red-brand);
+    background: rgba(0,0,0,0.3);
     border: none;
     color: white;
-    font-size: 1.8rem;
+    font-size: 2rem;
     width: 38px;
     height: 38px;
     border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-nav-body {
+    padding: 20px 0;
+    flex-grow: 1;
+}
+
+.mobile-nav-subtitle {
+    font-size: 0.8rem;
+    color: var(--gold-brand);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
 }
 
 .mobile-nav-links {
     list-style: none;
-    padding-top: 15px;
 }
 
-.mobile-nav-links li { margin-bottom: 10px; }
+.mobile-nav-links li {
+    margin-bottom: 12px;
+}
 
 .mobile-nav-links a {
     font-size: 1rem;
@@ -974,12 +818,41 @@ footer {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 14px;
-    border-radius: 10px;
-    background: var(--bg-card);
-    border-left: 3px solid var(--red-brand);
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.15);
+    transition: background 0.2s ease;
 }
 
+.mobile-nav-links a:active, .mobile-nav-links a:hover {
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--gold-brand);
+}
+
+.mobile-nav-footer {
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.25);
+}
+
+.mobile-wa-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #25d366;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+body.menu-open {
+    overflow: hidden !important;
+}
+
+/* FLOTANTE WHATSAPP */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
@@ -993,134 +866,36 @@ footer {
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     z-index: 900;
-    transition: transform 0.25s ease;
 }
 
-.whatsapp-float:hover {
-    transform: scale(1.08);
+/* ================================================================= */
+/* EFECTO HOVER: Resplandor rojo profesional y elegante en tarjetas   */
+/* ================================================================= */
+.producto-card, .card, .product-item {
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(229, 231, 235, 1);
 }
 
-.whatsapp-float::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: #25d366;
-    z-index: -1;
-    animation: waPulse 2.4s ease-out infinite;
+.producto-card:hover, .card:hover, .product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.4), 0 0 10px rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.6) !important;
 }
 
-@keyframes waPulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.6;
-    }
-    100% {
-        transform: scale(1.8);
-        opacity: 0;
-    }
-}
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    .nav-desktop { display: none; }
-    .mobile-menu-toggle { display: flex; }
-    .about-container { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 600px) {
-    .product-grid-full {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-    .product-img-wrapper { height: 140px; }
-}
-/* =========================================================
-   CORRECCIÓN: MENÚ MÓVIL (TRES RAYITAS) Y TEXTOS DORADOS
-   ========================================================= */
-
-/* Asegurar que el botón de las tres rayitas aparezca en móviles */
-@media (max-width: 992px) {
     .nav-desktop {
-        display: none !important;
+        display: none;
     }
     .mobile-menu-toggle {
-        display: flex !important;
+        display: flex;
     }
-}
-
-/* Colores y estilos auxiliares para los textos e iconos */
-.text-gold {
-    color: var(--gold-brand) !important;
-}
-
-.mobile-nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.mobile-logo-img {
-    height: 45px;
-    width: 45px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid var(--gold-brand);
-}
-
-.mobile-brand-title {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: var(--gold-brand);
-    line-height: 1.1;
-}
-
-.mobile-brand-sub {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-}
-
-.mobile-nav-body {
-    padding: 20px 0;
-    flex-grow: 1;
-    overflow-y: auto;
-}
-
-.mobile-nav-subtitle {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-    letter-spacing: 0.5px;
-}
-
-.mobile-wa-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: #25d366;
-    color: white;
-    padding: 12px;
-    border-radius: 10px;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-}
-
-/* Estilo para las flechas de los menús desplegables */
-.top-nav-btn .arrow {
-    font-size: 0.8rem;
-    margin-left: 6px;
-    transition: transform 0.3s ease;
-}
-
-.top-dropdown.open .arrow {
-    transform: rotate(180deg);
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
 }
