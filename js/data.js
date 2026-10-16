@@ -67,11 +67,11 @@ var productosData = [
         descripcion: "Queso cuajada semigraso, semiduro y fresco, marca La Favorita en presentación empacada de 500 gramos.",
         imagen: "quesocuajada500gramos.jpg"
     },
-    {
-        id: 508,
+{
+        id: 507,
         nombre: "Yogurt Entero con Dulce y Trozos de Fruta J.A x 1950 g (Sabores: Melocotón, Fresa y Mora)",
         categoria: "lacteos",
-        subcategoria: "yogures",
+        subcategoria: "lacteos",
         descripcion: "Delicioso yogurt entero con dulce y trozos de fruta marca J.A en presentación familiar de 1.950 gramos. Disponible en sabores surtidos: Melocotón, Fresa y Mora.",
         imagen: "yogurtJA.jpg"
     },
