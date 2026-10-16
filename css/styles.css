@@ -1664,44 +1664,72 @@ body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
     }
 }
 /* =========================================================
-   CORRECCIÓN DE ESPACIOS EN LA PORTADA Y BOTÓN DE SONIDO
+   CORRECCIÓN DEFINITIVA DE DISEÑO DE LA PORTADA (HERO)
    ========================================================= */
 
 .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 60px 20px;
+    min-height: 100vh;
     height: auto !important;
-    min-height: 90vh;
-    padding-top: 100px;
-    padding-bottom: 60px;
 }
 
 .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
     width: 100%;
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-}
-
-.hero-buttons {
-    margin-top: 20px;
     position: relative;
-    z-index: 10;
+    z-index: 2;
 }
 
-/* Botón flotante para activar el sonido sobre el video */
+.hero-subtitle {
+    margin-bottom: 10px;
+    max-width: 700px;
+}
+
+/* Contenedor del video centrado */
 .hero-video-container {
     position: relative;
+    width: 100%;
+    max-width: 550px;
+    margin: 15px auto 20px auto;
 }
 
+.video-glow-border {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    border: 3px solid #e6b64f;
+    padding: 4px;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 25px rgba(230, 182, 79, 0.5);
+    overflow: hidden;
+}
+
+.hero-promo-video {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Botón de sonido único y bien ubicado */
 .btn-sound-toggle {
     position: absolute;
-    bottom: 12px;
-    right: 12px;
-    background: rgba(0, 0, 0, 0.75);
+    bottom: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.8);
     color: white;
-    border: 1px solid rgba(230, 182, 79, 0.6);
+    border: 1px solid rgba(230, 182, 79, 0.8);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -1710,12 +1738,19 @@ body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
     display: flex;
     align-items: center;
     gap: 6px;
-    backdrop-filter: blur(4px);
-    z-index: 5;
-    transition: background 0.3s ease, transform 0.2s ease;
+    z-index: 10;
+    transition: background 0.3s ease;
 }
 
 .btn-sound-toggle:hover {
-    transform: scale(1.05);
     background: var(--red-brand);
+}
+
+/* Botones inferiores ordenados */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
 }
