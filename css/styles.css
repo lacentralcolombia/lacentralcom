@@ -1,4 +1,6 @@
-/* VARIABLES GLOBALES */
+/* =========================================================
+   VARIABLES GLOBALES
+   ========================================================= */
 :root {
     --bg-dark: #0f0f0f;
     --bg-card: #181818;
@@ -10,10 +12,14 @@
     --border-color: #2a2a2a;
 }
 
-* {
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -21,6 +27,12 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-light);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+[id] {
+    scroll-margin-top: 90px;
 }
 
 a {
@@ -28,7 +40,9 @@ a {
     color: inherit;
 }
 
-/* NAVBAR */
+/* =========================================================
+   NAVBAR
+   ========================================================= */
 .navbar {
     position: fixed;
     top: 0;
@@ -42,6 +56,7 @@ a {
     padding: 12px 5%;
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
 .logo-img {
@@ -57,7 +72,24 @@ a {
 
 .nav-links a {
     font-weight: 500;
+    position: relative;
+    padding: 6px 0;
     transition: color 0.3s;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold-brand);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
@@ -81,6 +113,13 @@ a {
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px rgba(230, 182, 79, 0.3);
+}
+
+.btn-cart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 182, 79, 0.45);
 }
 
 .cart-badge {
@@ -91,7 +130,6 @@ a {
     font-size: 0.8rem;
 }
 
-/* BOTÓN DE TRES RAYITAS DESTACADO EN ROJO */
 .mobile-menu-toggle {
     display: none;
     background: var(--red-brand);
@@ -112,18 +150,20 @@ a {
     transform: scale(0.95);
 }
 
-/* HERO SECTION */
+/* =========================================================
+   HERO SECTION & VIDEO CON MARCO BRILLANTE (UNIFICADO)
+   ========================================================= */
 .hero {
     position: relative;
-    height: 80vh;
-    min-height: 500px;
+    min-height: 100vh;
+    height: auto !important;
     background: url('https://images.unsplash.com/photo-1552767059-ce182eadecec?q=80&w=1600') center/cover no-repeat;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
-    margin-top: 70px;
+    padding: 130px 20px 80px 20px;
 }
 
 .hero-overlay {
@@ -134,8 +174,14 @@ a {
 
 .hero-content {
     position: relative;
-    z-index: 1;
-    max-width: 800px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
 }
 
 .hero-badge {
@@ -147,13 +193,16 @@ a {
     font-size: 0.9rem;
     margin-bottom: 15px;
     display: inline-block;
+    backdrop-filter: blur(6px);
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3.4rem);
     font-weight: 900;
     color: var(--red-brand);
     margin-bottom: 10px;
+    line-height: 1.15;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
 }
 
 .hero-subtitle-brand {
@@ -166,33 +215,101 @@ a {
 .hero-subtitle {
     font-size: 1.1rem;
     color: var(--text-muted);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Contenedor del video publicitario */
+.hero-video-container {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    margin: 10px auto 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes borderGlowPulse {
+    0% {
+        box-shadow: 0 0 15px rgba(230, 182, 79, 0.4), inset 0 0 15px rgba(230, 182, 79, 0.2);
+        border-color: #e6b64f;
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 50px rgba(227, 33, 27, 0.4), inset 0 0 25px rgba(255, 215, 0, 0.5);
+        border-color: #fff275;
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(230, 182, 79, 0.4), inset 0 0 15px rgba(230, 182, 79, 0.2);
+        border-color: #e6b64f;
+    }
+}
+
+.video-glow-border {
+    position: relative;
+    width: 100%;
+    border-radius: 14px;
+    border: 3px solid #e6b64f;
+    padding: 4px;
+    background: rgba(0, 0, 0, 0.85);
+    animation: borderGlowPulse 3s ease-in-out infinite;
+    overflow: hidden;
+}
+
+.hero-promo-video {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
 }
 
 .hero-buttons {
     display: flex;
     gap: 15px;
     justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .btn-primary {
     background-color: var(--red-brand);
     color: white;
-    padding: 12px 28px;
-    border-radius: 25px;
-    font-weight: 700;
-    transition: transform 0.2s;
+    box-shadow: 0 6px 20px rgba(227, 33, 27, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(227, 33, 27, 0.55);
+    background-color: #f02a24;
 }
 
 .btn-secondary {
     border: 2px solid white;
     color: white;
-    padding: 12px 28px;
-    border-radius: 25px;
-    font-weight: 700;
 }
 
-/* BENEFICIOS */
+.btn-secondary:hover {
+    background: #ffffff;
+    color: #0f0f0f;
+    transform: translateY(-3px);
+}
+
+/* =========================================================
+   BENEFICIOS
+   ========================================================= */
 .benefits-section {
     padding: 60px 5%;
     background-color: #141414;
@@ -210,20 +327,26 @@ a {
     border-radius: 12px;
     border: 1px solid var(--border-color);
     text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .benefit-icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--gold-brand);
-    margin-bottom: 15px;
+    margin: 0 auto 18px;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(230, 182, 79, 0.1);
+    border: 1px solid rgba(230, 182, 79, 0.3);
 }
 
 /* =========================================================
-   CATÁLOGO Y DESPLEGABLES (FIX: MENÚ AL FRENTE DE PRODUCTOS)
+   CATÁLOGO Y MENÚ DESLIZANTE
    ========================================================= */
-
-/* La sección del catálogo sube de nivel para que su menú
-   quede sobre cualquier cosa que venga después */
 .catalog-section {
     padding: 60px 5%;
     position: relative;
@@ -239,6 +362,7 @@ a {
 .section-title {
     font-size: 2.2rem;
     color: var(--gold-brand);
+    font-weight: 800;
 }
 
 .search-bar-container {
@@ -263,16 +387,21 @@ a {
     background: #1f1f1f;
     color: white;
     font-size: 1rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Barra de navegación del catálogo por encima de la grilla */
+#input-buscar:focus {
+    outline: none;
+    border-color: var(--gold-brand);
+    box-shadow: 0 0 0 3px rgba(230, 182, 79, 0.2);
+}
+
 .catalog-top-nav {
     margin-bottom: 30px;
     position: relative;
     z-index: 50;
 }
 
-/* --- MENÚ DE CATEGORÍAS DESLIZABLE HORIZONTALMENTE --- */
 .top-nav-menu {
     display: flex;
     flex-wrap: nowrap !important;
@@ -280,13 +409,16 @@ a {
     overflow-y: visible !important;
     gap: 12px;
     justify-content: flex-start !important;
-    padding: 10px 15px 15px 15px;
+    padding: 12px 15px 18px 15px;
     max-width: 100%;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    position: relative;
+    background: radial-gradient(circle at center, rgba(227, 33, 27, 0.12) 0%, rgba(230, 182, 79, 0.05) 50%, transparent 90%);
+    border-radius: 16px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
-/* Estilo moderno para la barra de desplazamiento horizontal */
 .top-nav-menu::-webkit-scrollbar {
     height: 6px;
 }
@@ -299,6 +431,27 @@ a {
 .top-nav-menu::-webkit-scrollbar-thumb {
     background: var(--gold-brand);
     border-radius: 10px;
+}
+
+.top-nav-menu::before,
+.top-nav-menu::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.top-nav-menu::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(230, 182, 79, 0.25), transparent);
+}
+
+.top-nav-menu::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(227, 33, 27, 0.25), transparent);
 }
 
 .top-nav-btn {
@@ -318,8 +471,6 @@ a {
     border-color: var(--red-brand);
 }
 
-/* DROPDOWN: se saca del scroll horizontal con position: fixed
-   (la posición top/left la calcula el JS: dropdown.js) */
 .top-dropdown {
     position: static;
     display: inline-block;
@@ -328,18 +479,16 @@ a {
 .top-dropdown-content {
     display: none;
     position: fixed;
-    min-width: 290px;
+    min-width: 320px;
     max-width: 92vw;
     max-height: 70vh;
     overflow-y: auto;
     background: linear-gradient(180deg, #1f1f1f 0%, #141414 100%);
     border: 1px solid var(--gold-brand);
     border-radius: 12px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9),
-                0 0 0 1px rgba(230, 182, 79, 0.15);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
     z-index: 100000 !important;
     padding: 10px 0;
-    margin-top: 0;
 }
 
 .top-dropdown-content.open {
@@ -348,7 +497,7 @@ a {
 
 .top-dropdown-content button {
     width: 100%;
-    padding: 10px 15px;
+    padding: 13px 18px;
     background: none;
     border: none;
     color: white;
@@ -356,6 +505,8 @@ a {
     cursor: pointer;
     display: flex;
     align-items: center;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .top-dropdown-content button:hover {
@@ -363,8 +514,8 @@ a {
 }
 
 .sub-dropdown-header {
-    padding: 8px 15px;
-    font-size: 0.85rem;
+    padding: 10px 18px;
+    font-size: 1rem;
     color: var(--gold-brand);
     font-weight: bold;
 }
@@ -372,63 +523,65 @@ a {
 .liqui-subgrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5px;
-    padding: 5px 10px;
+    gap: 6px;
+    padding: 6px 12px;
 }
 
 .liqui-subgrid button {
-    font-size: 0.85rem;
-    padding: 6px 10px;
+    font-size: 1.05rem;
+    padding: 10px 12px;
     border-radius: 4px;
 }
 
-/* BURBUJAS / PERLAS 3D GLOSSY REALISTAS */
 .liqui-subgrid button i.fa-circle,
 .liqui-bubble {
     font-size: 0 !important;
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     position: relative;
     vertical-align: middle;
     margin-right: 8px;
     background: radial-gradient(circle at 35% 35%, #ffffff 0%, currentColor 55%, #000000 100%) !important;
-    box-shadow: 0 0 8px currentColor, inset -2px -2px 4px rgba(0, 0, 0, 0.7), inset 1px 1px 3px rgba(255, 255, 255, 0.9);
-    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+    box-shadow: 0 0 8px currentColor, inset -2px -2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.liqui-subgrid button:hover i.fa-circle,
-.liqui-subgrid button:hover .liqui-bubble {
-    transform: scale(1.4);
-    box-shadow: 0 0 14px currentColor, inset -2px -2px 4px rgba(0, 0, 0, 0.5), inset 1px 1px 4px #ffffff;
+.dropdown-banner-container {
+    padding: 8px 12px;
+    text-align: center;
+    cursor: pointer;
 }
 
-/* PARTÍCULAS DE EXPLOSIÓN Y ANIMACIÓN POP */
-.pop-sphere-particle {
-    position: fixed;
-    pointer-events: none;
-    border-radius: 50%;
-    z-index: 999999;
-    animation: explosionAnim 0.75s ease-out forwards;
+.dropdown-banner-img {
+    width: 100%;
+    max-height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--gold-brand);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
-@keyframes explosionAnim {
-    0% {
-        opacity: 1;
-        transform: translate(0, 0) scale(1);
-    }
-    50% {
-        opacity: 0.95;
-        transform: translate(var(--dx), var(--dy)) scale(1.5);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(calc(var(--dx) * 1.3), calc(var(--dy) * 1.3 + 30px)) scale(0);
-    }
+#dropdown-cocteleria {
+    background-image: linear-gradient(to bottom, rgba(15, 15, 18, 0.92), rgba(15, 15, 18, 0.96)), url('../magia-de-sabores.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    border: 1px solid rgba(230, 182, 79, 0.3);
 }
 
-/* PRODUCT GRID (nivel inferior al menú) */
+#dropdown-cocteleria .btn-all-liqui {
+    background: linear-gradient(135deg, #222228, #1a1a20) !important;
+    border: 1px solid rgba(230, 182, 79, 0.5) !important;
+}
+
+/* Ocultar sección marcas en coctelería */
+body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
+    display: none !important;
+}
+
+/* =========================================================
+   PRODUCTOS Y GRILLA
+   ========================================================= */
 .product-grid-full {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -445,12 +598,17 @@ a {
     display: flex;
     flex-direction: column;
     position: relative;
-    z-index: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(239, 68, 68, 0.6);
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.35);
 }
 
 .product-img-wrapper {
     position: relative;
-    z-index: 0;
     height: 200px;
     overflow: hidden;
     cursor: pointer;
@@ -463,7 +621,7 @@ a {
     transition: transform 0.3s;
 }
 
-.product-img-wrapper:hover .product-img {
+.product-card:hover .product-img {
     transform: scale(1.05);
 }
 
@@ -495,6 +653,7 @@ a {
 .product-title {
     font-size: 1.1rem;
     margin: 5px 0;
+    font-weight: 600;
 }
 
 .product-desc {
@@ -502,12 +661,6 @@ a {
     color: var(--text-muted);
     margin-bottom: 15px;
     flex-grow: 1;
-}
-
-.product-status {
-    font-size: 0.8rem;
-    color: #2ecc71;
-    margin-bottom: 15px;
 }
 
 .card-action-row {
@@ -520,6 +673,7 @@ a {
     align-items: center;
     background: #252525;
     border-radius: 6px;
+    border: 1px solid var(--border-color);
 }
 
 .card-qty-btn {
@@ -543,9 +697,12 @@ a {
     border-radius: 6px;
     font-weight: 600;
     cursor: pointer;
+    padding: 10px 12px;
 }
 
-/* MARCAS */
+/* =========================================================
+   MARCAS, NOSOTROS Y FOOTER
+   ========================================================= */
 .brands-section {
     padding: 60px 5%;
     text-align: center;
@@ -563,6 +720,7 @@ a {
     background: #1c1c1c;
     padding: 20px;
     border-radius: 8px;
+    border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -571,9 +729,9 @@ a {
 .brand-img {
     max-width: 100%;
     max-height: 50px;
+    object-fit: contain;
 }
 
-/* ABOUT */
 .about-section {
     padding: 60px 5%;
 }
@@ -588,9 +746,9 @@ a {
 .about-image img {
     width: 100%;
     border-radius: 12px;
+    border: 1px solid var(--border-color);
 }
 
-/* FOOTER */
 footer {
     background: #080808;
     padding: 60px 5% 20px;
@@ -609,7 +767,6 @@ footer {
     margin-bottom: 15px;
 }
 
-/* COLORES OFICIALES DE REDES SOCIALES */
 .social-links {
     display: flex;
     gap: 15px;
@@ -625,29 +782,12 @@ footer {
     justify-content: center;
     font-size: 1.25rem;
     color: #ffffff;
-    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.social-btn:hover {
-    transform: translateY(-3px);
-    filter: brightness(1.15);
-}
-
-.social-btn.facebook {
-    background-color: #1877f2;
-    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
-}
-
-.social-btn.tiktok {
-    background-color: #000000;
-    border: 1px solid #333333;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-}
-
-.social-btn.whatsapp-btn {
-    background-color: #25d366;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-}
+.social-btn.facebook { background-color: #1877f2; }
+.social-btn.tiktok { background-color: #000000; border: 1px solid #333; }
+.social-btn.whatsapp-btn { background-color: #25d366; }
 
 .footer-bottom {
     text-align: center;
@@ -657,12 +797,14 @@ footer {
     padding-top: 20px;
 }
 
-/* MODAL LIGHTBOX AMPLIADO Y CENTRADO */
+/* =========================================================
+   MODAL Y CARRITO LATERAL
+   ========================================================= */
 .image-modal {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.95); /* Fondo casi totalmente oscuro para destacar la foto */
+    background: rgba(0, 0, 0, 0.95);
     z-index: 200000;
     padding: 10px;
     text-align: center;
@@ -671,7 +813,6 @@ footer {
     flex-direction: column;
 }
 
-/* Fuerza que el modal muestre los elementos centrados en pantalla */
 .image-modal[style*="block"] {
     display: flex !important;
 }
@@ -679,21 +820,9 @@ footer {
 .modal-content {
     max-width: 98vw !important;
     max-height: 82vh !important;
-    width: auto !important;
-    height: auto !important;
     object-fit: contain;
     border-radius: 10px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(230, 182, 79, 0.3);
-}
-
-.modal-caption {
-    color: #ffffff;
-    margin-top: 12px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 0 20px;
-    max-width: 90vw;
 }
 
 .close-modal {
@@ -711,7 +840,6 @@ footer {
     align-items: center;
     justify-content: center;
     z-index: 200001;
-    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .cart-overlay {
@@ -722,9 +850,7 @@ footer {
     z-index: 100001;
 }
 
-.cart-overlay.open {
-    display: block !important;
-}
+.cart-overlay.open { display: block !important; }
 
 .cart-drawer {
     position: fixed;
@@ -738,11 +864,10 @@ footer {
     transition: right 0.35s ease;
     display: flex;
     flex-direction: column;
+    border-left: 1px solid var(--border-color);
 }
 
-.cart-drawer.open {
-    right: 0 !important;
-}
+.cart-drawer.open { right: 0 !important; }
 
 .cart-header {
     padding: 20px;
@@ -755,13 +880,6 @@ footer {
     padding: 20px;
     flex-grow: 1;
     overflow-y: auto;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid #222;
 }
 
 .cart-footer {
@@ -780,21 +898,18 @@ footer {
     cursor: pointer;
 }
 
-/* ===================================================
-   MENÚ MÓVIL PROFESIONAL (oscuro + acentos rojo/dorado)
-   =================================================== */
+/* =========================================================
+   MENÚ MÓVIL Y WHATSAPP FLOTANTE
+   ========================================================= */
 .mobile-nav-overlay {
     display: none;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.75);
     z-index: 100001;
-    backdrop-filter: blur(5px);
 }
 
-.mobile-nav-overlay.open {
-    display: block !important;
-}
+.mobile-nav-overlay.open { display: block !important; }
 
 .mobile-nav {
     position: fixed;
@@ -803,22 +918,17 @@ footer {
     width: 85%;
     max-width: 360px;
     height: 100vh;
-    background:
-        linear-gradient(180deg, rgba(139, 0, 0, 0.55) 0%, rgba(15, 15, 15, 0) 38%),
-        linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+    background: #1a1a1a;
     border-left: 2px solid var(--gold-brand);
     z-index: 100002;
-    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: right 0.35s ease;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.7);
     overflow-y: auto;
 }
 
-.mobile-nav.open {
-    right: 0 !important;
-}
+.mobile-nav.open { right: 0 !important; }
 
 .mobile-nav-header {
     display: flex;
@@ -826,32 +936,6 @@ footer {
     align-items: center;
     border-bottom: 1px solid rgba(230, 182, 79, 0.35);
     padding-bottom: 15px;
-}
-
-.mobile-nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.mobile-logo-img {
-    height: 40px;
-    border-radius: 6px;
-    background: white;
-    padding: 2px;
-}
-
-.mobile-brand-title {
-    display: block;
-    font-weight: 800;
-    font-size: 1.1rem;
-    color: #ffffff;
-}
-
-.mobile-brand-sub {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--gold-brand);
 }
 
 .close-mobile-nav {
@@ -863,32 +947,14 @@ footer {
     height: 38px;
     border-radius: 50%;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(227, 33, 27, 0.45);
-}
-
-.mobile-nav-body {
-    padding: 20px 0;
-    flex-grow: 1;
-}
-
-.mobile-nav-subtitle {
-    font-size: 0.8rem;
-    color: var(--gold-brand);
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
 }
 
 .mobile-nav-links {
     list-style: none;
+    padding-top: 15px;
 }
 
-.mobile-nav-links li {
-    margin-bottom: 10px;
-}
+.mobile-nav-links li { margin-bottom: 10px; }
 
 .mobile-nav-links a {
     font-size: 1rem;
@@ -900,49 +966,9 @@ footer {
     padding: 12px 14px;
     border-radius: 10px;
     background: var(--bg-card);
-    border: 1px solid var(--border-color);
     border-left: 3px solid var(--red-brand);
-    transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
 }
 
-.mobile-nav-links a i {
-    color: var(--gold-brand);
-    width: 20px;
-    text-align: center;
-}
-
-.mobile-nav-links a:active,
-.mobile-nav-links a:hover {
-    background: #222;
-    border-left-color: var(--gold-brand);
-    color: var(--gold-brand);
-    transform: translateX(4px);
-}
-
-.mobile-nav-footer {
-    padding-top: 15px;
-    border-top: 1px solid rgba(230, 182, 79, 0.35);
-}
-
-.mobile-wa-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: #25d366;
-    color: white;
-    font-weight: bold;
-    padding: 12px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
-}
-
-body.menu-open {
-    overflow: hidden !important;
-}
-
-/* FLOTANTE WHATSAPP */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
@@ -960,893 +986,19 @@ body.menu-open {
     z-index: 900;
 }
 
-/* ================================================================= */
-/* EFECTO HOVER: Resplandor rojo profesional y elegante en tarjetas   */
-/* ================================================================= */
-.producto-card, .card, .product-item {
-    transition: all 0.3s ease-in-out;
-    border: 1px solid rgba(229, 231, 235, 1);
-}
-
-.producto-card:hover, .card:hover, .product-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(220, 38, 38, 0.4), 0 0 10px rgba(239, 68, 68, 0.2);
-    border-color: rgba(239, 68, 68, 0.6) !important;
-}
-
-/* El hover de las tarjetas no debe elevar su capa sobre el menú */
-.producto-card:hover,
-.card:hover,
-.product-item:hover,
-.product-card:hover {
-    z-index: 1;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .nav-desktop {
-        display: none;
-    }
-    .mobile-menu-toggle {
-        display: flex;
-    }
-    .about-container {
-        grid-template-columns: 1fr;
-    }
-    .hero-title {
-        font-size: 2rem;
-    }
-}
-/* LETRAS MÁS GRANDES EN EL DESPLEGABLE */
-.top-dropdown-content {
-    min-width: 320px;
-}
-
-.top-dropdown-content button {
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 13px 18px;
-}
-
-.sub-dropdown-header {
-    font-size: 1rem;
-    padding: 10px 18px;
-}
-
-.liqui-subgrid {
-    gap: 6px;
-    padding: 6px 12px;
-}
-
-.liqui-subgrid button {
-    font-size: 1.05rem;
-    padding: 10px 12px;
-}
-
-/* Esferas un poco más grandes para acompañar el texto */
-.liqui-subgrid button i.fa-circle,
-.liqui-bubble {
-    width: 20px;
-    height: 20px;
-}
 /* =========================================================
-   MEJORAS PROFESIONALES - LA CENTRAL
-   Pegar AL FINAL de tu CSS (debajo de todo lo demás).
-   Solo pule detalles: no cambia colores, estructura ni diseño.
+   RESPONSIVE
    ========================================================= */
-
-/* ---------- BASE ---------- */
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-}
-
-/* Al navegar a una sección, el navbar fijo ya no tapa el título */
-[id] {
-    scroll-margin-top: 90px;
-}
-
-img {
-    max-width: 100%;
-}
-
-/* Foco visible para teclado (accesibilidad) */
-:focus-visible {
-    outline: 2px solid var(--gold-brand);
-    outline-offset: 3px;
-}
-
-::selection {
-    background: var(--red-brand);
-    color: #fff;
-}
-
-/* ---------- NAVBAR ---------- */
-.navbar {
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
-}
-
-.nav-links a {
-    position: relative;
-    padding: 6px 0;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gold-brand);
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.btn-cart {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 14px rgba(230, 182, 79, 0.3);
-}
-
-.btn-cart:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(230, 182, 79, 0.45);
-}
-
-/* ---------- HERO ---------- */
-.hero-title {
-    font-size: clamp(2rem, 5vw, 3.4rem);
-    line-height: 1.15;
-    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
-}
-
-.hero-subtitle {
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-}
-
-.hero-badge {
-    backdrop-filter: blur(6px);
-    letter-spacing: 0.3px;
-}
-
-.hero-buttons {
-    flex-wrap: wrap;
-}
-
-.btn-primary,
-.btn-secondary {
-    display: inline-block;
-    transition: transform 0.2s ease, box-shadow 0.2s ease,
-                background 0.2s ease, color 0.2s ease;
-}
-
-.btn-primary {
-    box-shadow: 0 6px 20px rgba(227, 33, 27, 0.4);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 28px rgba(227, 33, 27, 0.55);
-    background-color: #f02a24;
-}
-
-.btn-secondary:hover {
-    background: #ffffff;
-    color: #0f0f0f;
-    transform: translateY(-3px);
-}
-
-/* ---------- TÍTULOS DE SECCIÓN ---------- */
-.section-title {
-    font-weight: 800;
-    letter-spacing: 0.3px;
-}
-
-.section-header .section-title::after,
-.brands-section .section-title::after {
-    content: '';
-    display: block;
-    width: 70px;
-    height: 3px;
-    margin: 12px auto 0;
-    border-radius: 3px;
-    background: linear-gradient(90deg, var(--red-brand), var(--gold-brand));
-}
-
-/* ---------- BENEFICIOS ---------- */
-.benefit-card {
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.benefit-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 72px;
-    height: 72px;
-    margin: 0 auto 18px;
-    border-radius: 50%;
-    background: rgba(230, 182, 79, 0.1);
-    border: 1px solid rgba(230, 182, 79, 0.3);
-    font-size: 2rem;
-}
-
-.benefit-card h3 {
-    margin-bottom: 8px;
-}
-
-.benefit-card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-}
-
-/* ---------- BUSCADOR Y CATEGORÍAS ---------- */
-#input-buscar {
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-#input-buscar::placeholder {
-    color: #777;
-}
-
-#input-buscar:focus {
-    outline: none;
-    border-color: var(--gold-brand);
-    box-shadow: 0 0 0 3px rgba(230, 182, 79, 0.2);
-}
-
-.top-nav-btn {
-    transition: background 0.25s ease, border-color 0.25s ease,
-                transform 0.2s ease, box-shadow 0.25s ease;
-}
-
-.top-nav-btn:active {
-    transform: scale(0.96);
-}
-
-.top-nav-btn.active {
-    box-shadow: 0 4px 14px rgba(227, 33, 27, 0.4);
-}
-
-/* ---------- PRODUCTOS ---------- */
-.product-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.product-img-wrapper::after {
-    content: '';
-    position: absolute;
-    inset: auto 0 0 0;
-    height: 45%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent);
-    pointer-events: none;
-}
-
-.zoom-hint {
-    z-index: 2;
-    backdrop-filter: blur(4px);
-}
-
-.product-title {
-    font-weight: 600;
-    line-height: 1.3;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.product-desc {
-    line-height: 1.5;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.card-qty-selector {
-    border: 1px solid var(--border-color);
-}
-
-.card-qty-btn {
-    transition: background 0.2s ease, color 0.2s ease;
-    border-radius: 6px;
-}
-
-.card-qty-btn:hover {
-    background: rgba(230, 182, 79, 0.2);
-    color: var(--gold-brand);
-}
-
-.btn-add-item {
-    padding: 10px 12px;
-    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-}
-
-.btn-add-item:hover {
-    background: #f02a24;
-    box-shadow: 0 4px 14px rgba(227, 33, 27, 0.45);
-}
-
-.btn-add-item:active {
-    transform: scale(0.97);
-}
-
-/* Efectos "hover" solo en dispositivos con mouse (evita saltos en celular) */
-@media (hover: hover) {
-    .product-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(239, 68, 68, 0.6);
-        box-shadow: 0 0 20px rgba(220, 38, 38, 0.35), 0 10px 30px rgba(0, 0, 0, 0.5);
-        z-index: 1;
-    }
-
-    .benefit-card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(230, 182, 79, 0.5);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-    }
-
-    .brand-card:hover {
-        transform: translateY(-4px);
-        border-color: rgba(230, 182, 79, 0.5);
-    }
-
-    .brand-card:hover .brand-img {
-        filter: none;
-        opacity: 1;
-    }
-}
-
-/* ---------- MARCAS ---------- */
-.brand-card {
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.brand-img {
-    filter: grayscale(0.3);
-    opacity: 0.88;
-    transition: filter 0.3s ease, opacity 0.3s ease;
-    object-fit: contain;
-}
-
-/* ---------- NOSOTROS ---------- */
-.about-image img {
-    border: 1px solid var(--border-color);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-}
-
-/* ---------- FOOTER ---------- */
-.footer-container h4 {
-    color: var(--gold-brand);
-    margin-bottom: 12px;
-    letter-spacing: 0.5px;
-}
-
-footer a:not(.social-btn) {
-    transition: color 0.25s ease;
-}
-
-footer a:not(.social-btn):hover {
-    color: var(--gold-brand);
-}
-
-/* ---------- CARRITO Y MODAL ---------- */
-.cart-drawer {
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
-    border-left: 1px solid var(--border-color);
-}
-
-.btn-whatsapp-send {
-    transition: filter 0.2s ease, transform 0.15s ease;
-    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
-}
-
-.btn-whatsapp-send:hover {
-    filter: brightness(1.08);
-}
-
-.btn-whatsapp-send:active {
-    transform: scale(0.98);
-}
-
-.modal-content {
-    animation: modalZoom 0.25s ease;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-}
-
-@keyframes modalZoom {
-    from { opacity: 0; transform: scale(0.94); }
-    to   { opacity: 1; transform: scale(1); }
-}
-
-/* ---------- BOTÓN FLOTANTE DE WHATSAPP ---------- */
-.whatsapp-float {
-    transition: transform 0.25s ease;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.08);
-}
-
-.whatsapp-float::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: #25d366;
-    z-index: -1;
-    animation: waPulse 2.4s ease-out infinite;
-}
-
-@keyframes waPulse {
-    0%   { transform: scale(1);   opacity: 0.55; }
-    100% { transform: scale(1.7); opacity: 0; }
-}
-
-/* ---------- CELULAR ---------- */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 10px 4%;
-    }
-
-    .logo-img {
-        height: 44px;
-    }
-
-    .hero {
-        height: 75vh;
-        min-height: 460px;
-    }
-
-    .benefits-section,
-    .catalog-section,
-    .brands-section,
-    .about-section {
-        padding-top: 45px;
-        padding-bottom: 45px;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .hero-buttons .btn-primary,
-    .hero-buttons .btn-secondary {
-        padding: 12px 22px;
-        font-size: 0.95rem;
-    }
+    .nav-desktop { display: none; }
+    .mobile-menu-toggle { display: flex; }
+    .about-container { grid-template-columns: 1fr; }
 }
 
-/* Catálogo en 2 columnas en celular (más productos a la vista).
-   Si prefieres 1 columna, borra este bloque. */
 @media (max-width: 600px) {
     .product-grid-full {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
-
-    .product-img-wrapper {
-        height: 140px;
-    }
-
-    .product-info {
-        padding: 12px;
-    }
-
-    .product-title {
-        font-size: 0.95rem;
-    }
-
-    .product-desc {
-        font-size: 0.78rem;
-        -webkit-line-clamp: 2;
-        margin-bottom: 10px;
-    }
-
-    .card-action-row {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .card-qty-selector {
-        justify-content: space-between;
-    }
-
-    .btn-add-item {
-        padding: 10px;
-    }
-
-    .zoom-hint {
-        font-size: 0.65rem;
-        padding: 3px 8px;
-    }
-}
-
-/* Respeta a quien prefiere menos animaciones */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-/* =========================================================
-   MEJORA DEL MENÚ DESLIZANTE (Indicadores y Movimiento Suave)
-   ========================================================= */
-
-/* 1. Movimiento ultra suave y fluido al deslizar (Inercia táctil) */
-.top-nav-menu {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    /* Efecto visual elegante para indicar que hay contenido oculto a los lados */
-    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-}
-
-/* 2. Opcional: Pequeña animación de rebote o "aviso" inicial en los botones
-   para sugerir que se pueden mover (aparece al cargar la página) */
-@keyframes pulseHint {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(6px); }
-}
-
-/* Hace que el último botón visible tenga un sutil movimiento hacia la derecha 
-   invitando a deslizar (opcional) */
-.top-nav-menu .top-nav-btn:nth-last-child(2) {
-    animation: pulseHint 2s ease-in-out infinite;
-}
-
-/* =========================================================
-   EFECTO DE FONDO DE LUZ Y RESPLANDOR EN EL MENÚ DESLIZANTE
-   ========================================================= */
-
-.top-nav-menu {
-    position: relative;
-    /* Crea un resplandor ambiental sutil detrás de todo el menú deslizante */
-    background: radial-gradient(circle at center, rgba(227, 33, 27, 0.12) 0%, rgba(230, 182, 79, 0.05) 50%, transparent 90%);
-    border-radius: 16px;
-    padding: 12px 15px 18px 15px;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
-}
-
-/* Efecto de "haz de luz" deslizante o destello sutil en los bordes para guiar la vista */
-.top-nav-menu::before,
-.top-nav-menu::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 30px;
-    height: 100%;
-    pointer-events: none;
-    z-index: 5;
-}
-
-/* Luz tenue a la izquierda */
-.top-nav-menu::before {
-    left: 0;
-    background: linear-gradient(to right, rgba(230, 182, 79, 0.25), transparent);
-}
-
-/* Luz tenue a la derecha indicando que hay más contenido */
-.top-nav-menu::after {
-    right: 0;
-    background: linear-gradient(to left, rgba(227, 33, 27, 0.25), transparent);
-}
-
-/* =========================================================
-   ESTILO PARA LA IMAGEN "MAGIA DE SABORES" EN EL MENÚ
-   ========================================================= */
-.dropdown-banner-container {
-    padding: 8px 12px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.dropdown-banner-img {
-    width: 100%;
-    max-height: 130px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid var(--gold-brand);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-    transition: transform 0.25s ease, filter 0.25s ease;
-}
-
-.dropdown-banner-img:hover {
-    transform: scale(1.02);
-    filter: brightness(1.1);
-}
-
-/* =========================================================
-   FONDO "MAGIA DE SABORES" EXCLUSIVO PARA EL MENÚ DESPLEGABLE DE COCTELERÍA
-   ========================================================= */
-
-/* Aplica la imagen de fondo solo al contenedor desplegable de coctelería */
-#dropdown-cocteleria {
-    background-image: linear-gradient(to bottom, rgba(15, 15, 18, 0.92), rgba(15, 15, 18, 0.96)), url('../magia-de-sabores.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    border: 1px solid rgba(230, 182, 79, 0.3);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
-}
-
-/* Excepción: Asegura que el botón especial de "Ver TODOS los Sabores de Liqui POPS" 
-   tenga su propio color sólido y limpio, sin verse afectado por el fondo general */
-#dropdown-cocteleria .btn-all-liqui {
-    background: linear-gradient(135deg, #222228, #1a1a20) !important;
-    border: 1px solid rgba(230, 182, 79, 0.5) !important;
-}
-
-#dropdown-cocteleria .btn-all-liqui:hover {
-    background: linear-gradient(135deg, #e3211b, #b51915) !important;
-    border-color: #fff !important;
-}
-
-/* =========================================================
-   OCULTAR SECCIÓN DE MARCAS CUANDO SE FILTRA COCTELERÍA
-   ========================================================= */
-
-/* Cuando la página está mostrando productos de coctelería, oculta automáticamente la sección de marcas */
-body:has(#categoria-activa-titulo:not(:empty)) .brands-section {
-    display: none !important;
-}
-/* =========================================================
-   ESTILOS Y RAYOS BRILLANTES PARA EL VIDEO DE LA PORTADA
-   ========================================================= */
-
-.hero-video-container {
-    width: 100%;
-    max-width: 650px; /* Tamaño amplio pero controlado para que se vea elegante */
-    margin: 25px auto 20px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-/* Animación de destellos y brillo móvil en el borde amarillo brillante */
-@keyframes borderGlowPulse {
-    0% {
-        box-shadow: 0 0 15px rgba(230, 182, 79, 0.4), inset 0 0 15px rgba(230, 182, 79, 0.2);
-        border-color: #e6b64f;
-    }
-    50% {
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 50px rgba(227, 33, 27, 0.4), inset 0 0 25px rgba(255, 215, 0, 0.5);
-        border-color: #fff275;
-    }
-    100% {
-        box-shadow: 0 0 15px rgba(230, 182, 79, 0.4), inset 0 0 15px rgba(230, 182, 79, 0.2);
-        border-color: #e6b64f;
-    }
-}
-
-.video-glow-border {
-    position: relative;
-    width: 100%;
-    border-radius: 14px;
-    border: 3px solid #e6b64f;
-    padding: 4px; /* Pequeño margen interno para separar el video del marco brillante */
-    background: rgba(0, 0, 0, 0.6);
-    animation: borderGlowPulse 3s ease-in-out infinite;
-    overflow: hidden;
-}
-
-.hero-promo-video {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
-}
-
-/* Ajuste responsivo para celulares */
-@media (max-width: 768px) {
-    .hero-video-container {
-        max-width: 95vw;
-        margin: 15px auto;
-    }
-}
-/* =========================================================
-   CORRECCIÓN DEFINITIVA DE DISEÑO DE LA PORTADA (HERO)
-   ========================================================= */
-
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 120px 20px 60px 20px;
-    min-height: 100vh;
-    height: auto !important;
-}
-
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-}
-
-.hero-subtitle {
-    margin-bottom: 10px;
-    max-width: 700px;
-}
-
-/* Contenedor del video centrado */
-.hero-video-container {
-    position: relative;
-    width: 100%;
-    max-width: 550px;
-    margin: 15px auto 20px auto;
-}
-
-.video-glow-border {
-    position: relative;
-    width: 100%;
-    border-radius: 12px;
-    border: 3px solid #e6b64f;
-    padding: 4px;
-    background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 25px rgba(230, 182, 79, 0.5);
-    overflow: hidden;
-}
-
-.hero-promo-video {
-    width: 100%;
-    height: auto;
-    max-height: 350px;
-    object-fit: cover;
-    border-radius: 8px;
-    display: block;
-}
-
-/* Botón de sonido único y bien ubicado */
-.btn-sound-toggle {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    border: 1px solid rgba(230, 182, 79, 0.8);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    z-index: 10;
-    transition: background 0.3s ease;
-}
-
-.btn-sound-toggle:hover {
-    background: var(--red-brand);
-}
-
-/* Botones inferiores ordenados */
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-/* =========================================================
-   ESTILOS Y RAYOS BRILLANTES PARA EL VIDEO DE LA PORTADA
-   ========================================================= */
-
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 130px 20px 80px 20px;
-    min-height: 100vh;
-    height: auto !important;
-}
-
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 850px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-}
-
-.hero-subtitle {
-    margin-bottom: 15px;
-    max-width: 700px;
-}
-
-/* Contenedor del video centrado */
-.hero-video-container {
-    position: relative;
-    width: 100%;
-    max-width: 520px;
-    margin: 10px auto 20px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Animación de destellos y brillo móvil en el borde amarillo brillante */
-@keyframes borderGlowPulse {
-    0% {
-        box-shadow: 0 0 15px rgba(230, 182, 79, 0.4), inset 0 0 15px rgba(230, 182, 79, 0.2);
-        border-color: #e6b64f;
-    }
-    50% {
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 50px rgba(227, 33, 27, 0.4), inset 0 0 25px rgba(255, 215, 0, 0.5);
-        border-color: #fff275;
-    }
-    100% {
-        box-shadow: 0 0 15px rgba(230, 182, 79, 0.4), inset 0 0 15px rgba(230, 182, 79, 0.2);
-        border-color: #e6b64f;
-    }
-}
-
-.video-glow-border {
-    position: relative;
-    width: 100%;
-    border-radius: 14px;
-    border: 3px solid #e6b64f;
-    padding: 4px; /* Pequeño margen interno para separar el video del marco brillante */
-    background: rgba(0, 0, 0, 0.8);
-    animation: borderGlowPulse 3s ease-in-out infinite;
-    overflow: hidden;
-}
-
-.hero-promo-video {
-    width: 100%;
-    height: auto;
-    max-height: 360px;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
-}
-
-/* Botones inferiores ordenados y centrados */
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-/* Ajuste responsivo para celulares */
-@media (max-width: 768px) {
-    .hero-video-container {
-        max-width: 95vw;
-        margin: 15px auto;
-    }
+    .product-img-wrapper { height: 140px; }
 }
