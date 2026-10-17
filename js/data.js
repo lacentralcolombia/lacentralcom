@@ -10,6 +10,21 @@ var marcasData = [
 ];
 
 var productosData = [
+    // ---------------------------------------------------------------
+    // DULCES y PANES: aún no hay productos cargados.
+    // Para agregar uno, copia este modelo, quita los // del inicio,
+    // cambia los datos y pégalo AQUÍ, antes del primer producto.
+    // Usa un id que no exista todavía.
+    //
+    // {
+    //     id: 4001,
+    //     nombre: "Nombre del dulce | presentación",
+    //     categoria: "dulces",          // "dulces" o "panes"
+    //     subcategoria: "general",
+    //     descripcion: "Descripción corta del producto.",
+    //     imagen: "nombre-de-la-foto.jpg"
+    // },
+    // ---------------------------------------------------------------
     {
       id: 501,
         nombre: "Queso Mozzarella Tajado Bloque Lácteos Villa Gloria",
@@ -576,7 +591,7 @@ var productosData = [
         id: 2001,
         nombre: "Sirope de Geniality x 1.000 ml | Fresa",
         categoria: "cocteleria",
-        subcategoria: "yexis",
+        subcategoria: "siropes",
         descripcion: "Sirope concentrado marca Geniality sabor Fresa x 1.000 ml, perfecto para granizados, frappés, sodas saborizadas y cócteles.",
         imagen: "siropefresa1000ml.jpg"
     },
@@ -680,7 +695,7 @@ var productosData = [
         id: 3001,
         nombre: "Yexis x 1,100 gramos | Fresa 🍓",
         categoria: "cocteleria",
-        subcategoria: "siropes",
+        subcategoria: "yexis",
         descripcion: "Caramelo blando en almíbar con sabor artificial a fresa. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
         imagen: "yexisfresa.jpg"
     },
@@ -688,7 +703,7 @@ var productosData = [
         id: 3002,
         nombre: "Yexis x 1,100 gramos | Blue Berry 🔵",
         categoria: "cocteleria",
-        subcategoria: "siropes",
+        subcategoria: "yexis",
         descripcion: "Caramelo blando en almíbar con sabor artificial a blueberry. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
         imagen: "yexisblueberry.jpg"
     },
@@ -696,7 +711,7 @@ var productosData = [
         id: 3003,
         nombre: "Yexis x 1,100 gramos | Lychee 🍚",
         categoria: "cocteleria",
-        subcategoria: "siropes",
+        subcategoria: "yexis",
         descripcion: "Caramelo blando en almíbar con sabor artificial a lychee. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
         imagen: "yexislychee.jpg"
     },
@@ -704,7 +719,7 @@ var productosData = [
         id: 3004,
         nombre: "Yexis x 1,100 gramos | Maracuyá 🍋",
         categoria: "cocteleria",
-        subcategoria: "siropes",
+        subcategoria: "yexis",
         descripcion: "Caramelo blando en almíbar con sabor artificial a maracuyá. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
         imagen: "yexismaracuya.jpg"
     },
@@ -712,7 +727,7 @@ var productosData = [
         id: 3005,
         nombre: "Yexis x 1,100 gramos | Coco 🥥",
         categoria: "cocteleria",
-        subcategoria: "siropes",
+        subcategoria: "yexis",
         descripcion: "Caramelo blando en almíbar con sabor artificial a coco. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
         imagen: "yexiscoco.jpg"
     },
