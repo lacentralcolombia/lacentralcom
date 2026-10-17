@@ -732,6 +732,14 @@ var productosData = [
         imagen: "yexiscoco.jpg"
     },
     {
+        id: 4001,
+        nombre: "Caramelos Duros CandyRanch x 30 Unidades | Sabores Surtidos",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Caja de caramelos duros con azúcar CandyRanch x 30 unidades. Disponible en variedad de sabores: Mango Biche, Maracuyá, Manzana Verde, Sandía, Maracululo, Mora Azul y Cereza.",
+        imagen: "CandyRanchcaramelo.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
