@@ -764,6 +764,14 @@ var productosData = [
         imagen: "gomastrululufranki70gramos.jpg"
     },
     {
+        id: 4005,
+        nombre: "Gomitas Trululu Gusanos Ácidos x 100 Unidades | 320 g",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Gomas sabor frutal con relleno líquido en forma de gusanos ácidos. Presentación familiar de 100 unidades (Contenido Neto 320 g), marca Trululu.",
+        imagen: "gomitastrululugusanos100unidadesacidos302g.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
