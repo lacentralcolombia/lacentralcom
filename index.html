@@ -13,7 +13,16 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-
+    <!-- FRANJA SUPERIOR DE CONFIANZA -->
+    <div class="topbar" role="complementary" aria-label="Información de contacto">
+        <div class="topbar-inner">
+            <span class="topbar-item"><i class="fa-solid fa-location-dot"></i> Florida, Valle del Cauca</span>
+            <span class="topbar-item topbar-centro"><i class="fa-solid fa-store"></i> Venta al por mayor y al detal</span>
+            <a class="topbar-item topbar-wa" href="https://wa.me/573116017186?text=Hola%20LA%20CENTRAL,%20quisiera%20consultar%20disponibilidad%20de%20sus%20productos." target="_blank" rel="noopener">
+                <i class="fa-brands fa-whatsapp"></i> 311 601 7186
+            </a>
+        </div>
+    </div>
     <!-- BARRA DE NAVEGACIÓN PRINCIPAL -->
     <header class="navbar">
         <div class="logo-container">
@@ -442,7 +451,7 @@
                         </button>
                         <div class="top-dropdown-content" id="dropdown-quesos">
                             <button onclick="filtrarCategoria('quesos', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Ver todos los quesos</button>
-                           <button onclick="filtrarCategoria('quesos', 'general', event)"><i class="fa-solid fa-bowl-food"></i> Leche y Yogures</button>
+                           <button onclick="filtrarCategoria('quesos', 'leche-yogures', event)"><i class="fa-solid fa-bowl-food"></i> Leche y Yogures</button>
                             <button onclick="filtrarCategoria('quesos', 'quesos-bloque', event)"><i class="fa-solid fa-cube"></i> Quesos en Bloque</button>
                             <button onclick="filtrarCategoria('quesos', 'quesos-tajados', event)"><i class="fa-solid fa-layer-group"></i> Quesos Tajados</button>
                             <button onclick="filtrarCategoria('quesos', 'quesos-frescos', event)"><i class="fa-solid fa-seedling"></i> Quesos Tradicionales / Costeño / Campesino</button>
@@ -471,6 +480,14 @@
                     <button class="top-nav-btn" onclick="filtrarCategoria('frutos-secos', null, event)">
                         <i class="fa-solid fa-seedling"></i> Frutos Secos
                     </button>
+                                        <button class="top-nav-btn" onclick="filtrarCategoria('dulces', null, event)">
+                        <i class="fa-solid fa-candy-cane"></i> Dulces
+                    </button>
+
+                    <button class="top-nav-btn" onclick="filtrarCategoria('panes', null, event)">
+                        <i class="fa-solid fa-bread-slice"></i> Panes
+                    </button>
+                    
 
                     <!-- DESPLEGABLE COCTELERÍA Y LIQUIPOPS -->
                     <div class="top-dropdown">
@@ -481,6 +498,9 @@
                                                        <button class="magia-card" onclick="filtrarCategoria('cocteleria', 'todos', event)" aria-label="Magia de Sabores: ver todo en coctelería">
                                 <img src="magia-de-sabores-tarjeta.jpg" alt="Magia de Sabores - Todo en coctelería" loading="lazy" decoding="async">
                                 <span class="magia-card-pie">Ver todo en coctelería <i class="fa-solid fa-arrow-right"></i></span>
+                            </button>
+                                                        <button class="btn-yexis" onclick="filtrarCategoria('cocteleria', 'yexis', event)">
+                                <i class="fa-solid fa-gem"></i> <strong>Yexis</strong> <span class="dd-nota">Caramelos en almíbar</span>
                             </button>
                             
                             <div class="sub-dropdown-header"><i class="fa-solid fa-burst text-gold"></i> Perlas Explosivas (Liqui POPS):</div>
@@ -527,7 +547,8 @@
 
     <!-- MARCAS DESTACADAS -->
     <section id="marcas" class="brands-section">
-        <h3 class="brands-title"><i class="fa-solid fa-star"></i> Algunas de Nuestras Marcas Destacadas</h3>
+                <span class="brands-eyebrow">Proveedores de confianza</span>
+        <h3 class="brands-title">Algunas de Nuestras Marcas Destacadas</h3>
         <p class="brands-subtitle">Trabajamos de la mano con los mejores proveedores para ofrecerte calidad garantizada.</p>
         <div class="brands-grid" id="brands-container">
             <!-- Logos SVG -->
