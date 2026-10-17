@@ -1893,3 +1893,341 @@ footer a:not(.social-btn):hover {
     .catalog-top-nav:not(.sin-pista).puede-der .top-nav-flecha.der { animation: none; }
     .top-nav-btn { animation: none; }
 }
+/* =========================================================
+   FRANJA SUPERIOR PROFESIONAL (barra de contacto + navbar)
+   ========================================================= */
+:root { --topbar-base: 36px; }
+body { --topbar-h: var(--topbar-base); }
+body.scrolled { --topbar-h: 0px; }
+
+/* Barra fina de datos de contacto (se esconde al bajar) */
+.topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--topbar-base);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    background: linear-gradient(90deg, #0a0a0a 0%, #15110a 50%, #0a0a0a 100%);
+    border-bottom: 1px solid rgba(230, 182, 79, 0.2);
+    transition: transform 0.35s ease;
+}
+body.scrolled .topbar { transform: translateY(-100%); }
+
+.topbar-inner {
+    width: 100%;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.topbar-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.82);
+}
+.topbar-item i { color: var(--gold-brand); }
+.topbar-wa { font-weight: 600; color: #fff; transition: color 0.25s ease; }
+.topbar-wa i { color: #25d366; }
+.topbar-wa:hover { color: var(--gold-brand); }
+
+/* Navbar: cristal oscuro, línea dorada con luz y encogimiento al bajar */
+.navbar {
+    top: var(--topbar-h);
+    background: rgba(12, 12, 12, 0.72);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: top 0.35s ease, padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Línea dorada inferior */
+.navbar::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(230, 182, 79, 0.6) 20%, rgba(230, 182, 79, 0.95) 50%, rgba(230, 182, 79, 0.6) 80%, transparent);
+}
+
+/* Destello de luz que recorre la línea */
+.navbar::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 2px;
+    z-index: 1;
+    background: linear-gradient(90deg, transparent, rgba(255, 244, 205, 0.95), transparent) no-repeat;
+    background-size: 220px 100%;
+    animation: navLuz 8s ease-in-out infinite;
+}
+@keyframes navLuz {
+    0%   { background-position: -240px 0; }
+    100% { background-position: calc(100% + 240px) 0; }
+}
+
+body.scrolled .navbar {
+    background: rgba(10, 10, 10, 0.92);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* El contenido inicial deja espacio para la barra fina */
+.hero { margin-top: calc(70px + var(--topbar-base)); }
+
+/* Logo en un marco elegante */
+.logo-container a {
+    display: block;
+    line-height: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(230, 182, 79, 0.45);
+    box-shadow: 0 0 0 3px rgba(230, 182, 79, 0.08), 0 6px 18px rgba(0, 0, 0, 0.45);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.logo-container a:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 3px rgba(230, 182, 79, 0.18), 0 8px 22px rgba(230, 182, 79, 0.25);
+}
+.logo-img { transition: height 0.3s ease; }
+body.scrolled .logo-img { height: 40px; }
+
+/* Enlaces con subrayado dorado y sección activa */
+.nav-links { gap: 30px; }
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.86);
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--gold-brand); }
+.nav-links a::after { border-radius: 2px; }
+.nav-links a.active::after { width: 100%; }
+
+/* Botón "Mi pedido" */
+.btn-cart { border: 1px solid rgba(255, 255, 255, 0.25); }
+.cart-badge { min-width: 22px; text-align: center; line-height: 1.3; }
+.cart-badge.bump { animation: badgePop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); }
+@keyframes badgePop {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.45); }
+    100% { transform: scale(1); }
+}
+
+/* Botón del menú móvil: dorado y sobrio */
+.mobile-menu-toggle {
+    background: rgba(230, 182, 79, 0.12);
+    border: 1px solid rgba(230, 182, 79, 0.55);
+    color: var(--gold-brand);
+    border-radius: 10px;
+    box-shadow: none;
+}
+.mobile-menu-toggle:hover { background: rgba(230, 182, 79, 0.22); }
+
+@media (max-width: 640px) {
+    .topbar { font-size: 0.72rem; }
+    .topbar-inner { padding: 0 4%; }
+    .topbar-centro { display: none; }
+}
+
+
+/* =========================================================
+   CATEGORÍAS NUEVAS: Dulces, Panes y Yexis
+   ========================================================= */
+
+/* El menú ahora tiene 9 botones: animación de entrada escalonada */
+.top-nav-menu > :nth-child(8) .top-nav-btn, .top-nav-menu > .top-nav-btn:nth-child(8) { animation-delay: 0.54s; }
+.top-nav-menu > :nth-child(9) .top-nav-btn, .top-nav-menu > .top-nav-btn:nth-child(9) { animation-delay: 0.61s; }
+
+/* Yexis dentro del desplegable de Coctelería */
+.top-dropdown-content button.btn-yexis {
+    margin: 6px 0 2px;
+    border-top: 1px solid rgba(230, 182, 79, 0.18);
+    border-bottom: 1px solid rgba(230, 182, 79, 0.18);
+}
+.top-dropdown-content button .dd-nota {
+    margin-left: auto;
+    padding-left: 14px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+/* Categoría sin productos todavía (Dulces / Panes) */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 56px 20px 60px;
+    border: 1px dashed rgba(230, 182, 79, 0.4);
+    border-radius: 18px;
+    background: radial-gradient(ellipse 70% 90% at 50% 0%, rgba(230, 182, 79, 0.08), transparent 70%), #141414;
+}
+.empty-state-icon {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.9rem;
+    color: var(--gold-brand);
+    background: rgba(230, 182, 79, 0.1);
+    border: 1px solid rgba(230, 182, 79, 0.35);
+}
+.empty-state h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+.empty-state p {
+    max-width: 460px;
+    margin: 0 auto 22px;
+    color: var(--text-muted);
+    font-size: 0.98rem;
+}
+.empty-state-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 26px;
+    border-radius: 30px;
+    background: #25d366;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+.empty-state-btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+
+
+/* =========================================================
+   NUESTRAS MARCAS: tarjetas claras para que los logos
+   originales se vean limpios y con sus colores reales
+   ========================================================= */
+.brands-section {
+    padding: 70px 5% 80px;
+    background:
+        radial-gradient(ellipse 60% 70% at 50% 0%, rgba(230, 182, 79, 0.08), transparent 70%),
+        #141414;
+}
+
+.brands-eyebrow {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold-brand);
+}
+
+.brands-title {
+    font-size: clamp(1.5rem, 3.4vw, 2.2rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.25;
+}
+.brands-title::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    margin: 14px auto 0;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--red-brand), var(--gold-brand));
+}
+
+.brands-subtitle {
+    max-width: 620px;
+    margin: 16px auto 0;
+    color: var(--text-muted);
+}
+
+.brands-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1080px;
+    margin: 40px auto 0;
+    gap: 18px;
+}
+
+.brand-card {
+    position: relative;
+    isolation: isolate;
+    height: 112px;
+    padding: 16px 24px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #ffffff 0%, #f1eee5 100%);
+    border: 1px solid rgba(230, 182, 79, 0.45);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Entrada suave tarjeta por tarjeta */
+.brand-card:not(.visible) { opacity: 0; }
+.brand-card.visible { animation: marcaEntra 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards; animation-delay: calc(var(--i, 0) * 70ms); }
+@keyframes marcaEntra {
+    from { opacity: 0; transform: translateY(22px) scale(0.96); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* Destello al pasar el mouse */
+.brand-card::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    left: -60%;
+    width: 40%;
+    background: linear-gradient(100deg, transparent, rgba(230, 182, 79, 0.3), transparent);
+    transform: skewX(-18deg);
+    pointer-events: none;
+    transition: left 0.7s ease;
+}
+.brand-card:hover::after { left: 130%; }
+
+@media (hover: hover) {
+    .brand-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--gold-brand);
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.5), 0 0 22px rgba(230, 182, 79, 0.3);
+    }
+}
+
+/* Logo: a todo color y sin el fondo blanco del JPG */
+.brand-img {
+    max-width: 100%;
+    max-height: 72px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: none;
+    opacity: 1;
+    mix-blend-mode: multiply;
+}
+
+/* Si el logo aún no está subido: el nombre de la marca, limpio */
+.brand-name {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-align: center;
+    color: #1b1b1b;
+}
+
+@media (max-width: 900px) {
+    .brands-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+    .brands-section { padding: 52px 5% 60px; }
+    .brands-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 30px; }
+    .brand-card { height: 92px; padding: 12px 16px; border-radius: 14px; }
+    .brand-img { max-height: 58px; }
+    .brand-name { font-size: 1.02rem; }
+}
