@@ -772,6 +772,14 @@ var productosData = [
         imagen: "gomitastrululugusanos100unidadesacidos302g.jpg"
     },
     {
+        id: 4006,
+        nombre: "Gomitas Trululu Aros x 100 Unidades | 600 g",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Gomitas en forma de aros surtidos en presentación familiar de 100 unidades (Contenido Neto 600 g, porciones por envase aprox. 33), marca Trululu.",
+        imagen: "gomitasarostrululus100unidades.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
