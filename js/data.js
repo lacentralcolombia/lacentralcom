@@ -740,6 +740,14 @@ var productosData = [
         imagen: "CandyRanchcaramelo.jpg"
     },
     {
+        id: 4002,
+        nombre: "Goma de Mascar Sandia Bubble Gum Sour x 60 Unidades | Más Dulces",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Goma de mascar con sabor artificial a sandía rellena con polvo ácido. Presentación en tarrina con 60 porciones/units (Peso Neto 300 g), marca Más Dulces.",
+        imagen: "gomasandia60u.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
