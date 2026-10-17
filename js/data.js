@@ -733,10 +733,10 @@ var productosData = [
     },
     {
         id: 4001,
-        nombre: "Caramelos Duros CandyRanch x 30 Unidades | Sabores Surtidos",
+        nombre: "Caramelos  CandyRanch x 30 Unidades | Sabores Surtidos",
         categoria: "dulces",
         subcategoria: "general",
-        descripcion: "Caja de caramelos duros con azúcar CandyRanch x 30 unidades. Disponible en variedad de sabores: Mango Biche, Maracuyá, Manzana Verde, Sandía, Maracululo, Mora Azul y Cereza.",
+        descripcion: "Caja de caramelos  con azúcar CandyRanch x 30 unidades. Disponible en variedad de sabores: Mango Biche, Maracuyá, Manzana Verde, Sandía, Maracululo, Mora Azul y Cereza.",
         imagen: "CandyRanchcaramelo.jpg"
     },
     {
