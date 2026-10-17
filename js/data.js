@@ -576,7 +576,7 @@ var productosData = [
         id: 2001,
         nombre: "Sirope de Geniality x 1.000 ml | Fresa",
         categoria: "cocteleria",
-        subcategoria: "siropes",
+        subcategoria: "yexis",
         descripcion: "Sirope concentrado marca Geniality sabor Fresa x 1.000 ml, perfecto para granizados, frappés, sodas saborizadas y cócteles.",
         imagen: "siropefresa1000ml.jpg"
     },
