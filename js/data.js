@@ -756,6 +756,14 @@ var productosData = [
         imagen: "gomitasgrissly72gramos.jpg"
     },
     {
+        id: 4004,
+        nombre: "Gomas Franki Trululu x 70 g | Sabor Frutal con Relleno Líquido",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Gomas sabor frutal con delicioso relleno líquido, marca Franki Trululu en presentación de 70 gramos (4 porciones aprox. por envase).",
+        imagen: "gomastrululufranki70gramos.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
