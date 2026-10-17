@@ -748,6 +748,14 @@ var productosData = [
         imagen: "gomasandia60u.jpg"
     },
     {
+        id: 4003,
+        nombre: "Gomitas Grissly x 72 g | Variedades Clásica y Splash Ácidos (Colombina)",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Deliciosas gomitas sabor a frutas marca Grissly de Colombina en presentación de 72 gramos (4 porciones aprox.). Disponibles en versiones Clásica y Splash Ácidos.",
+        imagen: "gomitasgrissly72gramos.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
