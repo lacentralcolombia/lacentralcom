@@ -276,6 +276,7 @@ var productosData = [
         descripcion: "Esencias sabor artificiales marca Levapan en presentación de Cont. Neto: 60 ml. Incluye variedad de Esencia Sabor a Coco y Esencia Sabor a Vainilla Caramelo, perfectas para repostería y preparaciones.",
         imagen: "levapanesencia60mk.jpg"
     },
+    
     {
         id: 14,
         nombre: "Salsas Caseras Emanuel",
@@ -287,11 +288,11 @@ var productosData = [
    
     {
         id: 1301,
-        nombre: "Precocido Ejemplo 1 | Presentación",
+        nombre: "Empanadas Vallunas Línea Premium Horneadas Precocidos y Congelados del Valle x 2.050 g | 25 Porciones",
         categoria: "alimentos",
         subcategoria: "precocidos",
-        descripcion: "Producto precocido o congelado, mantener en refrigeración.",
-        imagen: "imagenlacentral.jpeg"
+        descripcion: "Empanadas vallunas línea premium horneadas, marca Precocidos y Congelados del Valle. ¡Más carne... mejor sabor...!. Presentación institucional/familiar con peso neto de 2.050 g (25 porciones). Conservar congelado a -4°C.",
+        imagen: "empanadasvallunas2050g.jpg"
     },
     {
         id: 1302,
