@@ -879,6 +879,14 @@ var productosData = [
         imagen: "coberturadechocolateleche500g.jpg"
     },
     {
+        id: 4009,
+        nombre: "Brevas en Almíbar La Coruña x 560 g | Peso Drenado 320 g",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Brevas en almíbar (frutas en conserva, variedad brevas) marca La Coruña en presentación de frasco de vidrio. Peso Neto: 560 g, Peso Drenado: 320 g (aprox. 3 porciones por envase). Ideal para postres y acompañamientos.",
+        imagen: "brevasenalmibar560.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
