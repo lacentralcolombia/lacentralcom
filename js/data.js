@@ -114,6 +114,14 @@ var productosData = [
         descripcion: "Leche condensada azucarada semidescremada marca La Lechera Nestlé (Original, leche 100% de vaca). Presentación doypack con contenido neto de 190 g y aprox. 9 porciones.",
         imagen: "LaLecheraNestlelechecondesada190g.jpg"
     },
+    {
+        id: 513,
+        nombre: "Leche Condensada Cowie Proalba | Presentaciones de 380 g y 1.300 g",
+        categoria: "quesos",
+        subcategoria: "leche-yogures",
+        descripcion: "Leche condensada azucarada marca Cowie (Proalba) elaborada con leche (lactosa). Disponible en práctica presentación dosificadora de 380 g (aprox. 13 porciones) y presentación institucional/familiar de 1.300 g con manija (aprox. 43 porciones).",
+        imagen: "lecheracondesada380y1300g.jpg"
+    },
    
     {
         id: 6,
