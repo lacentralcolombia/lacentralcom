@@ -98,6 +98,14 @@ var productosData = [
         descripcion: "Crema de leche original semientera UAT (UHT) Alquería Food Service para uso institucional. Ideal para batir, con cremosidad y textura inigualable. Presentación de 1.000 g.",
         imagen: "cremadelechefood1000gramos.jpg"
     },
+    {
+        id: 511,
+        nombre: "Crema de Leche Semientera Esterilizada Nestlé x 186 g",
+        categoria: "quesos",
+        subcategoria: "leche-yogures",
+        descripcion: "Crema de leche semientera esterilizada marca Nestlé en presentación doypack con práctico tazón de rosca. Contenido neto: 186 g (aprox. 12 porciones por empaque). Agítese antes de abrir.",
+        imagen: "cremadelecheNestle186gramos.jpg"
+    },
    
     {
         id: 6,
