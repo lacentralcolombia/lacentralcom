@@ -285,6 +285,14 @@ var productosData = [
         descripcion: "Salsas artesanales, tártara, ajo, piña, rosada y especialidades.",
         imagen: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?q=80&w=500"
     },
+    {
+        id: 1300,
+        nombre: "Empanadas Vallunas Coctel Mixta Línea Premium Horneadas Precovel S.A.S. x 1.100 g | 25 Porciones",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Empanadas vallunas coctel mixta línea premium horneadas, fabricadas por Precovel S.A.S. ¡Más carne... mejor sabor...!. Presentación con peso neto de 1.100 g (25 porciones). Consérvese congelado a -5°C.",
+        imagen: "empanadasvallunas1100g.jpg"
+    },
    
     {
         id: 1301,
