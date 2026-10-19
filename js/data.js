@@ -335,6 +335,14 @@ var productosData = [
         imagen: "antojosmaizdulce1000g.jpg"
     },
     {
+        id: 1307,
+        nombre: "Practi Pasta para Empanadas con Separador Indubáez x 500 g | 15 Unidades",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Pasta base para preparar empanadas marca Indubáez con separador (15 unidades, diámetro de 15 cm). Presentación de peso neto 500 g. Mantener en congelación a temperatura menor de 0°C.",
+        imagen: "practipasta500g.jpg"
+    },
+    {
         id: 15,
         nombre: "Maní Variado",
         categoria: "frutos-secos",
