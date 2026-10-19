@@ -343,6 +343,14 @@ var productosData = [
         imagen: "practipasta500g.jpg"
     },
     {
+        id: 1308,
+        nombre: "Papas Fritas Prefritas Congeladas Bart's Tradition x 2.5 kg | 31 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Papas fritas prefritas congeladas (prefried frozen fries) marca Bart's Tradition. Presentación institucional / familiar de contenido neto 2.5 kg (5.5 lbs) y aprox. 31 porciones.",
+        imagen: "bartstradition.jpg"
+    },
+    {
         id: 15,
         nombre: "Maní Variado",
         categoria: "frutos-secos",
