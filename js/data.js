@@ -903,6 +903,14 @@ var productosData = [
         imagen: "duraznosamarillos480g.jpg"
     },
     {
+        id: 4011,
+        nombre: "Cerezas Marrasquino La Coruña | Presentaciones de 500 g y 1.000 g",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Cerezas marrasquino en conserva marca La Coruña (frutas en conserva, variedad cerezas en conserva). Disponible en presentación de 500 g (Peso Drenado: 280 g, aprox. 14 porciones) y presentación familiar de 1.000 g (Peso Drenado: 500 g, aprox. 25 porciones).",
+        imagen: "lacoruñacerezamarraquito.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
