@@ -473,9 +473,17 @@
                         </div>
                     </div>
 
-                    <button class="top-nav-btn" onclick="filtrarCategoria('aliños', null, event)">
-                        <i class="fa-solid fa-jar"></i> Aliños y Condimentos
-                    </button>
+                    <!-- Menú desplegable para Alimentos, Aliños y Condimentos -->
+<div class="desplegable superior">
+    <button class="top-nav-btn" onclick="toggleTopDropdown('menu-alimentos', event)">
+        <i class="fa-solid fa-jar"></i> Aliños y Condimentos <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <div class="contenido desplegable superior" id="menu-alimentos">
+        <button onclick="filtrarCategoria('alimentos', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Ver todos</button>
+        <button onclick="filtrarCategoria('alimentos', 'general', event)"><i class="fa-solid fa-bowl-food"></i> Aliños y Especias</button>
+        <button onclick="filtrarCategoria('alimentos', 'saborizantes', event)"><i class="fa-solid fa-bottle-droplet"></i> Saborizantes</button>
+    </div>
+</div>
 
                     <button class="top-nav-btn" onclick="filtrarCategoria('frutos-secos', null, event)">
                         <i class="fa-solid fa-seedling"></i> Frutos Secos
