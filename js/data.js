@@ -259,29 +259,14 @@ var productosData = [
         descripcion: "Variedad de aliños preparados por peso para darle el toque secreto a tus comidas.",
         imagen: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=500"
     },
-    {
-        id: 12,
-        nombre: "Especias Seleccionadas",
-        categoria: "alimentos",
-        subcategoria: "general",
-        descripcion: "Pimienta, orégano, comino, laurel, tomillo, paprika y especias.",
-        imagen: "https://images.unsplash.com/photo-1509358217950-0fd228257184?q=80&w=500"
-    },
-    {
-        id: 13,
-        nombre: "Condimentos El Rey",
-        categoria: "alimentos",
-        subcategoria: "general",
-        descripcion: "Sazonadores en polvo, color, caldo y sazonados El Rey.",
-        imagen: "https://images.unsplash.com/photo-1532336414038-cf19250c5757?q=80&w=500"
-    },
-    {
+   
+   {
         id: 1201,
-        nombre: "Esencias Saborizantes para Alimentos x 60 ml | Variedades Chocolate, Coco, Vainilla Negra y Vainilla Blanca",
+        nombre: "Saborizantes para Alimentos x 60 ml | Carolesen y Sabrimax (Chocolate, Coco, Vainilla Negra y Vainilla Blanca)",
         categoria: "alimentos",
         subcategoria: "saborizantes",
-        descripcion: "Esencia saborizante de alta calidad para repostería y preparaciones culinarias en presentación de 60 ml. Disponibles en sabores de chocolate, coco, vainilla negra y vainilla blanca.",
-        imagen: "imagenlacentral.jpeg"
+        descripcion: "Saborizantes para alimentos con sabor artificial marcas Carolesen (Chocolate) y Sabrimax de Colorisa (Coco, Vainilla Negra y Vainilla Blanca). Presentación de Cont. Neto 60 ml.",
+        imagen: "saborizantesabrimax60ml.jpg"
     },
     {
         id: 14,
