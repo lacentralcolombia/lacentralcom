@@ -1,19 +1,12 @@
 var marcasData = [
-    { nombre: "Liqui POPS", logo: "logos/liquipops.png" },
-    { nombre: "Zenú", logo: "logos/zenu.png" },
-    { nombre: "Differ", logo: "logos/differ.png" },
-    { nombre: "Alquería", logo: "logos/alqueria.png" },
-    { nombre: "Alpina", logo: "logos/alpina.png" },
-    { nombre: "Karvalle", logo: "logos/karvalle.png" },
-    { nombre: "La Favorita", logo: "logos/lafavorita.png" },
-    { nombre: "Nestlé", logo: "logos/nestle.png" },
-    { nombre: "Panvalle", logo: "logos/panvalle.png" },
-    { nombre: "Darnel", logo: "logos/darnel.png" },
-    { nombre: "Rica", logo: "logos/rica.png" },
-    { nombre: "Cowie", logo: "logos/cowie.png" },
-    { nombre: "Salsa Emanuel", logo: "logos/emanuel.png" },
-    { nombre: "El Rey", logo: "logos/elrey.png" },
-    { nombre: "Bimbo", logo: "logos/bimbo.png" }
+    { nombre: "Zenú", logo: "zenu.jpg" },
+    { nombre: "Alpina", logo: "alpina.jpg" },
+    { nombre: "Alquería", logo: "alqueria.jpg" },
+    { nombre: "Rica", logo: "rica.jpg" },
+    { nombre: "Bimbo", logo: "bimbo.jpg" },
+    { nombre: "Darnel", logo: "darnel.jpg" },
+    { nombre: "El Rey", logo: "elrey.jpg" },
+    { nombre: "Nestlé", logo: "nestle.jpg" }
 ];
 
 var productosData = [
@@ -104,6 +97,30 @@ var productosData = [
         subcategoria: "leche-yogures",
         descripcion: "Crema de leche original semientera UAT (UHT) Alquería Food Service para uso institucional. Ideal para batir, con cremosidad y textura inigualable. Presentación de 1.000 g.",
         imagen: "cremadelechefood1000gramos.jpg"
+    },
+    {
+        id: 511,
+        nombre: "Crema de Leche Semientera Esterilizada Nestlé x 186 g",
+        categoria: "quesos",
+        subcategoria: "leche-yogures",
+        descripcion: "Crema de leche semientera esterilizada marca Nestlé en presentación doypack con práctico tazón de rosca. Contenido neto: 186 g (aprox. 12 porciones por empaque). Agítese antes de abrir.",
+        imagen: "cremadelecheNestle186gramos.jpg"
+    },
+    {
+        id: 512,
+        nombre: "Leche Condensada Original La Lechera Nestlé x 190 g",
+        categoria: "quesos",
+        subcategoria: "leche-yogures",
+        descripcion: "Leche condensada azucarada semidescremada marca La Lechera Nestlé (Original, leche 100% de vaca). Presentación doypack con contenido neto de 190 g y aprox. 9 porciones.",
+        imagen: "LaLecheraNestlelechecondesada190g.jpg"
+    },
+    {
+        id: 513,
+        nombre: "Leche Condensada Cowie Proalba | Presentaciones de 380 g y 1.300 g",
+        categoria: "quesos",
+        subcategoria: "leche-yogures",
+        descripcion: "Leche condensada azucarada marca Cowie (Proalba) elaborada con leche (lactosa). Disponible en práctica presentación dosificadora de 380 g (aprox. 13 porciones) y presentación institucional/familiar de 1.300 g con manija (aprox. 43 porciones).",
+        imagen: "lecheracondesada380y1300g.jpg"
     },
    
     {
@@ -250,22 +267,24 @@ var productosData = [
         descripcion: "Variedad de aliños preparados por peso para darle el toque secreto a tus comidas.",
         imagen: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=500"
     },
-    {
-        id: 12,
-        nombre: "Especias Seleccionadas",
+   
+   {
+        id: 1201,
+        nombre: "Saborizantes para Alimentos x 60 ml | Carolesen y Sabrimax (Chocolate, Coco, Vainilla Negra y Vainilla Blanca)",
         categoria: "alimentos",
-        subcategoria: "general",
-        descripcion: "Pimienta, orégano, comino, laurel, tomillo, paprika y especias.",
-        imagen: "https://images.unsplash.com/photo-1509358217950-0fd228257184?q=80&w=500"
+        subcategoria: "saborizantes",
+        descripcion: "Saborizantes para alimentos con sabor artificial marcas Carolesen (Chocolate) y Sabrimax de Colorisa (Coco, Vainilla Negra y Vainilla Blanca). Presentación de Cont. Neto 60 ml.",
+        imagen: "saborizantesabrimax60ml.jpg"
     },
     {
-        id: 13,
-        nombre: "Condimentos El Rey",
+        id: 1202,
+        nombre: "Esencias Saborizantes Levapan x 60 ml | Variedades Coco y Vainilla Caramelo",
         categoria: "alimentos",
-        subcategoria: "general",
-        descripcion: "Sazonadores en polvo, color, caldo y sazonados El Rey.",
-        imagen: "https://images.unsplash.com/photo-1532336414038-cf19250c5757?q=80&w=500"
+        subcategoria: "saborizantes",
+        descripcion: "Esencias sabor artificiales marca Levapan en presentación de Cont. Neto: 60 ml. Incluye variedad de Esencia Sabor a Coco y Esencia Sabor a Vainilla Caramelo, perfectas para repostería y preparaciones.",
+        imagen: "levapanesencia60mk.jpg"
     },
+    
     {
         id: 14,
         nombre: "Salsas Caseras Emanuel",
@@ -273,6 +292,71 @@ var productosData = [
         subcategoria: "general",
         descripcion: "Salsas artesanales, tártara, ajo, piña, rosada y especialidades.",
         imagen: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?q=80&w=500"
+    },
+    {
+        id: 1299,
+        nombre: "Empanadas Vallunas Línea Premium Horneadas Precocidos y Congelados del Valle x 850 g | 10 Porciones",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Empanadas vallunas línea premium horneadas, marca Precocidos y Congelados del Valle. ¡Más carne... mejor sabor...!. Presentación con peso neto de 850 g (10 porciones). Consérvese congelado a -4°C.",
+        imagen: "empanadasvallunas850.jpg"
+    },
+    {
+        id: 1300,
+        nombre: "Empanadas Vallunas Coctel Mixta Línea Premium Horneadas Precovel S.A.S. x 1.100 g | 25 Porciones",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Empanadas vallunas coctel mixta línea premium horneadas, fabricadas por Precovel S.A.S. ¡Más carne... mejor sabor...!. Presentación con peso neto de 1.100 g (25 porciones). Consérvese congelado a -5°C.",
+        imagen: "empanadasvallunas1100g.jpg"
+    },
+   
+    {
+        id: 1301,
+        nombre: "Empanadas Vallunas Línea Premium Horneadas Precocidos y Congelados del Valle x 2.050 g | 25 Porciones",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Empanadas vallunas línea premium horneadas, marca Precocidos y Congelados del Valle. ¡Más carne... mejor sabor...!. Presentación institucional/familiar con peso neto de 2.050 g (25 porciones). Conservar congelado a -4°C.",
+        imagen: "empanadasvallunas2050g.jpg"
+    },
+   {
+        id: 1302,
+        nombre: "Dedos con Queso La Fé Congelados x 700 g | 10 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Dedos con queso congelados marca La Fé Congelados. Presentación de 700 g (10 porciones aprox.). Manténgase congelado.",
+        imagen: "dedosconqueso700g.jpg"
+    },
+    {
+        id: 1303,
+        nombre: "Hojaldras La Fé Congelados",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Hojaldras congeladas marca La Fé Congelados. Ideales para preparar horneadas o fritas con una textura crujiente y dorada. Manténgase congelado.",
+        imagen: "ojaldraslafe.jpg"
+    },
+    {
+        id: 1306,
+        nombre: "Maíz Dulce Desgranado Maíz Importado Productos Antojos x 1.000 g | 12 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Maíz dulce desgranado (maíz importado) congelado, marca Productos Antojos. Presentación de contenido neto 1.000 g (12 porciones aprox.), ideal para preparaciones y maicitos.",
+        imagen: "antojosmaizdulce1000g.jpg"
+    },
+    {
+        id: 1307,
+        nombre: "Practi Pasta para Empanadas con Separador Indubáez x 500 g | 15 Unidades",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Pasta base para preparar empanadas marca Indubáez con separador (15 unidades, diámetro de 15 cm). Presentación de peso neto 500 g. Mantener en congelación a temperatura menor de 0°C.",
+        imagen: "practipasta500g.jpg"
+    },
+    {
+        id: 1308,
+        nombre: "Papas Fritas Prefritas Congeladas Bart's Tradition x 2.5 kg | 31 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Papas fritas prefritas congeladas (prefried frozen fries) marca Bart's Tradition. Presentación institucional / familiar de contenido neto 2.5 kg (5.5 lbs) y aprox. 31 porciones.",
+        imagen: "bartstradition.jpg"
     },
     {
         id: 15,
@@ -737,6 +821,94 @@ var productosData = [
         subcategoria: "yexis",
         descripcion: "Caramelo blando en almíbar con sabor artificial a coco. Presentación de 1.100 g ideal como topping para bubble tea, sodas y frappés.",
         imagen: "yexiscoco.jpg"
+    },
+    {
+        id: 4001,
+        nombre: "Caramelos  CandyRanch x 30 Unidades | Sabores Surtidos",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Caja de caramelos  con azúcar CandyRanch x 30 unidades. Disponible en variedad de sabores: Mango Biche, Maracuyá, Manzana Verde, Sandía, Maracululo, Mora Azul y Cereza.",
+        imagen: "CandyRanchcaramelo.jpg"
+    },
+    {
+        id: 4002,
+        nombre: "Goma de Mascar Sandia Bubble Gum Sour x 60 Unidades | Más Dulces",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Goma de mascar con sabor artificial a sandía rellena con polvo ácido. Presentación en tarrina con 60 porciones/units (Peso Neto 300 g), marca Más Dulces.",
+        imagen: "gomasandia60u.jpg"
+    },
+    {
+        id: 4003,
+        nombre: "Gomitas Grissly x 72 g | Variedades Clásica y Splash Ácidos (Colombina)",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Deliciosas gomitas sabor a frutas marca Grissly de Colombina en presentación de 72 gramos (4 porciones aprox.). Disponibles en versiones Clásica y Splash Ácidos.",
+        imagen: "gomitasgrissly72gramos.jpg"
+    },
+    {
+        id: 4004,
+        nombre: "Gomas Franki Trululu x 70 g | Sabor Frutal con Relleno Líquido",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Gomas sabor frutal con delicioso relleno líquido, marca Franki Trululu en presentación de 70 gramos (4 porciones aprox. por envase).",
+        imagen: "gomastrululufranki70gramos.jpg"
+    },
+    {
+        id: 4005,
+        nombre: "Gomitas Trululu Gusanos Ácidos x 100 Unidades | 320 g",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Gomas sabor frutal con relleno líquido en forma de gusanos ácidos. Presentación familiar de 100 unidades (Contenido Neto 320 g), marca Trululu.",
+        imagen: "gomitastrululugusanos100unidadesacidos302g.jpg"
+    },
+    {
+        id: 4006,
+        nombre: "Gomitas Trululu Aros x 100 Unidades | 600 g",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Gomitas en forma de aros surtidos en presentación familiar de 100 unidades (Contenido Neto 600 g, porciones por envase aprox. 33), marca Trululu.",
+        imagen: "gomitasarostrululus100unidades.jpg"
+    },
+    {
+        id: 4007,
+        nombre: "Bocadillo de Guayaba Frutos del Valle x 280 g | 7 Porciones",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Tradicional bocadillo de guayaba marca Frutos del Valle en presentación de 280 gramos (7 porciones).",
+        imagen: "bocadillodeguallaba28g7porciones.jpg"
+    },
+    {
+        id: 4008,
+        nombre: "Cobertura de Chocolate Lucky x 500 g | Variedades Leche y Blanco",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Coberturas de chocolate marca Lucky en presentación de 500 g (20 porciones). Disponibles en sabores de Chocolate de Leche y Chocolate Blanco.",
+        imagen: "coberturadechocolateleche500g.jpg"
+    },
+    {
+        id: 4009,
+        nombre: "Brevas en Almíbar La Coruña x 560 g | Peso Drenado 320 g",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Brevas en almíbar (frutas en conserva, variedad brevas) marca La Coruña en presentación de frasco de vidrio. Peso Neto: 560 g, Peso Drenado: 320 g (aprox. 3 porciones por envase). Ideal para postres y acompañamientos.",
+        imagen: "brevasenalmibar560.jpg"
+    },
+    {
+        id: 4010,
+        nombre: "Duraznos Amarillos en Mitades en Almíbar Frutivita x 800 g | Peso Escurrido 480 g",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Duraznos amarillos en mitades en almíbar marca Frutivita (Frutas en almíbar, contiene edulcorantes, sin colorantes ni preservantes). Contenido Neto: 800 g, Peso Escurrido: 480 g (aprox. 6 porciones por envase).",
+        imagen: "duraznosamarillos480g.jpg"
+    },
+    {
+        id: 4011,
+        nombre: "Cerezas Marrasquino La Coruña | Presentaciones de 500 g y 1.000 g",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Cerezas marrasquino en conserva marca La Coruña (frutas en conserva, variedad cerezas en conserva). Disponible en presentación de 500 g (Peso Drenado: 280 g, aprox. 14 porciones) y presentación familiar de 1.000 g (Peso Drenado: 500 g, aprox. 25 porciones).",
+        imagen: "lacoruñacerezamarraquito.jpg"
     },
     {
         id: 22,
