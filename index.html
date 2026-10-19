@@ -720,5 +720,137 @@
     <!-- SCRIPTS EN ORDEN CORRECTO -->
     <script src="./js/data.js"></script>
     <script src="./js/app.js"></script>
+<!-- =====================================================================
+  EFECTO HALLOWEEN – LA CENTRAL
+  Pegar justo antes de </body>
+  Se activa solo en octubre y hasta el 2 de noviembre.
+  Para probarlo fuera de fecha, abre la página con  ?halloween=1  al final del enlace.
+===================================================================== -->
+<style>
+  .hl-capa { position: fixed; inset: 0; pointer-events: none; z-index: 40; overflow: hidden; }
+
+  /* ---------- Telarañas ---------- */
+  .hl-tela { position: absolute; top: 0; width: min(34vw, 260px); height: auto; opacity: .55;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,.35)); }
+  .hl-tela.izq { left: 0; }
+  .hl-tela.der { right: 0; transform: scaleX(-1); }
+  .hl-tela path { fill: none; stroke: #f2f2f2; stroke-width: 1; stroke-linecap: round; }
+
+  /* ---------- Araña colgante ---------- */
+  .hl-arana { position: absolute; top: 0; left: 9%; width: 44px; display: flex; flex-direction: column;
+    align-items: center; transform: translateY(-260px); animation: hl-bajar 3.2s cubic-bezier(.3,.7,.3,1) .8s forwards; }
+  .hl-hilo { width: 1px; height: 260px; background: linear-gradient(#ddd, #888); }
+  .hl-arana svg { width: 44px; height: 44px; margin-top: -2px; transform-origin: top center;
+    animation: hl-mecer 3.5s ease-in-out 4s infinite alternate; filter: drop-shadow(0 4px 6px rgba(0,0,0,.45)); }
+  @keyframes hl-bajar { to { transform: translateY(-150px); } }
+  @keyframes hl-mecer { from { transform: rotate(-7deg); } to { transform: rotate(7deg); } }
+
+  /* ---------- Murciélagos ---------- */
+  .hl-bat { position: absolute; left: -60px; width: 38px; opacity: 0; fill: #14101a;
+    filter: drop-shadow(0 0 4px rgba(255,140,0,.45)); animation: hl-volar linear forwards; }
+  .hl-bat .ala { transform-origin: center; animation: hl-aletear .22s ease-in-out infinite alternate; }
+  @keyframes hl-aletear { from { transform: scaleY(1); } to { transform: scaleY(.55); } }
+  @keyframes hl-volar {
+    0%   { opacity: 0; transform: translate(0,0); }
+    6%   { opacity: .9; }
+    25%  { transform: translate(28vw,-40px); }
+    50%  { transform: translate(55vw, 30px); }
+    75%  { transform: translate(82vw,-35px); }
+    94%  { opacity: .9; }
+    100% { opacity: 0; transform: translate(112vw, 10px); }
+  }
+
+  /* ---------- Resplandor inferior ---------- */
+  .hl-brillo { position: absolute; left: 0; right: 0; bottom: 0; height: 120px;
+    background: linear-gradient(to top, rgba(255,120,0,.16), transparent); animation: hl-pulso 4s ease-in-out infinite alternate; }
+  @keyframes hl-pulso { from { opacity: .45; } to { opacity: 1; } }
+
+  /* ---------- Botón para apagar ---------- */
+  .hl-toggle { position: fixed; left: 16px; bottom: 16px; z-index: 45; width: 46px; height: 46px; border-radius: 50%;
+    border: 2px solid #ff8a00; background: #1a1209; color: #fff; font-size: 22px; line-height: 1; cursor: pointer;
+    box-shadow: 0 0 14px rgba(255,138,0,.55); transition: transform .2s; }
+  .hl-toggle:hover { transform: scale(1.1); }
+  .hl-apagado .hl-capa { display: none; }
+  .hl-apagado .hl-toggle { opacity: .55; box-shadow: none; }
+
+  @media (max-width: 600px) { .hl-arana { left: 4%; } .hl-bat { width: 28px; } }
+  @media (prefers-reduced-motion: reduce) { .hl-arana, .hl-arana svg, .hl-bat, .hl-bat .ala, .hl-brillo { animation: none; }
+    .hl-arana { transform: translateY(-150px); } .hl-bat { display: none; } }
+</style>
+
+<div class="hl-capa" id="hlCapa" aria-hidden="true">
+  <svg class="hl-tela izq" id="hlTelaIzq" viewBox="0 0 200 200"></svg>
+  <svg class="hl-tela der" id="hlTelaDer" viewBox="0 0 200 200"></svg>
+
+  <div class="hl-arana">
+    <div class="hl-hilo"></div>
+    <svg viewBox="0 0 44 44">
+      <g stroke="#111" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M22 24 L8 14 L3 20"/><path d="M22 25 L6 26 L2 34"/><path d="M22 26 L10 36 L8 42"/><path d="M22 27 L16 38 L16 43"/>
+        <path d="M22 24 L36 14 L41 20"/><path d="M22 25 L38 26 L42 34"/><path d="M22 26 L34 36 L36 42"/><path d="M22 27 L28 38 L28 43"/>
+      </g>
+      <ellipse cx="22" cy="28" rx="8" ry="9" fill="#111"/><circle cx="22" cy="19" r="5" fill="#111"/>
+      <circle cx="20" cy="18" r="1.2" fill="#ff8a00"/><circle cx="24" cy="18" r="1.2" fill="#ff8a00"/>
+    </svg>
+  </div>
+
+  <div class="hl-brillo"></div>
+</div>
+
+<button class="hl-toggle" id="hlToggle" type="button" aria-label="Activar o desactivar efecto de Halloween" title="Efecto de Halloween">🎃</button>
+
+<script>
+(function () {
+  // ---- ¿Está en fecha? (octubre completo + 1 y 2 de noviembre) ----
+  var hoy = new Date(), m = hoy.getMonth(), d = hoy.getDate();
+  var enFecha = (m === 9) || (m === 10 && d <= 2);
+  var forzado = /[?&]halloween=1/.test(location.search);
+  var capa = document.getElementById('hlCapa'), btn = document.getElementById('hlToggle');
+  if (!enFecha && !forzado) { capa.remove(); btn.remove(); return; }
+
+  // ---- Preferencia del visitante ----
+  function leer() { try { return localStorage.getItem('hl-off') === '1'; } catch (e) { return false; } }
+  function guardar(v) { try { localStorage.setItem('hl-off', v ? '1' : '0'); } catch (e) {} }
+  if (leer()) document.body.classList.add('hl-apagado');
+  btn.addEventListener('click', function () {
+    var off = document.body.classList.toggle('hl-apagado');
+    guardar(off);
+  });
+
+  // ---- Dibujar telarañas ----
+  function tela(svg) {
+    var a = [0, 18, 36, 54, 72, 90].map(function (g) { return g * Math.PI / 180; });
+    var rings = [35, 70, 105, 140, 175], h = '';
+    a.forEach(function (t) { h += 'M0 0L' + (200 * Math.cos(t)).toFixed(1) + ' ' + (200 * Math.sin(t)).toFixed(1); });
+    rings.forEach(function (r) {
+      for (var i = 0; i < a.length - 1; i++) {
+        var x1 = r * Math.cos(a[i]), y1 = r * Math.sin(a[i]);
+        var x2 = r * Math.cos(a[i + 1]), y2 = r * Math.sin(a[i + 1]);
+        var mid = (a[i] + a[i + 1]) / 2, c = r * 0.86;
+        h += 'M' + x1.toFixed(1) + ' ' + y1.toFixed(1) + 'Q' + (c * Math.cos(mid)).toFixed(1) + ' ' + (c * Math.sin(mid)).toFixed(1) + ' ' + x2.toFixed(1) + ' ' + y2.toFixed(1);
+      }
+    });
+    svg.innerHTML = '<path d="' + h + '"/>';
+  }
+  tela(document.getElementById('hlTelaIzq')); tela(document.getElementById('hlTelaDer'));
+
+  // ---- Murciélagos ----
+  var batSVG = '<svg class="hl-bat" viewBox="-26 -12 52 24"><g class="ala"><path d="M0 0C-6-8-16-8-24 0C-18-2-14 2-10 6C-6 2-3 4 0 8C3 4 6 2 10 6C14 2 18-2 24 0C16-8 6-8 0 0Z"/></g></svg>';
+  function lanzar() {
+    if (document.body.classList.contains('hl-apagado') || document.hidden) return;
+    var w = document.createElement('div');
+    w.innerHTML = batSVG;
+    var b = w.firstChild;
+    b.style.top = (8 + Math.random() * 30) + 'vh';
+    b.style.animationDuration = (9 + Math.random() * 5) + 's';
+    capa.appendChild(b);
+    setTimeout(function () { b.remove(); }, 15000);
+  }
+  setTimeout(function () { lanzar(); setTimeout(lanzar, 900); }, 3500);
+  setInterval(function () { lanzar(); if (Math.random() > .5) setTimeout(lanzar, 700); }, 16000);
+})();
+</script>
+
+    
 </body>
 </html>
