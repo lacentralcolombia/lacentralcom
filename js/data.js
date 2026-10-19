@@ -286,6 +286,14 @@ var productosData = [
         imagen: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?q=80&w=500"
     },
     {
+        id: 1299,
+        nombre: "Empanadas Vallunas Línea Premium Horneadas Precocidos y Congelados del Valle x 850 g | 10 Porciones",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Empanadas vallunas línea premium horneadas, marca Precocidos y Congelados del Valle. ¡Más carne... mejor sabor...!. Presentación con peso neto de 850 g (10 porciones). Consérvese congelado a -4°C.",
+        imagen: "empanadasvallunas850.jpg"
+    },
+    {
         id: 1300,
         nombre: "Empanadas Vallunas Coctel Mixta Línea Premium Horneadas Precovel S.A.S. x 1.100 g | 25 Porciones",
         categoria: "alimentos",
