@@ -10,11 +10,16 @@ const nombresCategorias = {
     'quesos-bloque': 'Quesos y Lácteos - En Bloque',
     'quesos-tajados': 'Quesos y Lácteos - Tajados',
     'quesos-frescos': 'Quesos y Lácteos - Frescos y Tradicionales',
+    'leche-yogures': 'Quesos y Lácteos - Leche y Yogures',
     'embutidos': 'Embutidos y Cárnicos',
     'alimentos': 'Alimentos y Condimentos',
     'frutos-secos': 'Frutos Secos',
     'cocteleria': 'Coctelería y Micheladas',
     'desechables': 'Plásticos y Desechables',
+    'dulces': 'Dulces',
+    'saborizantes': 'Saborizantes',
+    'precocidos': 'Precocidos y congelados',
+    'panes': 'Panes',
     'jamones': 'Embutidos - Jamones',
     'salchichas': 'Embutidos - Salchichas',
     'chorizos': 'Embutidos - Chorizos',
@@ -34,6 +39,7 @@ const nombresCategorias = {
     'liqui-maracuya': 'Liquipops | Maracuyá',
     'liqui-cafe': 'Liquipops | Café',
     'siropes': 'Siropes y Chamoy',
+    'yexis': 'Yexis | Caramelos en almíbar',
     'escarchas': 'Escarchas y Micheladas'
 };
 
@@ -248,18 +254,68 @@ function reproducirSonidoPop() {
 }
 
 // RENDERIZAR MARCAS
+// Muestra el logo original de cada marca (archivo indicado en data.js).
+// Si el archivo todavía no está subido, muestra el nombre de la marca
+// en una tarjeta limpia, sin imágenes rotas.
 function renderizarMarcas() {
     const marcas = getMarcas();
     const container = document.getElementById('brands-container');
     if (!container) return;
     container.innerHTML = '';
 
-    marcas.forEach(marca => {
+    marcas.forEach((marca, i) => {
         const card = document.createElement('div');
         card.className = 'brand-card';
-        card.innerHTML = `<img src="${marca.logo}" alt="Logo ${marca.nombre}" class="brand-img" loading="lazy" onerror="this.src='https://via.placeholder.com/150x50?text=Marca'">`;
+        card.style.setProperty('--i', i);
+        card.title = marca.nombre;
+
+        const mostrarNombre = () => {
+            card.classList.add('sin-logo');
+            card.innerHTML = '';
+            const nombre = document.createElement('span');
+            nombre.className = 'brand-name';
+            nombre.textContent = marca.nombre;
+            card.appendChild(nombre);
+        };
+
+        if (marca.logo) {
+            const img = document.createElement('img');
+            img.className = 'brand-img';
+            img.alt = 'Logo ' + marca.nombre;
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            // Prueba automáticamente el mismo nombre con otras extensiones
+            // (png, webp, svg, jpg, jpeg) antes de mostrar solo el nombre.
+            const base = marca.logo.replace(/\.(jpe?g|png|webp|svg)$/i, '');
+            const extras = ['.png', '.webp', '.svg', '.jpg', '.jpeg']
+                .map(e => base + e).filter(u => u !== marca.logo);
+            img.addEventListener('error', () => {
+                const siguiente = extras.shift();
+                if (siguiente) { img.src = siguiente; } else { mostrarNombre(); }
+            });
+            img.src = marca.logo;
+            card.appendChild(img);
+        } else {
+            mostrarNombre();
+        }
         container.appendChild(card);
     });
+
+    // Aparición suave, una tarjeta tras otra, al llegar a la sección
+    const tarjetas = container.querySelectorAll('.brand-card');
+    if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entradas, o) => {
+            entradas.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    o.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        tarjetas.forEach(t => obs.observe(t));
+    } else {
+        tarjetas.forEach(t => t.classList.add('visible'));
+    }
 }
 
 // RENDERIZAR PRODUCTOS
@@ -305,6 +361,24 @@ function renderizarProductos(categoria = 'todos', subcat = null, filtroTexto = '
             p.nombre.toLowerCase().includes(query) ||
             p.descripcion.toLowerCase().includes(query)
         );
+    }
+
+    if (filtrados.length === 0 && filtroTexto.trim() === '') {
+        const nombreCat = nombreTitulo || categoria;
+        const iconos = { dulces: 'fa-candy-cane', panes: 'fa-bread-slice' };
+        const icono = iconos[categoria] || 'fa-box-open';
+        const msg = encodeURIComponent('Hola LA CENTRAL, quisiera consultar disponibilidad de: ' + nombreCat);
+        grid.innerHTML = `
+            <div class="empty-state">
+                <div class="empty-state-icon"><i class="fa-solid ${icono}"></i></div>
+                <h3>${nombreCat}</h3>
+                <p>Estamos preparando esta sección del catálogo. Escríbenos y te contamos qué tenemos disponible hoy.</p>
+                <a class="empty-state-btn" href="https://wa.me/${NUMERO_WHATSAPP}?text=${msg}" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+                </a>
+            </div>
+        `;
+        return;
     }
 
     if (filtrados.length === 0) {
@@ -632,3 +706,51 @@ if (document.readyState === 'loading') {
 } else {
     iniciarApp();
 }
+
+/* =========================================================
+   FRANJA SUPERIOR: efecto al bajar, sección activa y globito
+   ========================================================= */
+(function () {
+    const nav = document.querySelector('.navbar');
+    if (!nav) return;
+
+    // 1) Al bajar: se esconde la barra fina y el menú se achica
+    let ticking = false;
+    function alDesplazar() {
+        document.body.classList.toggle('scrolled', window.scrollY > 40);
+        ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(alDesplazar); ticking = true; }
+    }, { passive: true });
+    alDesplazar();
+
+    // 2) Resalta en dorado la sección que se está viendo
+    const enlaces = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+    const mapa = new Map();
+    enlaces.forEach(a => {
+        const seccion = document.querySelector(a.getAttribute('href'));
+        if (seccion) mapa.set(seccion, a);
+    });
+    if ('IntersectionObserver' in window && mapa.size) {
+        const obs = new IntersectionObserver(entradas => {
+            entradas.forEach(e => {
+                if (!e.isIntersecting) return;
+                enlaces.forEach(l => l.classList.remove('active'));
+                const activo = mapa.get(e.target);
+                if (activo) activo.classList.add('active');
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        mapa.forEach((_, seccion) => obs.observe(seccion));
+    }
+
+    // 3) El numerito de "Mi pedido" hace un pequeño salto al cambiar
+    const globito = document.getElementById('cart-count');
+    if (globito) {
+        new MutationObserver(() => {
+            globito.classList.remove('bump');
+            void globito.offsetWidth;
+            globito.classList.add('bump');
+        }).observe(globito, { childList: true, characterData: true, subtree: true });
+    }
+})();
