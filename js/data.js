@@ -106,6 +106,14 @@ var productosData = [
         descripcion: "Crema de leche semientera esterilizada marca Nestlé en presentación doypack con práctico tazón de rosca. Contenido neto: 186 g (aprox. 12 porciones por empaque). Agítese antes de abrir.",
         imagen: "cremadelecheNestle186gramos.jpg"
     },
+    {
+        id: 512,
+        nombre: "Leche Condensada Original La Lechera Nestlé x 190 g",
+        categoria: "quesos",
+        subcategoria: "leche-yogures",
+        descripcion: "Leche condensada azucarada semidescremada marca La Lechera Nestlé (Original, leche 100% de vaca). Presentación doypack con contenido neto de 190 g y aprox. 9 porciones.",
+        imagen: "LaLecheraNestlelechecondesada190g.jpg"
+    },
    
     {
         id: 6,
