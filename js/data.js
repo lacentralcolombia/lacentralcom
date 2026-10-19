@@ -276,6 +276,14 @@ var productosData = [
         imagen: "https://images.unsplash.com/photo-1532336414038-cf19250c5757?q=80&w=500"
     },
     {
+        id: 1201,
+        nombre: "Esencias Saborizantes para Alimentos x 60 ml | Variedades Chocolate, Coco, Vainilla Negra y Vainilla Blanca",
+        categoria: "alimentos",
+        subcategoria: "saborizantes",
+        descripcion: "Esencia saborizante de alta calidad para repostería y preparaciones culinarias en presentación de 60 ml. Disponibles en sabores de chocolate, coco, vainilla negra y vainilla blanca.",
+        imagen: "imagenlacentral.jpeg"
+    },
+    {
         id: 14,
         nombre: "Salsas Caseras Emanuel",
         categoria: "alimentos",
