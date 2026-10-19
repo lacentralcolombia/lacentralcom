@@ -788,6 +788,14 @@ var productosData = [
         imagen: "bocadillodeguallaba28g7porciones.jpg"
     },
     {
+        id: 4008,
+        nombre: "Cobertura de Chocolate Lucky x 500 g | Variedades Leche y Blanco",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Coberturas de chocolate marca Lucky en presentación de 500 g (20 porciones). Disponibles en sabores de Chocolate de Leche y Chocolate Blanco.",
+        imagen: "coberturadechocolateleche500g.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
