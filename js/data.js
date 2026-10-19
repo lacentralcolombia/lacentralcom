@@ -303,6 +303,14 @@ var productosData = [
         imagen: "dedosconqueso700g.jpg"
     },
     {
+        id: 1303,
+        nombre: "Hojaldras La Fé Congelados",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Hojaldras congeladas marca La Fé Congelados. Ideales para preparar horneadas o fritas con una textura crujiente y dorada. Manténgase congelado.",
+        imagen: "ojaldraslafe.jpg"
+    },
+    {
         id: 15,
         nombre: "Maní Variado",
         categoria: "frutos-secos",
