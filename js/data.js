@@ -284,22 +284,7 @@ var productosData = [
         descripcion: "Salsas artesanales, tártara, ajo, piña, rosada y especialidades.",
         imagen: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?q=80&w=500"
     },
-        {
-        id: 1201,
-        nombre: "Saborizante Ejemplo 1 | Presentación",
-        categoria: "alimentos",
-        subcategoria: "saborizantes",
-        descripcion: "Descripción corta del saborizante.",
-        imagen: "imagenlacentral.jpeg"
-    },
-    {
-        id: 1202,
-        nombre: "Saborizante Ejemplo 2 | Presentación",
-        categoria: "alimentos",
-        subcategoria: "saborizantes",
-        descripcion: "Descripción corta del saborizante.",
-        imagen: "imagenlacentral.jpeg"
-    },
+   
     {
         id: 1301,
         nombre: "Precocido Ejemplo 1 | Presentación",
