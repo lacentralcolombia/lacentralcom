@@ -294,13 +294,13 @@ var productosData = [
         descripcion: "Empanadas vallunas línea premium horneadas, marca Precocidos y Congelados del Valle. ¡Más carne... mejor sabor...!. Presentación institucional/familiar con peso neto de 2.050 g (25 porciones). Conservar congelado a -4°C.",
         imagen: "empanadasvallunas2050g.jpg"
     },
-    {
+   {
         id: 1302,
-        nombre: "Precocido Ejemplo 2 | Presentación",
+        nombre: "Dedos con Queso La Fé Congelados x 700 g | 10 Porciones Aprox.",
         categoria: "alimentos",
         subcategoria: "precocidos",
-        descripcion: "Producto precocido o congelado, mantener en refrigeración.",
-        imagen: "imagenlacentral.jpeg"
+        descripcion: "Dedos con queso congelados marca La Fé Congelados. Presentación de 700 g (10 porciones aprox.). Manténgase congelado.",
+        imagen: "dedosconqueso700g.jpg"
     },
     {
         id: 15,
