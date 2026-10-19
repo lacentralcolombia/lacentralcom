@@ -443,6 +443,17 @@
                     <button class="top-nav-btn active" onclick="filtrarCategoria('todos', null, event)">
                         <i class="fa-solid fa-border-all"></i> Todas
                     </button>
+                    <!-- DESPLEGABLE ALIMENTOS Y ALIÑOS -->
+    <div class="top-dropdown">
+        <button class="top-nav-btn" onclick="toggleTopDropdown('dropdown-alimentos', event)">
+            <i class="fa-solid fa-jar"></i> Alimentos y Aliños <i class="fa-solid fa-chevron-down arrow"></i>
+        </button>
+        <div class="top-dropdown-content" id="dropdown-alimentos">
+            <button onclick="filtrarCategoria('alimentos', 'todos', event)"><i class="fa-solid fa-circle-dot"></i> Ver todos los alimentos</button>
+            <button onclick="filtrarCategoria('alimentos', 'general', event)"><i class="fa-solid fa-bowl-food"></i> Aliños y Especias</button>
+            <button onclick="filtrarCategoria('alimentos', 'saborizantes', event)"><i class="fa-solid fa-bottle-droplet"></i> Saborizantes</button>
+        </div>
+    </div>
                     
                    <!-- DESPLEGABLE QUESOS Y LÁCTEOS -->
                     <div class="top-dropdown">
