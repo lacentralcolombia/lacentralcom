@@ -327,6 +327,14 @@ var productosData = [
         imagen: "ojaldraslafe.jpg"
     },
     {
+        id: 1306,
+        nombre: "Maíz Dulce Desgranado Maíz Importado Productos Antojos x 1.000 g | 12 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "precocidos",
+        descripcion: "Maíz dulce desgranado (maíz importado) congelado, marca Productos Antojos. Presentación de contenido neto 1.000 g (12 porciones aprox.), ideal para preparaciones y maicitos.",
+        imagen: "antojosmaizdulce1000g.jpg"
+    },
+    {
         id: 15,
         nombre: "Maní Variado",
         categoria: "frutos-secos",
