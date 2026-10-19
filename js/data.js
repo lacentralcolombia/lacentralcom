@@ -895,6 +895,14 @@ var productosData = [
         imagen: "brevasenalmibar560.jpg"
     },
     {
+        id: 4010,
+        nombre: "Duraznos Amarillos en Mitades en Almíbar Frutivita x 800 g | Peso Escurrido 480 g",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Duraznos amarillos en mitades en almíbar marca Frutivita (Frutas en almíbar, contiene edulcorantes, sin colorantes ni preservantes). Contenido Neto: 800 g, Peso Escurrido: 480 g (aprox. 6 porciones por envase).",
+        imagen: "duraznosamarillos480g.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
