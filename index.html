@@ -1027,6 +1027,47 @@
   setTimeout(ciclo, 4000);
 })();
 </script>
+    <!-- =====================================================================
+  MENÚ ESCONDIDO DE EFECTOS – LA CENTRAL
+  Pegar justo antes de </body>, DEBAJO de Halloween y Tormenta.
+  Agrupa 🎃 ⚡ 🔊 detrás de un solo botón ✨.
+===================================================================== -->
+<style>
+  #efxMenu { position: fixed; left: 16px; bottom: 16px; z-index: 45; display: flex; align-items: center; gap: 8px; }
+  #efxMain { width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,.45);
+    background: rgba(20,20,20,.7); color: #fff; font-size: 17px; line-height: 1; cursor: pointer;
+    opacity: .7; transition: opacity .2s, transform .2s; }
+  #efxMain:hover, #efxMenu.abierto #efxMain { opacity: 1; transform: scale(1.08); }
+  #efxList { display: flex; align-items: center; gap: 10px; max-width: 0; opacity: 0; overflow: hidden;
+    padding: 6px 4px; transition: max-width .35s ease, opacity .25s ease; }
+  #efxMenu.abierto #efxList { max-width: 220px; opacity: 1; }
+  #efxList .hl-toggle, #efxList .tm-btn { position: static !important; left: auto !important; bottom: auto !important;
+    width: 40px; height: 40px; flex-shrink: 0; }
+</style>
+
+<script>
+(function () {
+  var btns = ['hlToggle', 'tmBtn', 'tmSnd']
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+  if (!btns.length) return;
+
+  var box = document.createElement('div'); box.id = 'efxMenu';
+  var main = document.createElement('button');
+  main.id = 'efxMain'; main.type = 'button'; main.textContent = '✨';
+  main.setAttribute('aria-label', 'Efectos de temporada'); main.setAttribute('aria-expanded', 'false');
+  var list = document.createElement('div'); list.id = 'efxList';
+  btns.forEach(function (b) { list.appendChild(b); });
+  box.appendChild(main); box.appendChild(list); document.body.appendChild(box);
+
+  function abrir(v) {
+    box.classList.toggle('abierto', v);
+    main.setAttribute('aria-expanded', v ? 'true' : 'false');
+  }
+  main.addEventListener('click', function () { abrir(!box.classList.contains('abierto')); });
+  document.addEventListener('click', function (e) { if (!box.contains(e.target)) abrir(false); });
+})();
+</script>
 
     
 </body>
