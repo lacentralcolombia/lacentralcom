@@ -780,6 +780,14 @@ var productosData = [
         imagen: "gomitasarostrululus100unidades.jpg"
     },
     {
+        id: 4007,
+        nombre: "Bocadillo de Guayaba Frutos del Valle x 280 g | 7 Porciones",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Tradicional bocadillo de guayaba marca Frutos del Valle en presentación de 280 gramos (7 porciones).",
+        imagen: "bocadillodeguallaba28g7porciones.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
