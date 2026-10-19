@@ -850,6 +850,183 @@
   setInterval(function () { lanzar(); if (Math.random() > .5) setTimeout(lanzar, 700); }, 16000);
 })();
 </script>
+    <!-- =====================================================================
+  TORMENTA ELÉCTRICA 3D – LA CENTRAL
+  Pegar justo antes de </body>, debajo del bloque de Halloween.
+  Activo en octubre y hasta el 2 de noviembre.
+  Para probar fuera de fecha: agrega  ?tormenta=1  al final del enlace.
+===================================================================== -->
+<style>
+  .tm-nubes { position: fixed; top: 0; left: 0; right: 0; height: 42vh; z-index: 39; pointer-events: none;
+    perspective: 700px; overflow: hidden; transition: filter .08s; }
+  .tm-nubes-in { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .6s ease-out; }
+  .tm-capa { position: absolute; left: -20%; width: 140%; top: -10%; height: 90%;
+    background:
+      radial-gradient(ellipse 22% 40% at 12% 40%, rgba(20,24,38,.95), transparent 70%),
+      radial-gradient(ellipse 26% 45% at 38% 30%, rgba(26,30,46,.9), transparent 70%),
+      radial-gradient(ellipse 24% 42% at 64% 38%, rgba(18,22,36,.95), transparent 70%),
+      radial-gradient(ellipse 22% 40% at 88% 30%, rgba(24,28,44,.9), transparent 70%);
+    filter: blur(18px); }
+  .tm-capa.c1 { transform: translateZ(-120px) scale(1.25); opacity: .75; animation: tm-der 70s linear infinite alternate; }
+  .tm-capa.c2 { transform: translateZ(-40px);  opacity: .85; animation: tm-izq 52s linear infinite alternate; }
+  .tm-capa.c3 { transform: translateZ(60px) scale(.9); opacity: .95; top: -22%; animation: tm-der 38s linear infinite alternate; }
+  @keyframes tm-der { to { margin-left: 7%; } }
+  @keyframes tm-izq { to { margin-left: -7%; } }
+  .tm-nubes::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(5,7,14,.55), transparent); }
+
+  #tmCanvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 41; pointer-events: none; }
+  .tm-flash { position: fixed; inset: 0; z-index: 42; pointer-events: none; opacity: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(190,210,255,.9), rgba(120,150,255,.35) 55%, transparent 80%); }
+
+  .tm-btn { position: fixed; bottom: 16px; z-index: 45; width: 46px; height: 46px; border-radius: 50%;
+    border: 2px solid #6fa0ff; background: #0d1220; color: #fff; font-size: 20px; line-height: 1; cursor: pointer;
+    box-shadow: 0 0 14px rgba(111,160,255,.6); transition: transform .2s; }
+  .tm-btn:hover { transform: scale(1.1); }
+  #tmBtn { left: 70px; } #tmSnd { left: 124px; }
+  .tm-apagado .tm-nubes, .tm-apagado #tmCanvas, .tm-apagado .tm-flash { display: none; }
+  .tm-apagado #tmBtn, #tmSnd.off { opacity: .55; box-shadow: none; }
+</style>
+
+<div class="tm-nubes" id="tmNubes" aria-hidden="true">
+  <div class="tm-nubes-in" id="tmIn"><div class="tm-capa c1"></div><div class="tm-capa c2"></div><div class="tm-capa c3"></div></div>
+</div>
+<canvas id="tmCanvas" aria-hidden="true"></canvas>
+<div class="tm-flash" id="tmFlash" aria-hidden="true"></div>
+<button class="tm-btn" id="tmBtn" type="button" aria-label="Activar o desactivar tormenta" title="Tormenta">⚡</button>
+<button class="tm-btn off" id="tmSnd" type="button" aria-label="Activar o desactivar sonido de truenos" title="Sonido de truenos">🔊</button>
+
+<script>
+(function () {
+  var hoy = new Date(), m = hoy.getMonth(), d = hoy.getDate();
+  var enFecha = (m === 9) || (m === 10 && d <= 2);
+  var forzado = /[?&]tormenta=1/.test(location.search);
+  var reducir = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ids = ['tmNubes', 'tmCanvas', 'tmFlash', 'tmBtn', 'tmSnd'];
+  if ((!enFecha && !forzado) || reducir) { ids.forEach(function (i) { var e = document.getElementById(i); if (e) e.remove(); }); return; }
+
+  var cv = document.getElementById('tmCanvas'), ctx = cv.getContext('2d');
+  var flash = document.getElementById('tmFlash'), nubes = document.getElementById('tmNubes');
+  var inn = document.getElementById('tmIn'), btn = document.getElementById('tmBtn'), snd = document.getElementById('tmSnd');
+  var W, H, dpr, bolts = [], sonido = false, ac = null;
+
+  function leer() { try { return localStorage.getItem('tm-off') === '1'; } catch (e) { return false; } }
+  function guardar(v) { try { localStorage.setItem('tm-off', v ? '1' : '0'); } catch (e) {} }
+  if (leer()) document.body.classList.add('tm-apagado');
+  btn.addEventListener('click', function () { guardar(document.body.classList.toggle('tm-apagado')); });
+
+  function medir() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  medir(); addEventListener('resize', medir);
+
+  // Paralaje 3D de las nubes con el mouse
+  addEventListener('mousemove', function (e) {
+    var x = (e.clientX / W - .5), y = (e.clientY / H - .5);
+    inn.style.transform = 'rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 5) + 'deg)';
+  }, { passive: true });
+
+  // ---- Trayectoria del rayo (desplazamiento del punto medio) ----
+  function camino(x1, y1, x2, y2, desp) {
+    var p = [[x1, y1], [x2, y2]];
+    while (desp > 3) {
+      var n = [];
+      for (var i = 0; i < p.length - 1; i++) {
+        var a = p[i], b = p[i + 1];
+        n.push(a);
+        n.push([(a[0] + b[0]) / 2 + (Math.random() - .5) * desp, (a[1] + b[1]) / 2 + (Math.random() - .5) * desp * .6]);
+      }
+      n.push(p[p.length - 1]); p = n; desp /= 2;
+    }
+    return p;
+  }
+
+  function crear() {
+    var z = .3 + Math.random() * .7;                 // 1 = cerca, .3 = lejos
+    var x1 = W * (.1 + Math.random() * .8), y1 = -10;
+    var x2 = x1 + (Math.random() - .5) * W * .25;
+    var y2 = H * (.45 + Math.random() * .4) * (.6 + z * .4);
+    var largo = y2 - y1;
+    var principal = camino(x1, y1, x2, y2, largo * .35);
+    var ramas = [], k = 3 + Math.floor(Math.random() * 4);
+    for (var i = 0; i < k; i++) {
+      var o = principal[Math.floor(principal.length * (.15 + Math.random() * .6))];
+      var dir = Math.random() < .5 ? -1 : 1;
+      var rx = o[0] + dir * (60 + Math.random() * 160) * z, ry = o[1] + (60 + Math.random() * 180) * z;
+      ramas.push(camino(o[0], o[1], rx, ry, 60 * z));
+    }
+    bolts.push({ z: z, p: principal, r: ramas, t0: performance.now() });
+    trueno(z);
+    if (!corriendo) { corriendo = true; requestAnimationFrame(pintar); }
+  }
+
+  function trazo(pts, w, z, a) {
+    function linea(ancho, color) {
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.lineWidth = ancho; ctx.strokeStyle = color; ctx.stroke();
+    }
+    linea(w * 7, 'rgba(90,130,255,' + (.10 * a) + ')');
+    linea(w * 3.2, 'rgba(150,180,255,' + (.30 * a) + ')');
+    linea(w, 'rgba(255,255,255,' + (.95 * a) + ')');
+  }
+
+  var corriendo = false;
+  function pintar(now) {
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter'; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+    var maxA = 0, maxZ = 0;
+    bolts = bolts.filter(function (b) {
+      var t = now - b.t0;
+      if (t > 750) return false;
+      var a = t < 80 ? 1 : t < 130 ? .22 : t < 230 ? .95 : Math.max(0, 1 - (t - 230) / 520);
+      var w = (.8 + 3.2 * b.z * b.z), al = a * (.35 + .65 * b.z);
+      ctx.shadowColor = 'rgba(120,160,255,' + al + ')'; ctx.shadowBlur = 8 + 22 * b.z;
+      trazo(b.p, w, b.z, al);
+      b.r.forEach(function (r) { trazo(r, w * .5, b.z, al * .8); });
+      if (al > maxA) { maxA = al; maxZ = b.z; }
+      return true;
+    });
+    ctx.shadowBlur = 0;
+    var luz = maxA * (.15 + .3 * maxZ);
+    flash.style.opacity = luz.toFixed(3);
+    nubes.style.filter = 'brightness(' + (1 + maxA * 2.2 * maxZ).toFixed(2) + ')';
+    if (bolts.length) requestAnimationFrame(pintar);
+    else { corriendo = false; flash.style.opacity = 0; nubes.style.filter = 'none'; ctx.clearRect(0, 0, W, H); }
+  }
+
+  // ---- Trueno sintetizado (solo si el visitante lo activa) ----
+  snd.addEventListener('click', function () {
+    sonido = !sonido; snd.classList.toggle('off', !sonido);
+    if (sonido && !ac) { try { ac = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { sonido = false; } }
+    if (ac && ac.state === 'suspended') ac.resume();
+  });
+  function trueno(z) {
+    if (!sonido || !ac) return;
+    var retraso = (1 - z) * 2.6 + .25, dur = 2.2 + (1 - z) * 2, vol = .15 + z * .45;
+    var n = Math.floor(ac.sampleRate * dur), buf = ac.createBuffer(1, n, ac.sampleRate), dat = buf.getChannelData(0), last = 0;
+    for (var i = 0; i < n; i++) { last = (last + (Math.random() * 2 - 1) * .06) * .995; dat[i] = last * 6; }
+    var src = ac.createBufferSource(); src.buffer = buf;
+    var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 160 + z * 180;
+    var g = ac.createGain(), t0 = ac.currentTime + retraso;
+    g.gain.setValueAtTime(0, t0); g.gain.linearRampToValueAtTime(vol, t0 + .12);
+    g.gain.exponentialRampToValueAtTime(.001, t0 + dur);
+    src.connect(lp); lp.connect(g); g.connect(ac.destination); src.start(t0);
+  }
+
+  // ---- Programar tormenta ----
+  function ciclo() {
+    var off = document.body.classList.contains('tm-apagado');
+    if (!off && !document.hidden) {
+      crear();
+      if (Math.random() > .55) setTimeout(function () { if (!document.hidden) crear(); }, 350 + Math.random() * 500);
+    }
+    setTimeout(ciclo, 6000 + Math.random() * 8000);
+  }
+  setTimeout(ciclo, 4000);
+})();
+</script>
 
     
 </body>
