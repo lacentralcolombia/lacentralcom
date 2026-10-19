@@ -269,6 +269,14 @@ var productosData = [
         imagen: "saborizantesabrimax60ml.jpg"
     },
     {
+        id: 1202,
+        nombre: "Esencias Saborizantes Levapan x 60 ml | Variedades Coco y Vainilla Caramelo",
+        categoria: "alimentos",
+        subcategoria: "saborizantes",
+        descripcion: "Esencias sabor artificiales marca Levapan en presentación de Cont. Neto: 60 ml. Incluye variedad de Esencia Sabor a Coco y Esencia Sabor a Vainilla Caramelo, perfectas para repostería y preparaciones.",
+        imagen: "levapanesencia60mk.jpg"
+    },
+    {
         id: 14,
         nombre: "Salsas Caseras Emanuel",
         categoria: "alimentos",
