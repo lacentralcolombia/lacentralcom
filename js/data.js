@@ -535,29 +535,29 @@ var productosData = [
         imagen: "salsatodoslossaboresdiffersachetpor102unidades.jpg"
     },
     
-    {
-        id: 15,
-        nombre: "Maní Variado",
+   {
+        id: 14,
+        nombre: "Almendra Entera x 1.000 g | Frutos Secos LA CENTRAL",
         categoria: "frutos-secos",
         subcategoria: "general",
-        descripcion: "Maní salado, con pasas, confitado, picante y horneado.",
-        imagen: "https://images.unsplash.com/photo-1536591375315-1b83681e5b22?q=80&w=500"
+        descripcion: "Almendras enteras naturales de alta calidad en presentación institucional de 1.000 g (1 kg) en bolsa transparente. Ideales para repostería, snacks y cocina saludable.",
+        imagen: "almendraporkiloymedio.jpg"
+    },
+    {
+        id: 15,
+        nombre: "Almendra Entera x 500 g | Frutos Secos LA CENTRAL",
+        categoria: "frutos-secos",
+        subcategoria: "general",
+        descripcion: "Almendras enteras naturales en presentación de 500 g en bolsa transparente. Perfectas para porciones medianas, repostería y consumo diario.",
+        imagen: "almendraporkiloymedio.jpg"
     },
     {
         id: 16,
-        nombre: "Almendras Tostadas",
+        nombre: "Maní Molido | Frutos Secos LA CENTRAL",
         categoria: "frutos-secos",
         subcategoria: "general",
-        descripcion: "Almendras enteras, fileteadas y tostadas para snacks o repostería.",
-        imagen: "https://images.unsplash.com/photo-1508061253366-f7da158b6d96?q=80&w=500"
-    },
-    {
-        id: 17,
-        nombre: "Nueces Seleccionadas",
-        categoria: "frutos-secos",
-        subcategoria: "general",
-        descripcion: "Nuez mariposa, pacanas y marañón de primera calidad.",
-        imagen: "https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=500"
+        descripcion: "Maní molido de excelente calidad en presentación institucional en bolsa transparente. Ideal para preparaciones de repostería, salsas y postres.",
+        imagen: "manimolido.jpg"
     },
     {
         id: 18,
