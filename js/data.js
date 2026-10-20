@@ -503,6 +503,14 @@ var productosData = [
         imagen: "salsadefrutapiña4000gramos.jpg"
     },
     {
+        id: 1325,
+        nombre: "Salsas Differ Surtidas x 200 g | Todos los Sabores",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Línea completa de salsas marca Differ en presentación doypack de 200 g con boquilla. Incluye variedad de sabores: Mayonesa, Mostaza, Salsa BBQ, Salsa de Ajo, Salsa de Tomate, Salsa con Piña, Salsa Rosada, Salsa Tártara y Salsa con Mayonesa y Ajo.",
+        imagen: "salsadiffertodoslossabores.jpg"
+    },
+    {
         id: 15,
         nombre: "Maní Variado",
         categoria: "frutos-secos",
