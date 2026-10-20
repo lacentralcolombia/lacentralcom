@@ -910,6 +910,14 @@ var productosData = [
         descripcion: "Cerezas marrasquino en conserva marca La Coruña (frutas en conserva, variedad cerezas en conserva). Disponible en presentación de 500 g (Peso Drenado: 280 g, aprox. 14 porciones) y presentación familiar de 1.000 g (Peso Drenado: 500 g, aprox. 25 porciones).",
         imagen: "lacoruñacerezamarraquito.jpg"
     },
+    {
+        id: 4012,
+        nombre: "Azúcar Pulverizada 5X Especial para Repostería Manuelita x 5 kg | 1000 Porciones",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Azúcar pulverizada 5X especial para repostería marca Manuelita. Presentación institucional en costal con Peso Neto de 5 kg (1000 porciones). Ideal para decoraciones, pastelería y repostería.",
+        imagen: "azucarpulverizada5kilos.jpg"
+    },
     // ---------------------------------------------------------------
     // PANES
     // ---------------------------------------------------------------
