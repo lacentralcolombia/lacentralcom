@@ -922,6 +922,14 @@ var productosData = [
         imagen: "panbriochevalle66gramos.jpg"
     },
     {
+        id: 5002,
+        nombre: "Pan Angus Pan Valle x 800 g | Pan Brioche con Ajonjolí Blanco y Negro",
+        categoria: "panes",
+        subcategoria: "general",
+        descripcion: "Pan Angus marca Pan Valle S.A.S. Pan brioche especialmente diseñado para usar con tus más jugosas carnes y mejores ingredientes, espolvoreado con ajonjolí blanco y negro. Peso Neto: 800 g. Fabricado en Palmaseca, Cali - Valle.",
+        imagen: "panangus800gramos.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
