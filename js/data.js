@@ -551,21 +551,93 @@ var productosData = [
         descripcion: "Almendras enteras naturales en presentación de 500 g en bolsa transparente. Perfectas para porciones medianas, repostería y consumo diario.",
         imagen: "almendraporkiloymedio.jpg"
     },
-    {
-        id: 16,
-        nombre: "Maní Molido | Frutos Secos LA CENTRAL",
+   {
+        id: 2008,
+        nombre: "Coco Rayado | Insumos de Repostería LA CENTRAL",
         categoria: "frutos-secos",
         subcategoria: "general",
-        descripcion: "Maní molido de excelente calidad en presentación institucional en bolsa transparente. Ideal para preparaciones de repostería, salsas y postres.",
-        imagen: "manimolido.jpg"
+        descripcion: "Coco rayado deshidratado de alta calidad, ideal para preparaciones de panadería, repostería, pastelería y heladería.",
+        imagen: "cocorayado.jpg"
     },
     {
-        id: 18,
-        nombre: "Mix de Frutos Secos",
+        id: 2009,
+        nombre: "Semillas de Chía | Frutos Secos y Semillas LA CENTRAL",
         categoria: "frutos-secos",
         subcategoria: "general",
-        descripcion: "Combinación equilibrada de maní, almendras, nueces, arándanos y pasas.",
-        imagen: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=500"
+        descripcion: "Semillas de chía naturales seleccionadas, empacadas en presentación institucional. Excelente fuente de fibra y omega-3 para recetas saludables.",
+        imagen: "semilladechia.jpg"
+    },
+    {
+        id: 2010,
+        nombre: "Maní con Pasas | Snacks y Frutos Secos LA CENTRAL",
+        categoria: "frutos-secos",
+        subcategoria: "general",
+        descripcion: "Mezcla tradicional de maní crocante seleccionado y pasas dulces seleccionadas. Ideal como snack energético o botana.",
+        imagen: "maniconpasas.jpg"
+    },
+    {
+        id: 2011,
+        nombre: "Maní Salado | Snacks y Frutos Secos LA CENTRAL",
+        categoria: "frutos-secos",
+        subcategoria: "general",
+        descripcion: "Maní tostado sazonado con un toque de sal. Crujiente, fresco y perfecto para reuniones o consumo diario.",
+        imagen: "manisalado,jpg.jpeg"
+    },
+    {
+        id: 2012,
+        nombre: "Maní Dulce Acaramelado | Snacks y Frutos Secos LA CENTRAL",
+        categoria: "frutos-secos",
+        subcategoria: "general",
+        descripcion: "Delicioso maní cubierto con una capa crujiente de caramelo dulce. Ideal para antojos y repostería.",
+        imagen: "manidulce.jpg"
+    },
+    {
+        id: 2013,
+        nombre: "Obleas | Insumos de Repostería LA CENTRAL",
+        categoria: "frutos-secos",
+        subcategoria: "general",
+        descripcion: "Obleas crujientes y tradicionales para postres, ideales para combinar con arequipe, leche condensada y salsas.",
+        imagen: "cocorayado.jpg"
+    },
+    {
+        id: 2014,
+        nombre: "Ajonjolí Blanco | Semillas e Insumos LA CENTRAL",
+        categoria: "frutos-secos",
+        subcategoria: "general",
+        descripcion: "Semillas de ajonjolí blanco natural seleccionadas, ideales para panadería, decoración de panes y preparaciones culinarias.",
+        imagen: "ajonjoli.jpg"
+    },
+    {
+        id: 2015,
+        nombre: "Fruta Cristalizada Surtida | Insumos de Repostería LA CENTRAL",
+        categoria: "frutos-secos",
+        subcategoria: "general",
+        descripcion: "Fruta cristalizada en cubos de varios colores y sabores, perfecta para decorar pasteles, tortas negras navideñas y postres.",
+        imagen: "frutacristalizada.jpg"
+    },
+    {
+        id: 2016,
+        nombre: "Semillas de Linaza | Frutos Secos y Semillas LA CENTRAL",
+        categoria: "frutos-secos",
+        subcategoria: "general",
+        descripcion: "Semillas de linaza natural en presentación institucional. Excelente fuente de fibra y nutrientes esenciales.",
+        imagen: "linaza.jpg"
+    },
+    {
+        id: 2017,
+        nombre: "Gelatina Sin Sabor en Polvo | Insumos de Repostería LA CENTRAL",
+        categoria: "frutos-secos",
+        subcategoria: "general",
+        descripcion: "Gelatina sin sabor en polvo de alta pureza, indispensable para la preparación de postres, mousses, gelatinas y repostería en general.",
+        imagen: "gelatinasinsabor.jpg"
+    },
+    {
+        id: 2018,
+        nombre: "Maní Simple (Natural / Sin Sal) | Frutos Secos LA CENTRAL",
+        categoria: "frutos-secos",
+        subcategoria: "general",
+        descripcion: "Maní natural sin sal ni aditivos, ideal para preparaciones caseras, mantequilla de maní, recetas de cocina o consumo saludable.",
+        imagen: "manisimple.jpg"
     },
     {
         id: 1081,
