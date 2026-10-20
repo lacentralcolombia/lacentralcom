@@ -938,6 +938,78 @@ var productosData = [
         imagen: "panangus800gramossinescarcha.jpg"
     },
     {
+        id: 5004,
+        nombre: "Pan Perro Línea Profesional Pan Valle x 12 Unidades",
+        categoria: "panes",
+        subcategoria: "general",
+        descripcion: "Pan para perro caliente marca Pan Valle, Línea Profesional. Presentación institucional con 12 unidades espolvoreadas con ajonjolí.",
+        imagen: "panperro12unidades.jpg"
+    },
+    {
+        id: 5005,
+        nombre: "Pan Perro Línea Profesional Pan Valle x 6 Unidades",
+        categoria: "panes",
+        subcategoria: "general",
+        descripcion: "Pan para perro caliente marca Pan Valle, Línea Profesional. Presentación práctica de 6 unidades espolvoreadas con ajonjolí.",
+        imagen: "pamperro6unidades.jpg"
+    },
+    {
+        id: 5006,
+        nombre: "Dedos de Queso Pan Valle",
+        categoria: "panes",
+        subcategoria: "general",
+        descripcion: "Deliciosos dedos de queso congelados marca Pan Valle en práctico envase transparente institucional con tapa.",
+        imagen: "dedosdequesopanballe.jpg"
+    },
+    {
+        id: 5007,
+        nombre: "Tostados Tostiricos Mantequilla Pan Valle x 100 g | 6 Unidades",
+        categoria: "panes",
+        subcategoria: "general",
+        descripcion: "Pan tostado sabor a mantequilla Tostados Tostiricos marca Pan Valle. ¡Ricos y Crocanticos!. Sin conservantes. Peso neto 100 g (aprox. 3 porciones / 6 unidades).",
+        imagen: "totadostostiricos100gramos.jpg"
+    },
+    {
+        id: 5008,
+        nombre: "Mini Pancitos de Mantequilla Pan Valle x 30 Unidades",
+        categoria: "panes",
+        subcategoria: "general",
+        descripcion: "Mini pancitos de mantequilla marca Pan Valle. Presentación familiar o institucional con 30 unidades suaves y esponjosas.",
+        imagen: "minipancitos30unidades.jpg"
+    },
+    {
+        id: 5009,
+        nombre: "Pan Perro Pan Valle x 900 g | 10 Unidades",
+        categoria: "panes",
+        subcategoria: "general",
+        descripcion: "Pan para perro caliente marca Pan Valle. Presentación familiar con peso neto de 900 g, contiene 10 unidades (aprox. 20 porciones por empaque).",
+        imagen: "panperro900gramospanvalle.jpg"
+    },
+    {
+        id: 5010,
+        nombre: "Pan Tajado Familiar Pan Valle x 650 g | 22 Porciones Aprox.",
+        categoria: "panes",
+        subcategoria: "general",
+        descripcion: "Pan tajado tradicional familiar marca Pan Valle. Presentación de Peso Neto 650 g (porciones por envase aprox. 22).",
+        imagen: "pantajadofamiliar65ogramos.jpg"
+    },
+    {
+        id: 5011,
+        nombre: "Pan Perro Brioche Pan Valle x 10 Unidades",
+        categoria: "panes",
+        subcategoria: "general",
+        descripcion: "Pan para perro estilo brioche marca Pan Valle, decorado con ajonjolí blanco y negro. Presentación de 10 unidades.",
+        imagen: "panbrioche10unidades.jpg"
+    },
+    {
+        id: 5012,
+        nombre: "Pan Perro Brioche Pan Valle x 770 g | 10 Unidades",
+        categoria: "panes",
+        subcategoria: "general",
+        descripcion: "Pan para perro estilo brioche marca Pan Valle con ajonjolí. Presentación institucional de Peso Neto 770 g, contiene 10 unidades.",
+        imagen: "panbrioche12unidades.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
