@@ -511,6 +511,15 @@ var productosData = [
         imagen: "salsadiffertodoslossabores.jpg"
     },
     {
+        id: 1326,
+        nombre: "Salsas Differ Surtidas x 500 g | Todos los Sabores",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Línea completa de salsas marca Differ en presentación doypack de 500 g con boquilla. Incluye variedad de sabores: Mostaza, Salsa con Tomate Sabor BAR-BQ, Tártara, Tomate, Piña, Rosada y Mayonesa con Ajo.",
+        imagen: "salsatodoslossabores500gramos.jpg"
+    },
+    
+    {
         id: 15,
         nombre: "Maní Variado",
         categoria: "frutos-secos",
