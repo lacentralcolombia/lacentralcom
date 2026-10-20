@@ -122,6 +122,14 @@ var productosData = [
         descripcion: "Leche condensada azucarada marca Cowie (Proalba) elaborada con leche (lactosa). Disponible en práctica presentación dosificadora de 380 g (aprox. 13 porciones) y presentación institucional/familiar de 1.300 g con manija (aprox. 43 porciones).",
         imagen: "lecheracondesada380y1300g.jpg"
     },
+    {
+        id: 514,
+        nombre: "Leche en Polvo Parcialmente Descremada El Rodeo Nestlé x 187 g | Rinde 1.5 Litros",
+        categoria: "quesos",
+        subcategoria: "leche-yogures",
+        descripcion: "Leche en polvo parcialmente descremada marca El Rodeo (Nestlé). Fortificada con Hierro, Calcio y Vitamina A. Contenido Neto de 187 g (aprox. 7 porciones, rinde 1.5 litros).",
+        imagen: "lecheelrodeoenpolvo187gramos.jpg"
+    },
    
     {
         id: 6,
