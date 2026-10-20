@@ -930,6 +930,14 @@ var productosData = [
         imagen: "panangus800gramos.jpg"
     },
     {
+        id: 5003,
+        nombre: "Pan Angus Tradicional Liso Pan Valle x 800 g | Pan Brioche para Hamburguesa",
+        categoria: "panes",
+        subcategoria: "general",
+        descripcion: "Pan Angus tradicional liso (sin ajonjolí) marca Pan Valle S.A.S. Pan brioche especialmente diseñado para usar con tus más jugosas carnes y mejores ingredientes. Peso Neto: 800 g. Fabricado en Cali - Valle.",
+        imagen: "panangus800gramossinescarcha.jpg"
+    },
+    {
         id: 22,
         nombre: "Vasos Desechables Darnel",
         categoria: "desechables",
