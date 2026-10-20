@@ -423,6 +423,14 @@ var productosData = [
         imagen: "mezclalistanatilladoñachepita300gramos.jpeg"
     },
     {
+        id: 1316,
+        nombre: "Maizena Colada Sabor a Arequipe con Crecinutre x 28 g | Rinde 1 Litro",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Maizena colada sabor a arequipe fortificada con Crecinutre (9 vitaminas y minerales para función cerebral, sistema inmune y crecimiento). Presentación en sobre de Contenido Neto 28 g (rinde 1 litro, aprox. 4 porciones).",
+        imagen: "maizenacoladaarequipe28gramos.jpg"
+    },
+    {
         id: 15,
         nombre: "Maní Variado",
         categoria: "frutos-secos",
