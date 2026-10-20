@@ -391,6 +391,22 @@ var productosData = [
         imagen: "avenamolidaoriginal115gramos.jpg"
     },
     {
+        id: 1312,
+        nombre: "Harina Precocida de Maíz Amarillo Arepa Repa La Soberana x 500 g | 20 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Harina precocida de maíz amarillo marca La Soberana (Arepa Repa). 100% maíz, naturalmente sin gluten y muy rendidora. Contenido Neto: 500 g (aprox. 20 porciones).",
+        imagen: "arinaprecocidaarepaarepa500gramos.jpg"
+    },
+    {
+        id: 1313,
+        nombre: "Harina de Trigo Tradicional Fortificada Haz de Oros x 500 g | 20 Porciones",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Harina de trigo fortificada tradicional marca Haz de Oros (Harinera del Valle). Fortificada con Niacina, Hierro, Vitamina B1, Vitamina B2 y Ácido Fólico. Contenido Neto: 500 g (20 porciones).",
+        imagen: "arinahazdeoros500gramos.jpg"
+    },
+    {
         id: 15,
         nombre: "Maní Variado",
         categoria: "frutos-secos",
