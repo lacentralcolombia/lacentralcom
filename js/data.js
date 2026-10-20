@@ -526,6 +526,14 @@ var productosData = [
         descripcion: "Línea completa de salsas marca Differ en presentación doypack institucional de 1.000 g (1 kg) con boquilla. Incluye variedad de sabores: Rosada, BAR-BQ, Piña, Mayonesa con Ajo, Mayonesa, Tomate y Tártara.",
         imagen: "salsatodoslosaboresdiffer1000gramos.jpeg"
     },
+    {
+        id: 1328,
+        nombre: "Salsas Differ Surtidas en Sachets x 102 Unidades | Todos los Sabores",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Salsas marca Differ en presentación de sobres individuales (sachets) en bolsa institucional de 102 unidades. Surtido con todos los sabores disponibles, ideal para comidas rápidas, negocios y servicio a domicilio.",
+        imagen: "salsatodoslossaboresdiffersachetpor102unidades.jpg"
+    },
     
     {
         id: 15,
