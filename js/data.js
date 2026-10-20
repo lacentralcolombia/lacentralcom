@@ -130,6 +130,14 @@ var productosData = [
         descripcion: "Leche en polvo parcialmente descremada marca El Rodeo (Nestlé). Fortificada con Hierro, Calcio y Vitamina A. Contenido Neto de 187 g (aprox. 7 porciones, rinde 1.5 litros).",
         imagen: "lecheelrodeoenpolvo187gramos.jpg"
     },
+    {
+        id: 515,
+        nombre: "Margarina Esparcible Tradicional con Sal Rama x 250 g | 25 Porciones",
+        categoria: "quesos",
+        subcategoria: "leche-yogures",
+        descripcion: "Margarina esparcible tradicional con sal marca Rama, ideal para mesa y cocina. Presentación en tarrina con Peso Neto de 250 g (Promoción Paga 225 g, Lleva 250 g, aprox. 25 porciones).",
+        imagen: "mantequillaramaconsal250gramos.jpg"
+    },
    
     {
         id: 6,
