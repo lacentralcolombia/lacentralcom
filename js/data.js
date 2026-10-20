@@ -407,6 +407,22 @@ var productosData = [
         imagen: "arinahazdeoros500gramos.jpg"
     },
     {
+        id: 1314,
+        nombre: "Mezcla Lista para Preparar Buñuelos Doña Chepita x 300 g",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Mezcla lista para preparar buñuelos marca Doña Chepita. Presentación en caja con Peso Neto de 300 g, ideal para preparaciones fáciles y tradicionales.",
+        imagen: "mezclalistabuñuelosdoñachepita300gramos.jpg"
+    },
+    {
+        id: 1315,
+        nombre: "Mezcla Lista Natilla Tradicional Doña Chepita x 300 g | Contiene Panela",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Mezcla lista para preparar natilla tradicional marca Doña Chepita (contiene panela). Presentación en caja con Peso Neto de 300 g, perfecta para postres y festividades.",
+        imagen: "mezclalistanatilladoñachepita300gramos.jpeg"
+    },
+    {
         id: 15,
         nombre: "Maní Variado",
         categoria: "frutos-secos",
