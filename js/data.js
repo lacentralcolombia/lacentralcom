@@ -640,6 +640,14 @@ var productosData = [
         imagen: "manisimple.jpg"
     },
     {
+        id: 2019,
+        nombre: "Uvas Pasas Negras Premium Beyman | Frutos Secos LA CENTRAL",
+        categoria: "frutos-secos",
+        subcategoria: "general",
+        descripcion: "Uvas pasas negras (Black Raisins) de calidad premium marca Beyman. Presentación institucional en caja, ideales para repostería, panadería y consumo directo.",
+        imagen: "uvapasa.jpg"
+    },
+    {
         id: 1081,
         nombre: "Liquipops x 350 gramos | Manzana verde 🍏",
         categoria: "cocteleria",
