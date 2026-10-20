@@ -439,6 +439,70 @@ var productosData = [
         imagen: "maizenacoladaarequipe28gramos.jpg"
     },
     {
+        id: 1317,
+        nombre: "Salsa con Mayonesa Rosada Differ x 4.000 g | 333 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Salsa con mayonesa rosada marca Differ en presentación doypack institucional con boquilla. Peso Neto: 4.000 g (aprox. 333 porciones).",
+        imagen: "salsaconmayonesarosada4000gramos.jpg"
+    },
+    {
+        id: 1318,
+        nombre: "Salsa con Tomate Differ x 4.000 g | 267 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Salsa con tomate marca Differ en presentación doypack institucional con boquilla. Peso Neto: 4.000 g (aprox. 267 porciones).",
+        imagen: "salsacontomate4000gramos.jpg"
+    },
+    {
+        id: 1319,
+        nombre: "Salsa con Mayonesa Differ x 4.000 g | 333 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Salsa con mayonesa marca Differ en presentación doypack institucional con boquilla. Peso Neto: 4.000 g (aprox. 333 porciones).",
+        imagen: "salsaconmayonesa4000gramos.jpg"
+    },
+    {
+        id: 1320,
+        nombre: "Salsa con Mayonesa Tártara Differ x 4.000 g | 333 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Salsa con mayonesa tártara marca Differ en presentación doypack institucional con boquilla. Peso Neto: 4.000 g (aprox. 333 porciones).",
+        imagen: "salsaconmayonezatartara4000gramos.jpg"
+    },
+    {
+        id: 1321,
+        nombre: "Salsa con Mayonesa y Ajo Differ x 4.000 g | 267 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Salsa con mayonesa y ajo marca Differ en presentación doypack institucional con boquilla. Peso Neto: 4.000 g (aprox. 267 porciones).",
+        imagen: "salsaconmayonezaajo4000gramos.jpg"
+    },
+    {
+        id: 1322,
+        nombre: "Salsa con Mostaza Differ x 4.000 g | 400 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Salsa con mostaza marca Differ en presentación doypack institucional con boquilla. Peso Neto: 4.000 g (aprox. 400 porciones).",
+        imagen: "salsaconmostaza4000gramos.jpg"
+    },
+    {
+        id: 1323,
+        nombre: "Salsa con Tomate Sabor Bar-Bq Differ x 4.000 g | 267 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Salsa con tomate sabor Bar-Bq marca Differ en presentación doypack institucional con boquilla. Peso Neto: 4.000 g (aprox. 267 porciones).",
+        imagen: "salsacontomatebarbq4000.jpg"
+    },
+    {
+        id: 1324,
+        nombre: "Salsa de Fruta con Piña Differ x 4.000 g | 133 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Salsa de fruta con piña marca Differ en presentación doypack institucional con boquilla. Peso Neto: 4.000 g (aprox. 133 porciones). Ideal para comidas rápidas.",
+        imagen: "salsadefrutapiña4000gramos.jpg"
+    },
+    {
         id: 15,
         nombre: "Maní Variado",
         categoria: "frutos-secos",
