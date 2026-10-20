@@ -910,6 +910,17 @@ var productosData = [
         descripcion: "Cerezas marrasquino en conserva marca La Coruña (frutas en conserva, variedad cerezas en conserva). Disponible en presentación de 500 g (Peso Drenado: 280 g, aprox. 14 porciones) y presentación familiar de 1.000 g (Peso Drenado: 500 g, aprox. 25 porciones).",
         imagen: "lacoruñacerezamarraquito.jpg"
     },
+    // ---------------------------------------------------------------
+    // PANES
+    // ---------------------------------------------------------------
+    {
+        id: 5001,
+        nombre: "Pan Hamburguesa Brioche Junior Pan Valle x 660 g | 16 Porciones Aprox.",
+        categoria: "panes",
+        subcategoria: "general",
+        descripcion: "Pan para hamburguesa estilo brioche Junior marca Pan Valle. ¡Más Rico..., Más Pan...!. Presentación de Peso Neto 660 g (aprox. 16 porciones por empaque). Producto listo para consumo.",
+        imagen: "panbriochevalle66gramos.jpg"
+    },
     {
         id: 22,
         nombre: "Vasos Desechables Darnel",
