@@ -275,13 +275,133 @@ var productosData = [
         descripcion: "Exclusiva Tocineta Ahumada Premium marca La Americanísima en presentación de 450 gramos, seleccionada para dar máxima calidad y sabor gourmet.",
         imagen: "TOCINETAAUMADAPREMIUN450G.JPG"
     },
-    {
-        id: 11,
-        nombre: "Aliños a Granel",
-        categoria: "alimentos",
+   {
+        id: 3001,
+        nombre: "Pimienta Molida Guisason x 10 g | Aliños LA CENTRAL",
+        categoria: "aliños",
         subcategoria: "general",
-        descripcion: "Variedad de aliños preparados por peso para darle el toque secreto a tus comidas.",
-        imagen: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=500"
+        descripcion: "Pimienta molida marca Guisason en presentación de sobre de 10 g. Ideal para dar un toque picante y aromático a tus preparaciones.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3002,
+        nombre: "Cúrcuma Guisason x 60 g | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Cúrcuma en polvo marca Guisason en presentación de 60 g. Especias puras para realzar color, sabor y propiedades saludables en tus comidas.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3003,
+        nombre: "Tomillo Molido Guisason x 10 g | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Tomillo molido marca Guisason en sobre de 10 g. Excelente condimento aromático para carnes, sopas y guisos.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3004,
+        nombre: "Nuez Moscada Molida Guisason x 10 g | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Nuez moscada molida marca Guisason en sobre de 10 g. Perfecta para salsas blancas, purés y repostería.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3005,
+        nombre: "Orégano Molido Guisason x 10 g | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Orégano molido marca Guisason en sobre de 10 g. Ideal para pizzas, pastas, carnes y salsas italianas.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3006,
+        nombre: "Color (Mezclas Colorantes) Guisason x 30 g | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Mezcla colorante achiote/color marca Guisason en presentación de 30 g para dar un tono tradicional y llamativo a tus platos.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3007,
+        nombre: "Ajo Molido Guisason x 60 g | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Ajo molido seco marca Guisason en presentación de 60 g. Práctico y esencial para marinar y sazonar todo tipo de comidas.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3008,
+        nombre: "Adobo Guisason x 60 g | 20 Porciones Aprox. | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Adobo completo marca Guisason en presentación de 60 g (aprox. 20 porciones). Especial para carnes, pollo y sudados.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3009,
+        nombre: "Pimienta Negra / Pimentón Guisason x 10 g | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Condimento en grano/molido marca Guisason en presentación de 10 g.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3010,
+        nombre: "Curry Guisason x 10 g | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Curry en polvo marca Guisason en sobre de 10 g. Mezcla de especias exóticas ideal para carnes, aves y recetas orientales.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3011,
+        nombre: "Laurel Molido Guisason x 10 g | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Laurel molido marca Guisason en sobre de 10 g. Aporta un aroma y sabor profundo inconfundible a sopas, frijoles y estofados.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3012,
+        nombre: "Condimento Surtido Mixto x 70 g | 23 Porciones Aprox. | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Condimento mixto surtido en bolsa de 70 g (aprox. 23 porciones). Sazón completa para preparaciones diarias.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3013,
+        nombre: "Flor de Jamaica Guisason | Infusiones y Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Flores de Jamaica deshidratadas de alta calidad, ideales para preparar refrescantes bebidas, infusiones y tés medicinales.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3014,
+        nombre: "Clavo de Olor Guisason x 4 g | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Clavos de olor enteros marca Guisason en presentación de 4 g. Ideal para postres, bebidas calientes y repostería navideña.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3015,
+        nombre: "Acento (Realzador de Sabor) x 20 g | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Realzador de sabor (glutamato) en presentación de 20 g, diseñado para potenciar los sabores naturales de tus recetas.",
+        imagen: "aliñosvariado.jpg"
+    },
+    {
+        id: 3016,
+        nombre: "Comino Molido Guisason x 10 g | Aliños LA CENTRAL",
+        categoria: "aliños",
+        subcategoria: "general",
+        descripcion: "Comino molido marca Guisason en sobre de 10 g. Condimento tradicional indispensable en la cocina colombiana para carnes y granos.",
+        imagen: "aliñosvariado.jpg"
     },
    
    {
