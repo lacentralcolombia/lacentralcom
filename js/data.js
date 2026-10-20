@@ -375,6 +375,22 @@ var productosData = [
         imagen: "arinapan500gramos.jpg"
     },
     {
+        id: 1310,
+        nombre: "Avena Hojuelas Original Quaker x 115 g | 5 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Avena en hojuelas original 100% natural marca Quaker. Buena fuente de fibra que contribuye a la digestión. Contenido Neto: 115 g (5 porciones aprox.).",
+        imagen: "avenahojuelasoriginal115gramos.jpg"
+    },
+    {
+        id: 1311,
+        nombre: "Avena Molida Original Quaker x 115 g | 6 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Avena molida original 100% natural marca Quaker. Buena fuente de fibra que contribuye a la digestión. Contenido Neto: 115 g (6 porciones aprox.).",
+        imagen: "avenamolidaoriginal115gramos.jpg"
+    },
+    {
         id: 15,
         nombre: "Maní Variado",
         categoria: "frutos-secos",
