@@ -918,6 +918,22 @@ var productosData = [
         descripcion: "Azúcar pulverizada 5X especial para repostería marca Manuelita. Presentación institucional en costal con Peso Neto de 5 kg (1000 porciones). Ideal para decoraciones, pastelería y repostería.",
         imagen: "azucarpulverizada5kilos.jpg"
     },
+    {
+        id: 4013,
+        nombre: "Arequipe Uso Industrial Cobertura y Relleno San Lorenzo x 1 kg",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Arequipe premium de uso industrial, ideal como cobertura y relleno para panadería, pastelería y repostería. Marca Productos Alimenticios San Lorenzo. Presentación en bolsa de 1 kg.",
+        imagen: "dulcedearequipe.jpg"
+    },
+    {
+        id: 4014,
+        nombre: "Cernido Reina Guayaba Uso Gastronómico Mezval x 1 Kilo",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Cernido de guayaba para uso gastronómico, marca Mezval. Presentación doypack con boquilla y un Peso Neto de 1 Kilo. Ideal para preparaciones de repostería.",
+        imagen: "dulcedeguayaba1kilo.jpg"
+    },
     // ---------------------------------------------------------------
     // PANES
     // ---------------------------------------------------------------
