@@ -359,6 +359,14 @@ var productosData = [
         imagen: "bartstradition.jpg"
     },
     {
+        id: 1309,
+        nombre: "Harina de Maíz Blanco Precocida P.A.N. x 500 g | 18 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Harina de maíz blanco precocida (precooked white corn meal) marca P.A.N. Presentación de Contenido Neto 500 g (aprox. 18 porciones). Ideal para preparar arepas y diversas recetas tradicionales.",
+        imagen: "arinapan500gramos.jpg"
+    },
+    {
         id: 15,
         nombre: "Maní Variado",
         categoria: "frutos-secos",
