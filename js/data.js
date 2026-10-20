@@ -1371,6 +1371,22 @@ var productosData = [
         imagen: "vaso7onzas50unidades.jpg"
     },
     {
+        id: 7011,
+        nombre: "Vaso Plástico de 9 oz x 50 Unidades | Desechables LA CENTRAL",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Vasos plásticos transparentes de 9 oz en presentación institucional de 50 unidades. Ideales para bebidas frías, jugos y eventos.",
+        imagen: "vaso9onzas50unidades.jpg"
+    },
+    {
+        id: 7012,
+        nombre: "Portacomidas / Contenedor de Icopor J1 sin división | Desechables LA CENTRAL",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Contenedor o portacomidas de icopor (espumado) referencia J1 sin división. Excelente aislamiento térmico para conservar la temperatura de comidas preparadas y almuerzos para llevar.",
+        imagen: "portacomidasj1.jpg"
+    },
+    {
         id: 24,
         nombre: "Envases y Bolsas de Empaque",
         categoria: "desechables",
