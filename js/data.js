@@ -1290,21 +1290,85 @@ var productosData = [
         descripcion: "Pan para perro estilo brioche marca Pan Valle con ajonjolí. Presentación institucional de Peso Neto 770 g, contiene 10 unidades.",
         imagen: "panbrioche12unidades.jpg"
     },
-    {
-        id: 22,
-        nombre: "Vasos Desechables Darnel",
+ {
+        id: 7001,
+        nombre: "Cuchillo Plástico Ibérico x 100 Unidades | Desechables LA CENTRAL",
         categoria: "desechables",
         subcategoria: "general",
-        descripcion: "Vasos transparentes, tipo domo y térmicos marca Darnel en varias medidas.",
-        imagen: "imagenlacentral.jpeg"
+        descripcion: "Cuchillos plásticos blancos desechables marca Ibérico. Presentación institucional en bolsa de 100 unidades. Producto ecológico.",
+        imagen: "cuchillojberico100unidades.jpg"
     },
     {
-        id: 23,
-        nombre: "Platos y Cubiertos",
+        id: 7002,
+        nombre: "Cuchara Pequeña Plástica Ibérico x 1.000 Unidades | Desechables LA CENTRAL",
         categoria: "desechables",
         subcategoria: "general",
-        descripcion: "Platos hondos, panderos, tenedores, cucharas y cuchillos resistentes.",
-        imagen: "imagenlacentral.jpeg"
+        descripcion: "Cucharas pequeñas plásticas blancas desechables marca Ibérico (referencia IBPSS10). Presentación institucional en bolsa de 1.000 unidades. Producto ecológico.",
+        imagen: "cucharapequeña1000unidadesjberico.jpg"
+    },
+    {
+        id: 7003,
+        nombre: "Vaso PET Reduz 12 oz (355 ml) Darnell x Unidades | Desechables LA CENTRAL",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Vasos sostenibles de 12 oz (355 ml) marca Darnell (línea Reduz). Fabricados con hasta 100% plástico reciclado posconsumo. Ecológicos y eficientes.",
+        imagen: "vasopet12onzas.jpg"
+    },
+    {
+        id: 7004,
+        nombre: "Tenedor Pequeño Plástico Ibérico x 100 Unidades | Desechables LA CENTRAL",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Tenedores pequeños plásticos blancos desechables marca Ibérico (referencia IBP5). Presentación en bolsa de 100 unidades. Producto ecológico.",
+        imagen: "tenedorpequeño100unidades.jpg"
+    },
+    {
+        id: 7005,
+        nombre: "Pitillos Jumbo 10 mm con Punta Colores Biodegradables x 500 Unidades | LA CENTRAL",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Pitillos jumbo de 10 mm con punta, surtidos de colores. Elaborados con tecnología biodegradable. Presentación en bolsa de 500 unidades.",
+        imagen: "pitillopunta.jpg"
+    },
+    {
+        id: 7006,
+        nombre: "Vaso Ceniciento / Espumado Reduz Darnell x 20 Unidades | Desechables LA CENTRAL",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Contenedores / vasos espumados de icopor línea Reduz de Darnell (16 oz / 473 ml). Presentación en paquete de 20 unidades con menor huella de carbono.",
+        imagen: "vasoicopor20.jpg"
+    },
+    {
+        id: 7007,
+        nombre: "Pitillo Cuchara Oxobiodegradable Multicolor x 200 Unidades | LA CENTRAL",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Pitillos en forma de cuchara de 20 cm, surtidos de colores. Fabricados con tecnología oxobiodegradable. Presentación en bolsa de 200 unidades.",
+        imagen: "pitillocuchara.jpg"
+    },
+    {
+        id: 7008,
+        nombre: "Plato Hondo / Bowl Icopor Reduz 25 oz Darnell x 20 Unidades | LA CENTRAL",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Platos hondos (bowls) de espuma / icopor de 25 oz marca Darnell (línea Reduz). Presentación en paquete de 20 unidades ecológicas y eficientes.",
+        imagen: "platoicopor20unidadesdarnel.jpg"
+    },
+    {
+        id: 7009,
+        nombre: "Plato Pandoso / Llano Icopor Reduz 6 in (15.5 cm) Darnell x 20 Unidades | LA CENTRAL",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Platos pandos / llanos de icopor de 6 pulgadas (15.5 cm) marca Darnell (línea Reduz). Paquete por 20 unidades con menor huella de carbono.",
+        imagen: "platoreduz20.jpg"
+    },
+    {
+        id: 7010,
+        nombre: "Vaso Plástico Opal 7 oz Yacán x 50 Unidades | Desechables LA CENTRAL",
+        categoria: "desechables",
+        subcategoria: "general",
+        descripcion: "Vasos plásticos transparentes modelo Opal de 7 oz marca Yacán. Presentación en bolsa de 50 unidades. 100% reciclables y ecológicos.",
+        imagen: "vaso7onzas50unidades.jpg"
     },
     {
         id: 24,
