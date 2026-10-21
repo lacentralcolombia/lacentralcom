@@ -654,6 +654,62 @@ var productosData = [
         descripcion: "Salsas marca Differ en presentación de sobres individuales (sachets) en bolsa institucional de 102 unidades. Surtido con todos los sabores disponibles, ideal para comidas rápidas, negocios y servicio a domicilio.",
         imagen: "salsatodoslossaboresdiffersachetpor102unidades.jpg"
     },
+    {
+        id: 1329,
+        nombre: "Salsa Soya Differ x 3.000 ml | 600 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "aliños",
+        descripcion: "Salsa soya marca Differ en presentación institucional de 3.000 ml (3 Litros) con asa y tapa dosificadora. Aprox. 600 porciones, ideal para oriental, carnes y marinados.",
+        imagen: "salsasoya3000ml.jgp.jpeg"
+    },
+    {
+        id: 1330,
+        nombre: "Aceite Refinado de Palma Real La Cosecha Ref. 5000 (Galón)",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Aceite refinado de palma marca La Cosecha Real, referencia institucional 5000. Alta estabilidad para frituras y cocina general.",
+        imagen: "aceitelacosecha.jpg.jpg"
+    },
+    {
+        id: 1331,
+        nombre: "Aceite Refinado de Palma Real La Cosecha Ref. 3000 x 3 Litros",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Aceite refinado de palma marca La Cosecha Real, presentación de 3 litros (referencia 3000) con asa ergonómica.",
+        imagen: "aceitelacosecha.jpg.jpg"
+    },
+    {
+        id: 1332,
+        nombre: "Vinagre Blanco Colsazón x 3.000 ml (3 L) | 600 Porciones",
+        categoria: "alimentos",
+        subcategoria: "aliños",
+        descripcion: "Vinagre blanco marca Colsazón en presentación institucional de 3.000 ml (3 litros) con asa. Ideal para aderezos, conservas y limpieza en cocina.",
+        imagen: "vinagrebalnco3000.jpg.jpeg"
+    },
+    {
+        id: 1333,
+        nombre: "Salsa Negra Differ x Litro / Institucional",
+        categoria: "alimentos",
+        subcategoria: "aliños",
+        descripcion: "Salsa negra marca Differ en presentación institucional con boquilla. Perfecta para realzar el sabor de carnes, guisos y preparaciones tradicionales.",
+        imagen: "salsanegra.jpg.jpeg"
+    },
+    {
+        id: 1334,
+        nombre: "Salsa con Sabor a Humo Differ x Litro / Institucional",
+        categoria: "alimentos",
+        subcategoria: "aliños",
+        descripcion: "Salsa líquida con sabor a humo marca Differ. Ideal para dar un toque ahumado auténtico a sopas, carnes, frijoles y asados.",
+        imagen: "salsaconsaborhumo.jpg.jpeg"
+    },
+    {
+        id: 1335,
+        nombre: "Quemado de Panela Lita | Para Carnes, Flanes y Cakes",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Quemado de panela marca Lita en presentación de tarro institucional. Producto especializado para dar color, aroma y sabor en carnes, flanes y repostería (cakes).",
+        imagen: "quemadodepanela.jpg.jpeg"
+    },
     
    {
         id: 14,
