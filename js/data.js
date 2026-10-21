@@ -1626,6 +1626,30 @@ var productosData = [
         descripcion: "Recipientes porta-comida, bolsas transparentes y para empaque al vacío.",
         imagen: "imagenlacentral.jpeg"
     }
+    {
+        id: 8001,
+        nombre: "Fosforitos (Papas Fritas en Tiritas) La Primavera x 80 g | Pasabocas",
+        categoria: "pasabocas",
+        subcategoria: "general",
+        descripcion: "Crujientes y deliciosas papas fritas cortadas en tiritas (fosforitos) marca Pasabocas La Primavera. Presentación de 80 g, ideales para fiestas y compartir[cite: 40].",
+        imagen: "fosforitos.jpg"
+    },
+    {
+        id: 8002,
+        nombre: "Papas Fritas Sabor Natural Fritaliz | Pasabocas",
+        categoria: "pasabocas",
+        subcategoria: "general",
+        descripcion: "Tradicionales papas fritas en rodajas con auténtico sabor natural, crujientes y perfectas para cualquier reunión o evento[cite: 41].",
+        imagen: "fritaliz.jpg"
+    },
+    {
+        id: 8003,
+        nombre: "Tostaditas de Plátano Sabor Premium La Primavera | Pasabocas",
+        categoria: "pasabocas",
+        subcategoria: "general",
+        descripcion: "Tostaditas de plátano verde crujientes con sabor premium de Pasabocas La Primavera. El acompañamiento perfecto para celebraciones y picadas[cite: 42].",
+        imagen: "tostaditasdeplatanos.jpg"
+    },
 ];
 
 if (typeof window !== 'undefined') {
