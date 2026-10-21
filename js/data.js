@@ -421,14 +421,7 @@ var productosData = [
         imagen: "levapanesencia60mk.jpg"
     },
     
-    {
-        id: 14,
-        nombre: "Salsas Caseras Emanuel",
-        categoria: "alimentos",
-        subcategoria: "general",
-        descripcion: "Salsas artesanales, tártara, ajo, piña, rosada y especialidades.",
-        imagen: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?q=80&w=500"
-    },
+   
     {
         id: 1299,
         nombre: "Empanadas Vallunas Línea Premium Horneadas Precocidos y Congelados del Valle x 850 g | 10 Porciones",
@@ -676,7 +669,7 @@ var productosData = [
         categoria: "alimentos",
         subcategoria: "general",
         descripcion: "Aceite refinado de palma marca La Cosecha Real, presentación de 3 litros (referencia 3000) con asa ergonómica.",
-        imagen: "aceitelacosecha.jpg.jpg"
+        imagen: "aceitelacosecha.jpg"
     },
     {
         id: 1332,
