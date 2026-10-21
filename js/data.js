@@ -1309,7 +1309,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "complementos de cocteleria",
         descripcion: "Cuchara de bar larga con diseño trenzado y tope rojo decorativo en el extremo. Diseñada para remover y crear capas perfectas en cócteles y bebidas preparadas.",
-        imagen: "cucharacoctelera.jgp"
+        imagen: "cucharacoctelera.jpg"
     },
     {
         id: 4001,
