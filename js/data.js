@@ -1625,6 +1625,30 @@ var productosData = [
         subcategoria: "general",
         descripcion: "Recipientes porta-comida, bolsas transparentes y para empaque al vacío.",
         imagen: "imagenlacentral.jpeg"
+    },
+    {
+        id: 8001,
+        nombre: "Fosforitos Papa Frita La Primavera x 80 g | Pasabocas LA CENTRAL",
+        categoria: "pasabocas",
+        subcategoria: "general",
+        descripcion: "Papa frita en tiras finas y crocantes marca La Primavera Pasabocas, en presentación de 80 g. Ideal para acompañar perros calientes, hamburguesas y reuniones.",
+        imagen: "fosforitosprimavera.jpg"
+    },
+    {
+        id: 8002,
+        nombre: "Papitas Fritas Sabor Natural Fritaliz | Pasabocas LA CENTRAL",
+        categoria: "pasabocas",
+        subcategoria: "general",
+        descripcion: "Papitas fritas de sabor natural marca Fritaliz. Crocantes y listas para servir en fiestas, eventos y reuniones.",
+        imagen: "papitasfritalizsabornatural.jpg"
+    },
+    {
+        id: 8003,
+        nombre: "Tostaditas de Plátano Sabor Premium La Primavera | Pasabocas LA CENTRAL",
+        categoria: "pasabocas",
+        subcategoria: "general",
+        descripcion: "Tostaditas de plátano crocantes y deliciosas, sabor premium, marca La Primavera Pasabocas. Perfectas para picar, acompañar bebidas y compartir en fiestas.",
+        imagen: "tostaditasplatanoprimavera.jpg"
     }
    
 ];
