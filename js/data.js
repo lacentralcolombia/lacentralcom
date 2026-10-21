@@ -1261,7 +1261,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "complementos de cocteleria",
         descripcion: "Vaso transparente de 12 oz fabricado en material PET de alta claridad. Ideal para cócteles, jugos, granizados y bebidas frías.",
-        imagen: "vaso1216oz.jpg.jpeg"
+        imagen: "vaso1216oz.jpg"
     },
     {
         id: 6002,
@@ -1269,7 +1269,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "complementos de cocteleria",
         descripcion: "Vaso transparente de 16 oz fabricado en material PET de alta claridad. Perfecto para porciones grandes de cócteles, smoothies y bebidas institucionales.",
-        imagen: "vaso1216oz.jpg.jpeg"
+        imagen: "vaso1216oz.jpg"
     },
     {
         id: 6003,
@@ -1277,7 +1277,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "complementos de cocteleria",
         descripcion: "Estación de escarchado y michelado de vasos multi-compartimiento (incluye espacios para jugo de limón, sal y azúcar). Accesorio profesional indispensable para bares y coctelería.",
-        imagen: "michelador.jpg.jpeg"
+        imagen: "michelador.jpg"
     },
     {
         id: 6004,
@@ -1285,7 +1285,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "complementos de cocteleria",
         descripcion: "Copa medidora (jigger) dual de acero inoxidable con capacidades de 1 oz y 2 oz. Herramienta precisa para la dosificación exacta de licores en coctelería.",
-        imagen: "copamedidora.jpg.jpeg"
+        imagen: "copamedidora.jpg"
     },
     {
         id: 6005,
@@ -1293,7 +1293,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "complementos de cocteleria",
         descripcion: "Pitillos en forma de cuchara de 20 cm, surtidos de colores y elaborados con tecnología oxobiodegradable. Presentación en bolsa de 200 unidades, ideales para granizados y cócteles espesos.",
-        imagen: "pitillojumbocuchara.jpg.jpeg"
+        imagen: "pitillojumbocuchara.jpg"
     },
     {
         id: 6006,
@@ -1301,7 +1301,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "complementos de cocteleria",
         descripcion: "Pitillos jumbo de 10 mm con punta biselada, surtidos de colores y biodegradables. Presentación en bolsa de 250 unidades, perfectos para malteadas y cócteles con pulpa.",
-        imagen: "pitillo10ml.jpg.jpeg"
+        imagen: "pitillo10ml.jpg"
     },
     {
         id: 6007,
@@ -1309,7 +1309,7 @@ var productosData = [
         categoria: "cocteleria",
         subcategoria: "complementos de cocteleria",
         descripcion: "Cuchara de bar larga con diseño trenzado y tope rojo decorativo en el extremo. Diseñada para remover y crear capas perfectas en cócteles y bebidas preparadas.",
-        imagen: "cucharacoctelera.jpg.jpeg"
+        imagen: "cucharacoctelera.jpp"
     },
     {
         id: 4001,
