@@ -720,6 +720,22 @@ var productosData = [
         imagen: "almendraporkiloymedio.jpg"
     },
     {
+        id: 3050,
+        nombre: "Manteca para Freír La Rendidora | Venta al Granel / Institucional",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Manteca vegetal especializada para frituras profesionales, marca La Rendidora. Modalidad de venta al granel e institucional. Ideal para empanadas, papas y fritos en general, con gran estabilidad y rendimiento.",
+        imagen: "mantecaparafreir.jpg"
+    },
+    {
+        id: 3051,
+        nombre: "Margarina Industrial Libypan Pro x 15 kg | Venta al Granel",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Margarina y materia grasa 100% vegetal marca Libypan Pro en presentación institucional de 15 kilogramos. Modalidad de venta al granel. Libre de grasas trans y naturalmente libre de colesterol, exclusiva para la industria.",
+        imagen: "mantequillaagranel.jpg"
+    },
+    {
         id: 15,
         nombre: "Almendra Entera x 500 g | Frutos Secos LA CENTRAL",
         categoria: "frutos-secos",
