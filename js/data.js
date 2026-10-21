@@ -660,7 +660,7 @@ var productosData = [
         categoria: "alimentos",
         subcategoria: "aliños",
         descripcion: "Salsa soya marca Differ en presentación institucional de 3.000 ml (3 Litros) con asa y tapa dosificadora. Aprox. 600 porciones, ideal para oriental, carnes y marinados.",
-        imagen: "salsasoya3000ml.jgp.jpeg"
+        imagen: "salsasoya3000ml.jpeg"
     },
     {
         id: 1330,
@@ -668,7 +668,7 @@ var productosData = [
         categoria: "alimentos",
         subcategoria: "general",
         descripcion: "Aceite refinado de palma marca La Cosecha Real, referencia institucional 5000. Alta estabilidad para frituras y cocina general.",
-        imagen: "aceitelacosecha.jpg.jpg"
+        imagen: "aceitelacosecha.jpg"
     },
     {
         id: 1331,
