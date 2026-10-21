@@ -1256,6 +1256,62 @@ var productosData = [
         imagen: "yexiscoco.jpg"
     },
     {
+        id: 6001,
+        nombre: "Vaso PET Transparente de 12 oz | Coctelería LA CENTRAL",
+        categoria: "cocteleria",
+        subcategoria: "complementos de cocteleria",
+        descripcion: "Vaso transparente de 12 oz fabricado en material PET de alta claridad. Ideal para cócteles, jugos, granizados y bebidas frías.",
+        imagen: "vaso1216oz.jpg.jpeg"
+    },
+    {
+        id: 6002,
+        nombre: "Vaso PET Transparente de 16 oz | Coctelería LA CENTRAL",
+        categoria: "cocteleria",
+        subcategoria: "complementos de cocteleria",
+        descripcion: "Vaso transparente de 16 oz fabricado en material PET de alta claridad. Perfecto para porciones grandes de cócteles, smoothies y bebidas institucionales.",
+        imagen: "vaso1216oz.jpg.jpeg"
+    },
+    {
+        id: 6003,
+        nombre: "Michelador / Escarchador de Vasos para Bar | Coctelería LA CENTRAL",
+        categoria: "cocteleria",
+        subcategoria: "complementos de cocteleria",
+        descripcion: "Estación de escarchado y michelado de vasos multi-compartimiento (incluye espacios para jugo de limón, sal y azúcar). Accesorio profesional indispensable para bares y coctelería.",
+        imagen: "michelador.jpg.jpeg"
+    },
+    {
+        id: 6004,
+        nombre: "Copa Medidora / Jigger Acero Inoxidable 1 oz x 2 oz | Coctelería LA CENTRAL",
+        categoria: "cocteleria",
+        subcategoria: "complementos de cocteleria",
+        descripcion: "Copa medidora (jigger) dual de acero inoxidable con capacidades de 1 oz y 2 oz. Herramienta precisa para la dosificación exacta de licores en coctelería.",
+        imagen: "copamedidora.jpg.jpeg"
+    },
+    {
+        id: 6005,
+        nombre: "Pitillos Jumbo Cuchara Oxobiodegradables 20 cm x 200 Unidades | LA CENTRAL",
+        categoria: "cocteleria",
+        subcategoria: "complementos de cocteleria",
+        descripcion: "Pitillos en forma de cuchara de 20 cm, surtidos de colores y elaborados con tecnología oxobiodegradable. Presentación en bolsa de 200 unidades, ideales para granizados y cócteles espesos.",
+        imagen: "pitillojumbocuchara.jpg.jpeg"
+    },
+    {
+        id: 6006,
+        nombre: "Pitillos Jumbo 10 mm con Punta de Colores x 250 Unidades | LA CENTRAL",
+        categoria: "cocteleria",
+        subcategoria: "complementos de cocteleria",
+        descripcion: "Pitillos jumbo de 10 mm con punta biselada, surtidos de colores y biodegradables. Presentación en bolsa de 250 unidades, perfectos para malteadas y cócteles con pulpa.",
+        imagen: "pitillo10ml.jpg.jpeg"
+    },
+    {
+        id: 6007,
+        nombre: "Cuchara Coctelera / Cuchara de Bar Trenzada | Coctelería LA CENTRAL",
+        categoria: "cocteleria",
+        subcategoria: "complementos de cocteleria",
+        descripcion: "Cuchara de bar larga con diseño trenzado y tope rojo decorativo en el extremo. Diseñada para remover y crear capas perfectas en cócteles y bebidas preparadas.",
+        imagen: "cucharacoctelera.jpg.jpeg"
+    },
+    {
         id: 4001,
         nombre: "Caramelos  CandyRanch x 30 Unidades | Sabores Surtidos",
         categoria: "dulces",
