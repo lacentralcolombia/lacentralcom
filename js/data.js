@@ -1,4 +1,5 @@
 var marcasData = [
+    { nombre: "Liqui POPS", logo: "liquipops.jpg" },
     { nombre: "Zenú", logo: "zenu.jpg" },
     { nombre: "Alpina", logo: "alpina.jpg" },
     { nombre: "Alquería", logo: "alqueria.jpg" },
@@ -6,7 +7,8 @@ var marcasData = [
     { nombre: "Bimbo", logo: "bimbo.jpg" },
     { nombre: "Darnel", logo: "darnel.jpg" },
     { nombre: "El Rey", logo: "elrey.jpg" },
-    { nombre: "Nestlé", logo: "nestle.jpg" }
+    { nombre: "Nestlé", logo: "nestle.jpg" },
+    { nombre: "Liqui POPS", logo: "liquipops.jpg" }
 ];
 
 var productosData = [
