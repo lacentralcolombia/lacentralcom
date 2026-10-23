@@ -8,7 +8,7 @@ var marcasData = [
     { nombre: "Darnel", logo: "darnel.jpg" },
     { nombre: "El Rey", logo: "elrey.jpg" },
     { nombre: "Nestlé", logo: "nestle.jpg" },
-    { nombre: "Liqui POPS", logo: "liquipops.jpg" }
+    { nombre: "La Favorita", logo: "lafavorita.jpg" },
 ];
 
 var productosData = [
