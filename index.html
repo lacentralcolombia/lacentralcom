@@ -120,30 +120,30 @@
         </div>
     </section>
 
- <!-- =====================================================================
-  SECCIÓN VIDEO – LA CENTRAL
-  Pegar TODO este bloque en tu index.html, justo ANTES de la sección
-  del menú:   <section id="catalogo"> ... </section>
-  El video debe estar en la misma carpeta que index.html: video-lacentral.mp4
-  Si quieres otro amarillo, cambia solo --lc-amarillo (línea 1 del CSS).
+<!-- =====================================================================
+  SECCIÓN VIDEO – LA CENTRAL  (versión CARRUSEL 3D)
+  REEMPLAZA todo el bloque de video que tienes en index.html:
+  desde  <style> (el que empieza con "Variables" de .lc-video-section)
+  hasta  el </script> que termina con  obs.observe(marco);
+  Lo demás de la página NO se toca.
+
+  Para agregar más videos: copia una línea <div class="lc-car-item" ...>
+  y cambia el nombre del archivo. Ponlos junto a index.html.
 ===================================================================== -->
 
 <style>
-  /* ---------- Variables ---------- */
   .lc-video-section {
-    --lc-amarillo: #ffc400;       /* <- pon aquí el amarillo exacto de tu página */
+    --lc-amarillo: #ffc400;
     --lc-amarillo-claro: #fff1a8;
     --lc-fondo: #0b0b0b;
   }
 
-  /* Permite animar el ángulo del borde giratorio */
   @property --lc-angulo {
     syntax: "<angle>";
     initial-value: 0deg;
     inherits: false;
   }
 
-  /* ---------- Contenedor de la sección ---------- */
   .lc-video-section {
     position: relative;
     padding: 90px 20px 100px;
@@ -155,7 +155,6 @@
     isolation: isolate;
   }
 
-  /* Partículas de luz suaves de fondo */
   .lc-video-section::before,
   .lc-video-section::after {
     content: "";
@@ -175,7 +174,6 @@
     to   { transform: translate(40px,30px) scale(1.15); }
   }
 
-  /* ---------- Títulos ---------- */
   .lc-video-kicker {
     display: inline-block;
     color: var(--lc-amarillo);
@@ -207,6 +205,321 @@
     border-radius: 3px;
   }
 
+  /* ---------- CARRUSEL 3D ---------- */
+  .lc-car {
+    --w: min(640px, 70vw);
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: calc(var(--w) * 0.5625 + 40px);
+    perspective: 1400px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1);
+    touch-action: pan-y;
+  }
+  .lc-car.lc-visible { opacity: 1; transform: none; }
+
+  .lc-car-escena {
+    position: absolute; inset: 0;
+    transform-style: preserve-3d;
+  }
+
+  .lc-car-item {
+    --o: 0; --a: 0;
+    position: absolute;
+    top: 20px; left: 50%;
+    width: var(--w);
+    margin-left: calc(var(--w) / -2);
+    aspect-ratio: 16 / 9;
+    border-radius: 18px;
+    padding: 4px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255,196,0,.25);
+    box-shadow: 0 25px 60px rgba(0,0,0,.7);
+    cursor: pointer;
+    transform:
+      translateX(calc(var(--o) * var(--w) * .66))
+      translateZ(calc(var(--a) * -170px))
+      rotateY(calc(var(--o) * -36deg))
+      scale(calc(1 - var(--a) * .1));
+    filter: brightness(calc(1 - var(--a) * .28));
+    transition: transform .7s cubic-bezier(.22,1,.36,1), filter .7s ease, opacity .5s ease;
+  }
+  .lc-car-item.lc-oculto { opacity: 0; pointer-events: none; }
+
+  .lc-car-item.lc-activo {
+    cursor: default;
+    border: 0;
+    background: conic-gradient(
+      from var(--lc-angulo),
+      transparent 0deg,
+      var(--lc-amarillo) 60deg,
+      var(--lc-amarillo-claro) 90deg,
+      var(--lc-amarillo) 120deg,
+      transparent 180deg,
+      transparent 200deg,
+      var(--lc-amarillo) 260deg,
+      var(--lc-amarillo-claro) 290deg,
+      var(--lc-amarillo) 320deg,
+      transparent 360deg
+    );
+    animation: lc-girar 6s linear infinite;
+    box-shadow:
+      0 0 25px rgba(255,196,0,.45),
+      0 0 70px rgba(255,196,0,.25),
+      0 30px 80px rgba(0,0,0,.7);
+  }
+  @keyframes lc-girar { to { --lc-angulo: 360deg; } }
+
+  .lc-car-item video {
+    display: block;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    background: #000;
+  }
+
+  /* Barrido de luz solo en el video activo */
+  .lc-car-item.lc-activo::after {
+    content: "";
+    position: absolute;
+    top: 4px; bottom: 4px; left: -30%;
+    width: 18%;
+    background: linear-gradient(100deg, transparent, rgba(255,230,140,.22), transparent);
+    transform: skewX(-18deg);
+    pointer-events: none;
+    animation: lc-brillo 5.5s ease-in-out infinite;
+  }
+  @keyframes lc-brillo {
+    0% { left: -30%; }
+    55%, 100% { left: 130%; }
+  }
+
+  /* Flechas */
+  .lc-car-flecha {
+    position: absolute;
+    top: 50%; z-index: 100;
+    width: 48px; height: 48px;
+    margin-top: -24px;
+    border-radius: 50%;
+    border: 2px solid var(--lc-amarillo);
+    background: rgba(11,11,11,.8);
+    color: var(--lc-amarillo);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 18px rgba(255,196,0,.4);
+    transition: background .25s, color .25s, transform .2s;
+  }
+  .lc-car-flecha:hover { background: var(--lc-amarillo); color: #111; transform: scale(1.1); }
+  .lc-car-flecha.izq { left: 2%; }
+  .lc-car-flecha.der { right: 2%; }
+
+  /* Puntos */
+  .lc-car-puntos { display: flex; justify-content: center; gap: 10px; margin-top: 26px; }
+  .lc-car-punto {
+    width: 10px; height: 10px; border-radius: 50%;
+    border: 0; padding: 0; cursor: pointer;
+    background: rgba(255,255,255,.3);
+    transition: background .3s, transform .3s, width .3s;
+  }
+  .lc-car-punto.on { background: var(--lc-amarillo); width: 28px; border-radius: 10px; box-shadow: 0 0 10px var(--lc-amarillo); }
+
+  .lc-piso {
+    width: 70%; height: 40px; margin: 22px auto 0;
+    background: radial-gradient(ellipse at center, rgba(255,196,0,.5), transparent 70%);
+    filter: blur(14px); opacity: .7;
+    animation: lc-respirar 3.2s ease-in-out infinite alternate;
+  }
+  @keyframes lc-respirar {
+    from { opacity: .30; transform: scale(.985); }
+    to   { opacity: .75; transform: scale(1.02); }
+  }
+
+  .lc-btn-menu {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 34px; padding: 15px 34px;
+    border-radius: 50px;
+    background: var(--lc-amarillo);
+    color: #111; font-weight: 800;
+    letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
+    box-shadow: 0 0 22px rgba(255,196,0,.55);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .lc-btn-menu:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 0 38px rgba(255,196,0,.9); }
+  .lc-btn-menu svg { transition: transform .25s ease; }
+  .lc-btn-menu:hover svg { transform: translateY(3px); }
+
+  @media (max-width: 600px) {
+    .lc-video-section { padding: 60px 0 70px; }
+    .lc-car { --w: 74vw; perspective: 900px; }
+    .lc-car-item { border-radius: 14px; padding: 3px; }
+    .lc-car-item video { border-radius: 11px; }
+    .lc-car-item { transform:
+      translateX(calc(var(--o) * var(--w) * .72))
+      translateZ(calc(var(--a) * -120px))
+      rotateY(calc(var(--o) * -30deg))
+      scale(calc(1 - var(--a) * .1)); }
+    .lc-car-flecha { width: 38px; height: 38px; margin-top: -19px; }
+    .lc-video-sub { padding: 0 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lc-car, .lc-car-item, .lc-car-item.lc-activo, .lc-car-item.lc-activo::after,
+    .lc-video-section::before, .lc-video-section::after, .lc-piso { animation: none; transition: none; }
+    .lc-car { opacity: 1; transform: none; }
+  }
+</style>
+
+<section id="video" class="lc-video-section">
+  <span class="lc-video-kicker">Conoce LA CENTRAL</span>
+  <div class="lc-video-linea"></div>
+  <h2 class="lc-video-titulo">Calidad que se <span>ve</span> y se saborea</h2>
+  <p class="lc-video-sub">Mira por qué somos la mejor opción en tu casa y tu negocio.</p>
+
+  <div class="lc-car" id="lcCar">
+    <button type="button" class="lc-car-flecha izq" id="lcPrev" aria-label="Video anterior">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button type="button" class="lc-car-flecha der" id="lcNext" aria-label="Video siguiente">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+
+    <div class="lc-car-escena" id="lcEscena">
+      <!-- AGREGA MÁS VIDEOS COPIANDO UNA LÍNEA Y CAMBIANDO EL NOMBRE DEL ARCHIVO -->
+      <div class="lc-car-item"><video src="video-lacentral.mp4#t=0.1" muted playsinline preload="metadata"></video></div>
+      <div class="lc-car-item"><video src="video-lacentral-2.mp4#t=0.1" muted playsinline preload="metadata"></video></div>
+      <div class="lc-car-item"><video src="video-lacentral-3.mp4#t=0.1" muted playsinline preload="metadata"></video></div>
+    </div>
+  </div>
+
+  <div class="lc-car-puntos" id="lcPuntos"></div>
+  <div class="lc-piso"></div>
+
+  <a href="#catalogo" class="lc-btn-menu">
+    Ver Menú Completo
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
+</section>
+
+<script>
+  (function () {
+    var car = document.getElementById('lcCar');
+    var escena = document.getElementById('lcEscena');
+    var puntosBox = document.getElementById('lcPuntos');
+    if (!car || !escena) return;
+
+    var items = Array.prototype.slice.call(escena.querySelectorAll('.lc-car-item'));
+    var cur = 0, visible = false, tocoUsuario = false;
+
+    // Quita los videos que no existan (si aún no has subido el 2 o el 3)
+    function quitar(it) {
+      var i = items.indexOf(it);
+      if (i < 0) return;
+      items.splice(i, 1);
+      it.remove();
+      if (cur >= items.length) cur = 0;
+      armarPuntos(); pintar();
+    }
+    items.slice().forEach(function (it) {
+      var v = it.querySelector('video');
+      v.addEventListener('error', function () { quitar(it); }, true);
+    });
+
+    function armarPuntos() {
+      puntosBox.innerHTML = '';
+      if (items.length < 2) return;
+      items.forEach(function (_, i) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'lc-car-punto';
+        b.setAttribute('aria-label', 'Ir al video ' + (i + 1));
+        b.addEventListener('click', function () { ir(i); });
+        puntosBox.appendChild(b);
+      });
+    }
+
+    function pintar() {
+      var n = items.length;
+      items.forEach(function (it, i) {
+        var o = ((i - cur) % n + n) % n;
+        if (o > n / 2) o -= n;
+        var a = Math.abs(o);
+        it.style.setProperty('--o', o);
+        it.style.setProperty('--a', Math.min(a, 3));
+        it.style.zIndex = 20 - a;
+        it.classList.toggle('lc-oculto', a > 2);
+        var activo = (a === 0);
+        it.classList.toggle('lc-activo', activo);
+        var v = it.querySelector('video');
+        if (activo) {
+          v.setAttribute('controls', '');
+          v.loop = (n === 1);
+          if (visible) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        } else {
+          v.removeAttribute('controls');
+          v.pause();
+          try { v.currentTime = 0.1; } catch (e) {}
+        }
+      });
+      Array.prototype.forEach.call(puntosBox.children, function (p, i) {
+        p.classList.toggle('on', i === cur);
+      });
+    }
+
+    function ir(i) {
+      var n = items.length; if (!n) return;
+      cur = ((i % n) + n) % n;
+      pintar();
+    }
+
+    // Al terminar un video, pasa solo al siguiente
+    escena.addEventListener('ended', function (e) {
+      if (items.length > 1 && e.target.closest('.lc-activo')) ir(cur + 1);
+    }, true);
+
+    // Clic en una tarjeta lateral = traerla al centro
+    items.forEach(function (it, i) {
+      it.addEventListener('click', function (e) {
+        if (!it.classList.contains('lc-activo')) { e.preventDefault(); ir(items.indexOf(it)); }
+      });
+    });
+
+    document.getElementById('lcPrev').addEventListener('click', function () { ir(cur - 1); });
+    document.getElementById('lcNext').addEventListener('click', function () { ir(cur + 1); });
+
+    // Teclado
+    document.addEventListener('keydown', function (e) {
+      if (!visible) return;
+      if (e.key === 'ArrowLeft') ir(cur - 1);
+      if (e.key === 'ArrowRight') ir(cur + 1);
+    });
+
+    // Deslizar con el dedo / arrastrar
+    var x0 = null;
+    car.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
+    car.addEventListener('pointerup', function (e) {
+      if (x0 === null) return;
+      var dx = e.clientX - x0; x0 = null;
+      if (Math.abs(dx) > 50) ir(cur + (dx < 0 ? 1 : -1));
+    });
+    car.addEventListener('pointercancel', function () { x0 = null; });
+
+    armarPuntos(); pintar();
+
+    // Entrada suave + reproducción al llegar; pausa al salir
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        visible = e.isIntersecting;
+        var v = items[cur] && items[cur].querySelector('video');
+        if (e.isIntersecting) {
+          car.classList.add('lc-visible');
+          if (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        } else if (v) { v.pause(); }
+      });
+    }, { threshold: 0.45 });
+    obs.observe(car);
+  })();
+</script>
   /* ---------- Marco del video ---------- */
   .lc-marco {
     position: relative;
