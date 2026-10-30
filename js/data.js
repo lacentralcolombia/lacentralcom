@@ -1322,6 +1322,44 @@ var productosData = [
         descripcion: "Cuchara de bar larga con diseño trenzado y tope rojo decorativo en el extremo. Diseñada para remover y crear capas perfectas en cócteles y bebidas preparadas.",
         imagen: "cucharacoctelera.jpg"
     },
+
+    // ---------------------------------------------------------------
+    // COCTELERÍA Y ESCARCHADOS (SABORES VEDORIA & TAJÍN)
+    // ---------------------------------------------------------------
+    {
+        id: 4001,
+        nombre: "Salsa Chamoy Sabores Vedoria Sabor con Amor",
+        categoria: "cocteleria",
+        subcategoria: "salsas-escarchadoras",
+        descripcion: "Salsa chamoy de sabor agridulce y picante, elaborada con pulpa de frutas, limón, azúcar, ají, conservantes, espesante y colorante[cite: 1]. Ideal para escarchar vasos, micheladas y acompañar snacks.",
+        imagen: "vedoria_chamoy.jpg"
+    },
+    {
+        id: 4002,
+        nombre: "Sazonador Tajín Sabores Vedoria | Presentaciones 125 g y 250 g",
+        categoria: "cocteleria",
+        subcategoria: "escarchadores",
+        descripcion: "Mezcla de sal, limón y ají sabor Tajín marca Sabores Vedoria[cite: 2]. Fabricado en Cali[cite: 2]. Perfecto para escarchar bebidas, micheladas y sazonar frutas o pasabocas. Disponible en tarro de 125 g[cite: 2] y bolsa de 250 g[cite: 2].",
+        imagen: "vedoria_tajin_125_250g.jpg"
+    },
+    {
+        id: 4003,
+        nombre: "Sal Limón Sabores Vedoria | Presentaciones 125 g y 250 g",
+        categoria: "cocteleria",
+        subcategoria: "escarchadores",
+        descripcion: "Mezcla escarchadora saborizada de Sal y Limón marca Sabores Vedoria de intenso color verde[cite: 3]. Elaborada a base de sal y limón[cite: 3]. Disponible en tarro dosificador de 125 g[cite: 3] y bolsa de 250 g[cite: 3].",
+        imagen: "vedoria_sallimon_125_250g.jpg"
+    },
+    {
+        id: 4004,
+        nombre: "Sazonador Tajín Clásico Mezcla de Chiles con Limón y Sal x 45 g",
+        categoria: "cocteleria",
+        subcategoria: "escarchadores",
+        descripcion: "Auténtico sazonador Tajín Clásico elaborado con 100% chiles mexicanos[cite: 4], limón y sal[cite: 4]. Sin colorantes ni conservantes artificiales[cite: 4]. Presentación en tarro dosificador de 45 g[cite: 4].",
+        imagen: "tajin_clasico_45g.jpg"
+    }
+
+    
     {
         id: 4001,
         nombre: "Caramelos  CandyRanch x 30 Unidades | Sabores Surtidos",
@@ -1661,6 +1699,7 @@ var productosData = [
         descripcion: "Tostaditas de plátano crocantes y deliciosas, sabor premium, marca La Primavera Pasabocas. Perfectas para picar, acompañar bebidas y compartir en fiestas.",
         imagen: "tostaditasplatanoprimavera.jpg"
     }
+    
    
 ];
 
