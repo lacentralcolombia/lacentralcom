@@ -1319,691 +1319,243 @@
   <span class="lc-of-brillo"></span>
 </a>
 
-<!-- ==========================================
-     LA CENTRAL | EFECTO NAVIDEÑO PREMIUM
-     HTML + CSS + JAVASCRIPT
-========================================== -->
+<!-- =====================================================================
+  EFECTO NAVIDENO PROFESIONAL - LA CENTRAL
+  Reemplaza todo el bloque navideno anterior (desde el comentario
+  "EFECTO NAVIDENO" hasta su ultimo cierre de script, justo antes del cierre de body).
 
+  Incluye: nieve en 3 capas, guirnalda de luces, destellos dorados,
+  mensaje de bienvenida y boton para apagar/encender.
+
+  Activo del 1 de diciembre al 6 de enero.
+  Para probar fuera de fecha agrega ?navidad=1 al final del enlace.
+  Para quitar una parte cambia true por false en CFG (dentro del script).
+===================================================================== -->
 <style>
-/* ===== CONFIGURACIÓN GENERAL ===== */
+  :root { --nv-z: 900; }
 
-#navidad-la-central {
-    position: fixed;
-    inset: 0;
-    z-index: 9998;
-    pointer-events: none;
-    overflow: hidden;
-    font-family: inherit;
-}
+  #nvCanvas { position: fixed; inset: 0; width: 100%; height: 100%;
+    z-index: var(--nv-z); pointer-events: none; }
 
-/* ===== GUIRNALDA SUPERIOR ===== */
+  /* Mensaje de bienvenida */
+  #nvBanner { position: fixed; top: 64px; left: 50%; z-index: calc(var(--nv-z) + 1);
+    display: flex; align-items: center; gap: 12px; max-width: min(92vw, 440px);
+    padding: 12px 22px 12px 16px; border-radius: 14px;
+    background: rgba(16, 24, 20, .82); color: #fff;
+    border: 1px solid rgba(255, 207, 90, .55);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35), 0 0 22px rgba(255, 207, 90, .18);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    font-family: 'Poppins', sans-serif; pointer-events: none;
+    opacity: 0; transform: translate(-50%, -14px);
+    transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
+  #nvBanner.nv-ver { opacity: 1; transform: translate(-50%, 0); }
+  #nvBanner .nv-b-ico { font-size: 26px; line-height: 1; }
+  #nvBanner strong { display: block; font-size: .98rem; font-weight: 700; color: #ffcf5a; }
+  #nvBanner span.nv-b-txt { display: block; font-size: .78rem; font-weight: 400; line-height: 1.35;
+    color: rgba(255, 255, 255, .85); }
 
-.navidad-guirnalda {
-    position: absolute;
-    top: -8px;
-    left: 0;
-    width: 100%;
-    height: 105px;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,.25));
-}
+  /* Botón para apagar */
+  #nvBtn { position: fixed; left: 16px; bottom: 16px; z-index: calc(var(--nv-z) + 2);
+    width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid rgba(255, 207, 90, .75);
+    background: rgba(16, 24, 20, .85); color: #fff; font-size: 20px; line-height: 1; cursor: pointer;
+    box-shadow: 0 0 14px rgba(255, 207, 90, .35); transition: transform .2s, opacity .2s; }
+  #nvBtn:hover { transform: scale(1.08); }
+  #nvBtn:focus-visible { outline: 2px solid #ffcf5a; outline-offset: 3px; }
+  .nv-apagado #nvCanvas, .nv-apagado #nvBanner { display: none; }
+  .nv-apagado #nvBtn { opacity: .55; box-shadow: none; }
 
-.navidad-guirnalda svg {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-}
-
-.navidad-cable {
-    fill: none;
-    stroke: #173b28;
-    stroke-width: 3;
-}
-
-.navidad-luz {
-    transform-origin: center;
-    animation: navidad-brillo 2.4s ease-in-out infinite alternate;
-}
-
-.navidad-luz:nth-child(2n) {
-    animation-delay: .7s;
-}
-
-.navidad-luz:nth-child(3n) {
-    animation-delay: 1.3s;
-}
-
-@keyframes navidad-brillo {
-    0% {
-        opacity: .55;
-        filter: brightness(.8);
-    }
-
-    100% {
-        opacity: 1;
-        filter: brightness(1.6)
-               drop-shadow(0 0 8px currentColor);
-    }
-}
-
-/* ===== NIEVE ===== */
-
-#navidad-nieve {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-/* ===== MENSAJE NAVIDEÑO ===== */
-
-#navidad-mensaje {
-    position: fixed;
-    top: 105px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-10px);
-
-    width: min(90%, 420px);
-    padding: 15px 24px;
-
-    background: rgba(15, 25, 19, .88);
-    border: 1px solid rgba(218, 184, 100, .65);
-    border-radius: 16px;
-
-    color: #fff;
-    text-align: center;
-
-    box-shadow:
-        0 10px 35px rgba(0,0,0,.25),
-        0 0 20px rgba(212,175,55,.12);
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition:
-        opacity .6s ease,
-        transform .6s ease,
-        visibility .6s;
-}
-
-#navidad-mensaje.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
-
-#navidad-mensaje h3 {
-    margin: 0 0 6px;
-    color: #e7c879;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: .5px;
-}
-
-#navidad-mensaje p {
-    margin: 0;
-    font-size: 13px;
-    line-height: 1.6;
-    color: #f4f4f4;
-}
-
-/* ===== BOTÓN DE CONTROL ===== */
-
-#navidad-control {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 9999;
-
-    pointer-events: auto;
-
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    padding: 11px 16px;
-
-    background: rgba(17, 24, 20, .92);
-    color: #f5d98c;
-
-    border: 1px solid rgba(218, 184, 100, .6);
-    border-radius: 50px;
-
-    font-family: inherit;
-    font-size: 12px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    box-shadow: 0 5px 20px rgba(0,0,0,.2);
-
-    transition:
-        background .3s ease,
-        transform .3s ease,
-        box-shadow .3s ease;
-}
-
-#navidad-control:hover {
-    background: #243b2c;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,.3);
-}
-
-#navidad-control:focus-visible {
-    outline: 2px solid #e7c879;
-    outline-offset: 4px;
-}
-
-#navidad-control .icono {
-    font-size: 17px;
-}
-
-/* ===== RESPONSIVE ===== */
-
-@media (max-width: 600px) {
-    .navidad-guirnalda {
-        height: 75px;
-    }
-
-    #navidad-mensaje {
-        top: 80px;
-        padding: 12px 16px;
-    }
-
-    #navidad-mensaje h3 {
-        font-size: 16px;
-    }
-
-    #navidad-mensaje p {
-        font-size: 12px;
-    }
-
-    #navidad-control {
-        bottom: 14px;
-        left: 14px;
-        padding: 10px 13px;
-        font-size: 11px;
-    }
-}
-
-/* ===== ACCESIBILIDAD ===== */
-
-@media (prefers-reduced-motion: reduce) {
-    .navidad-luz {
-        animation: none !important;
-    }
-
-    #navidad-mensaje {
-        transition: none !important;
-    }
-
-    #navidad-control {
-        transition: none !important;
-    }
-}
+  @media (max-width: 600px) {
+    #nvBanner { top: 56px; padding: 10px 16px 10px 12px; }
+    #nvBanner .nv-b-ico { font-size: 22px; }
+    #nvBtn { width: 40px; height: 40px; font-size: 18px; }
+  }
 </style>
 
-<!-- ===== ESTRUCTURA DEL EFECTO ===== -->
+<canvas id="nvCanvas" aria-hidden="true"></canvas>
 
-<div id="navidad-la-central" aria-hidden="true">
-
-    <!-- Guirnalda elegante -->
-    <div class="navidad-guirnalda">
-
-        <svg viewBox="0 0 1440 110"
-             preserveAspectRatio="none">
-
-            <path
-                class="navidad-cable"
-                d="M0 8 Q360 115 720 35 T1440 8"
-            />
-
-            <!-- Luces doradas -->
-            <circle class="navidad-luz"
-                    cx="120" cy="35" r="6"
-                    fill="#ffd76a"
-                    style="color:#ffd76a"/>
-
-            <circle class="navidad-luz"
-                    cx="270" cy="66" r="5"
-                    fill="#e53935"
-                    style="color:#e53935"/>
-
-            <circle class="navidad-luz"
-                    cx="420" cy="83" r="6"
-                    fill="#4caf50"
-                    style="color:#4caf50"/>
-
-            <circle class="navidad-luz"
-                    cx="570" cy="75" r="5"
-                    fill="#ffd76a"
-                    style="color:#ffd76a"/>
-
-            <circle class="navidad-luz"
-                    cx="720" cy="35" r="6"
-                    fill="#e53935"
-                    style="color:#e53935"/>
-
-            <circle class="navidad-luz"
-                    cx="870" cy="42" r="5"
-                    fill="#4caf50"
-                    style="color:#4caf50"/>
-
-            <circle class="navidad-luz"
-                    cx="1020" cy="70" r="6"
-                    fill="#ffd76a"
-                    style="color:#ffd76a"/>
-
-            <circle class="navidad-luz"
-                    cx="1170" cy="50" r="5"
-                    fill="#e53935"
-                    style="color:#e53935"/>
-
-            <circle class="navidad-luz"
-                    cx="1320" cy="25" r="6"
-                    fill="#4caf50"
-                    style="color:#4caf50"/>
-
-        </svg>
-
-    </div>
-
-    <!-- Nieve -->
-    <canvas id="navidad-nieve"></canvas>
-
+<div id="nvBanner" aria-hidden="true">
+  <span class="nv-b-ico">🎄</span>
+  <div>
+    <strong>Felices Fiestas</strong>
+    <span class="nv-b-txt">LA CENTRAL te desea una Navidad llena de sabor.</span>
+  </div>
 </div>
 
-<!-- Mensaje -->
-<div id="navidad-mensaje">
-
-    <h3>🎄 LA CENTRAL · Feliz Navidad</h3>
-
-    <p>
-        Calidad, sabor y momentos especiales
-        para compartir en familia.
-    </p>
-
-</div>
-
-<!-- Botón -->
-<button
-    id="navidad-control"
-    type="button"
-    aria-label="Activar o desactivar decoración navideña">
-
-    <span class="icono">🎄</span>
-
-    <span id="navidad-texto">
-        Activar Navidad
-    </span>
-
-</button>
+<button id="nvBtn" type="button" aria-label="Activar o desactivar efecto navideño" title="Efecto navideño">❄️</button>
 
 <script>
 (function () {
-    "use strict";
+  // ---- Ajustes: pon false para quitar una parte ----
+  var CFG = { nieve: true, luces: true, destellos: true, mensaje: true };
 
-    /* ======================================
-       CONFIGURACIÓN
-    ====================================== */
+  // ---- ¿Está en fecha? (1 dic – 6 ene) o forzado con ?navidad=1 ----
+  var hoy = new Date(), m = hoy.getMonth(), d = hoy.getDate();
+  var enFecha = (m === 11) || (m === 0 && d <= 6);
+  var forzado = /[?&]navidad=1/.test(location.search);
+  var reducir = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cv = document.getElementById('nvCanvas'), btn = document.getElementById('nvBtn'),
+      banner = document.getElementById('nvBanner');
+  if ((!enFecha && !forzado) || reducir) { cv.remove(); btn.remove(); banner.remove(); return; }
 
-    const CONFIG = {
-        automatico: true,
-        inicioMes: 11,
-        finMes: 0,
-        diasIniciales: 6,
-        nieve: true,
-        luces: true,
-        mensaje: true,
-        cantidadNieve: 75
-    };
+  var ctx = cv.getContext('2d');
+  var W, H, dpr, movil, flakes = [], bokeh = [], bulbs = [], wire = [];
+  var run = false, last = 0, t = 0;
 
-    const contenedor = document.getElementById(
-        "navidad-la-central"
-    );
+  // ---- Preferencia del visitante ----
+  function leer() { try { return localStorage.getItem('nv-off') === '1'; } catch (e) { return false; } }
+  function guardar(v) { try { localStorage.setItem('nv-off', v ? '1' : '0'); } catch (e) {} }
+  if (leer()) document.body.classList.add('nv-apagado');
+  function apagado() { return document.body.classList.contains('nv-apagado'); }
+  btn.addEventListener('click', function () {
+    guardar(document.body.classList.toggle('nv-apagado'));
+    if (!apagado()) arrancar();
+  });
 
-    const canvas = document.getElementById(
-        "navidad-nieve"
-    );
+  // ---- Sprites pre-dibujados (mucho más rápido y con brillo suave) ----
+  function sprite(size, stops) {
+    var c = document.createElement('canvas'); c.width = c.height = size;
+    var g = c.getContext('2d'), r = size / 2, gr = g.createRadialGradient(r, r, 0, r, r, r);
+    stops.forEach(function (s) { gr.addColorStop(s[0], s[1]); });
+    g.fillStyle = gr; g.fillRect(0, 0, size, size); return c;
+  }
+  var fino   = sprite(32, [[0, 'rgba(255,255,255,1)'], [.45, 'rgba(255,255,255,.85)'], [1, 'rgba(255,255,255,0)']]);
+  var suave  = sprite(64, [[0, 'rgba(255,255,255,.9)'], [.5, 'rgba(255,255,255,.35)'], [1, 'rgba(255,255,255,0)']]);
+  var disco  = sprite(128, [[0, 'rgba(255,214,140,0)'], [.7, 'rgba(255,214,140,.16)'],
+                            [.92, 'rgba(255,232,175,.32)'], [1, 'rgba(255,214,140,0)']]);
+  var paleta = [[255, 207, 90], [255, 85, 85], [90, 220, 140], [170, 220, 255]]; // dorado, rojo, verde, blanco hielo
+  var brillos = paleta.map(function (c) {
+    var k = c.join(',');
+    return sprite(48, [[0, 'rgba(' + k + ',1)'], [.25, 'rgba(' + k + ',.55)'], [1, 'rgba(' + k + ',0)']]);
+  });
 
-    const boton = document.getElementById(
-        "navidad-control"
-    );
+  // ---- Nieve: 3 capas de profundidad ----
+  var capas = [
+    { s: [2.2, 4],  vy: [16, 28],  a: .45, spr: fino,  p: .50 },   // lejos
+    { s: [4, 6.5],  vy: [30, 50],  a: .75, spr: fino,  p: .35 },   // medio
+    { s: [12, 20],  vy: [70, 110], a: .50, spr: suave, p: .15 }    // cerca, desenfocada
+  ];
+  function rnd(a, b) { return a + Math.random() * (b - a); }
+  function nuevoCopo(inicial) {
+    var q = Math.random(), l = q < capas[0].p ? 0 : (q < capas[0].p + capas[1].p ? 1 : 2), c = capas[l];
+    return { l: l, x: Math.random() * W, y: inicial ? Math.random() * H : -20,
+      s: rnd(c.s[0], c.s[1]), vy: rnd(c.vy[0], c.vy[1]), ph: Math.random() * 6.28, sw: rnd(8, 22) };
+  }
 
-    const textoBoton = document.getElementById(
-        "navidad-texto"
-    );
+  // ---- Luces: guirnalda con curvas ----
+  function armarLuces() {
+    bulbs = []; wire = [];
+    if (!CFG.luces) return;
+    var n = Math.ceil(W / (movil ? W / 3 : Math.max(220, W / 7))), span = W / n;
+    var sag = movil ? 14 : 20, y0 = 2, paso = movil ? 34 : 40;
+    for (var s = 0; s < n; s++) {
+      var xa = s * span, pts = [], i, u;
+      for (i = 0; i <= 24; i++) { u = i / 24; pts.push([xa + u * span, y0 + Math.sin(Math.PI * u) * sag]); }
+      wire.push(pts);
+      var nb = Math.round(span / paso);
+      for (i = 1; i < nb; i++) {
+        u = i / nb;
+        bulbs.push({ x: xa + u * span, y: y0 + Math.sin(Math.PI * u) * sag,
+          k: bulbs.length % paleta.length, ph: Math.random() * 6.28, sp: rnd(.7, 1.4) });
+      }
+    }
+  }
 
-    const mensaje = document.getElementById(
-        "navidad-mensaje"
-    );
+  // ---- Destellos dorados de fondo ----
+  function armarDestellos() {
+    bokeh = [];
+    if (!CFG.destellos) return;
+    var n = movil ? 3 : 7;
+    for (var i = 0; i < n; i++) bokeh.push({ x: Math.random() * W, y: Math.random() * H,
+      s: rnd(70, 170), vx: rnd(-6, 6), vy: rnd(-4, 4), ph: Math.random() * 6.28, sp: rnd(.25, .5) });
+  }
 
-    if (!contenedor || !canvas || !boton) {
-        return;
+  function medir() {
+    W = innerWidth; H = innerHeight; movil = W < 700;
+    dpr = Math.min(window.devicePixelRatio || 1, movil ? 1.5 : 2);
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = CFG.nieve ? Math.round(Math.min(movil ? 70 : 170, W / (movil ? 6 : 8))) : 0;
+    while (flakes.length < n) flakes.push(nuevoCopo(true));
+    flakes.length = Math.min(flakes.length, n);
+    armarLuces(); armarDestellos();
+  }
+  medir();
+  var rt; addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(medir, 120); });
+
+  // ---- Bucle principal ----
+  function arrancar() { if (!run && !apagado() && !document.hidden) { run = true; last = performance.now(); requestAnimationFrame(frame); } }
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) arrancar(); });
+
+  function frame(now) {
+    if (apagado() || document.hidden) { run = false; return; }
+    var dt = Math.min((now - last) / 1000, .05); last = now; t += dt;
+    ctx.clearRect(0, 0, W, H);
+
+    // 1) Destellos de fondo
+    ctx.globalCompositeOperation = 'lighter';
+    for (var b = 0; b < bokeh.length; b++) {
+      var o = bokeh[b];
+      o.x += o.vx * dt; o.y += o.vy * dt;
+      if (o.x < -o.s) o.x = W + o.s; else if (o.x > W + o.s) o.x = -o.s;
+      if (o.y < -o.s) o.y = H + o.s; else if (o.y > H + o.s) o.y = -o.s;
+      ctx.globalAlpha = .55 * (.6 + .4 * Math.sin(t * o.sp + o.ph));
+      ctx.drawImage(disco, o.x - o.s / 2, o.y - o.s / 2, o.s, o.s);
     }
 
-    const ctx = canvas.getContext("2d");
-
-    if (!ctx) {
-        return;
+    // 2) Guirnalda de luces
+    if (wire.length) {
+      var entra = Math.min(1, t / 2.5);
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.globalAlpha = entra; ctx.lineWidth = 1.4; ctx.strokeStyle = 'rgba(14,34,24,.8)';
+      for (var w = 0; w < wire.length; w++) {
+        var pts = wire[w]; ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+        for (var j = 1; j < pts.length; j++) ctx.lineTo(pts[j][0], pts[j][1]);
+        ctx.stroke();
+      }
+      for (var i = 0; i < bulbs.length; i++) {
+        var l = bulbs[i], c = paleta[l.k], br = .6 + .4 * Math.sin(t * l.sp * 1.6 + l.ph);
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.globalAlpha = entra * (.35 + .55 * br);
+        ctx.drawImage(brillos[l.k], l.x - 17, l.y + 7 - 17, 34, 34);
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.globalAlpha = entra;
+        ctx.fillStyle = 'rgb(20,34,26)'; ctx.fillRect(l.x - 1.6, l.y - 1, 3.2, 3);
+        ctx.fillStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + (.65 + .35 * br).toFixed(2) + ')';
+        ctx.beginPath(); ctx.ellipse(l.x, l.y + 6, 2.7, 4.2, 0, 0, 6.2832); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,' + (.5 * br).toFixed(2) + ')';
+        ctx.beginPath(); ctx.ellipse(l.x - .8, l.y + 4.6, .9, 1.6, 0, 0, 6.2832); ctx.fill();
+      }
     }
 
-    const movimientoReducido = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    let copos = [];
-    let animacion = null;
-    let activa = false;
-    let ancho = 0;
-    let alto = 0;
-
-    /* ======================================
-       FECHA NAVIDEÑA
-    ====================================== */
-
-    function esTemporadaNavidad() {
-        const fecha = new Date();
-
-        const mes = fecha.getMonth();
-        const dia = fecha.getDate();
-
-        return (
-            mes === 11 ||
-            (mes === 0 && dia <= CONFIG.diasIniciales)
-        );
+    // 3) Nieve (por encima de las luces para dar profundidad)
+    ctx.globalCompositeOperation = 'source-over';
+    var viento = Math.sin(t * .3) * 12 + Math.sin(t * .11) * 8;
+    for (var f = 0; f < flakes.length; f++) {
+      var p = flakes[f], cp = capas[p.l];
+      p.y += p.vy * dt;
+      p.x += (Math.sin(t * .8 + p.ph) * p.sw * .5 + viento * (p.l + 1) * .35) * dt;
+      if (p.y > H + 24) { p.y = -24; p.x = Math.random() * W; }
+      if (p.x > W + 24) p.x = -24; else if (p.x < -24) p.x = W + 24;
+      ctx.globalAlpha = cp.a;
+      ctx.drawImage(cp.spr, p.x - p.s, p.y - p.s, p.s * 2, p.s * 2);
     }
-
-    /* ======================================
-       CREAR COPOS
-    ====================================== */
-
-    function crearCopo() {
-        return {
-            x: Math.random() * ancho,
-            y: Math.random() * alto,
-
-            radio: Math.random() * 2.5 + 1,
-
-            velocidad: Math.random() * 1.2 + .4,
-
-            movimiento: Math.random() * .8 - .4,
-
-            opacidad: Math.random() * .5 + .35
-        };
-    }
-
-    /* ======================================
-       AJUSTAR CANVAS
-    ====================================== */
-
-    function ajustarCanvas() {
-        ancho = window.innerWidth;
-        alto = window.innerHeight;
-
-        const escala = Math.min(
-            window.devicePixelRatio || 1,
-            1.5
-        );
-
-        canvas.width = ancho * escala;
-        canvas.height = alto * escala;
-
-        canvas.style.width = ancho + "px";
-        canvas.style.height = alto + "px";
-
-        ctx.setTransform(
-            escala,
-            0,
-            0,
-            escala,
-            0,
-            0
-        );
-
-        copos = [];
-
-        const cantidad = Math.min(
-            CONFIG.cantidadNieve,
-            Math.max(20, Math.round(ancho / 12))
-        );
-
-        for (let i = 0; i < cantidad; i++) {
-            copos.push(crearCopo());
-        }
-    }
-
-    /* ======================================
-       DIBUJAR NIEVE
-    ====================================== */
-
-    function dibujarNieve() {
-        if (!activa || !CONFIG.nieve) {
-            return;
-        }
-
-        ctx.clearRect(0, 0, ancho, alto);
-
-        copos.forEach(function (copo) {
-
-            ctx.beginPath();
-
-            ctx.arc(
-                copo.x,
-                copo.y,
-                copo.radio,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fillStyle =
-                "rgba(255,255,255," +
-                copo.opacidad +
-                ")";
-
-            ctx.fill();
-
-            copo.y += copo.velocidad;
-
-            copo.x += copo.movimiento;
-
-            if (copo.y > alto + 10) {
-                copo.y = -10;
-                copo.x = Math.random() * ancho;
-            }
-
-            if (copo.x > ancho + 10) {
-                copo.x = -10;
-            }
-
-            if (copo.x < -10) {
-                copo.x = ancho + 10;
-            }
-
-        });
-
-        animacion = requestAnimationFrame(
-            dibujarNieve
-        );
-    }
-
-    /* ======================================
-       ACTIVAR EFECTO
-    ====================================== */
-
-    function activarNavidad() {
-        activa = true;
-
-        contenedor.style.display = "block";
-
-        if (CONFIG.luces) {
-            document.querySelector(
-                ".navidad-guirnalda"
-            ).style.display = "block";
-        }
-
-        if (CONFIG.nieve) {
-            canvas.style.display = "block";
-        }
-
-        if (CONFIG.mensaje) {
-            mensaje.classList.add("visible");
-        }
-
-        boton.querySelector(".icono").textContent = "🎄";
-
-        textoBoton.textContent = "Desactivar Navidad";
-
-        boton.setAttribute(
-            "aria-label",
-            "Desactivar decoración navideña"
-        );
-
-        localStorage.setItem(
-            "navidad-la-central",
-            "activado"
-        );
-
-        if (
-            CONFIG.nieve &&
-            !movimientoReducido
-        ) {
-            cancelarAnimacion();
-
-            animacion = requestAnimationFrame(
-                dibujarNieve
-            );
-        }
-    }
-
-    /* ======================================
-       DESACTIVAR EFECTO
-    ====================================== */
-
-    function desactivarNavidad() {
-        activa = false;
-
-        cancelarAnimacion();
-
-        ctx.clearRect(0, 0, ancho, alto);
-
-        contenedor.style.display = "none";
-
-        mensaje.classList.remove("visible");
-
-        boton.querySelector(".icono").textContent = "✨";
-
-        textoBoton.textContent = "Activar Navidad";
-
-        boton.setAttribute(
-            "aria-label",
-            "Activar decoración navideña"
-        );
-
-        localStorage.setItem(
-            "navidad-la-central",
-            "desactivado"
-        );
-    }
-
-    /* ======================================
-       CANCELAR ANIMACIÓN
-    ====================================== */
-
-    function cancelarAnimacion() {
-        if (animacion !== null) {
-            cancelAnimationFrame(animacion);
-            animacion = null;
-        }
-    }
-
-    /* ======================================
-       BOTÓN
-    ====================================== */
-
-    boton.addEventListener("click", function () {
-
-        if (activa) {
-            desactivarNavidad();
-        } else {
-            activarNavidad();
-        }
-
-    });
-
-    /* ======================================
-       INICIALIZACIÓN
-    ====================================== */
-
-    ajustarCanvas();
-
-    const estadoGuardado = localStorage.getItem(
-        "navidad-la-central"
-    );
-
-    const activacionManual =
-        new URLSearchParams(
-            window.location.search
-        ).get("navidad") === "1";
-
-    const debeActivarse =
-        estadoGuardado === "activado" ||
-        (
-            estadoGuardado !== "desactivado" &&
-            (
-                activacionManual ||
-                (
-                    CONFIG.automatico &&
-                    esTemporadaNavidad()
-                )
-            )
-        );
-
-    if (debeActivarse) {
-        activarNavidad();
-    } else {
-        contenedor.style.display = "none";
-    }
-
-    /* ======================================
-       CAMBIO DE TAMAÑO
-    ====================================== */
-
-    window.addEventListener(
-        "resize",
-        ajustarCanvas
-    );
-
-    /* ======================================
-       PESTAÑA EN SEGUNDO PLANO
-    ====================================== */
-
-    document.addEventListener(
-        "visibilitychange",
-        function () {
-
-            if (document.hidden) {
-                cancelarAnimacion();
-            } else if (
-                activa &&
-                CONFIG.nieve &&
-                !movimientoReducido
-            ) {
-                animacion = requestAnimationFrame(
-                    dibujarNieve
-                );
-            }
-
-        }
-    );
-
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(frame);
+  }
+
+  // ---- Mensaje de bienvenida (una sola vez por visita) ----
+  if (CFG.mensaje) {
+    var visto = false;
+    try { visto = sessionStorage.getItem('nv-msg') === '1'; } catch (e) {}
+    if (!visto && !apagado()) {
+      setTimeout(function () { banner.classList.add('nv-ver'); }, 1800);
+      setTimeout(function () { banner.classList.remove('nv-ver'); }, 8200);
+      try { sessionStorage.setItem('nv-msg', '1'); } catch (e) {}
+    } else { banner.remove(); }
+  } else { banner.remove(); }
+
+  arrancar();
 })();
 </script>
-
-
 
 </body>
 </html>
