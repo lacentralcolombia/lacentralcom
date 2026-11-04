@@ -1323,16 +1323,22 @@
 
 
 <!-- =====================================================================
-  EFECTO NAVIDEÑO – LA CENTRAL
-  Pegar justo antes de </body>, DEBAJO del bloque del botón OFERTAS
-  (al final de todo el código).
+  EFECTO NAVIDEÑO PROFESIONAL – LA CENTRAL
+  REEMPLAZA todo el bloque navideño anterior (desde el comentario
+  "EFECTO NAVIDEÑO" hasta el </script> final, justo antes de </body>).
 
-  · Se activa solo del 1 de diciembre al 6 de enero.
-  · Para probarlo fuera de fecha agrega  ?navidad=1  al final del enlace.
-  · Si algo queda tapado por el menú o el carrito, sube/baja --nv-z.
-  · Incluye botón ❄️ (abajo a la izquierda) para apagar/encender el efecto.
-  · No bloquea clics: todo es pointer-events:none.
-  · Funciona en laptop y celular (se adapta el tamaño y la cantidad de nieve).
+  Incluye:
+   · Nieve en 3 capas de profundidad (fina, media y desenfocada)
+   · Guirnalda de luces cálidas arriba, con brillo suave que respira
+   · Destellos dorados tipo "bokeh" flotando muy suave
+   · Mensaje de bienvenida elegante que aparece una sola vez por visita
+   · Botón ❄️ para apagar/encender
+
+  · Activo del 1 de diciembre al 6 de enero.
+  · Para probar fuera de fecha: agrega  ?navidad=1  al final del enlace.
+  · Si algo (menú o carrito) queda tapado, baja --nv-z.
+  · Para quitar una parte: cambia true por false en CFG (abajo en el script).
+  · No bloquea clics. Se adapta a celular y respeta "reducir movimiento".
 ===================================================================== -->
 <style>
   :root { --nv-z: 900; }
@@ -1340,103 +1346,69 @@
   #nvCanvas { position: fixed; inset: 0; width: 100%; height: 100%;
     z-index: var(--nv-z); pointer-events: none; }
 
-  /* Santa: se mueve por JavaScript (para que la estela salga exacta del trineo) */
-  #nvSanta { position: fixed; top: 0; left: 0; z-index: calc(var(--nv-z) + 1);
-    pointer-events: none; opacity: 0; will-change: transform;
-    filter: drop-shadow(0 0 10px rgba(255,214,120,.65)) drop-shadow(0 6px 8px rgba(0,0,0,.35)); }
-  #nvSanta svg { display: block; width: 100%; height: auto; overflow: visible; }
-  #nvSanta .nv-nose { filter: drop-shadow(0 0 5px #ff2a1a); animation: nv-nariz 1s ease-in-out infinite alternate; }
-  @keyframes nv-nariz { from { opacity: .65; } to { opacity: 1; } }
+  /* Mensaje de bienvenida */
+  #nvBanner { position: fixed; top: 64px; left: 50%; z-index: calc(var(--nv-z) + 1);
+    display: flex; align-items: center; gap: 12px; max-width: min(92vw, 440px);
+    padding: 12px 22px 12px 16px; border-radius: 14px;
+    background: rgba(16, 24, 20, .82); color: #fff;
+    border: 1px solid rgba(255, 207, 90, .55);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35), 0 0 22px rgba(255, 207, 90, .18);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    font-family: 'Poppins', sans-serif; pointer-events: none;
+    opacity: 0; transform: translate(-50%, -14px);
+    transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
+  #nvBanner.nv-ver { opacity: 1; transform: translate(-50%, 0); }
+  #nvBanner .nv-b-ico { font-size: 26px; line-height: 1; }
+  #nvBanner strong { display: block; font-size: .98rem; font-weight: 700; color: #ffcf5a; }
+  #nvBanner span.nv-b-txt { display: block; font-size: .78rem; font-weight: 400; line-height: 1.35;
+    color: rgba(255, 255, 255, .85); }
 
   /* Botón para apagar */
   #nvBtn { position: fixed; left: 16px; bottom: 16px; z-index: calc(var(--nv-z) + 2);
-    width: 46px; height: 46px; border-radius: 50%; border: 2px solid #9fd4ff;
-    background: #0e1b2c; color: #fff; font-size: 21px; line-height: 1; cursor: pointer;
-    box-shadow: 0 0 14px rgba(159,212,255,.6); transition: transform .2s; }
-  #nvBtn:hover { transform: scale(1.1); }
-  .nv-apagado #nvCanvas, .nv-apagado #nvSanta { display: none; }
+    width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid rgba(255, 207, 90, .75);
+    background: rgba(16, 24, 20, .85); color: #fff; font-size: 20px; line-height: 1; cursor: pointer;
+    box-shadow: 0 0 14px rgba(255, 207, 90, .35); transition: transform .2s, opacity .2s; }
+  #nvBtn:hover { transform: scale(1.08); }
+  #nvBtn:focus-visible { outline: 2px solid #ffcf5a; outline-offset: 3px; }
+  .nv-apagado #nvCanvas, .nv-apagado #nvBanner { display: none; }
   .nv-apagado #nvBtn { opacity: .55; box-shadow: none; }
 
-  @media (max-width: 600px) { #nvBtn { width: 40px; height: 40px; font-size: 18px; } }
+  @media (max-width: 600px) {
+    #nvBanner { top: 56px; padding: 10px 16px 10px 12px; }
+    #nvBanner .nv-b-ico { font-size: 22px; }
+    #nvBtn { width: 40px; height: 40px; font-size: 18px; }
+  }
 </style>
 
 <canvas id="nvCanvas" aria-hidden="true"></canvas>
 
-<div id="nvSanta" aria-hidden="true">
-  <svg viewBox="0 0 380 130" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <g id="nvRd">
-        <path d="M52 66 Q66 50 74 42" stroke="#8a5a2b" stroke-width="12" stroke-linecap="round" fill="none"/>
-        <ellipse cx="38" cy="76" rx="26" ry="13" fill="#8a5a2b"/>
-        <ellipse cx="38" cy="83" rx="19" ry="6" fill="#e0c29a" opacity=".65"/>
-        <g stroke="#6b4220" stroke-width="4.5" stroke-linecap="round" fill="none">
-          <path d="M20 86 L8 108"/><path d="M30 88 L24 112"/><path d="M52 88 L62 110"/><path d="M60 84 L76 102"/>
-        </g>
-        <circle cx="12" cy="68" r="5" fill="#fff"/>
-        <rect x="55" y="62" width="11" height="5" rx="2" fill="#ffd54a"/>
-        <circle cx="63" cy="73" r="3" fill="#ffd54a"/>
-        <ellipse cx="80" cy="40" rx="11" ry="7.5" fill="#8a5a2b" transform="rotate(-15 80 40)"/>
-        <circle cx="90" cy="43" r="4.2" fill="#ff2a1a" class="nv-nose"/>
-        <circle cx="80" cy="37" r="1.7" fill="#111"/>
-        <path d="M76 34 L72 18 M72 24 L65 20 M82 33 L88 17 M86 23 L94 20"
-              stroke="#5a3a1c" stroke-width="2.8" stroke-linecap="round" fill="none"/>
-      </g>
-    </defs>
-
-    <!-- riendas -->
-    <path d="M148 60 Q190 58 236 70 Q290 62 340 68" stroke="#ffd54a" stroke-width="1.6" fill="none"/>
-
-    <!-- renos -->
-    <use href="#nvRd" x="268" y="4"/>
-    <use href="#nvRd" x="168" y="4"/>
-
-    <!-- patines del trineo -->
-    <path d="M6 114 Q60 126 150 114 Q168 111 162 98" stroke="#ffd54a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-    <path d="M32 114 V102 M112 114 V102" stroke="#ffd54a" stroke-width="4" stroke-linecap="round"/>
-
-    <!-- regalos -->
-    <rect x="46" y="58" width="17" height="17" fill="#2a6fdb"/>
-    <path d="M54.5 58 V75 M46 66.5 H63" stroke="#ffd54a" stroke-width="2.4"/>
-    <rect x="62" y="46" width="21" height="29" fill="#1e9a54"/>
-    <path d="M72.5 46 V75 M62 60 H83" stroke="#fff" stroke-width="2.6"/>
-    <path d="M72.5 46 Q66 36 62 42 M72.5 46 Q79 36 83 42" stroke="#fff" stroke-width="2.4" fill="none"/>
-
-    <!-- cuerpo del trineo -->
-    <path d="M10 56 Q10 96 44 105 L138 105 Q153 84 146 60 Q122 74 80 74 Q38 74 10 56 Z" fill="#c8102e" stroke="#8f0a20" stroke-width="2"/>
-    <path d="M10 56 Q38 74 80 74 Q122 74 146 60" stroke="#ffd54a" stroke-width="3.5" fill="none"/>
-    <path d="M30 92 Q80 98 130 92" stroke="#ffd54a" stroke-width="2" fill="none" opacity=".8"/>
-
-    <!-- Santa -->
-    <ellipse cx="112" cy="62" rx="14" ry="17" fill="#d71e2b"/>
-    <rect x="98" y="66" width="28" height="4" fill="#222"/>
-    <rect x="108" y="65" width="8" height="6" fill="#ffd54a"/>
-    <path d="M120 58 Q136 58 152 61" stroke="#d71e2b" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <circle cx="153" cy="61" r="4" fill="#fff"/>
-    <circle cx="112" cy="38" r="10" fill="#ffd9b8"/>
-    <path d="M102 38 Q112 66 122 38 Q112 46 102 38 Z" fill="#fff"/>
-    <circle cx="108" cy="36" r="1.4" fill="#222"/><circle cx="116" cy="36" r="1.4" fill="#222"/>
-    <circle cx="112" cy="40" r="2.2" fill="#f2a58c"/>
-    <path d="M100 32 Q110 4 130 24 L123 31 Q112 22 101 33 Z" fill="#d71e2b"/>
-    <rect x="100" y="29" width="24" height="6" rx="3" fill="#fff"/>
-    <circle cx="131" cy="25" r="4.5" fill="#fff"/>
-  </svg>
+<div id="nvBanner" aria-hidden="true">
+  <span class="nv-b-ico">🎄</span>
+  <div>
+    <strong>Felices Fiestas</strong>
+    <span class="nv-b-txt">LA CENTRAL te desea una Navidad llena de sabor.</span>
+  </div>
 </div>
 
 <button id="nvBtn" type="button" aria-label="Activar o desactivar efecto navideño" title="Efecto navideño">❄️</button>
 
 <script>
 (function () {
+  // ---- Ajustes: pon false para quitar una parte ----
+  var CFG = { nieve: true, luces: true, destellos: true, mensaje: true };
+
   // ---- ¿Está en fecha? (1 dic – 6 ene) o forzado con ?navidad=1 ----
   var hoy = new Date(), m = hoy.getMonth(), d = hoy.getDate();
   var enFecha = (m === 11) || (m === 0 && d <= 6);
   var forzado = /[?&]navidad=1/.test(location.search);
   var reducir = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var cv = document.getElementById('nvCanvas'), santa = document.getElementById('nvSanta'),
-      btn = document.getElementById('nvBtn');
-  if ((!enFecha && !forzado) || reducir) { cv.remove(); santa.remove(); btn.remove(); return; }
+  var cv = document.getElementById('nvCanvas'), btn = document.getElementById('nvBtn'),
+      banner = document.getElementById('nvBanner');
+  if ((!enFecha && !forzado) || reducir) { cv.remove(); btn.remove(); banner.remove(); return; }
 
   var ctx = cv.getContext('2d');
-  var W, H, dpr, movil, flakes = [], parts = [], run = false, last = 0, t = 0;
+  var W, H, dpr, movil, flakes = [], bokeh = [], bulbs = [], wire = [];
+  var run = false, last = 0, t = 0;
 
   // ---- Preferencia del visitante ----
   function leer() { try { return localStorage.getItem('nv-off') === '1'; } catch (e) { return false; } }
@@ -1448,65 +1420,75 @@
     if (!apagado()) arrancar();
   });
 
-  // ---- Tamaño y nieve ----
-  function nuevo(inicial) {
-    var l = Math.random() < .5 ? 0 : (Math.random() < .6 ? 1 : 2);
-    return { l: l, x: Math.random() * W, y: inicial ? Math.random() * H : -10,
-      r: [1.3, 2.1, 3.3][l] * (.8 + Math.random() * .5),
-      vy: [22, 38, 62][l] * (.8 + Math.random() * .5),
-      ph: Math.random() * 6.28, sw: 8 + Math.random() * 18 };
+  // ---- Sprites pre-dibujados (mucho más rápido y con brillo suave) ----
+  function sprite(size, stops) {
+    var c = document.createElement('canvas'); c.width = c.height = size;
+    var g = c.getContext('2d'), r = size / 2, gr = g.createRadialGradient(r, r, 0, r, r, r);
+    stops.forEach(function (s) { gr.addColorStop(s[0], s[1]); });
+    g.fillStyle = gr; g.fillRect(0, 0, size, size); return c;
   }
+  var fino   = sprite(32, [[0, 'rgba(255,255,255,1)'], [.45, 'rgba(255,255,255,.85)'], [1, 'rgba(255,255,255,0)']]);
+  var suave  = sprite(64, [[0, 'rgba(255,255,255,.9)'], [.5, 'rgba(255,255,255,.35)'], [1, 'rgba(255,255,255,0)']]);
+  var disco  = sprite(128, [[0, 'rgba(255,214,140,0)'], [.7, 'rgba(255,214,140,.16)'],
+                            [.92, 'rgba(255,232,175,.32)'], [1, 'rgba(255,214,140,0)']]);
+  var paleta = [[255, 207, 90], [255, 85, 85], [90, 220, 140], [170, 220, 255]]; // dorado, rojo, verde, blanco hielo
+  var brillos = paleta.map(function (c) {
+    var k = c.join(',');
+    return sprite(48, [[0, 'rgba(' + k + ',1)'], [.25, 'rgba(' + k + ',.55)'], [1, 'rgba(' + k + ',0)']]);
+  });
+
+  // ---- Nieve: 3 capas de profundidad ----
+  var capas = [
+    { s: [2.2, 4],  vy: [16, 28],  a: .45, spr: fino,  p: .50 },   // lejos
+    { s: [4, 6.5],  vy: [30, 50],  a: .75, spr: fino,  p: .35 },   // medio
+    { s: [12, 20],  vy: [70, 110], a: .50, spr: suave, p: .15 }    // cerca, desenfocada
+  ];
+  function rnd(a, b) { return a + Math.random() * (b - a); }
+  function nuevoCopo(inicial) {
+    var q = Math.random(), l = q < capas[0].p ? 0 : (q < capas[0].p + capas[1].p ? 1 : 2), c = capas[l];
+    return { l: l, x: Math.random() * W, y: inicial ? Math.random() * H : -20,
+      s: rnd(c.s[0], c.s[1]), vy: rnd(c.vy[0], c.vy[1]), ph: Math.random() * 6.28, sw: rnd(8, 22) };
+  }
+
+  // ---- Luces: guirnalda con curvas ----
+  function armarLuces() {
+    bulbs = []; wire = [];
+    if (!CFG.luces) return;
+    var n = Math.ceil(W / (movil ? W / 3 : Math.max(220, W / 7))), span = W / n;
+    var sag = movil ? 14 : 20, y0 = 2, paso = movil ? 34 : 40;
+    for (var s = 0; s < n; s++) {
+      var xa = s * span, pts = [], i, u;
+      for (i = 0; i <= 24; i++) { u = i / 24; pts.push([xa + u * span, y0 + Math.sin(Math.PI * u) * sag]); }
+      wire.push(pts);
+      var nb = Math.round(span / paso);
+      for (i = 1; i < nb; i++) {
+        u = i / nb;
+        bulbs.push({ x: xa + u * span, y: y0 + Math.sin(Math.PI * u) * sag,
+          k: bulbs.length % paleta.length, ph: Math.random() * 6.28, sp: rnd(.7, 1.4) });
+      }
+    }
+  }
+
+  // ---- Destellos dorados de fondo ----
+  function armarDestellos() {
+    bokeh = [];
+    if (!CFG.destellos) return;
+    var n = movil ? 3 : 7;
+    for (var i = 0; i < n; i++) bokeh.push({ x: Math.random() * W, y: Math.random() * H,
+      s: rnd(70, 170), vx: rnd(-6, 6), vy: rnd(-4, 4), ph: Math.random() * 6.28, sp: rnd(.25, .5) });
+  }
+
   function medir() {
     W = innerWidth; H = innerHeight; movil = W < 700;
     dpr = Math.min(window.devicePixelRatio || 1, movil ? 1.5 : 2);
     cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var n = Math.round(Math.min(movil ? 55 : 150, W / (movil ? 7 : 10)));
-    while (flakes.length < n) flakes.push(nuevo(true));
+    var n = CFG.nieve ? Math.round(Math.min(movil ? 70 : 170, W / (movil ? 6 : 8))) : 0;
+    while (flakes.length < n) flakes.push(nuevoCopo(true));
     flakes.length = Math.min(flakes.length, n);
+    armarLuces(); armarDestellos();
   }
-  medir(); addEventListener('resize', medir);
-
-  // ---- Santa ----
-  var sa = { on: false, dir: 1, w: 0, h: 0, x0: 0, x1: 0, y0: 0, dur: 1, t: 0, primera: true };
-  var paleta = [[255,205,70],[255,240,190],[255,255,255],[255,120,110],[120,230,160]];
-
-  function lanzarSanta() {
-    if (sa.on || apagado() || document.hidden) { setTimeout(lanzarSanta, 6000); return; }
-    sa.dir = sa.primera ? 1 : (Math.random() < .6 ? 1 : -1); sa.primera = false;
-    sa.w = movil ? 190 : Math.min(310, W * .26); sa.h = sa.w * 130 / 380;
-    santa.style.width = sa.w + 'px';
-    sa.x0 = sa.dir === 1 ? -sa.w - 20 : W + 20;
-    sa.x1 = sa.dir === 1 ? W + 20 : -sa.w - 20;
-    sa.y0 = movil ? Math.max(78, H * .11) : Math.max(110, H * .15);
-    sa.dur = (W + sa.w * 2) / (movil ? 85 : 140);
-    sa.t = 0; sa.on = true; santa.style.opacity = 1;
-    arrancar();
-  }
-
-  function emitir() {
-    var p = Math.min(1, sa.t / sa.dur);
-    var x = sa.x0 + (sa.x1 - sa.x0) * p;
-    var rx = sa.dir === 1 ? x + sa.w * .03 : x + sa.w * .97;
-    var ry = sa.y + sa.h * .8;
-    var n = movil ? 2 : 3;
-    for (var i = 0; i < n && parts.length < 280; i++) {
-      var c = paleta[Math.random() < .6 ? 0 : Math.floor(Math.random() * paleta.length)];
-      parts.push({ x: rx + (Math.random() - .5) * 10, y: ry + (Math.random() - .5) * sa.h * .35,
-        vx: -sa.dir * (8 + Math.random() * 34) + (Math.random() - .5) * 16,
-        vy: (Math.random() - .35) * 20 + 4, life: 0, max: 1.1 + Math.random() * 1.2,
-        s: (movil ? 2 : 2.6) + Math.random() * 4, rot: Math.random() * 6.28,
-        sp: (Math.random() - .5) * 4, c: c });
-    }
-  }
-
-  function estrella(x, y, r, rot) {
-    ctx.beginPath();
-    for (var i = 0; i < 8; i++) {
-      var a = rot + i * Math.PI / 4, rr = (i % 2) ? r * .28 : r;
-      ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr);
-    }
-    ctx.closePath(); ctx.fill();
-  }
+  medir();
+  var rt; addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(medir, 120); });
 
   // ---- Bucle principal ----
   function arrancar() { if (!run && !apagado() && !document.hidden) { run = true; last = performance.now(); requestAnimationFrame(frame); } }
@@ -1517,60 +1499,70 @@
     var dt = Math.min((now - last) / 1000, .05); last = now; t += dt;
     ctx.clearRect(0, 0, W, H);
 
-    // Nieve (3 capas de profundidad)
-    var viento = Math.sin(t * .35) * 14;
-    var alfa = [.5, .72, .95];
-    ctx.globalCompositeOperation = 'source-over';
-    for (var l = 0; l < 3; l++) {
-      ctx.fillStyle = 'rgba(255,255,255,' + alfa[l] + ')';
-      ctx.beginPath();
-      for (var i = 0; i < flakes.length; i++) {
-        var f = flakes[i]; if (f.l !== l) continue;
-        f.y += f.vy * dt;
-        f.x += (Math.sin(t * .8 + f.ph) * f.sw * .5 + viento * (l + 1) * .35) * dt;
-        if (f.y > H + 8) { f.y = -8; f.x = Math.random() * W; }
-        if (f.x > W + 8) f.x = -8; else if (f.x < -8) f.x = W + 8;
-        ctx.moveTo(f.x + f.r, f.y); ctx.arc(f.x, f.y, f.r, 0, 6.2832);
-      }
-      ctx.fill();
-    }
-
-    // Santa
-    if (sa.on) {
-      sa.t += dt;
-      var p = sa.t / sa.dur;
-      if (p >= 1) {
-        sa.on = false; santa.style.opacity = 0;
-        setTimeout(lanzarSanta, 24000 + Math.random() * 20000);
-      } else {
-        sa.x = sa.x0 + (sa.x1 - sa.x0) * p;
-        sa.y = sa.y0 + Math.sin(sa.t * 1.7) * 14 - Math.sin(p * Math.PI) * H * .035;
-        var rot = Math.cos(sa.t * 1.7) * 2.2 * sa.dir;
-        santa.style.transform = 'translate3d(' + sa.x.toFixed(1) + 'px,' + sa.y.toFixed(1) + 'px,0) scaleX(' + sa.dir + ') rotate(' + rot.toFixed(2) + 'deg)';
-        emitir();
-      }
-    }
-
-    // Destellos de la estela
+    // 1) Destellos de fondo
     ctx.globalCompositeOperation = 'lighter';
-    for (var k = parts.length - 1; k >= 0; k--) {
-      var q = parts[k]; q.life += dt;
-      if (q.life >= q.max) { parts.splice(k, 1); continue; }
-      q.x += q.vx * dt; q.y += q.vy * dt; q.vy += 16 * dt; q.vx *= .992; q.rot += q.sp * dt;
-      var a = (1 - q.life / q.max) * (.65 + .35 * Math.sin(q.life * 22 + q.rot));
-      var col = q.c[0] + ',' + q.c[1] + ',' + q.c[2];
-      ctx.fillStyle = 'rgba(' + col + ',' + (a * .16).toFixed(3) + ')';
-      ctx.beginPath(); ctx.arc(q.x, q.y, q.s * 2.4, 0, 6.2832); ctx.fill();
-      ctx.fillStyle = 'rgba(' + col + ',' + a.toFixed(3) + ')';
-      estrella(q.x, q.y, q.s, q.rot);
+    for (var b = 0; b < bokeh.length; b++) {
+      var o = bokeh[b];
+      o.x += o.vx * dt; o.y += o.vy * dt;
+      if (o.x < -o.s) o.x = W + o.s; else if (o.x > W + o.s) o.x = -o.s;
+      if (o.y < -o.s) o.y = H + o.s; else if (o.y > H + o.s) o.y = -o.s;
+      ctx.globalAlpha = .55 * (.6 + .4 * Math.sin(t * o.sp + o.ph));
+      ctx.drawImage(disco, o.x - o.s / 2, o.y - o.s / 2, o.s, o.s);
     }
-    ctx.globalCompositeOperation = 'source-over';
 
+    // 2) Guirnalda de luces
+    if (wire.length) {
+      var entra = Math.min(1, t / 2.5);
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.globalAlpha = entra; ctx.lineWidth = 1.4; ctx.strokeStyle = 'rgba(14,34,24,.8)';
+      for (var w = 0; w < wire.length; w++) {
+        var pts = wire[w]; ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+        for (var j = 1; j < pts.length; j++) ctx.lineTo(pts[j][0], pts[j][1]);
+        ctx.stroke();
+      }
+      for (var i = 0; i < bulbs.length; i++) {
+        var l = bulbs[i], c = paleta[l.k], br = .6 + .4 * Math.sin(t * l.sp * 1.6 + l.ph);
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.globalAlpha = entra * (.35 + .55 * br);
+        ctx.drawImage(brillos[l.k], l.x - 17, l.y + 7 - 17, 34, 34);
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.globalAlpha = entra;
+        ctx.fillStyle = 'rgb(20,34,26)'; ctx.fillRect(l.x - 1.6, l.y - 1, 3.2, 3);
+        ctx.fillStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + (.65 + .35 * br).toFixed(2) + ')';
+        ctx.beginPath(); ctx.ellipse(l.x, l.y + 6, 2.7, 4.2, 0, 0, 6.2832); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,' + (.5 * br).toFixed(2) + ')';
+        ctx.beginPath(); ctx.ellipse(l.x - .8, l.y + 4.6, .9, 1.6, 0, 0, 6.2832); ctx.fill();
+      }
+    }
+
+    // 3) Nieve (por encima de las luces para dar profundidad)
+    ctx.globalCompositeOperation = 'source-over';
+    var viento = Math.sin(t * .3) * 12 + Math.sin(t * .11) * 8;
+    for (var f = 0; f < flakes.length; f++) {
+      var p = flakes[f], cp = capas[p.l];
+      p.y += p.vy * dt;
+      p.x += (Math.sin(t * .8 + p.ph) * p.sw * .5 + viento * (p.l + 1) * .35) * dt;
+      if (p.y > H + 24) { p.y = -24; p.x = Math.random() * W; }
+      if (p.x > W + 24) p.x = -24; else if (p.x < -24) p.x = W + 24;
+      ctx.globalAlpha = cp.a;
+      ctx.drawImage(cp.spr, p.x - p.s, p.y - p.s, p.s * 2, p.s * 2);
+    }
+    ctx.globalAlpha = 1;
     requestAnimationFrame(frame);
   }
 
+  // ---- Mensaje de bienvenida (una sola vez por visita) ----
+  if (CFG.mensaje) {
+    var visto = false;
+    try { visto = sessionStorage.getItem('nv-msg') === '1'; } catch (e) {}
+    if (!visto && !apagado()) {
+      setTimeout(function () { banner.classList.add('nv-ver'); }, 1800);
+      setTimeout(function () { banner.classList.remove('nv-ver'); }, 8200);
+      try { sessionStorage.setItem('nv-msg', '1'); } catch (e) {}
+    } else { banner.remove(); }
+  } else { banner.remove(); }
+
   arrancar();
-  setTimeout(lanzarSanta, 3000);
 })();
 </script>
 </body>
