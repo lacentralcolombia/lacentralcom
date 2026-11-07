@@ -1693,9 +1693,126 @@ var productosData = [
         subcategoria: "general",
         descripcion: "Tostaditas de plátano crocantes y deliciosas, sabor premium, marca La Primavera Pasabocas. Perfectas para picar, acompañar bebidas y compartir en fiestas.",
         imagen: "tostaditasplatanoprimavera.jpg"
-    }
-    
-    
+     },
+
+
+
+    // ---------------------------------------------------------------
+    // NUEVOS PRODUCTOS VERIFICADOS (14 PRODUCTOS ÚNICOS)
+    // ---------------------------------------------------------------
+    {
+        id: 516,
+        nombre: "Crema de Leche Original Semientera Alquería x 180 g | 12 Porciones",
+        categoria: "quesos",
+        subcategoria: "leche-yogures",
+        descripcion: "Crema de leche semientera ultra alta temperatura UAT (UHT) marca Alquería. Presentación doypack de 180 g (12 porciones). Textura ideal para recetas dulces y saladas.",
+        imagen: "cremadelechealqueriaoriginal.jpg"
+    },
+    {
+        id: 2008,
+        nombre: "Skarchamoy Sirope Sabor a Chamoy x 250 ML | 8 Porciones Aprox.",
+        categoria: "cocteleria",
+        subcategoria: "siropes",
+        descripcion: "Sirope líquido sabor a chamoy marca Skarchamoy. Ideal para micheladas, bebidas y escarchados. Contenido Neto 250 ml (aprox. 8 porciones).",
+        imagen: "sckarchamoy.jpg"
+    },
+    {
+        id: 4015,
+        nombre: "Boloncho Mango Relleno de Polvo Ácido y Sal x 390 g | 30 Porciones",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Goma de mascar con sabor artificial a mango biche rellenas de polvo ácido y sal, marca Boloncho (Más Dulces). Presentación en tarro de 390 g (30 porciones).",
+        imagen: "bolonchomango30.jpg"
+    },
+    {
+        id: 4016,
+        nombre: "Mango Bola Chicle Relleno de Polvo Ácido y Sal x 330 g | 60 Porciones Aprox.",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Goma de mascar con sabor artificial a mango rellenas de polvo ácido y sal, marca Más Dulces. Presentación en tarro de 330 g (60 porciones aprox.).",
+        imagen: "mangobolachicle60.jpg"
+    },
+    {
+        id: 4017,
+        nombre: "Bola Chicle Pintalengua Más Dulces x 330 g | 60 Porciones",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Chicle o goma de mascar con sabor artificial a frutas tropicales con efecto pintalenguas, marca Más Dulces. Presentación en tarro de 330 g (60 porciones).",
+        imagen: "bolachiclepintalengua.jpg"
+    },
+    {
+        id: 4018,
+        nombre: "Sour Belts Rainbow Vidal x 1.1 kg | Regaliz Ácido Multinylon",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Tiras de dulce en forma de cintas ácidas sabor a frutas tipo Rainbow, marca Vidal. Presentación en tarro institucional de 1.1 kg (38.8 oz). Importado de España.",
+        imagen: "sourtbelts.jpg"
+    },
+    {
+        id: 4019,
+        nombre: "Chiclines Enchilados Sweetmas x 500 g | 167 Porciones Aprox.",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Chicle o goma de mascar con chile en polvo, sabor artificial a mango y sandía. Presentación en tarro transparente de 500 g (aprox. 167 porciones).",
+        imagen: "chiclinesenchilados176.jpg"
+    },
+    {
+        id: 4020,
+        nombre: "Bites CandyRanch Más Dulces x 1.000 g | 100 Porciones Aprox.",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Caramelo duro con azúcar en formas variadas con sabores surtidos marca CandyRanch (Más Dulces). Presentación de 1.000 g (aprox. 100 porciones).",
+        imagen: "bites100.jpg"
+    },
+    {
+        id: 4021,
+        nombre: "Cereal Boli Choco Carolina x 250 g | 8 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Cereal para el desayuno en bolitas sabor a chocolate (Choco ball) marca Carolina Sabor Especial. Contenido neto 250 g (aprox. 8 porciones de 30 g).",
+        imagen: "boblichocoball.jpg"
+    },
+    {
+        id: 4022,
+        nombre: "Cereal Arroz Achocolatado Carolina x 250 g | 8 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Cereal para el desayuno de arroz sabor a chocolate (Choco Rice) marca Carolina Sabor Especial. Contenido neto 250 g (aprox. 8 porciones de 30 g).",
+        imagen: "cerealarrozchocolatado.jpg"
+    },
+    {
+        id: 4023,
+        nombre: "Chiclines Enchilados Surteñas x 500 g | 167 Porciones Aprox.",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Chicle o goma de mascar con chile en polvo sabor a mango y sandía, marca Surteñas. Presentación en bolsa de 500 g (aprox. 167 porciones).",
+        imagen: "chiclinesenchilados.jpg"
+    },
+    {
+        id: 4024,
+        nombre: "Bola Chicle Surtidos Más Dulces x 1.000 g | 178 Porciones Aprox.",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Goma de mascar en bolas con sabor artificial a frutas tropicales surtidas, marca Más Dulces. Presentación en bolsa de 1.000 g (aprox. 178 porciones).",
+        imagen: "bolachicle178.jpg"
+    },
+    {
+        id: 4025,
+        nombre: "Fire Ball Bubble Gum Más Dulces x 1.000 g | 178 Porciones Aprox.",
+        categoria: "dulces",
+        subcategoria: "general",
+        descripcion: "Chicle bola con sabor artificial a cereza picante marca Fire Ball / Más Dulces. Presentación en bolsa de 1.000 g (aprox. 178 porciones).",
+        imagen: "bublegonfire.jpg"
+    },
+    {
+        id: 4026,
+        nombre: "Cereal Anillos Frutales Carolina x 250 g | 8 Porciones Aprox.",
+        categoria: "alimentos",
+        subcategoria: "general",
+        descripcion: "Cereal para el desayuno en anillos con sabor a frutas (Fruit Rings) marca Carolina Sabor Especial. Contenido neto 250 g (aprox. 8 porciones de 30 g).",
+        imagen: "cerealanillosfrutale.jpg"
+    },
+     
    
 ];
 
