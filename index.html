@@ -1390,7 +1390,7 @@
 
   // ---- ¿Está en fecha? (1 dic – 6 ene) o forzado con ?navidad=1 ----
   var hoy = new Date(), m = hoy.getMonth(), d = hoy.getDate();
-  var enFecha = true; // Activo siempre desde hoy
+  var enFecha = (m === 10 && d >= 6) || (m === 11) || (m === 0 && d <= 6); // 6 nov – 6 ene
   var forzado = /[?&]navidad=1/.test(location.search);
   var reducir = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var cv = document.getElementById('nvCanvas'), btn = document.getElementById('nvBtn'),
