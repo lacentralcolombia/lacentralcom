@@ -1170,14 +1170,7 @@ var productosData = [
         descripcion: "Sirope concentrado marca Geniality sabor Maracuyá x 1.000 ml, con un balance perfecto entre dulce y cítrico.",
         imagen: "siropemaracuya.jpg"
     },
-    {
-        id: 2007,
-        nombre: "Siropes Concentrados y Chamoy Variados",
-        categoria: "cocteleria",
-        subcategoria: "siropes",
-        descripcion: "Jarabes concentrados adicionales y chamoy agridulce para escarchar y bordear vasos.",
-        imagen: "imagenlacentral.jpeg"
-    },
+    
     {
         id: 2101,
         nombre: "Azúcar para michelar Skarcha x 500 gramos | Cereza 🍒",
