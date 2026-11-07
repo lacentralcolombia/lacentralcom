@@ -1320,16 +1320,18 @@
 </a>
 
 <!-- =====================================================================
-  EFECTO NAVIDENO PROFESIONAL - LA CENTRAL
-  Reemplaza todo el bloque navideno anterior (desde el comentario
-  "EFECTO NAVIDENO" hasta su ultimo cierre de script, justo antes del cierre de body).
+  EFECTO NAVIDENO PROFESIONAL + PAPA NOEL CON RENOS - LA CENTRAL
+  Reemplaza todo el bloque navideno actual (desde su comentario inicial
+  hasta su ultimo cierre de script, justo antes del cierre de body).
 
   Incluye: nieve en 3 capas, guirnalda de luces, destellos dorados,
-  mensaje de bienvenida y boton para apagar/encender.
+  mensaje de bienvenida, Papa Noel con 3 renos que cruza la pagina de
+  lado a lado (con estela dorada) y un boton discreto para apagar.
 
-  Activo del 1 de diciembre al 6 de enero.
+  Activo del 6 de noviembre al 6 de enero.
   Para probar fuera de fecha agrega ?navidad=1 al final del enlace.
   Para quitar una parte cambia true por false en CFG (dentro del script).
+  CFG.boton = false elimina por completo el boton de apagado.
 ===================================================================== -->
 <style>
   :root { --nv-z: 900; }
@@ -1354,21 +1356,34 @@
   #nvBanner span.nv-b-txt { display: block; font-size: .78rem; font-weight: 400; line-height: 1.35;
     color: rgba(255, 255, 255, .85); }
 
-  /* Botón para apagar */
-  #nvBtn { position: fixed; left: 16px; bottom: 16px; z-index: calc(var(--nv-z) + 2);
-    width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid rgba(255, 207, 90, .75);
-    background: rgba(16, 24, 20, .85); color: #fff; font-size: 20px; line-height: 1; cursor: pointer;
-    box-shadow: 0 0 14px rgba(255, 207, 90, .35); transition: transform .2s, opacity .2s; }
-  #nvBtn:hover { transform: scale(1.08); }
+  /* Papa Noel (se mueve por JavaScript) */
+  #nvSanta { position: fixed; top: 0; left: 0; z-index: calc(var(--nv-z) + 1);
+    pointer-events: none; opacity: 0; will-change: transform;
+    filter: drop-shadow(0 0 12px rgba(255, 214, 120, .55)) drop-shadow(0 8px 10px rgba(0, 0, 0, .35)); }
+  #nvSanta svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .nv-bob { animation: nv-bob .8s ease-in-out infinite alternate; }
+  .nv-bob.d2 { animation-delay: -.27s; }
+  .nv-bob.d3 { animation-delay: -.53s; }
+  @keyframes nv-bob { from { transform: translateY(-3px); } to { transform: translateY(3px); } }
+  .nv-nose { animation: nv-nariz 1s ease-in-out infinite alternate; filter: drop-shadow(0 0 5px #ff2a1a); }
+  @keyframes nv-nariz { from { opacity: .65; } to { opacity: 1; } }
+
+  /* Boton discreto: casi invisible hasta que pasas el mouse o lo tocas */
+  #nvBtn { position: fixed; left: 10px; bottom: 10px; z-index: calc(var(--nv-z) + 2);
+    width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .35);
+    background: rgba(16, 24, 20, .55); color: #fff; font-size: 14px; line-height: 1; cursor: pointer;
+    padding: 0; opacity: .3; transition: opacity .25s, transform .2s; }
+  #nvBtn:hover, #nvBtn:focus-visible { opacity: 1; transform: scale(1.12); }
   #nvBtn:focus-visible { outline: 2px solid #ffcf5a; outline-offset: 3px; }
-  .nv-apagado #nvCanvas, .nv-apagado #nvBanner { display: none; }
-  .nv-apagado #nvBtn { opacity: .55; box-shadow: none; }
+  .nv-apagado #nvCanvas, .nv-apagado #nvBanner, .nv-apagado #nvSanta { display: none; }
+  .nv-apagado #nvBtn { opacity: .2; }
 
   @media (max-width: 600px) {
     #nvBanner { top: 56px; padding: 10px 16px 10px 12px; }
     #nvBanner .nv-b-ico { font-size: 22px; }
-    #nvBtn { width: 40px; height: 40px; font-size: 18px; }
+    #nvBtn { width: 28px; height: 28px; font-size: 13px; }
   }
+  @media (prefers-reduced-motion: reduce) { .nv-bob, .nv-nose { animation: none; } }
 </style>
 
 <canvas id="nvCanvas" aria-hidden="true"></canvas>
@@ -1381,24 +1396,93 @@
   </div>
 </div>
 
+<!-- Papa Noel con renos (mira hacia la derecha; JS lo voltea al volver) -->
+<div id="nvSanta" aria-hidden="true">
+  <svg viewBox="0 0 440 130" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <g id="nvR">
+        <!-- patas en pose de vuelo -->
+        <g stroke="#6b4220" stroke-width="4.5" stroke-linecap="round" fill="none">
+          <path d="M54 70 L70 84"/><path d="M60 68 L77 78"/><path d="M26 70 L10 82"/><path d="M32 72 L18 88"/>
+        </g>
+        <!-- cuerpo, cuello y cabeza -->
+        <path d="M56 56 Q66 50 74 40" stroke="#8a5a2b" stroke-width="12" stroke-linecap="round" fill="none"/>
+        <ellipse cx="40" cy="62" rx="27" ry="12.5" fill="#8a5a2b"/>
+        <ellipse cx="40" cy="68" rx="19" ry="5.5" fill="#e6cfa8" opacity=".6"/>
+        <ellipse cx="79" cy="37" rx="11" ry="7" fill="#8a5a2b" transform="rotate(-18 79 37)"/>
+        <circle cx="78" cy="34" r="1.6" fill="#111"/>
+        <circle cx="13" cy="57" r="4.5" fill="#fff"/>
+        <!-- arnes dorado -->
+        <path d="M58 58 Q66 62 70 52" stroke="#ffd54a" stroke-width="2.2" fill="none"/>
+        <circle cx="64" cy="61" r="2.6" fill="#ffd54a"/>
+        <!-- astas -->
+        <path d="M75 30 L71 13 M71 20 L63 16 M81 29 L87 12 M85 20 L93 17"
+              stroke="#5a3a1c" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+      </g>
+    </defs>
+
+    <!-- riendas -->
+    <path d="M153 61 Q196 70 244 66 Q292 62 336 66 Q376 62 404 54" stroke="#ffd54a" stroke-width="1.4" fill="none" opacity=".9"/>
+
+    <!-- renos: el primero lleva la nariz roja -->
+    <g transform="translate(334,14)">
+      <g class="nv-bob"><use href="#nvR"/><circle cx="89" cy="40" r="4" fill="#ff2a1a" class="nv-nose"/></g>
+    </g>
+    <g transform="translate(242,14)"><g class="nv-bob d2"><use href="#nvR"/><circle cx="89" cy="40" r="3" fill="#3a2412"/></g></g>
+    <g transform="translate(150,14)"><g class="nv-bob d3"><use href="#nvR"/><circle cx="89" cy="40" r="3" fill="#3a2412"/></g></g>
+
+    <!-- patines -->
+    <path d="M6 114 Q60 126 150 114 Q168 111 162 98" stroke="#ffd54a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path d="M32 114 V102 M112 114 V102" stroke="#ffd54a" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- regalos -->
+    <rect x="46" y="58" width="17" height="17" fill="#2a6fdb"/>
+    <path d="M54.5 58 V75 M46 66.5 H63" stroke="#ffd54a" stroke-width="2.4"/>
+    <rect x="62" y="46" width="21" height="29" fill="#1e9a54"/>
+    <path d="M72.5 46 V75 M62 60 H83" stroke="#fff" stroke-width="2.6"/>
+    <path d="M72.5 46 Q66 36 62 42 M72.5 46 Q79 36 83 42" stroke="#fff" stroke-width="2.4" fill="none"/>
+
+    <!-- trineo -->
+    <path d="M10 56 Q10 96 44 105 L138 105 Q153 84 146 60 Q122 74 80 74 Q38 74 10 56 Z" fill="#c8102e" stroke="#8f0a20" stroke-width="2"/>
+    <path d="M10 56 Q38 74 80 74 Q122 74 146 60" stroke="#ffd54a" stroke-width="3.5" fill="none"/>
+    <path d="M30 92 Q80 98 130 92" stroke="#ffd54a" stroke-width="2" fill="none" opacity=".8"/>
+
+    <!-- Papa Noel -->
+    <ellipse cx="112" cy="62" rx="14" ry="17" fill="#d71e2b"/>
+    <rect x="98" y="66" width="28" height="4" fill="#222"/>
+    <rect x="108" y="65" width="8" height="6" fill="#ffd54a"/>
+    <path d="M120 58 Q136 58 152 61" stroke="#d71e2b" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <circle cx="153" cy="61" r="4" fill="#fff"/>
+    <circle cx="112" cy="38" r="10" fill="#ffd9b8"/>
+    <path d="M102 38 Q112 66 122 38 Q112 46 102 38 Z" fill="#fff"/>
+    <circle cx="108" cy="36" r="1.4" fill="#222"/><circle cx="116" cy="36" r="1.4" fill="#222"/>
+    <circle cx="112" cy="40" r="2.2" fill="#f2a58c"/>
+    <path d="M100 32 Q110 4 130 24 L123 31 Q112 22 101 33 Z" fill="#d71e2b"/>
+    <rect x="100" y="29" width="24" height="6" rx="3" fill="#fff"/>
+    <circle cx="131" cy="25" r="4.5" fill="#fff"/>
+  </svg>
+</div>
+
 <button id="nvBtn" type="button" aria-label="Activar o desactivar efecto navideño" title="Efecto navideño">❄️</button>
 
 <script>
 (function () {
   // ---- Ajustes: pon false para quitar una parte ----
-  var CFG = { nieve: true, luces: true, destellos: true, mensaje: true };
+  var CFG = { nieve: true, luces: true, destellos: true, mensaje: true, santa: true, boton: true };
 
-  // ---- ¿Está en fecha? (1 dic – 6 ene) o forzado con ?navidad=1 ----
+  // ---- ¿Está en fecha? (6 nov – 6 ene) o forzado con ?navidad=1 ----
   var hoy = new Date(), m = hoy.getMonth(), d = hoy.getDate();
-  var enFecha = (m === 10 && d >= 6) || (m === 11) || (m === 0 && d <= 6); // 6 nov – 6 ene
+  var enFecha = (m === 10 && d >= 6) || (m === 11) || (m === 0 && d <= 6);
   var forzado = /[?&]navidad=1/.test(location.search);
   var reducir = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var cv = document.getElementById('nvCanvas'), btn = document.getElementById('nvBtn'),
-      banner = document.getElementById('nvBanner');
-  if ((!enFecha && !forzado) || reducir) { cv.remove(); btn.remove(); banner.remove(); return; }
+      banner = document.getElementById('nvBanner'), santa = document.getElementById('nvSanta');
+  if ((!enFecha && !forzado) || reducir) { cv.remove(); btn.remove(); banner.remove(); santa.remove(); return; }
+  if (!CFG.boton) { btn.remove(); btn = null; }
+  if (!CFG.santa) { santa.remove(); santa = null; }
 
   var ctx = cv.getContext('2d');
-  var W, H, dpr, movil, flakes = [], bokeh = [], bulbs = [], wire = [];
+  var W, H, dpr, movil, flakes = [], bokeh = [], bulbs = [], wire = [], parts = [];
   var run = false, last = 0, t = 0;
 
   // ---- Preferencia del visitante ----
@@ -1406,12 +1490,12 @@
   function guardar(v) { try { localStorage.setItem('nv-off', v ? '1' : '0'); } catch (e) {} }
   if (leer()) document.body.classList.add('nv-apagado');
   function apagado() { return document.body.classList.contains('nv-apagado'); }
-  btn.addEventListener('click', function () {
+  if (btn) btn.addEventListener('click', function () {
     guardar(document.body.classList.toggle('nv-apagado'));
     if (!apagado()) arrancar();
   });
 
-  // ---- Sprites pre-dibujados (mucho más rápido y con brillo suave) ----
+  // ---- Sprites pre-dibujados ----
   function sprite(size, stops) {
     var c = document.createElement('canvas'); c.width = c.height = size;
     var g = c.getContext('2d'), r = size / 2, gr = g.createRadialGradient(r, r, 0, r, r, r);
@@ -1422,17 +1506,18 @@
   var suave  = sprite(64, [[0, 'rgba(255,255,255,.9)'], [.5, 'rgba(255,255,255,.35)'], [1, 'rgba(255,255,255,0)']]);
   var disco  = sprite(128, [[0, 'rgba(255,214,140,0)'], [.7, 'rgba(255,214,140,.16)'],
                             [.92, 'rgba(255,232,175,.32)'], [1, 'rgba(255,214,140,0)']]);
-  var paleta = [[255, 207, 90], [255, 85, 85], [90, 220, 140], [170, 220, 255]]; // dorado, rojo, verde, blanco hielo
+  var paleta = [[255, 207, 90], [255, 85, 85], [90, 220, 140], [170, 220, 255]];
   var brillos = paleta.map(function (c) {
     var k = c.join(',');
     return sprite(48, [[0, 'rgba(' + k + ',1)'], [.25, 'rgba(' + k + ',.55)'], [1, 'rgba(' + k + ',0)']]);
   });
+  var chispa = sprite(32, [[0, 'rgba(255,244,200,1)'], [.35, 'rgba(255,205,90,.8)'], [1, 'rgba(255,190,60,0)']]);
 
   // ---- Nieve: 3 capas de profundidad ----
   var capas = [
-    { s: [2.2, 4],  vy: [16, 28],  a: .45, spr: fino,  p: .50 },   // lejos
-    { s: [4, 6.5],  vy: [30, 50],  a: .75, spr: fino,  p: .35 },   // medio
-    { s: [12, 20],  vy: [70, 110], a: .50, spr: suave, p: .15 }    // cerca, desenfocada
+    { s: [2.2, 4],  vy: [16, 28],  a: .45, spr: fino,  p: .50 },
+    { s: [4, 6.5],  vy: [30, 50],  a: .75, spr: fino,  p: .35 },
+    { s: [12, 20],  vy: [70, 110], a: .50, spr: suave, p: .15 }
   ];
   function rnd(a, b) { return a + Math.random() * (b - a); }
   function nuevoCopo(inicial) {
@@ -1481,6 +1566,32 @@
   medir();
   var rt; addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(medir, 120); });
 
+  // ---- Papa Noel: vuela de un lado a otro ----
+  var sa = { on: false, dir: 1, w: 0, h: 0, x: 0, y: 0, x0: 0, x1: 0, y0: 0, dur: 1, t: 0, primera: true };
+  function lanzarSanta() {
+    if (!santa) return;
+    if (sa.on || apagado() || document.hidden) { setTimeout(lanzarSanta, 6000); return; }
+    sa.dir = sa.primera ? 1 : (Math.random() < .5 ? 1 : -1); sa.primera = false;
+    sa.w = movil ? 250 : Math.min(400, Math.max(300, W * .3)); sa.h = sa.w * 130 / 440;
+    santa.style.width = sa.w + 'px';
+    sa.x0 = sa.dir === 1 ? -sa.w - 20 : W + 20;
+    sa.x1 = sa.dir === 1 ? W + 20 : -sa.w - 20;
+    sa.y0 = movil ? Math.max(80, H * .12) : Math.max(100, H * .16);
+    sa.dur = (W + sa.w * 2) / (movil ? 95 : 150);
+    sa.t = 0; sa.on = true; santa.style.opacity = 1;
+    arrancar();
+  }
+  function emitir() {
+    var p = Math.min(1, sa.t / sa.dur);
+    var x = sa.x0 + (sa.x1 - sa.x0) * p;
+    var rx = sa.dir === 1 ? x + sa.w * .02 : x + sa.w * .98;   // parte trasera del trineo
+    var ry = sa.y + sa.h * .78;
+    for (var i = 0; i < (movil ? 1 : 2) && parts.length < 170; i++) {
+      parts.push({ x: rx + (Math.random() - .5) * 8, y: ry + (Math.random() - .5) * sa.h * .3,
+        vx: -sa.dir * rnd(10, 40), vy: rnd(-8, 14), life: 0, max: rnd(.9, 1.8), s: rnd(5, 11) });
+    }
+  }
+
   // ---- Bucle principal ----
   function arrancar() { if (!run && !apagado() && !document.hidden) { run = true; last = performance.now(); requestAnimationFrame(frame); } }
   document.addEventListener('visibilitychange', function () { if (!document.hidden) arrancar(); });
@@ -1526,7 +1637,32 @@
       }
     }
 
-    // 3) Nieve (por encima de las luces para dar profundidad)
+    // 3) Papa Noel + estela dorada
+    if (santa && sa.on) {
+      sa.t += dt;
+      var pr = sa.t / sa.dur;
+      if (pr >= 1) {
+        sa.on = false; santa.style.opacity = 0;
+        setTimeout(lanzarSanta, 22000 + Math.random() * 16000);
+      } else {
+        sa.x = sa.x0 + (sa.x1 - sa.x0) * pr;
+        sa.y = sa.y0 + Math.sin(sa.t * 1.5) * 16 - Math.sin(pr * Math.PI) * H * .03;
+        var rot = Math.cos(sa.t * 1.5) * 2.4 * sa.dir;
+        santa.style.transform = 'translate3d(' + sa.x.toFixed(1) + 'px,' + sa.y.toFixed(1) + 'px,0) scaleX(' + sa.dir + ') rotate(' + rot.toFixed(2) + 'deg)';
+        emitir();
+      }
+    }
+    ctx.globalCompositeOperation = 'lighter';
+    for (var k = parts.length - 1; k >= 0; k--) {
+      var q = parts[k]; q.life += dt;
+      if (q.life >= q.max) { parts.splice(k, 1); continue; }
+      q.x += q.vx * dt; q.y += q.vy * dt; q.vy += 14 * dt; q.vx *= .99;
+      var a = (1 - q.life / q.max) * (.7 + .3 * Math.sin(q.life * 20 + k));
+      ctx.globalAlpha = a;
+      ctx.drawImage(chispa, q.x - q.s, q.y - q.s, q.s * 2, q.s * 2);
+    }
+
+    // 4) Nieve (encima de todo para dar profundidad)
     ctx.globalCompositeOperation = 'source-over';
     var viento = Math.sin(t * .3) * 12 + Math.sin(t * .11) * 8;
     for (var f = 0; f < flakes.length; f++) {
@@ -1554,8 +1690,10 @@
   } else { banner.remove(); }
 
   arrancar();
+  if (santa) setTimeout(lanzarSanta, 3500);
 })();
 </script>
+ 
 
 </body>
 </html>
