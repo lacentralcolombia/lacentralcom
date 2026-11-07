@@ -655,7 +655,7 @@ var productosData = [
         categoria: "alimentos",
         subcategoria: "aliños",
         descripcion: "Salsa soya marca Differ en presentación institucional de 3.000 ml (3 Litros) con asa y tapa dosificadora. Aprox. 600 porciones, ideal para oriental, carnes y marinados.",
-        imagen: "salsasoya3000ml.jpeg"
+        imagen: "salsasoya3000ml.jpg"
     },
     {
         id: 1330,
